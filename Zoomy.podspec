@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
   s.author           = { 'Menno Lovink' => 'mclovink@me.com' }
   s.source           = { :git => 'https://github.com/Menno Lovink/Zoomy.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'Zoomy/Classes/**/*'
   
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'PureLayout', '~> 3.0'
 end
