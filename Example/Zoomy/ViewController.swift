@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import Zoomy
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    
+    private var zoomControllers = [UIView: ImageZoomController]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        zoomControllers[imageView1] = ImageZoomController(view: view, imageView: imageView1, delegate: self)
+        zoomControllers[imageView2] = ImageZoomController(view: view, imageView: imageView2, delegate: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
+extension ViewController: ImageZoomControllerDelegate {
+
+    func didEndZoomedState(for imageView: UIImageView) {
+        // Re initialize an ImageZoomController to continue being able to zoom:
+        zoomControllers[imageView] = ImageZoomController(view: view, imageView: imageView, delegate: self)
+    }
+}
