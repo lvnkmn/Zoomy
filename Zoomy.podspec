@@ -1,42 +1,20 @@
-#
-# Be sure to run `pod lib lint Zoomy.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'Zoomy'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Zoomy.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'Zoomy allows UIScrollView like zooming on UIImageViews in any view hierarchy'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Zoomy allows UIScrollView like zooming on UIImageViews in any view hierarchy with close to no alterations to clients layout. Zoomy works by initialy performing translate and scale manipulations on a view mimicking the original view that is to bee zoomed from, triggered by a pinch and (while the pinch has started) a pan gesture. As soon as the initial gesture is done a scrollView is placed and configured in the optimal postion in relation to the last location of the manipulated view. From this point on all manipulations are happening inside a scrollview and behave like you'd expect it to do.
                        DESC
 
-  s.homepage         = 'https://github.com/Menno Lovink/Zoomy'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/mennolovink/Zoomy'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Menno Lovink' => 'mclovink@me.com' }
-  s.source           = { :git => 'https://github.com/Menno Lovink/Zoomy.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/mennolovink/Zoomy.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'Zoomy/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'Zoomy' => ['Zoomy/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'PureLayout', '~> 3.0'
 end
