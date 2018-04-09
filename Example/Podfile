@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Zoomy_Example' do
+  pod 'Zoomy', :path => '../'
+
+  target 'Zoomy_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

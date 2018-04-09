@@ -1,0 +1,16 @@
+PODS:
+  - Zoomy (0.1.0)
+
+DEPENDENCIES:
+  - Zoomy (from `../`)
+
+EXTERNAL SOURCES:
+  Zoomy:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Zoomy: 63d996503fe0289d905bef276b2bf8313ff85935
+
+PODFILE CHECKSUM: 9e9171665ddd2424d55bd45e5d106c8d713a92e3
+
+COCOAPODS: 1.5.0
