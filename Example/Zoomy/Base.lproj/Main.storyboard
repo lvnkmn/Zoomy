@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +20,42 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mountains1" translatesAutoresizingMaskIntoConstraints="NO" id="EPH-T5-vDH">
+                                <rect key="frame" x="60" y="30" width="200" height="325.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5bT-iI-QTp"/>
+                                    <constraint firstAttribute="width" secondItem="EPH-T5-vDH" secondAttribute="height" multiplier="445:724" id="w71-6A-5tp"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mountains2" translatesAutoresizingMaskIntoConstraints="NO" id="XO8-S7-PjV">
+                                <rect key="frame" x="10" y="437" width="360" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XO8-S7-PjV" secondAttribute="height" multiplier="335:111" id="GJ2-Wk-oa2"/>
+                                    <constraint firstAttribute="width" constant="360" id="THo-Tw-8zz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="XO8-S7-PjV" secondAttribute="bottom" constant="111" id="0dF-lK-tlP"/>
+                            <constraint firstItem="EPH-T5-vDH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="60" id="KQg-Ox-qmf"/>
+                            <constraint firstItem="XO8-S7-PjV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="XBg-aw-zQb"/>
+                            <constraint firstItem="EPH-T5-vDH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="db3-La-bNQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView1" destination="EPH-T5-vDH" id="9yM-HO-C8P"/>
+                        <outlet property="imageView2" destination="XO8-S7-PjV" id="44o-Ya-cas"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mountains1" width="890" height="1448"/>
+        <image name="Mountains2" width="2010" height="666"/>
+    </resources>
 </document>

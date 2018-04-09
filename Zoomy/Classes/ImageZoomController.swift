@@ -108,6 +108,7 @@ public class ImageZoomController: NSObject {
         
         imageView.addGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView.addGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView.isUserInteractionEnabled = true
         
         overlayImageView.image = imageView.image
         scrollableImageView.image = imageView.image
@@ -279,6 +280,12 @@ public protocol ImageZoomControllerDelegate: class {
  
     func didStartZoomedState(for imageView: UIImageView)
     func didEndZoomedState(for imageView: UIImageView)
+}
+
+public extension ImageZoomControllerDelegate {
+    
+    func didStartZoomedState(for imageView: UIImageView) {}
+    func didEndZoomedState(for imageView: UIImageView) {}
 }
 
 //MARK: - ZoomControllerState
