@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/mennolovink/Zoomy.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
   s.source_files = 'Zoomy/Classes/**/*'
   
