@@ -427,16 +427,6 @@ private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {}
 }
 
-// MARK: - CGRect + Difference
-private extension CGRect {
-    func difference(with rect: CGRect) -> CGRect {
-        return CGRect(x: origin.x - rect.origin.x,
-                      y: origin.y - rect.origin.y,
-                      width: size.width - rect.size.width,
-                      height: size.height - rect.size.height)
-    }
-}
-
 //MARK: - AnimateSpring
 private func animateSpring(withAnimations animations:@escaping ()->(), completion:((Bool)->())? = nil) {
     UIView.animate(withDuration: 0.5,
