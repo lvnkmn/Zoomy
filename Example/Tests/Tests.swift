@@ -1,5 +1,4 @@
 import XCTest
-import Zoomy
 
 class Tests: XCTestCase {
     
