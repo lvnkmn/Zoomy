@@ -6,7 +6,21 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Setup
+Just import `Zoomy`, and store an instance of `ImageZoomController` for the imageView you'd like to be able to zoom
+```swift
+import Zoomy
+```
+```swift
+let zoomcontroller: ImageZoomController?
+```
+```swift
+zoomcontroller = ImageZoomController(view: view, imageView: imageView)
+```
+for more advanced use cases:
+```shell
+pod try 'Zoomy'
+```
 
 ## Installation
 
