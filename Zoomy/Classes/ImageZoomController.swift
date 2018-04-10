@@ -114,6 +114,12 @@ public class ImageZoomController: NSObject {
         scrollableImageView.image = imageView.image
     }
     
+    
+    /// Dismiss all currently presented overlays
+    public func dismissOverlay() {
+        state.dismissOverlay()
+    }
+    
     func reset() {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
