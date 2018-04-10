@@ -208,10 +208,10 @@ private extension ImageZoomController {
         }
         
         let y: CGFloat
-        if contentOffset.y + scrollView.adjustedContentInset.top < 0 {
-            y = contentOffset.y + scrollView.adjustedContentInset.top
-        } else if contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height + scrollView.adjustedContentInset.bottom) > 0 {
-            y = contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height + scrollView.adjustedContentInset.bottom)
+        if contentOffset.y + adjustedContentInset(from: scrollView).top < 0 {
+            y = contentOffset.y + adjustedContentInset(from: scrollView).top
+        } else if contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height + adjustedContentInset(from: scrollView).bottom) > 0 {
+            y = contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height + adjustedContentInset(from: scrollView).bottom)
         } else {
             y = 0
         }
@@ -244,6 +244,14 @@ private extension ImageZoomController {
                 let view = view else { return CGRect.zero }
         
         return view.convert(subjectView.frame, from: subjectView.superview)
+    }
+    
+    func adjustedContentInset(from scrollView: UIScrollView) -> UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return scrollView.adjustedContentInset
+        } else {
+            return scrollView.contentInset
+        }
     }
 }
 
