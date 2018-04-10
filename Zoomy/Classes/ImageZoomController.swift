@@ -91,7 +91,7 @@ public class ImageZoomController: NSObject {
         return pinchScale(from: maximumZoomScale)
     }
     
-    // MARK: Public methods
+    // MARK: Initializers
     
     /// Initializer
     ///
@@ -113,13 +113,18 @@ public class ImageZoomController: NSObject {
         overlayImageView.image = imageView.image
         scrollableImageView.image = imageView.image
     }
-    
+}
+
+//MARK: - Public methods
+public extension ImageZoomController {
     
     /// Dismiss all currently presented overlays
     public func dismissOverlay() {
         state.dismissOverlay()
     }
     
+    
+    /// Reset imageView and viewHierarchy to the state prior to initializing the zoomControlelr
     func reset() {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
