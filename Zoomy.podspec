@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Zoomy'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Zoomy allows UIScrollView like zooming on UIImageViews in any view hierarchy'
 
   s.description      = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Menno Lovink' => 'mclovink@me.com' }
   s.source           = { :git => 'https://github.com/mennolovink/Zoomy.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'Zoomy/Classes/**/*'
   
