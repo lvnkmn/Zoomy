@@ -1,8 +1,10 @@
 # Zoomy
 
+Zoomy allows you to add seamless scrollView like zooming to UIImageView's in any view hierarchy.
+
 ## Example
 
-<a href="https://imgflip.com/gif/28156v"><img src="https://i.imgflip.com/28156v.gif" title="Example"/></a>
+![](Art/Gif/Example.gif)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
