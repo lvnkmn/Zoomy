@@ -1,5 +1,7 @@
 # Zoomy
 
+Zoomy allows you to add seamless scrollView like zooming to UIImageView's in any view hierarchy.
+
 ## Example
 
 ![](Art/Gif/Example.gif)
