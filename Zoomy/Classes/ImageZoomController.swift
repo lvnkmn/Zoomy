@@ -9,16 +9,16 @@ public class ImageZoomController: NSObject {
     // MARK: Public Properties
     
     /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    /// The default value is the zoomScale that applies to the original imageView
+    /// The value is the zoomScale that applies to the original imageView
     /// the zoomScale is the scale transFormation that is applied on the original image
     //  a zoommScale of 1 will result in an image rendered in full resolution
-    public lazy var minimumZoomScale = zoomScale(from: imageView)
+    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
     /// The miximum zoomsScale at which an image will be displayed
     /// The default value is the zoomScale that will result in three times the resolution of the original image
     /// the zoomScale is the scale transFormation that is applied on the original image
     //  a zoommScale of 1 will result in an image rendered in full resolution
-    public var maximumZoomScale: CGFloat = 3
+    public var maximumZoomScale: CGFloat = 2
     
     /// Causes the behavior of the ImageZoomController to (temporarily) be disabled when needed
     public var isEnabled = true
@@ -124,7 +124,7 @@ private extension ImageZoomController {
         guard   let imageView = imageView,
                 isEnabled else { return }
         
-        let currentPinchScale = min(gestureRecognizer.scale, maximumZoomScale)
+        let currentPinchScale = adjust(pinchScale: gestureRecognizer.scale)
         if  gestureRecognizer.state == .began {
             state.presentOverlay()
             pinchCenter = CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
@@ -265,11 +265,41 @@ private extension ImageZoomController {
         return zoomScale / minimumZoomScale
     }
     
+    /// Adds the bounce like behavior to the provided pinchScale
+    ///
+    /// - Parameter pinchScale: pinchScale
+    /// - Returns: pinchScale
+    func adjust(pinchScale: CGFloat) -> CGFloat {
+        guard   pinchScale < minimumPinchScale ||
+                pinchScale > maximumPinchScale else { return pinchScale }
+ 
+        let bounceScale = sqrt(3)
+        let x: CGFloat
+        let k: CGFloat
+        if pinchScale < minimumPinchScale {
+            x = pinchScale / minimumPinchScale
+            k = CGFloat(1/bounceScale)
+            return minimumPinchScale * ((2 * k - 1) * pow(x, 3) + (2 - 3 * k) * pow(x, 2) + k)
+        } else { // pinchScale > maximumPinchScale
+            x = pinchScale / maximumPinchScale
+            k = CGFloat(bounceScale)
+            return maximumPinchScale * ((2 * k - 2) / (1 + exp(4 / k * (1 - x))) - k + 2)
+        }
+    }
+    
     func absoluteFrame(of subjectView: UIView?) -> CGRect {
         guard   let subjectView = subjectView,
                 let view = view else { return CGRect.zero }
         
         return view.convert(subjectView.frame, from: subjectView.superview)
+    }
+    
+    func maximumImageSizeSize() -> CGSize {
+        guard let imageView = imageView else { return CGSize.zero }
+        let view = UIView()
+        view.frame = imageView.frame
+        view.transform = view.transform.scaledBy(x: maximumPinchScale, y: maximumPinchScale)
+        return view.frame.size
     }
     
     func adjustedContentInset(from scrollView: UIScrollView) -> UIEdgeInsets {
@@ -368,7 +398,9 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
         owner.shouldAdjustScrollViewFrameAfterZooming = false
         owner.scrollView.zoomScale = owner.zoomScale(from: owner.overlayImageView)
         owner.shouldAdjustScrollViewFrameAfterZooming = true
-        owner.scrollView.contentSize = owner.overlayImageView.frame.size
+        owner.scrollView.contentSize =  owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?
+                                        owner.maximumImageSizeSize() :
+                                        owner.overlayImageView.frame.size
         
         //Configure scrollView with state that best matches the state of the overlayImageView
         let fromFrame = owner.overlayImageView.frame
@@ -383,8 +415,8 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
         let correction = owner.contentOffsetCorrection(on: neededContentOffSet)
         let expectedFrameOfScrollableImageView = CGRect(x: fromFrame.origin.x + correction.x,
                                                         y: fromFrame.origin.y + correction.y,
-                                                        width: fromFrame.size.width,
-                                                        height: fromFrame.size.height)
+                                                        width: owner.scrollView.contentSize.width,
+                                                        height: owner.scrollView.contentSize.height)
         
         owner.scrollView.isHidden = true
         
