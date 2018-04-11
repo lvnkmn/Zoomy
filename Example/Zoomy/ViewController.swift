@@ -26,8 +26,11 @@ class ViewController: UIViewController {
 
 extension ViewController: ImageZoomControllerDelegate {
 
+    func didStartZoomedState(for imageView: UIImageView) {
+        print("did start zoomed state for imageView: \(imageView)")
+    }
+    
     func didEndZoomedState(for imageView: UIImageView) {
-        // Re initialize an ImageZoomController to continue being able to zoom:
-        zoomControllers[imageView] = ImageZoomController(view: view, imageView: imageView, delegate: self)
+        print("did start zoomed state for imageView: \(imageView)")
     }
 }
