@@ -270,8 +270,21 @@ private extension ImageZoomController {
     /// - Parameter pinchScale: pinchScale
     /// - Returns: pinchScale
     func adjust(pinchScale: CGFloat) -> CGFloat {
-        //TODO: Adjust pinchScale here in order to make it bounce when needed
-        return pinchScale
+        guard   pinchScale < minimumPinchScale ||
+                pinchScale > maximumPinchScale else { return pinchScale }
+ 
+        let bounceScale = sqrt(3)
+        let x: CGFloat
+        let k: CGFloat
+        if pinchScale < minimumPinchScale {
+            x = pinchScale / minimumPinchScale
+            k = CGFloat(1/bounceScale)
+            return (2 * k - 1) * pow(x, 3) + (2 - 3 * k) * pow(x, 2) + k
+        } else { // pinchScale > maximumPinchScale
+            x = pinchScale / maximumPinchScale
+            k = CGFloat(bounceScale)
+            return maximumPinchScale * ((2 * k - 2) / (1 + exp(4 / k * (1 - x))) - k + 2)
+        }
     }
     
     func absoluteFrame(of subjectView: UIView?) -> CGRect {
