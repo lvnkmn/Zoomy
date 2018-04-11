@@ -9,10 +9,10 @@ public class ImageZoomController: NSObject {
     // MARK: Public Properties
     
     /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    /// The default value is the zoomScale that applies to the original imageView
+    /// The value is the zoomScale that applies to the original imageView
     /// the zoomScale is the scale transFormation that is applied on the original image
     //  a zoommScale of 1 will result in an image rendered in full resolution
-    public lazy var minimumZoomScale = zoomScale(from: imageView)
+    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
     /// The miximum zoomsScale at which an image will be displayed
     /// The default value is the zoomScale that will result in three times the resolution of the original image
@@ -279,7 +279,7 @@ private extension ImageZoomController {
         if pinchScale < minimumPinchScale {
             x = pinchScale / minimumPinchScale
             k = CGFloat(1/bounceScale)
-            return (2 * k - 1) * pow(x, 3) + (2 - 3 * k) * pow(x, 2) + k
+            return minimumPinchScale * ((2 * k - 1) * pow(x, 3) + (2 - 3 * k) * pow(x, 2) + k)
         } else { // pinchScale > maximumPinchScale
             x = pinchScale / maximumPinchScale
             k = CGFloat(bounceScale)
