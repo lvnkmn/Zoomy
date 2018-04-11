@@ -19,7 +19,7 @@ let zoomcontroller: ImageZoomController?
 ```swift
 zoomcontroller = ImageZoomController(view: view, imageView: imageView)
 ```
-for more advanced use cases:
+For more advanced use cases:
 ```shell
 pod try 'Zoomy'
 ```
