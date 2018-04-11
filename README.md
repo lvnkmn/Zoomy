@@ -1,4 +1,5 @@
 # Zoomy
+ [![Version](http://img.shields.io/cocoapods/v/Zoomy.svg?style=flat)](http://cocoapods.org/pods/Zoomy) [![Platform](http://img.shields.io/cocoapods/p/Zoomy.svg?style=flat)](http://cocoapods.org/pods/Zoomy) [![License](http://img.shields.io/cocoapods/l/Zoomy.svg?style=flat)](LICENSE)
 
 Zoomy allows you to add seamless scrollView like zooming to UIImageView's in any view hierarchy.
 
@@ -19,7 +20,7 @@ let zoomcontroller: ImageZoomController?
 ```swift
 zoomcontroller = ImageZoomController(view: view, imageView: imageView)
 ```
-for more advanced use cases:
+For more advanced use cases:
 ```shell
 pod try 'Zoomy'
 ```
