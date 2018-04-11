@@ -30,30 +30,9 @@ public class ImageZoomController: NSObject {
     weak fileprivate var view: UIView?
     weak fileprivate var imageView: UIImageView?
     
-    fileprivate lazy var scrollableImageView: UIImageView = {
-        let view = UIImageView()
-        view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
-    fileprivate lazy var overlayImageView: UIImageView = {
-        let view = UIImageView()
-        return view
-    }()
-    
-    fileprivate lazy var scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.clipsToBounds = false
-        view.delegate = self
-        view.showsHorizontalScrollIndicator = false
-        view.showsVerticalScrollIndicator = false
-        view.translatesAutoresizingMaskIntoConstraints = true
-        view.alwaysBounceVertical = true
-        view.alwaysBounceHorizontal = true
-        
-        return view
-    }()
+    fileprivate lazy var scrollableImageView = createScrollableImageView()
+    fileprivate lazy var overlayImageView = createOverlayImageView()
+    fileprivate lazy var scrollView = createScrollView()
     
     fileprivate lazy var state: ImageZoomControllerState = IsNotPresentingOverlayState(owner: self)
     
@@ -106,9 +85,7 @@ public class ImageZoomController: NSObject {
         
         super.init()
         
-        imageView.addGestureRecognizer(imageViewPinchGestureRecognizer)
-        imageView.addGestureRecognizer(imageViewPanGestureRecognizer)
-        imageView.isUserInteractionEnabled = true
+        configureImageView()
         
         overlayImageView.image = imageView.image
         scrollableImageView.image = imageView.image
@@ -123,7 +100,6 @@ public extension ImageZoomController {
         state.dismissOverlay()
     }
     
-    
     /// Reset imageView and viewHierarchy to the state prior to initializing the zoomControlelr
     func reset() {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
@@ -131,8 +107,11 @@ public extension ImageZoomController {
         imageView?.isHidden = false
         
         overlayImageView.removeFromSuperview()
+        overlayImageView = createOverlayImageView()
         scrollableImageView.removeFromSuperview()
+        scrollableImageView = createScrollableImageView()
         scrollView.removeFromSuperview()
+        scrollView = createScrollView()
         
         state = IsNotPresentingOverlayState(owner: self)
     }
@@ -183,6 +162,42 @@ private extension ImageZoomController {
         let frameDifference = scrollView.frame.difference(with: oldScrollViewFrame)
         scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x + frameDifference.origin.x,
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
+    }
+}
+
+//MARK: - Setup
+private extension ImageZoomController {
+    
+    func createScrollView() -> UIScrollView {
+        let view = UIScrollView()
+        view.clipsToBounds = false
+        view.delegate = self
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
+        view.translatesAutoresizingMaskIntoConstraints = true
+        view.alwaysBounceVertical = true
+        view.alwaysBounceHorizontal = true
+        return view
+    }
+    
+    func createScrollableImageView() -> UIImageView {
+        let view = UIImageView()
+        view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
+        view.isUserInteractionEnabled = true
+        view.image = imageView?.image
+        return view
+    }
+    
+    func createOverlayImageView() -> UIImageView {
+        let view = UIImageView()
+        view.image = imageView?.image
+        return view
+    }
+    
+    func configureImageView() {
+        imageView?.addGestureRecognizer(imageViewPinchGestureRecognizer)
+        imageView?.addGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.isUserInteractionEnabled = true
     }
 }
 
@@ -399,7 +414,7 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
                 self.owner.delegate?.didEndZoomedState(for: imageView)
             }
             self.owner.reset()
-            self.owner.state = IsNotPresentingOverlayState(owner: self.owner)
+            self.owner.configureImageView()
         }
     }
     
@@ -439,7 +454,7 @@ private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
             }
             
             self.owner.reset()
-            self.owner.state = IsNotPresentingOverlayState(owner: self.owner)
+            self.owner.configureImageView()
         }
     }
     
