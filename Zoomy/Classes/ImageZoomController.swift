@@ -60,6 +60,12 @@ public class ImageZoomController: NSObject {
         return gestureRecognizer
     }()
     
+    private lazy var overlayImageViewTapGestureRecognizer: UITapGestureRecognizer = {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOverlayImageView(with:)))
+        gestureRecognizer.delegate = self
+        return gestureRecognizer
+    }()
+    
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     private var minimumPinchScale: CGFloat {
         return pinchScale(from: minimumZoomScale)
@@ -151,6 +157,10 @@ private extension ImageZoomController {
     @objc func didTapScrollableImageView(with gestureRecognizer: UITapGestureRecognizer) {
         state.dismissOverlay()
     }
+    
+    @objc func didTapOverlayImageView(with gestureRecognizer: UITapGestureRecognizer) {
+        state.dismissOverlay()
+    }
 }
 
 //MARK: - Actions
@@ -191,6 +201,8 @@ private extension ImageZoomController {
     func createOverlayImageView() -> UIImageView {
         let view = UIImageView()
         view.image = imageView?.image
+        view.addGestureRecognizer(overlayImageViewTapGestureRecognizer)
+        view.isUserInteractionEnabled = true
         return view
     }
     
@@ -382,9 +394,14 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {}
 }
 
-private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
+private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     
     let owner: ImageZoomController
+    var isDismissingOverlay = false
+    
+    init(owner: ImageZoomController) {
+        self.owner = owner
+    }
     
     func presentOverlay() {
         guard let view = owner.view else { return }
@@ -422,7 +439,9 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
         
         animateSpring(withAnimations: {
             self.owner.overlayImageView.frame = expectedFrameOfScrollableImageView
-        }) { (_) in
+        }) { _ in
+            guard !self.isDismissingOverlay else { return }
+            
             self.owner.scrollView.isHidden = false
             self.owner.overlayImageView.removeFromSuperview()
             self.owner.state = IsPresentingScrollViewOverlayState(owner: self.owner)
@@ -432,12 +451,15 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
     func dismissOverlay() {
         guard let imageView = owner.imageView else { return }
         
+        isDismissingOverlay = true
+        owner.scrollView.removeFromSuperview()
+        
         animateSpring(withAnimations: {
             self.owner.overlayImageView.transform = CGAffineTransform.identity
             if let originalOverlayImageViewCenter = self.owner.originalOverlayImageViewCenter {
                 self.owner.overlayImageView.center = originalOverlayImageViewCenter
             }
-        }) { (_) in
+        }) { _ in
             self.owner.imageView?.isHidden = false
             self.owner.overlayImageView.removeFromSuperview()
             self.owner.originalOverlayImageViewCenter = nil
@@ -447,6 +469,7 @@ private struct IsPresentingImageViewOverlayState: ImageZoomControllerState {
             }
             self.owner.reset()
             self.owner.configureImageView()
+            self.isDismissingOverlay = false
         }
     }
     
@@ -477,7 +500,7 @@ private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
         animateSpring(withAnimations: {
             self.owner.scrollView.zoomScale = self.owner.minimumZoomScale
             self.owner.scrollView.frame = self.owner.absoluteFrame(of: imageView)
-        }) { (_) in
+        }) { _ in
             self.owner.imageView?.isHidden = false
             self.owner.scrollableImageView.removeFromSuperview()
             self.owner.scrollView.removeFromSuperview()
