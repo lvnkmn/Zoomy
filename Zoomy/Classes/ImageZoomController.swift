@@ -5,20 +5,16 @@ import Foundation
 import PureLayout
 
 public class ImageZoomController: NSObject {
-    
     // MARK: Public Properties
     
     /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    /// The value is the zoomScale that applies to the original imageView
-    /// the zoomScale is the scale transFormation that is applied on the original image
-    //  a zoommScale of 1 will result in an image rendered in full resolution
     public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
+    /// When scale of imageView is below this threshold when initial pinch gesture ends, the overlay will be dismissed
+    public var zoomCancelingThreshold: ImageViewScale = 1.5
+    
     /// The miximum zoomsScale at which an image will be displayed
-    /// The default value is the zoomScale that will result in three times the resolution of the original image
-    /// the zoomScale is the scale transFormation that is applied on the original image
-    //  a zoommScale of 1 will result in an image rendered in full resolution
-    public var maximumZoomScale: CGFloat = 2
+    public var maximumZoomScale: ImageScale = 2
     
     /// Causes the behavior of the ImageZoomController to (temporarily) be disabled when needed
     public var isEnabled = true
@@ -131,6 +127,7 @@ private extension ImageZoomController {
                 isEnabled else { return }
         
         let currentPinchScale = adjust(pinchScale: gestureRecognizer.scale)
+        print(currentPinchScale)
         if  gestureRecognizer.state == .began {
             state.presentOverlay()
             pinchCenter = CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
@@ -142,7 +139,7 @@ private extension ImageZoomController {
                                                                     .scaledBy(x: currentPinchScale,
                                                                               y: currentPinchScale)
         } else {
-            if currentPinchScale <= minimumPinchScale {
+            if currentPinchScale <= minimumPinchScale || currentPinchScale < zoomCancelingThreshold {
                 state.dismissOverlay()
             } else {
                 state.presentOverlay()
@@ -267,13 +264,13 @@ private extension ImageZoomController {
                        y: contentOffset.y - correction.y)
     }
 
-    func zoomScale(from imageView: UIImageView?) -> CGFloat {
+    func zoomScale(from imageView: UIImageView?) -> ImageScale {
         guard   let imageView = imageView,
                 let image = imageView.image else { return 1 }
         return imageView.frame.size.width / image.size.width
     }
     
-    func pinchScale(from zoomScale: CGFloat) -> CGFloat {
+    func pinchScale(from zoomScale: ImageScale) -> ImageViewScale {
         return zoomScale / minimumZoomScale
     }
     
@@ -281,20 +278,20 @@ private extension ImageZoomController {
     ///
     /// - Parameter pinchScale: pinchScale
     /// - Returns: pinchScale
-    func adjust(pinchScale: CGFloat) -> CGFloat {
+    func adjust(pinchScale: ImageViewScale) -> ImageViewScale {
         guard   pinchScale < minimumPinchScale ||
                 pinchScale > maximumPinchScale else { return pinchScale }
  
         let bounceScale = sqrt(3)
-        let x: CGFloat
-        let k: CGFloat
+        let x: ImageViewScale
+        let k: ImageViewScale
         if pinchScale < minimumPinchScale {
             x = pinchScale / minimumPinchScale
-            k = CGFloat(1/bounceScale)
+            k = ImageViewScale(1/bounceScale)
             return minimumPinchScale * ((2 * k - 1) * pow(x, 3) + (2 - 3 * k) * pow(x, 2) + k)
         } else { // pinchScale > maximumPinchScale
             x = pinchScale / maximumPinchScale
-            k = CGFloat(bounceScale)
+            k = ImageViewScale(bounceScale)
             return maximumPinchScale * ((2 * k - 2) / (1 + exp(4 / k * (1 - x))) - k + 2)
         }
     }
