@@ -26,11 +26,20 @@ class ViewController: UIViewController {
 
 extension ViewController: ImageZoomControllerDelegate {
 
-    func didStartZoomedState(for imageView: UIImageView) {
-        print("did start zoomed state for imageView: \(imageView)")
+    func didBeginPresentingOverlay(for imageView: UIImageView) {
+        print("Did begin presenting overlay for imageVIew: \(imageView)")
     }
     
-    func didEndZoomedState(for imageView: UIImageView) {
-        print("did start zoomed state for imageView: \(imageView)")
+    func didEndPresentingOverlay(for imageView: UIImageView) {
+        print("Did end presenting overlay for imageVIew: \(imageView)")
+    }
+    
+    func contentStateDidChange(from fromState: ImageZoomControllerContentState, to toState: ImageZoomControllerContentState) {
+        switch toState {
+        case .fillsAnsestorView:
+            UIApplication.shared.isStatusBarHidden = true
+        case .smallerThanAnsestorView:
+            UIApplication.shared.isStatusBarHidden = false
+        }
     }
 }
