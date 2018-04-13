@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Zoomy'
-  s.version          = '0.2.3'
+  s.version          = '0.3.0'
   s.summary          = 'Zoomy allows UIScrollView like zooming on UIImageViews in any view hierarchy'
 
   s.description      = <<-DESC
