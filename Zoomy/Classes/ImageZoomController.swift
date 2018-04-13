@@ -127,7 +127,6 @@ private extension ImageZoomController {
                 isEnabled else { return }
         
         let currentPinchScale = adjust(pinchScale: gestureRecognizer.scale)
-        print(currentPinchScale)
         if  gestureRecognizer.state == .began {
             state.presentOverlay()
             pinchCenter = CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
@@ -393,7 +392,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
 
 private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     
-    let owner: ImageZoomController
+    weak var owner: ImageZoomController?
     var isDismissingOverlay = false
     
     init(owner: ImageZoomController) {
@@ -401,7 +400,8 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     }
     
     func presentOverlay() {
-        guard let view = owner.view else { return }
+        guard   let owner = owner,
+                let view = owner.view else { return }
         
         owner.scrollView.addSubview(owner.scrollableImageView)
         view.addSubview(owner.scrollView)
@@ -435,43 +435,45 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
         owner.scrollView.isHidden = true
         
         animateSpring(withAnimations: {
-            self.owner.overlayImageView.frame = expectedFrameOfScrollableImageView
+            owner.overlayImageView.frame = expectedFrameOfScrollableImageView
         }) { _ in
             guard !self.isDismissingOverlay else { return }
             
-            self.owner.scrollView.isHidden = false
-            self.owner.overlayImageView.removeFromSuperview()
-            self.owner.state = IsPresentingScrollViewOverlayState(owner: self.owner)
+            owner.scrollView.isHidden = false
+            owner.overlayImageView.removeFromSuperview()
+            owner.state = IsPresentingScrollViewOverlayState(owner: owner)
         }
     }
     
     func dismissOverlay() {
-        guard let imageView = owner.imageView else { return }
+        guard   let owner = owner,
+                let imageView = owner.imageView else { return }
         
         isDismissingOverlay = true
         owner.scrollView.removeFromSuperview()
         
         animateSpring(withAnimations: {
-            self.owner.overlayImageView.transform = CGAffineTransform.identity
-            if let originalOverlayImageViewCenter = self.owner.originalOverlayImageViewCenter {
-                self.owner.overlayImageView.center = originalOverlayImageViewCenter
+            owner.overlayImageView.transform = CGAffineTransform.identity
+            if let originalOverlayImageViewCenter = owner.originalOverlayImageViewCenter {
+                owner.overlayImageView.center = originalOverlayImageViewCenter
             }
         }) { _ in
-            self.owner.imageView?.isHidden = false
-            self.owner.overlayImageView.removeFromSuperview()
-            self.owner.originalOverlayImageViewCenter = nil
-            self.owner.pinchCenter = nil
+            owner.imageView?.isHidden = false
+            owner.overlayImageView.removeFromSuperview()
+            owner.originalOverlayImageViewCenter = nil
+            owner.pinchCenter = nil
             defer {
-                self.owner.delegate?.didEndZoomedState(for: imageView)
+                owner.delegate?.didEndZoomedState(for: imageView)
             }
-            self.owner.reset()
-            self.owner.configureImageView()
+            owner.reset()
+            owner.configureImageView()
             self.isDismissingOverlay = false
         }
     }
     
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
-        guard   owner.isEnabled,
+        guard   let owner = owner,
+                owner.isEnabled,
                 let view = owner.view else { return }
         
         if gestureRecognizer.state == .began {
