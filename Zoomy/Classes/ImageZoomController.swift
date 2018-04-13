@@ -7,30 +7,10 @@ import PureLayout
 public class ImageZoomController: NSObject {
     // MARK: Public Properties
     
-    /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
-    
-    /// When scale of imageView is below this threshold when initial pinch gesture ends, the overlay will be dismissed
-    public var zoomCancelingThreshold: ImageViewScale = 1.5
-    
-    /// The miximum zoomsScale at which an image will be displayed
-    public var maximumZoomScale: ImageScale = 2
-    
-    /// Causes the behavior of the ImageZoomController to (temporarily) be disabled when needed
-    public var isEnabled = true
-    
-    /// Whether or not a background view needs to be displayed behind the zoomed imageViews
-    public var shouldDisplayBackground = true
-    
-    /// BackgroundView's color will animate to this value when content becomes smaller than the view it's displayed in
-    /// This will only have effect when shouldDisplayBackground is set to true
-    public var backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn = UIColor.black.withAlphaComponent(0.5)
-    /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
-    /// This will only have effect when shouldDisplayBackground is set to true
-    public var backgroundWhenContentFillsViewItsDisplayedIn = UIColor.black
-    
     /// Gets callbacks on important events in the ImageZoomController's lifeCycle
     public weak var delegate: ImageZoomControllerDelegate?
+    
+    public var settings: ImageZoomControllerSettings
     
     // MARK: Fileprivate Properties
     weak fileprivate var view: UIView?
@@ -41,7 +21,7 @@ public class ImageZoomController: NSObject {
     fileprivate lazy var scrollView = createScrollView()
     fileprivate lazy var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
+        view.backgroundColor = settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
         return view
     }()
 
@@ -88,14 +68,17 @@ public class ImageZoomController: NSObject {
         return gestureRecognizer
     }()
     
+    /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
+    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
+    
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
-    private var minimumPinchScale: CGFloat {
+    private var minimumPinchScale: ImageViewScale {
         return pinchScale(from: minimumZoomScale)
     }
     
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
-    private var maximumPinchScale: CGFloat {
-        return pinchScale(from: maximumZoomScale)
+    private var maximumPinchScale: ImageViewScale {
+        return pinchScale(from: settings.maximumZoomScale)
     }
     
     // MARK: Initializers
@@ -106,10 +89,15 @@ public class ImageZoomController: NSObject {
     ///   - view: view in which zoom will take place, has to be an ansestor of imageView
     ///   - imageView: the imageView that is to be the source of the zoom interactions
     ///   - delegate: delegate
-    public init(view: UIView, imageView:UIImageView, delegate: ImageZoomControllerDelegate? = nil) {
+    ///   - settings: mutable settings that will be applied on this ImageZoomController
+    public required init(view: UIView,
+                         imageView:UIImageView,
+                         delegate: ImageZoomControllerDelegate?,
+                         settings: ImageZoomControllerSettings) {
         self.view = view
-        self.delegate = delegate
         self.imageView = imageView
+        self.delegate = delegate
+        self.settings = settings
         
         super.init()
         
@@ -117,6 +105,35 @@ public class ImageZoomController: NSObject {
         
         overlayImageView.image = imageView.image
         scrollableImageView.image = imageView.image
+    }
+    
+    /// Initializer
+    ///
+    /// - Parameters:
+    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - imageView: the imageView that is to be the source of the zoom interactions
+    public convenience init(view: UIView, imageView: UIImageView) {
+        self.init(view: view, imageView: imageView, delegate: nil, settings: .defaultSettings)
+    }
+    
+    /// Initializer
+    ///
+    /// - Parameters:
+    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - imageView: the imageView that is to be the source of the zoom interactions
+    ///   - delegate: delegate
+    public convenience init(view: UIView, imageView: UIImageView, delegate: ImageZoomControllerDelegate) {
+        self.init(view: view, imageView: imageView, delegate: delegate, settings: .defaultSettings)
+    }
+    
+    /// Initializer
+    ///
+    /// - Parameters:
+    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - imageView: the imageView that is to be the source of the zoom interactions
+    ///   - settings: mutable settings that will be applied on this ImageZoomController
+    public convenience init(view: UIView, imageView: UIImageView, settings: ImageZoomControllerSettings) {
+        self.init(view: view, imageView: imageView, delegate: nil, settings: settings)
     }
 }
 
@@ -141,7 +158,7 @@ public extension ImageZoomController {
         scrollView.removeFromSuperview()
         scrollView = createScrollView()
         
-        if shouldDisplayBackground {
+        if settings.shouldDisplayBackground {
             backgroundView.removeFromSuperview()
         }
         
@@ -154,7 +171,7 @@ private extension ImageZoomController {
     
     @objc func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard   let imageView = imageView,
-                isEnabled else { return }
+                settings.isEnabled else { return }
         
         let currentPinchScale = adjust(pinchScale: gestureRecognizer.scale)
         if  gestureRecognizer.state == .began {
@@ -169,7 +186,7 @@ private extension ImageZoomController {
                                                                     .scaledBy(x: currentPinchScale,
                                                                               y: currentPinchScale)
         } else {
-            if currentPinchScale <= minimumPinchScale || currentPinchScale < zoomCancelingThreshold {
+            if currentPinchScale <= minimumPinchScale || currentPinchScale < settings.zoomCancelingThreshold {
                 state.dismissOverlay()
             } else {
                 state.presentOverlay()
@@ -338,7 +355,7 @@ private extension ImageZoomController {
     }
     
     func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
-        let delta = zoomCancelingThreshold - minimumPinchScale
+        let delta = settings.zoomCancelingThreshold - minimumPinchScale
         let progress = pinchScale - minimumPinchScale
         return max(min(progress/delta, 1), 0)
     }
@@ -363,9 +380,9 @@ private extension ImageZoomController {
     func backgroundColor(for state: ImageZoomControllerContentState) -> UIColor {
         switch state {
         case .smallerThanAnsestorView:
-            return backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
+            return settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
         case .fillsAnsestorView:
-            return backgroundWhenContentFillsViewItsDisplayedIn
+            return settings.backgroundWhenContentFillsViewItsDisplayedIn
         }
     }
     
@@ -423,7 +440,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
         
         imageView.isHidden = true
         
-        if owner.shouldDisplayBackground {
+        if owner.settings.shouldDisplayBackground {
             view.addSubview(owner.backgroundView)
             owner.backgroundView.alpha = 0
             owner.backgroundView.autoPinEdgesToSuperviewEdges()
@@ -460,7 +477,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
         owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
         owner.scrollView.contentOffset = CGPoint.zero
         owner.scrollView.minimumZoomScale = owner.minimumZoomScale
-        owner.scrollView.maximumZoomScale = owner.maximumZoomScale
+        owner.scrollView.maximumZoomScale = owner.settings.maximumZoomScale
         owner.shouldAdjustScrollViewFrameAfterZooming = false
         owner.scrollView.zoomScale = owner.zoomScale(from: owner.overlayImageView)
         owner.shouldAdjustScrollViewFrameAfterZooming = true
@@ -520,7 +537,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
             self.owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
-        if self.owner.shouldDisplayBackground {
+        if self.owner.settings.shouldDisplayBackground {
             animate {
                 self.owner.backgroundView.alpha = 0
             }
@@ -528,7 +545,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     }
     
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
-        guard   owner.isEnabled,
+        guard   owner.settings.isEnabled,
                 let view = owner.view else { return }
         
         if gestureRecognizer.state == .began {
@@ -561,7 +578,7 @@ private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
             self.owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
-        if owner.shouldDisplayBackground {
+        if owner.settings.shouldDisplayBackground {
             animate {
                 self.owner.backgroundView.alpha = 0
             }
