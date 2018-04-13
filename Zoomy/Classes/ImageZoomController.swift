@@ -462,7 +462,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
 
 private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     
-    let owner: ImageZoomController
+    weak var owner: ImageZoomController?
     var isDismissingOverlay = false
     
     init(owner: ImageZoomController) {
@@ -470,7 +470,8 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     }
     
     func presentOverlay() {
-        guard let view = owner.view else { return }
+        guard   let owner = owner,
+                let view = owner.view else { return }
         
         owner.scrollView.addSubview(owner.scrollableImageView)
         view.addSubview(owner.scrollView)
@@ -506,46 +507,48 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
         owner.scrollView.isHidden = true
         
         animateSpring(withAnimations: {
-            self.owner.overlayImageView.frame = expectedFrameOfScrollableImageView
+            owner.overlayImageView.frame = expectedFrameOfScrollableImageView
         }) { _ in
             guard !self.isDismissingOverlay else { return }
             
-            self.owner.scrollView.isHidden = false
-            self.owner.overlayImageView.removeFromSuperview()
-            self.owner.state = IsPresentingScrollViewOverlayState(owner: self.owner)
+            owner.scrollView.isHidden = false
+            owner.overlayImageView.removeFromSuperview()
+            owner.state = IsPresentingScrollViewOverlayState(owner: owner)
         }
     }
     
     func dismissOverlay() {
-        guard let imageView = owner.imageView else { return }
+        guard   let owner = owner,
+                let imageView = owner.imageView else { return }
         
         isDismissingOverlay = true
         owner.scrollView.removeFromSuperview()
         
         animateSpring(withAnimations: {
-            self.owner.overlayImageView.transform = CGAffineTransform.identity
-            if let originalOverlayImageViewCenter = self.owner.originalOverlayImageViewCenter {
-                self.owner.overlayImageView.center = originalOverlayImageViewCenter
+            owner.overlayImageView.transform = CGAffineTransform.identity
+            if let originalOverlayImageViewCenter = owner.originalOverlayImageViewCenter {
+                owner.overlayImageView.center = originalOverlayImageViewCenter
             }
         }) { _ in
-            self.owner.imageView?.isHidden = false
-            self.owner.originalOverlayImageViewCenter = nil
-            self.owner.pinchCenter = nil
-            self.owner.reset()
-            self.owner.configureImageView()
+            owner.imageView?.isHidden = false
+            owner.originalOverlayImageViewCenter = nil
+            owner.pinchCenter = nil
+            owner.reset()
+            owner.configureImageView()
             self.isDismissingOverlay = false
-            self.owner.delegate?.didEndPresentingOverlay(for: imageView)
+            owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
-        if self.owner.settings.shouldDisplayBackground {
+        if owner.settings.shouldDisplayBackground {
             animate {
-                self.owner.backgroundView.alpha = 0
+                owner.backgroundView.alpha = 0
             }
         }
     }
     
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
-        guard   owner.settings.isEnabled,
+        guard   let owner = owner,
+                owner.settings.isEnabled,
                 let view = owner.view else { return }
         
         if gestureRecognizer.state == .began {
