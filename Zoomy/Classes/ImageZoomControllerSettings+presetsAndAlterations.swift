@@ -13,11 +13,11 @@ public extension ImageZoomControllerSettings {
         return ImageZoomControllerSettings()
     }
     
-    static var noBackgroundSettings: ImageZoomControllerSettings {
-        return defaultSettings.with(shouldDisplayBackground: false)
+    static var backgroundEnabledSettings: ImageZoomControllerSettings {
+        return defaultSettings.with(shouldDisplayBackground: true)
     }
     
-    static var noZoomcancellingSettings: ImageZoomControllerSettings {
+    static var noZoomCancellingSettings: ImageZoomControllerSettings {
         return defaultSettings.with(zoomCancelingThreshold: 1)
     }
 }
@@ -28,36 +28,36 @@ public extension ImageZoomControllerSettings {
     func with(zoomCancelingThreshold: ImageViewScale) -> ImageZoomControllerSettings {
         var settings = self
         settings.zoomCancelingThreshold = zoomCancelingThreshold
-        return self
+        return settings
     }
     
     func with(maximumZoomScale: ImageScale) -> ImageZoomControllerSettings {
         var settings = self
         settings.maximumZoomScale = maximumZoomScale
-        return self
+        return settings
     }
     
     func with(isEnabled: Bool) -> ImageZoomControllerSettings {
         var settings = self
         settings.isEnabled = isEnabled
-        return self
+        return settings
     }
     
     func with(shouldDisplayBackground: Bool) -> ImageZoomControllerSettings {
         var settings = self
         settings.shouldDisplayBackground = shouldDisplayBackground
-        return self
+        return settings
     }
     
     func with(backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
         var settings = self
         settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn = backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
-        return self
+        return settings
     }
     
     func with(backgroundWhenContentFillsViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
         var settings = self
         settings.backgroundWhenContentFillsViewItsDisplayedIn = backgroundWhenContentFillsViewItsDisplayedIn
-        return self
+        return settings
     }
 }
