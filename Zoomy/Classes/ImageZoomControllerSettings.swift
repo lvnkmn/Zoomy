@@ -25,8 +25,8 @@ public struct ImageZoomControllerSettings {
     
     /// BackgroundView's color will animate to this value when content becomes smaller than the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn = UIColor.black.withAlphaComponent(0.5)
+    public var backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn = UIColor.white.withAlphaComponent(0.8)
     /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var backgroundWhenContentFillsViewItsDisplayedIn = UIColor.black
+    public var backgroundWhenContentFillsViewItsDisplayedIn = UIColor.white
 }
