@@ -19,7 +19,7 @@ class StackViewImagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        removeStoryBoarImageView()
+        removeStoryBoardImageView()
         
         Images.trees.forEach { (image) in
             let imageView = UIImageView(image: image)
@@ -30,7 +30,7 @@ class StackViewImagesViewController: UIViewController {
         }
     }
 
-    func removeStoryBoarImageView() {
+    func removeStoryBoardImageView() {
         stackView.removeArrangedSubview(stackView.arrangedSubviews[0])
     }
 }
