@@ -149,7 +149,7 @@ public extension ImageZoomController {
     func reset() {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
-        imageView?.isHidden = false
+        imageView?.alpha = 1
         
         overlayImageView.removeFromSuperview()
         overlayImageView = createOverlayImageView()
@@ -438,7 +438,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
         guard   let imageView = owner.imageView,
                 let view = owner.view else { return }
         
-        imageView.isHidden = true
+        imageView.alpha = 0
         
         if owner.settings.shouldDisplayBackground {
             view.addSubview(owner.backgroundView)
@@ -530,7 +530,6 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
                 owner.overlayImageView.center = originalOverlayImageViewCenter
             }
         }) { _ in
-            owner.imageView?.isHidden = false
             owner.originalOverlayImageViewCenter = nil
             owner.pinchCenter = nil
             owner.reset()
@@ -575,7 +574,6 @@ private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
             self.owner.scrollView.zoomScale = self.owner.minimumZoomScale
             self.owner.scrollView.frame = self.owner.absoluteFrame(of: imageView)
         }) { _ in
-            self.owner.imageView?.isHidden = false
             self.owner.reset()
             self.owner.configureImageView()
             self.owner.delegate?.didEndPresentingOverlay(for: imageView)
