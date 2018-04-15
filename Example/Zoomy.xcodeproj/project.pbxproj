@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		1999E87FF4D6807803642263 /* Pods_Zoomy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E430F105263541872F7B7D2 /* Pods_Zoomy_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		93369F51A8DEED868750E40D /* Pods_Zoomy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C03BBA68E05283D1C9F2369 /* Pods_Zoomy_Example.framework */; };
+		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
+		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
+		DECCAA452080C6A300B89C12 /* RandomImageLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */; };
+		DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */; };
+		DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,7 @@
 		607FACD01AFB9204008FA782 /* Zoomy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoomy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenWideImageViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -47,6 +52,11 @@
 		A2589FB630C3EC483BF0C41C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A5A58D9D2F53FA263ABE7754 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B8BCB570BE4806F737DBA255 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+addImageAspectRatioContraint.swift"; sourceTree = "<group>"; };
+		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageLocationViewController.swift; sourceTree = "<group>"; };
+		DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewImagesViewController.swift; sourceTree = "<group>"; };
+		DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				DECCAA432080C62400B89C12 /* Views */,
+				DE30706E2080C58D00D043C6 /* ViewControllers */,
+				DE0774BF20836A1C00BE3D04 /* Extensions */,
+				DE30706F2080C5C900D043C6 /* Resources */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for Zoomy";
@@ -157,6 +167,43 @@
 				6E430F105263541872F7B7D2 /* Pods_Zoomy_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE0774BF20836A1C00BE3D04 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		DE30706E2080C58D00D043C6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */,
+				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
+				DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */,
+				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DE30706F2080C5C900D043C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				DE99B38C2083603900D141DE /* Images.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DECCAA432080C62400B89C12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,8 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */,
+				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
+				DE99B38D2083603900D141DE /* Images.swift in Sources */,
+				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,
+				DECCAA452080C6A300B89C12 /* RandomImageLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

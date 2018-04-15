@@ -21,7 +21,7 @@ public struct ImageZoomControllerSettings {
     public var isEnabled = true
     
     /// Whether or not a background view needs to be displayed behind the zoomed imageViews
-    public var shouldDisplayBackground = true
+    public var shouldDisplayBackground = false
     
     /// BackgroundView's color will animate to this value when content becomes smaller than the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
