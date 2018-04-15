@@ -13,11 +13,11 @@ public extension ImageZoomControllerSettings {
         return ImageZoomControllerSettings()
     }
     
-    static var noBackgroundSettings: ImageZoomControllerSettings {
-        return defaultSettings.with(shouldDisplayBackground: false)
+    static var backgroundEnabledSettings: ImageZoomControllerSettings {
+        return defaultSettings.with(shouldDisplayBackground: true)
     }
     
-    static var noZoomcancellingSettings: ImageZoomControllerSettings {
+    static var noZoomCancellingSettings: ImageZoomControllerSettings {
         return defaultSettings.with(zoomCancelingThreshold: 1)
     }
 }
