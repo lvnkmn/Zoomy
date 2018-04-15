@@ -39,9 +39,11 @@ extension StackViewImagesViewController: ImageZoomControllerDelegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         scrollView.isScrollEnabled = false
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func didEndPresentingOverlay(for imageView: UIImageView) {
         scrollView.isScrollEnabled = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

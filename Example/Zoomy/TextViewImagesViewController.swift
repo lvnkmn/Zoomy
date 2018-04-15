@@ -25,5 +25,12 @@ class NonCenteredImagesViewController: UIViewController {
 }
 
 extension NonCenteredImagesViewController: ImageZoomControllerDelegate {
+ 
+    func didBeginPresentingOverlay(for imageView: UIImageView) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
+    func didEndPresentingOverlay(for imageView: UIImageView) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
