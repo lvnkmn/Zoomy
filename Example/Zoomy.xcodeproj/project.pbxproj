@@ -18,7 +18,6 @@
 		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
 		DE0774C520837D4900BE3D04 /* TextViewImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
-		DECCAA452080C6A300B89C12 /* RandomImageLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */; };
 		DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */; };
 		DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +55,6 @@
 		DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+addImageAspectRatioContraint.swift"; sourceTree = "<group>"; };
 		DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewImagesViewController.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageLocationViewController.swift; sourceTree = "<group>"; };
 		DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewImagesViewController.swift; sourceTree = "<group>"; };
 		DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +182,6 @@
 			children = (
 				DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */,
 				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
-				DECCAA442080C6A300B89C12 /* RandomImageLocationViewController.swift */,
 				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
 				DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */,
 			);
@@ -383,7 +380,6 @@
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,
-				DECCAA452080C6A300B89C12 /* RandomImageLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

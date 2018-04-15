@@ -159,7 +159,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hCj-ro-JsF" secondAttribute="trailing" id="3ch-3s-6It"/>
-                            <constraint firstItem="hCj-ro-JsF" firstAttribute="top" secondItem="SAh-XF-x9C" secondAttribute="bottom" constant="50" id="Aef-Nv-Lir"/>
+                            <constraint firstItem="hCj-ro-JsF" firstAttribute="top" secondItem="ak5-O7-U9F" secondAttribute="top" constant="114" id="Aef-Nv-Lir"/>
                             <constraint firstAttribute="bottomMargin" secondItem="XW1-rL-EMA" secondAttribute="bottom" constant="20" id="Bqb-jD-2JA"/>
                             <constraint firstItem="XW1-rL-EMA" firstAttribute="leading" secondItem="ak5-O7-U9F" secondAttribute="leading" id="TOB-uy-eS3"/>
                         </constraints>

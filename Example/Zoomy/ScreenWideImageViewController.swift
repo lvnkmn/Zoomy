@@ -18,6 +18,17 @@ class ScreenWideImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        zoomController = ImageZoomController(view: view, imageView: imageView)
+        zoomController = ImageZoomController(view: view, imageView: imageView, delegate: self)
+    }
+}
+
+extension ScreenWideImageViewController: ImageZoomControllerDelegate {
+    
+    func didBeginPresentingOverlay(for imageView: UIImageView) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func didEndPresentingOverlay(for imageView: UIImageView) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
