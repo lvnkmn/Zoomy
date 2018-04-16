@@ -18,7 +18,6 @@ class StackViewImagesViewController: UIViewController {
         super.viewDidLoad()
         
         removeStoryBoardImageView()
-        scrollView.delegate = self
         
         Images.trees.forEach { (image) in
             let imageView = UIImageView(image: image)
@@ -49,22 +48,6 @@ extension StackViewImagesViewController: ZoomDelegate {
     
     func contentStateDidChange(from fromState: ImageZoomControllerContentState, to toState: ImageZoomControllerContentState) {
         print("contentState did change from state: \(fromState) to state: \(toState)")
-    }
-}
-
-// MARK: - Toggling the navigation bar
-extension StackViewImagesViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let navigationController = navigationController else { return }
-        if scrollView.contentOffset.y > 0 {
-            if !navigationController.isNavigationBarHidden {
-                navigationController.setNavigationBarHidden(true, animated: true)
-            }
-        } else {
-            if navigationController.isNavigationBarHidden {
-                navigationController.setNavigationBarHidden(false, animated: true)
-            }
-        }
+        //You might want to show/hide statusbar here
     }
 }
