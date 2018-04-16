@@ -12,10 +12,13 @@ public class ImageZoomController: NSObject {
     
     public var settings: ImageZoomControllerSettings
     
-    // MARK: Fileprivate Properties
-    weak fileprivate var view: UIView?
-    weak fileprivate var imageView: UIImageView?
+    /// View in which zoom will take place
+    weak public private(set) var containerView: UIView?
     
+    /// The imageView that is to be the source of the zoom interactions
+    weak public private(set) var imageView: UIImageView?
+    
+    // MARK: Fileprivate Properties
     fileprivate lazy var scrollableImageView = createScrollableImageView()
     fileprivate lazy var overlayImageView = createOverlayImageView()
     fileprivate lazy var scrollView = createScrollView()
@@ -86,15 +89,15 @@ public class ImageZoomController: NSObject {
     /// Initializer
     ///
     /// - Parameters:
-    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - container: view in which zoom will take place, has to be an ansestor of imageView
     ///   - imageView: the imageView that is to be the source of the zoom interactions
     ///   - delegate: delegate
     ///   - settings: mutable settings that will be applied on this ImageZoomController
-    public required init(view: UIView,
-                         imageView:UIImageView,
+    public required init(container containerView: UIView,
+                         imageView: UIImageView,
                          delegate: ImageZoomControllerDelegate?,
                          settings: ImageZoomControllerSettings) {
-        self.view = view
+        self.containerView = containerView
         self.imageView = imageView
         self.delegate = delegate
         self.settings = settings
@@ -110,30 +113,30 @@ public class ImageZoomController: NSObject {
     /// Initializer
     ///
     /// - Parameters:
-    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - container: view in which zoom will take place, has to be an ansestor of imageView
     ///   - imageView: the imageView that is to be the source of the zoom interactions
-    public convenience init(view: UIView, imageView: UIImageView) {
-        self.init(view: view, imageView: imageView, delegate: nil, settings: .defaultSettings)
+    public convenience init(container containerView: UIView, imageView: UIImageView) {
+        self.init(container: containerView, imageView: imageView, delegate: nil, settings: .defaultSettings)
     }
     
     /// Initializer
     ///
     /// - Parameters:
-    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - container: view in which zoom will take place, has to be an ansestor of imageView
     ///   - imageView: the imageView that is to be the source of the zoom interactions
     ///   - delegate: delegate
-    public convenience init(view: UIView, imageView: UIImageView, delegate: ImageZoomControllerDelegate) {
-        self.init(view: view, imageView: imageView, delegate: delegate, settings: .defaultSettings)
+    public convenience init(container containerView: UIView, imageView: UIImageView, delegate: ImageZoomControllerDelegate) {
+        self.init(container: containerView, imageView: imageView, delegate: delegate, settings: .defaultSettings)
     }
     
     /// Initializer
     ///
     /// - Parameters:
-    ///   - view: view in which zoom will take place, has to be an ansestor of imageView
+    ///   - container: view in which zoom will take place, has to be an ansestor of imageView
     ///   - imageView: the imageView that is to be the source of the zoom interactions
     ///   - settings: mutable settings that will be applied on this ImageZoomController
-    public convenience init(view: UIView, imageView: UIImageView, settings: ImageZoomControllerSettings) {
-        self.init(view: view, imageView: imageView, delegate: nil, settings: settings)
+    public convenience init(container containerView: UIView, imageView: UIImageView, settings: ImageZoomControllerSettings) {
+        self.init(container: containerView, imageView: imageView, delegate: nil, settings: settings)
     }
 }
 
@@ -249,7 +252,7 @@ private extension ImageZoomController {
 private extension ImageZoomController {
     
     func adjustedScrollViewFrame() -> CGRect {
-        guard let view = view else { return CGRect.zero }
+        guard let view = containerView else { return CGRect.zero }
         
         let minimalScrollViewFrame = absoluteFrame(of: imageView)
         let originX = max(minimalScrollViewFrame.origin.x - (scrollView.contentSize.width - minimalScrollViewFrame.width) / 2, 0)
@@ -333,7 +336,7 @@ private extension ImageZoomController {
     
     func absoluteFrame(of subjectView: UIView?) -> CGRect {
         guard   let subjectView = subjectView,
-                let view = view else { return CGRect.zero }
+                let view = containerView else { return CGRect.zero }
         
         return view.convert(subjectView.frame, from: subjectView.superview)
     }
@@ -361,7 +364,7 @@ private extension ImageZoomController {
     }
     
     func imageDoesntFitScreen() -> Bool {
-        guard let view = view else { return false }
+        guard let view = containerView else { return false }
         return scrollView.contentSize.width > view.frame.size.width
     }
 }
@@ -387,7 +390,7 @@ private extension ImageZoomController {
     }
     
     func neededContentState() -> ImageZoomControllerContentState {
-        guard let view = view else { return .smallerThanAnsestorView }
+        guard let view = containerView else { return .smallerThanAnsestorView }
         return  scrollView.contentSize.width >= view.frame.size.width ||
                 scrollView.contentSize.height >= view.frame.size.height ?   .fillsAnsestorView :
                                                                             .smallerThanAnsestorView
@@ -436,7 +439,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
     
     func presentOverlay() {
         guard   let imageView = owner.imageView,
-                let view = owner.view else { return }
+                let view = owner.containerView else { return }
         
         imageView.alpha = 0
         
@@ -471,7 +474,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     
     func presentOverlay() {
         guard   let owner = owner,
-                let view = owner.view else { return }
+                let view = owner.containerView else { return }
         
         owner.scrollView.addSubview(owner.scrollableImageView)
         view.addSubview(owner.scrollView)
@@ -548,7 +551,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         guard   let owner = owner,
                 owner.settings.isEnabled,
-                let view = owner.view else { return }
+                let view = owner.containerView else { return }
         
         if gestureRecognizer.state == .began {
             owner.originalOverlayImageViewCenter = owner.overlayImageView.center

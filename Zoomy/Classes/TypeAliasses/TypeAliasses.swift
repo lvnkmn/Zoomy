@@ -22,3 +22,7 @@ public typealias ImageViewScale = CGFloat
 ///
 /// Note that ImageScale is different from the scale of the imageView, see ImageViewScale.
 public typealias ImageScale = CGFloat
+
+public typealias ZoomSettings = ImageZoomControllerSettings
+
+public typealias ZoomDelegate = ImageZoomControllerDelegate
