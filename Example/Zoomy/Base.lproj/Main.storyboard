@@ -226,7 +226,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pmG-LL-DRe">
             <objects>
-                <navigationController id="qGf-8N-XcY" sceneMemberID="viewController">
+                <navigationController id="qGf-8N-XcY" customClass="NavigationController" customModule="Zoomy_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAk-ha-DlW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

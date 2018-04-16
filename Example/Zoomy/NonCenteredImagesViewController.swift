@@ -19,8 +19,6 @@ class NonCenteredImagesViewController: UIViewController {
         
         addZoombehavior(for: imageView1)
         addZoombehavior(for: imageView2)
-        
-        setupNavigationBarTogglingBehavior()
     }
 }
 
@@ -38,23 +36,6 @@ extension NonCenteredImagesViewController: ZoomDelegate {
     
     func contentStateDidChange(from fromState: ImageZoomControllerContentState, to toState: ImageZoomControllerContentState) {
         print("contentState did change from state: \(fromState) to state: \(toState)")
-    }
-}
-
-// MARK: - Toggling the navigation bar
-extension NonCenteredImagesViewController {
-    
-    func setupNavigationBarTogglingBehavior() {
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapBackground(with:))))
-    }
-    
-    @objc func didTapBackground(with recognizer: UITapGestureRecognizer) {
-        guard let navigationController = navigationController else { return }
-        
-        if navigationController.isNavigationBarHidden {
-            navigationController.setNavigationBarHidden(false, animated: true)
-        } else {
-            navigationController.setNavigationBarHidden(true, animated: true)
-        }
+        //You might want to show/hide statusbar here
     }
 }
