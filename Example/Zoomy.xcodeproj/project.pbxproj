@@ -20,6 +20,7 @@
 		DE0774CB2084B74100BE3D04 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C62084B66A00BE3D04 /* MockViewController.swift */; };
 		DE0774CC2084B74500BE3D04 /* MockViewControllerThatIsZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */; };
 		DE0774CF2084BA7700BE3D04 /* FakeZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */; };
+		DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F4D112084E66B0027C954 /* NavigationController.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
 		DECB2ACD2084C610006ED8CE /* AssertionMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */; };
 		DECB2ACF2084C63C006ED8CE /* ViewControllerThatIsZoomDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB2ACE2084C63C006ED8CE /* ViewControllerThatIsZoomDelegateTests.swift */; };
@@ -62,6 +63,7 @@
 		DE0774C62084B66A00BE3D04 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewControllerThatIsZoomDelegate.swift; sourceTree = "<group>"; };
 		DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeZoomDelegate.swift; sourceTree = "<group>"; };
+		DE1F4D112084E66B0027C954 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionMessages.swift; sourceTree = "<group>"; };
 		DECB2ACE2084C63C006ED8CE /* ViewControllerThatIsZoomDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerThatIsZoomDelegateTests.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		DE30706E2080C58D00D043C6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DE1F4D112084E66B0027C954 /* NavigationController.swift */,
 				DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */,
 				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
 				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */,
+				DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
 				DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */,
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
