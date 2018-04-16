@@ -142,26 +142,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trees_0" translatesAutoresizingMaskIntoConstraints="NO" id="hCj-ro-JsF">
-                                <rect key="frame" x="75" y="114" width="300" height="169"/>
+                                <rect key="frame" x="55" y="114" width="300" height="169"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="791-NS-kmK"/>
                                     <constraint firstAttribute="width" secondItem="hCj-ro-JsF" secondAttribute="height" multiplier="455:256" id="L3n-to-qN8"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trees_8" translatesAutoresizingMaskIntoConstraints="NO" id="XW1-rL-EMA">
-                                <rect key="frame" x="0.0" y="347" width="200" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trees_5" translatesAutoresizingMaskIntoConstraints="NO" id="XW1-rL-EMA">
+                                <rect key="frame" x="20" y="361" width="300" height="225"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="XW1-rL-EMA" secondAttribute="height" multiplier="2:3" id="ZGw-2Z-jm9"/>
-                                    <constraint firstAttribute="width" constant="200" id="bEk-7z-DfF"/>
+                                    <constraint firstAttribute="width" secondItem="XW1-rL-EMA" secondAttribute="height" multiplier="4:3" id="GXE-2M-uzS"/>
+                                    <constraint firstAttribute="width" constant="300" id="u9y-m6-WTo"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hCj-ro-JsF" secondAttribute="trailing" id="3ch-3s-6It"/>
+                            <constraint firstAttribute="trailing" secondItem="hCj-ro-JsF" secondAttribute="trailing" constant="20" id="3ch-3s-6It"/>
                             <constraint firstItem="hCj-ro-JsF" firstAttribute="top" secondItem="ak5-O7-U9F" secondAttribute="top" constant="114" id="Aef-Nv-Lir"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="XW1-rL-EMA" secondAttribute="bottom" constant="20" id="Bqb-jD-2JA"/>
-                            <constraint firstItem="XW1-rL-EMA" firstAttribute="leading" secondItem="ak5-O7-U9F" secondAttribute="leading" id="TOB-uy-eS3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="XW1-rL-EMA" secondAttribute="bottom" constant="81" id="Bqb-jD-2JA"/>
+                            <constraint firstItem="XW1-rL-EMA" firstAttribute="leading" secondItem="ak5-O7-U9F" secondAttribute="leading" constant="20" id="TOB-uy-eS3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -242,6 +242,6 @@
     </scenes>
     <resources>
         <image name="Trees_0" width="1365" height="768"/>
-        <image name="Trees_8" width="3648" height="5472"/>
+        <image name="Trees_5" width="2048" height="1536"/>
     </resources>
 </document>

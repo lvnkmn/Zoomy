@@ -1,7 +1,3 @@
-//
-//  Animations.swift
-//  Pods-Zoomy_Example
-//
 //  Created by Menno on 09/04/2018.
 //
 
