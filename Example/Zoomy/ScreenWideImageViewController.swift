@@ -13,16 +13,14 @@ class ScreenWideImageViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    private var zoomController: ImageZoomController?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        zoomController = ImageZoomController(view: view, imageView: imageView, delegate: self)
+        addZoombehavior(for: imageView)
     }
 }
 
-extension ScreenWideImageViewController: ImageZoomControllerDelegate {
+extension ScreenWideImageViewController: ZoomDelegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         navigationController?.setNavigationBarHidden(true, animated: true)

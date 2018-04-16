@@ -14,8 +14,6 @@ class StackViewImagesViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var zoomControllers = [UIView: ImageZoomController]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +24,7 @@ class StackViewImagesViewController: UIViewController {
             imageView.addImageAspectRatioContraint()
             self.stackView.addArrangedSubview(imageView)
             
-            zoomControllers[imageView] = ImageZoomController(view: view, imageView: imageView, delegate: self, settings: .backgroundEnabledSettings)
+            addZoombehavior(for: imageView, settings: .backgroundEnabledSettings)
         }
     }
 
@@ -35,7 +33,7 @@ class StackViewImagesViewController: UIViewController {
     }
 }
 
-extension StackViewImagesViewController: ImageZoomControllerDelegate {
+extension StackViewImagesViewController: ZoomDelegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         scrollView.isScrollEnabled = false
