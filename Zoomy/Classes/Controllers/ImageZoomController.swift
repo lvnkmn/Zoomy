@@ -12,9 +12,11 @@ public class ImageZoomController: NSObject {
     
     public var settings: ImageZoomControllerSettings
     
-    // MARK: Internal properties
-    weak internal fileprivate(set) var containerView: UIView?
-    weak internal fileprivate(set) var imageView: UIImageView?
+    /// View in which zoom will take place
+    weak public private(set) var containerView: UIView?
+    
+    /// The imageView that is to be the source of the zoom interactions
+    weak public private(set) var imageView: UIImageView?
     
     // MARK: Fileprivate Properties
     fileprivate lazy var scrollableImageView = createScrollableImageView()

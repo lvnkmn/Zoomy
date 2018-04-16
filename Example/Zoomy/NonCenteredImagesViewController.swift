@@ -1,32 +1,35 @@
 //
-//  ViewController.swift
-//  Zoomy
+//  TextViewImagesViewController.swift
+//  Zoomy_Example
 //
-//  Created by Menno Lovink on 04/09/2018.
-//  Copyright (c) 2018 Menno Lovink. All rights reserved.
+//  Created by Menno on 15/04/2018.
+//  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import Zoomy
 
-class ScreenWideImageViewController: UIViewController {
-    
-    @IBOutlet weak var imageView: UIImageView!
+class NonCenteredImagesViewController: UIViewController {
+
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addZoombehavior(for: imageView)
+        addZoombehavior(for: imageView1)
+        addZoombehavior(for: imageView2)
         
         setupNavigationBarTogglingBehavior()
     }
 }
 
 //MARK: - ZoomDelegate
-extension ScreenWideImageViewController: ZoomDelegate {
+extension NonCenteredImagesViewController: ZoomDelegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         print("did begin presenting overlay for imageView: \(imageView)")
+        imageZoomControllers.values.filter{ $0.imageView !== imageView }.forEach{ $0.dismissOverlay() }
     }
     
     func didEndPresentingOverlay(for imageView: UIImageView) {
@@ -39,7 +42,7 @@ extension ScreenWideImageViewController: ZoomDelegate {
 }
 
 // MARK: - Toggling the navigation bar
-extension ScreenWideImageViewController {
+extension NonCenteredImagesViewController {
     
     func setupNavigationBarTogglingBehavior() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapBackground(with:))))
