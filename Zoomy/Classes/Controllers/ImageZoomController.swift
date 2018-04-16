@@ -12,7 +12,10 @@ public class ImageZoomController: NSObject {
     
     public var settings: ImageZoomControllerSettings
     
+    /// View in which zoom will take place
     weak public private(set) var containerView: UIView?
+    
+    /// The imageView that is to be the source of the zoom interactions
     weak public private(set) var imageView: UIImageView?
     
     // MARK: Fileprivate Properties
