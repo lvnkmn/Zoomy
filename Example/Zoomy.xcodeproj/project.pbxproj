@@ -16,7 +16,7 @@
 		607FACEC1AFB9204008FA782 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */; };
 		93369F51A8DEED868750E40D /* Pods_Zoomy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C03BBA68E05283D1C9F2369 /* Pods_Zoomy_Example.framework */; };
 		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
-		DE0774C520837D4900BE3D04 /* TextViewImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */; };
+		DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */; };
 		DE0774CB2084B74100BE3D04 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C62084B66A00BE3D04 /* MockViewController.swift */; };
 		DE0774CC2084B74500BE3D04 /* MockViewControllerThatIsZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */; };
 		DE0774CF2084BA7700BE3D04 /* FakeZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */; };
@@ -58,7 +58,7 @@
 		A5A58D9D2F53FA263ABE7754 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B8BCB570BE4806F737DBA255 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+addImageAspectRatioContraint.swift"; sourceTree = "<group>"; };
-		DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewImagesViewController.swift; sourceTree = "<group>"; };
+		DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCenteredImagesViewController.swift; sourceTree = "<group>"; };
 		DE0774C62084B66A00BE3D04 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewControllerThatIsZoomDelegate.swift; sourceTree = "<group>"; };
 		DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeZoomDelegate.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 				DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */,
 				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
 				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
-				DE0774C420837D4900BE3D04 /* TextViewImagesViewController.swift */,
+				DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 			files = (
 				DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
-				DE0774C520837D4900BE3D04 /* TextViewImagesViewController.swift in Sources */,
+				DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */,
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
