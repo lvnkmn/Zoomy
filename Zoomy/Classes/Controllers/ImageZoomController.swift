@@ -18,6 +18,9 @@ public class ImageZoomController: NSObject {
     /// The imageView that is to be the source of the zoom interactions
     weak public private(set) var imageView: UIImageView?
     
+    /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
+    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
+    
     // MARK: Fileprivate Properties
     fileprivate lazy var scrollableImageView = createScrollableImageView()
     fileprivate lazy var overlayImageView = createOverlayImageView()
@@ -70,9 +73,6 @@ public class ImageZoomController: NSObject {
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
-    
-    /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     private var minimumPinchScale: ImageViewScale {
