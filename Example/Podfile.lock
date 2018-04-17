@@ -1,6 +1,6 @@
 PODS:
   - PureLayout (3.0.2)
-  - Zoomy (1.2.0):
+  - Zoomy (1.2.1):
     - PureLayout (~> 3.0)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  Zoomy: 83211a8dba023d35cff97480eac9c178aa886e39
+  Zoomy: 3338ab5418cd7fb321f505ed70a6c34ae795448c
 
 PODFILE CHECKSUM: 9e9171665ddd2424d55bd45e5d106c8d713a92e3
 
