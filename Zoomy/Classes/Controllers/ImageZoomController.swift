@@ -438,10 +438,12 @@ private protocol ImageZoomControllerState {
 }
 
 private struct IsNotPresentingOverlayState: ImageZoomControllerState {
-    let owner: ImageZoomController
+    
+    weak var owner: ImageZoomController?
     
     func presentOverlay() {
-        guard   let imageView = owner.imageView,
+        guard   let owner = owner,
+                let imageView = owner.imageView,
                 let view = owner.containerView else { return }
         
         imageView.alpha = 0
@@ -571,25 +573,26 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
 
 private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
     
-    let owner: ImageZoomController
+    weak var owner: ImageZoomController?
     
     func presentOverlay() {}
     
     func dismissOverlay() {
-        guard let imageView = owner.imageView else { return }
+        guard   let owner = owner,
+                let imageView = owner.imageView else { return }
         
         animateSpring(withAnimations: {
-            self.owner.scrollView.zoomScale = self.owner.minimumZoomScale
-            self.owner.scrollView.frame = self.owner.absoluteFrame(of: imageView)
+            owner.scrollView.zoomScale = owner.minimumZoomScale
+            owner.scrollView.frame = owner.absoluteFrame(of: imageView)
         }) { _ in
-            self.owner.reset()
-            self.owner.configureImageView()
-            self.owner.delegate?.didEndPresentingOverlay(for: imageView)
+            owner.reset()
+            owner.configureImageView()
+            owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
         if owner.settings.shouldDisplayBackground {
             animate {
-                self.owner.backgroundView.alpha = 0
+                owner.backgroundView.alpha = 0
             }
         }
     }
