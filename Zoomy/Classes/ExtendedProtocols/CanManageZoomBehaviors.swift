@@ -55,8 +55,11 @@ public extension CanManageZoomBehaviors {
 
 public extension CanManageZoomBehaviors where Self: HasImageZoomControllers {
     
-    
     func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: ZoomDelegate?, settings: ZoomSettings) {
+        if let previousController = imageZoomControllers[imageView] {
+            previousController.reset()
+        }
+        
         imageZoomControllers[imageView] = ImageZoomController(container: containerView, imageView: imageView, delegate: delegate, settings: settings)
     }
     
