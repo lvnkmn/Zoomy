@@ -105,9 +105,6 @@ public class ImageZoomController: NSObject {
         super.init()
         
         configureImageView()
-        
-        overlayImageView.image = imageView.image
-        scrollableImageView.image = imageView.image
     }
     
     /// Initializer
@@ -450,6 +447,7 @@ private struct IsNotPresentingOverlayState: ImageZoomControllerState {
         }
         
         view.addSubview(owner.overlayImageView)
+        owner.overlayImageView.image = owner.imageView?.image
         owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
         
         defer {
@@ -476,6 +474,7 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
         guard   let owner = owner,
                 let view = owner.containerView else { return }
         
+        owner.scrollableImageView.image = owner.imageView?.image
         owner.scrollView.addSubview(owner.scrollableImageView)
         view.addSubview(owner.scrollView)
         owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
