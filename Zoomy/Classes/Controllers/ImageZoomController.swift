@@ -143,7 +143,7 @@ public class ImageZoomController: NSObject {
     }
 }
 
-//MARK: - Public methods
+//MARK: Public methods
 public extension ImageZoomController {
     
     /// Dismiss all currently presented overlays
@@ -172,7 +172,7 @@ public extension ImageZoomController {
     }
 }
 
-//MARK: - Gesture Event Handlers
+//MARK: Gesture Event Handlers
 private extension ImageZoomController {
     
     @objc func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
@@ -213,7 +213,7 @@ private extension ImageZoomController {
     }
 }
 
-//MARK: - Setup
+//MARK: Setup
 private extension ImageZoomController {
     
     func createScrollView() -> UIScrollView {
@@ -251,7 +251,7 @@ private extension ImageZoomController {
     }
 }
 
-//MARK: - Calculations
+//MARK: Calculations
 private extension ImageZoomController {
     
     func adjustedScrollViewFrame() -> CGRect {
@@ -372,7 +372,7 @@ private extension ImageZoomController {
     }
 }
 
-//MARK: - Other
+//MARK: Other
 private extension ImageZoomController {
     
     func adjustFrame(of scrollView: UIScrollView) {
@@ -400,7 +400,7 @@ private extension ImageZoomController {
     }
 }
 
-// MARK: - UIScrollViewDelegate
+// MARK: UIScrollViewDelegate
 extension ImageZoomController: UIScrollViewDelegate {
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -422,7 +422,7 @@ extension ImageZoomController: UIScrollViewDelegate {
     }
 }
 
-//MARK: - UIGestureRecognizerDelegate
+//MARK: UIGestureRecognizerDelegate
 extension ImageZoomController: UIGestureRecognizerDelegate {
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -430,7 +430,7 @@ extension ImageZoomController: UIGestureRecognizerDelegate {
     }
 }
 
-//MARK: - ZoomControllerState
+//MARK: - States
 private protocol ImageZoomControllerState {
     func presentOverlay()
     func dismissOverlay()
@@ -438,10 +438,12 @@ private protocol ImageZoomControllerState {
 }
 
 private struct IsNotPresentingOverlayState: ImageZoomControllerState {
-    let owner: ImageZoomController
+    
+    weak var owner: ImageZoomController?
     
     func presentOverlay() {
-        guard   let imageView = owner.imageView,
+        guard   let owner = owner,
+                let imageView = owner.imageView,
                 let view = owner.containerView else { return }
         
         imageView.alpha = 0
@@ -571,25 +573,26 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
 
 private struct IsPresentingScrollViewOverlayState: ImageZoomControllerState {
     
-    let owner: ImageZoomController
+    weak var owner: ImageZoomController?
     
     func presentOverlay() {}
     
     func dismissOverlay() {
-        guard let imageView = owner.imageView else { return }
+        guard   let owner = owner,
+                let imageView = owner.imageView else { return }
         
         animateSpring(withAnimations: {
-            self.owner.scrollView.zoomScale = self.owner.minimumZoomScale
-            self.owner.scrollView.frame = self.owner.absoluteFrame(of: imageView)
+            owner.scrollView.zoomScale = owner.minimumZoomScale
+            owner.scrollView.frame = owner.absoluteFrame(of: imageView)
         }) { _ in
-            self.owner.reset()
-            self.owner.configureImageView()
-            self.owner.delegate?.didEndPresentingOverlay(for: imageView)
+            owner.reset()
+            owner.configureImageView()
+            owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
         if owner.settings.shouldDisplayBackground {
             animate {
-                self.owner.backgroundView.alpha = 0
+                owner.backgroundView.alpha = 0
             }
         }
     }
