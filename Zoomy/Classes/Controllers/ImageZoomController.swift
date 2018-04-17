@@ -135,6 +135,12 @@ public class ImageZoomController: NSObject {
     public convenience init(container containerView: UIView, imageView: UIImageView, settings: ImageZoomControllerSettings) {
         self.init(container: containerView, imageView: imageView, delegate: nil, settings: settings)
     }
+    
+    // MARK: Deinitalizer
+    deinit {
+        imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
+        imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
+    }
 }
 
 //MARK: - Public methods
