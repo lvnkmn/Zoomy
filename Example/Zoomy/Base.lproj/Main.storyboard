@@ -206,7 +206,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="rr6-Mp-uem" secondAttribute="bottom" id="9Xr-To-teU"/>
                             <constraint firstAttribute="trailing" secondItem="rr6-Mp-uem" secondAttribute="trailing" id="Vmy-lI-s6c"/>

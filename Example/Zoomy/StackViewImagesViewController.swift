@@ -24,7 +24,8 @@ class StackViewImagesViewController: UIViewController {
             imageView.addImageAspectRatioContraint()
             self.stackView.addArrangedSubview(imageView)
             
-            addZoombehavior(for: imageView, settings: .backgroundEnabledSettings)
+            addZoombehavior(for: imageView, settings: ZoomSettings.backgroundEnabledSettings.with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
+                                                                                            .with(secundaryBackgroundColor: .black))
         }
     }
 
