@@ -474,64 +474,21 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
     weak var owner: ImageZoomController?
     var isDismissingOverlay = false
     
+    private var neededContentOffSet: CGPoint?
+    private var contentOffsetCorrectionDueToZoomDifference: CGPoint?
+    
     init(owner: ImageZoomController) {
         self.owner = owner
     }
     
     func presentOverlay() {
-        guard   let owner = owner,
-                let view = owner.containerView else { return }
+        guard let owner = owner else { return }
         
-        owner.scrollableImageView.image = owner.imageView?.image
-        owner.scrollView.addSubview(owner.scrollableImageView)
-        view.addSubview(owner.scrollView)
-        owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
-        owner.scrollView.contentOffset = CGPoint.zero
-        owner.scrollView.minimumZoomScale = owner.minimumZoomScale
-        owner.scrollView.maximumZoomScale = owner.settings.maximumZoomScale
-        owner.shouldAdjustScrollViewFrameAfterZooming = false
-        owner.scrollView.zoomScale = owner.zoomScale(from: owner.overlayImageView)
-        owner.shouldAdjustScrollViewFrameAfterZooming = true
-        owner.scrollView.contentSize =  owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?
-                                        owner.maximumImageSizeSize() :
-                                        owner.overlayImageView.frame.size
-        
-        owner.contentState = owner.neededContentState()
-        
-        //Configure scrollView with state that best matches the state of the overlayImageView (when it is scaled down to maximumZoomScale when needed)
-        let fromFrame = owner.overlayImageView.frame
-        let differenceBetweenNeededFrame = owner.adjustedScrollViewFrame().difference(with: fromFrame)
-        
-        let neededContentOffSet: CGPoint
-        let contentOffsetCorrectionDueToZoomDifference: CGPoint
-        if owner.zoomScale(from: owner.overlayImageView) <= owner.settings.maximumZoomScale {
-            contentOffsetCorrectionDueToZoomDifference = CGPoint.zero
-            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x,
-                                          y: differenceBetweenNeededFrame.origin.y)
-        } else {
-            let fromSize = owner.overlayImageView.frame.size
-            let toSize = owner.scrollView.contentSize
-            contentOffsetCorrectionDueToZoomDifference = CGPoint(x: (fromSize.width - toSize.width) / 2,
-                                                                 y: (fromSize.height - toSize.height) / 2)
-            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x - contentOffsetCorrectionDueToZoomDifference.x,
-                                          y: differenceBetweenNeededFrame.origin.y - contentOffsetCorrectionDueToZoomDifference.y)
-        }
-        
-        owner.scrollView.frame = owner.adjustedScrollViewFrame()
-        owner.scrollView.contentOffset = owner.corrected(contentOffset: neededContentOffSet)
-        
-        //Animate the overlayImageView towards the expected endState of the scrollView
-        let correction = owner.contentOffsetCorrection(on: neededContentOffSet)
-        
-        let expectedFrameOfScrollableImageView = CGRect(x: fromFrame.origin.x + correction.x + contentOffsetCorrectionDueToZoomDifference.x,
-                                                        y: fromFrame.origin.y + correction.y + contentOffsetCorrectionDueToZoomDifference.y,
-                                                        width: owner.scrollView.contentSize.width,
-                                                        height: owner.scrollView.contentSize.height)
+        configureScrollView()
         
         owner.scrollView.isHidden = true
-        
         animateSpring(withAnimations: {
-            owner.overlayImageView.frame = expectedFrameOfScrollableImageView
+            owner.overlayImageView.frame = self.calculateExpectedFrameOfScrollableImageView()
         }) { _ in
             guard !self.isDismissingOverlay else { return }
             
@@ -582,6 +539,70 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
             owner.overlayImageView.center = CGPoint(x: originalOverlayImageViewCenter.x + translation.x,
                                                     y: originalOverlayImageViewCenter.y + translation.y)
         }
+    }
+}
+
+private extension IsPresentingImageViewOverlayState {
+    
+    /// Configures the scrollView to mimic the state of owner.overlayImageView as close as possible
+    func configureScrollView() {
+        guard   let owner = owner,
+                let containerView = owner.containerView else { return }
+        
+        owner.scrollableImageView.image = owner.imageView?.image
+        owner.scrollView.addSubview(owner.scrollableImageView)
+        containerView.addSubview(owner.scrollView)
+        owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
+        owner.scrollView.contentOffset = CGPoint.zero
+        owner.scrollView.minimumZoomScale = owner.minimumZoomScale
+        owner.scrollView.maximumZoomScale = owner.settings.maximumZoomScale
+        owner.shouldAdjustScrollViewFrameAfterZooming = false
+        owner.scrollView.zoomScale = owner.zoomScale(from: owner.overlayImageView)
+        owner.shouldAdjustScrollViewFrameAfterZooming = true
+        owner.scrollView.contentSize =  owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ? owner.maximumImageSizeSize() : owner.overlayImageView.frame.size
+        owner.contentState = owner.neededContentState()
+        owner.scrollView.frame = owner.adjustedScrollViewFrame()
+        owner.scrollView.contentOffset = owner.corrected(contentOffset: calculateNeededContentOffSet())
+    }
+    
+    /// Calculate the offset that the scrollView needs to have the absolute frame of scrollableImageView be the same as the absolute frame of overlayImageView
+    func calculateNeededContentOffSet() -> CGPoint {
+        guard let owner = owner else { return CGPoint.zero }
+        
+        let differenceBetweenNeededFrame = owner.adjustedScrollViewFrame().difference(with: fromFrame)
+        if owner.zoomScale(from: owner.overlayImageView) <= owner.settings.maximumZoomScale {
+            contentOffsetCorrectionDueToZoomDifference = CGPoint.zero
+            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x,
+                                          y: differenceBetweenNeededFrame.origin.y)
+        } else {
+            let fromSize = owner.overlayImageView.frame.size
+            let toSize = owner.scrollView.contentSize
+            let zoomCorrection = CGPoint(x: (fromSize.width - toSize.width) / 2,
+                                         y: (fromSize.height - toSize.height) / 2)
+            contentOffsetCorrectionDueToZoomDifference = zoomCorrection
+            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x - zoomCorrection.x,
+                                          y: differenceBetweenNeededFrame.origin.y - zoomCorrection.y)
+        }
+
+        return neededContentOffSet ?? CGPoint.zero
+    }
+    
+    /// The actual absolute frame of scrollableImageView might different to the absolute frame of overlayImageView, this method calculates what the absolute frame of scrollableImageView will be
+    func calculateExpectedFrameOfScrollableImageView() -> CGRect {
+        guard   let owner = owner,
+                let neededContentOffSet = neededContentOffSet,
+                let contentOffsetCorrectionDueToZoomDifference = contentOffsetCorrectionDueToZoomDifference else { return CGRect.zero }
+        
+        let contentOffsetCorrectionDueToScrollView = owner.contentOffsetCorrection(on: neededContentOffSet)
+        return CGRect(x: fromFrame.origin.x + contentOffsetCorrectionDueToScrollView.x + contentOffsetCorrectionDueToZoomDifference.x,
+                      y: fromFrame.origin.y + contentOffsetCorrectionDueToScrollView.y + contentOffsetCorrectionDueToZoomDifference.y,
+                      width: owner.scrollView.contentSize.width,
+                      height: owner.scrollView.contentSize.height)
+    }
+    
+    var fromFrame: CGRect {
+        guard let overlayImageView = owner?.overlayImageView else { return CGRect.zero }
+        return overlayImageView.frame
     }
 }
 
