@@ -498,19 +498,33 @@ private class IsPresentingImageViewOverlayState: ImageZoomControllerState {
         
         owner.contentState = owner.neededContentState()
         
-        //Configure scrollView with state that best matches the state of the overlayImageView
+        //Configure scrollView with state that best matches the state of the overlayImageView (when it is scaled down to maximumZoomScale when needed)
         let fromFrame = owner.overlayImageView.frame
         let differenceBetweenNeededFrame = owner.adjustedScrollViewFrame().difference(with: fromFrame)
-        let neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x,
+        
+        let neededContentOffSet: CGPoint
+        let contentOffsetCorrectionDueToZoomDifference: CGPoint
+        if owner.zoomScale(from: owner.overlayImageView) <= owner.settings.maximumZoomScale {
+            contentOffsetCorrectionDueToZoomDifference = CGPoint.zero
+            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x,
                                           y: differenceBetweenNeededFrame.origin.y)
+        } else {
+            let fromSize = owner.overlayImageView.frame.size
+            let toSize = owner.scrollView.contentSize
+            contentOffsetCorrectionDueToZoomDifference = CGPoint(x: (fromSize.width - toSize.width) / 2,
+                                                                 y: (fromSize.height - toSize.height) / 2)
+            neededContentOffSet = CGPoint(x: differenceBetweenNeededFrame.origin.x - contentOffsetCorrectionDueToZoomDifference.x,
+                                          y: differenceBetweenNeededFrame.origin.y - contentOffsetCorrectionDueToZoomDifference.y)
+        }
         
         owner.scrollView.frame = owner.adjustedScrollViewFrame()
         owner.scrollView.contentOffset = owner.corrected(contentOffset: neededContentOffSet)
         
         //Animate the overlayImageView towards the expected endState of the scrollView
         let correction = owner.contentOffsetCorrection(on: neededContentOffSet)
-        let expectedFrameOfScrollableImageView = CGRect(x: fromFrame.origin.x + correction.x,
-                                                        y: fromFrame.origin.y + correction.y,
+        
+        let expectedFrameOfScrollableImageView = CGRect(x: fromFrame.origin.x + correction.x + contentOffsetCorrectionDueToZoomDifference.x,
+                                                        y: fromFrame.origin.y + correction.y + contentOffsetCorrectionDueToZoomDifference.y,
                                                         width: owner.scrollView.contentSize.width,
                                                         height: owner.scrollView.contentSize.height)
         
