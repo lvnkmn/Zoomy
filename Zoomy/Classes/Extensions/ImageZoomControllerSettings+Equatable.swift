@@ -10,7 +10,7 @@ extension ImageZoomControllerSettings: Equatable {
                 lhs.maximumZoomScale == rhs.maximumZoomScale &&
                 lhs.isEnabled == rhs.isEnabled &&
                 lhs.shouldDisplayBackground == rhs.shouldDisplayBackground &&
-                lhs.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn == rhs.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn &&
-                lhs.backgroundWhenContentFillsViewItsDisplayedIn == rhs.backgroundWhenContentFillsViewItsDisplayedIn
+                lhs.primaryBackgroundColor == rhs.primaryBackgroundColor &&
+                lhs.secundaryBackgroundColor == rhs.secundaryBackgroundColor
     }
 }

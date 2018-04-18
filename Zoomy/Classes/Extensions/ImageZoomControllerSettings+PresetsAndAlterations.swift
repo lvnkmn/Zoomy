@@ -45,15 +45,15 @@ public extension ImageZoomControllerSettings {
         return settings
     }
     
-    func with(backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
+    func with(primaryBackgroundColor: UIColor) -> ImageZoomControllerSettings {
         var settings = self
-        settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn = backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
+        settings.primaryBackgroundColor = primaryBackgroundColor
         return settings
     }
     
-    func with(backgroundWhenContentFillsViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
+    func with(secundaryBackgroundColor: UIColor) -> ImageZoomControllerSettings {
         var settings = self
-        settings.backgroundWhenContentFillsViewItsDisplayedIn = backgroundWhenContentFillsViewItsDisplayedIn
+        settings.secundaryBackgroundColor = secundaryBackgroundColor
         return settings
     }
 }
