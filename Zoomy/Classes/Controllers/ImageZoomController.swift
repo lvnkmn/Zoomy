@@ -27,7 +27,7 @@ public class ImageZoomController: NSObject {
     fileprivate lazy var scrollView = createScrollView()
     fileprivate lazy var backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
+        view.backgroundColor = settings.primaryBackgroundColor
         return view
     }()
 
@@ -386,9 +386,9 @@ private extension ImageZoomController {
     func backgroundColor(for state: ImageZoomControllerContentState) -> UIColor {
         switch state {
         case .smallerThanAnsestorView:
-            return settings.backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn
+            return settings.primaryBackgroundColor
         case .fillsAnsestorView:
-            return settings.backgroundWhenContentFillsViewItsDisplayedIn
+            return settings.secundaryBackgroundColor
         }
     }
     
