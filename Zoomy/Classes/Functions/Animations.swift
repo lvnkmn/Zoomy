@@ -14,7 +14,6 @@ internal func animateSpring(withAnimations animations:@escaping ()->(), completi
                    delay: 0,
                    usingSpringWithDamping: 0.66,
                    initialSpringVelocity: 0.5,
-                   options: .allowUserInteraction,
                    animations: animations,
                    completion: completion)
 }
