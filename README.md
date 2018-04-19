@@ -10,12 +10,12 @@ Zoomy allows you to add seamless scrollView like zooming to UIImageView's in any
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Setup
-Just import `Zoomy`, and add zoomBehavior for the imageViews that need it
+Just import `Zoomy`, and add zoomBehavior for the imageViews that need it.
 ```swift
 import Zoomy
 ```
 ```swift
-//Somewhere in your viewController:
+//In your viewController:
 addZoombehavior(for: imageView)
 ```
 For more advanced use cases:
