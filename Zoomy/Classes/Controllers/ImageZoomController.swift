@@ -303,6 +303,10 @@ private extension ImageZoomController {
         return imageView.frame.size.width / image.size.width
     }
     
+    func zoomScale(from pinchScale: ImageViewScale) -> ImageScale {
+        return pinchScale * minimumZoomScale
+    }
+    
     func pinchScale(from zoomScale: ImageScale) -> ImageViewScale {
         return zoomScale / minimumZoomScale
     }
@@ -412,7 +416,8 @@ extension ImageZoomController: UIScrollViewDelegate {
     }
     
     public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        if scrollView.zoomScale <= minimumZoomScale {
+        if  scrollView.zoomScale <= minimumZoomScale ||
+            scrollView.zoomScale <= zoomScale(from: settings.zoomCancelingThreshold) {
             state.dismissOverlay()
         }
     }
