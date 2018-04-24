@@ -1,6 +1,3 @@
-//  Created by Menno on 09/04/2018.
-//
-
 import Foundation
 
 public struct ImageZoomControllerSettings {
@@ -26,4 +23,9 @@ public struct ImageZoomControllerSettings {
     /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
     public var secundaryBackgroundColor = UIColor.white
+    
+    
+    /// The amount of point that have to be panned while scrollView is bouncing in order to dismiss the overlay
+    /// Note: Settings this value alone doesn't have effect when dismissal by bounce is not enabled
+    public var neededTranslationToDismissOverlayOnScrollBounce: CGFloat = 80
 }
