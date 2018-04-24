@@ -1,6 +1,3 @@
-//  Created by Menno on 09/04/2018.
-//
-
 import Foundation
 
 // MARK: Presets
@@ -54,6 +51,12 @@ public extension ImageZoomControllerSettings {
     func with(secundaryBackgroundColor: UIColor) -> ImageZoomControllerSettings {
         var settings = self
         settings.secundaryBackgroundColor = secundaryBackgroundColor
+        return settings
+    }
+    
+    func with(neededTranslationToDismissOverlayOnScrollBounce: CGFloat) -> ImageZoomControllerSettings {
+        var settings = self
+        settings.neededTranslationToDismissOverlayOnScrollBounce = neededTranslationToDismissOverlayOnScrollBounce
         return settings
     }
 }
