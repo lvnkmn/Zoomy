@@ -1,6 +1,3 @@
-//  Created by Menno on 09/04/2018.
-//
-
 import Foundation
 
 /// Shows to what extend the displayed content fits in the view it's displayed in
