@@ -1,6 +1,3 @@
-//  Created by Menno on 09/04/2018.
-//
-
 import Foundation
 
 extension ImageZoomControllerSettings: Equatable {
@@ -11,6 +8,7 @@ extension ImageZoomControllerSettings: Equatable {
                 lhs.isEnabled == rhs.isEnabled &&
                 lhs.shouldDisplayBackground == rhs.shouldDisplayBackground &&
                 lhs.primaryBackgroundColor == rhs.primaryBackgroundColor &&
-                lhs.secundaryBackgroundColor == rhs.secundaryBackgroundColor
+                lhs.secundaryBackgroundColor == rhs.secundaryBackgroundColor &&
+                lhs.neededTranslationToDismissOverlayOnScrollBounce == rhs.neededTranslationToDismissOverlayOnScrollBounce
     }
 }

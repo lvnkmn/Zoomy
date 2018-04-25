@@ -1,6 +1,3 @@
-//  Created by Menno on 09/04/2018.
-//
-
 import Foundation
 
 private let duration: TimeInterval = 0.5

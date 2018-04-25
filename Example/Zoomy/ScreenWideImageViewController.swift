@@ -9,14 +9,14 @@
 import UIKit
 import Zoomy
 
-class ScreenWideImageViewController: UIViewController {
+class ScreenWideImageViewController: UIViewController, ZoomyShortHand {
     
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addZoombehavior(for: imageView)
+        addZoombehavior(for: imageView, settings: Settings.defaultSettings.with(actionOnTapOverlay: Action.dismissOverlay))
     }
 }
 
