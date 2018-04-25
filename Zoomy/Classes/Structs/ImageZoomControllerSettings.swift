@@ -24,8 +24,22 @@ public struct ImageZoomControllerSettings {
     /// This will only have effect when shouldDisplayBackground is set to true
     public var secundaryBackgroundColor = UIColor.white
     
-    
     /// The amount of point that have to be panned while scrollView is bouncing in order to dismiss the overlay
     /// Note: Settings this value alone doesn't have effect when dismissal by bounce is not enabled
     public var neededTranslationToDismissOverlayOnScrollBounce: CGFloat = 80
+    
+    /// The action that will be triggered when the overlay is tapped
+    public var actionOnTapOverlay: Action = Action.none
+    
+    /// The action that will be triggered when scrollView is bouncing while scrolling towards the top
+    public var actionOnScrollBounceTop: Action & CanBeTriggeredByScrollBounceTop = Action.none
+    
+    /// The action that will be triggered when scrollView is bouncing while scrolling towards the left
+    public var actionOnScrollBounceLeft: Action & CanBeTriggeredByScrollBounceLeft = Action.none
+    
+    /// The action that will be triggered when scrollView is bouncing while scrolling towards the right
+    public var actionOnScrollBounceRight: Action & CanBeTriggeredByScrollBounceRight = Action.none
+    
+    /// The action that will be triggered when scrollView is bouncing while scrolling towards the bottom
+    public var actionOnScrollBounceBottom: Action & CanBeTriggeredByScrollBounceBottom = Action.none
 }

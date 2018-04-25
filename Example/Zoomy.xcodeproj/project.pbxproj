@@ -20,6 +20,7 @@
 		DE0774CB2084B74100BE3D04 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C62084B66A00BE3D04 /* MockViewController.swift */; };
 		DE0774CC2084B74500BE3D04 /* MockViewControllerThatIsZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */; };
 		DE0774CF2084BA7700BE3D04 /* FakeZoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */; };
+		DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */; };
 		DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F4D112084E66B0027C954 /* NavigationController.swift */; };
 		DE2F57F7208F84300009A33D /* BounceOffsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */; };
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
@@ -65,6 +66,7 @@
 		DE0774C62084B66A00BE3D04 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		DE0774C92084B6D100BE3D04 /* MockViewControllerThatIsZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewControllerThatIsZoomDelegate.swift; sourceTree = "<group>"; };
 		DE0774CD2084BA4800BE3D04 /* FakeZoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeZoomDelegate.swift; sourceTree = "<group>"; };
+		DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangingActionsViewController.swift; sourceTree = "<group>"; };
 		DE1F4D112084E66B0027C954 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceOffsetsTests.swift; sourceTree = "<group>"; };
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
 				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
 				DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */,
+				DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
 				DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */,
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
+				DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,

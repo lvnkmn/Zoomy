@@ -26,3 +26,6 @@ public typealias ImageScale = CGFloat
 public typealias ZoomSettings = ImageZoomControllerSettings
 
 public typealias ZoomDelegate = ImageZoomControllerDelegate
+
+/// Any type that conforms to this protocol will have access to shorter named types
+public typealias ZoomyShortHand = PublicImageZoomControllerShorthand

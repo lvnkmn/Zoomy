@@ -18,4 +18,7 @@ public extension PublicImageZoomControllerShorthand {
     typealias Delegate = ImageZoomControllerDelegate
     typealias Settings = ImageZoomControllerSettings
     typealias ContentState = ImageZoomControllerContentState
+    typealias Action = ImageZoomControllerAction
+    typealias DismissOverlayAction = ImageZoomControllerDismissOverlayAction
+    typealias NoneAction = ImageZoomControllerNoneAction
 }

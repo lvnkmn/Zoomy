@@ -1,4 +1,4 @@
-internal class ImageZoomControllerIsPresentingScrollViewOverlayState {
+internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
     
     // MARK: Private Propeties
     private weak var owner: ImageZoomController?
@@ -55,13 +55,45 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
                 let currentBounceOffsets = owner.currentBounceOffsets,
                 let dominantBouncingDirection = currentBounceOffsets.bouncingSides().first,
                 translation.dominantDirection == dominantBouncingDirection,
-                translation.value(in: dominantBouncingDirection) < maximumPanTranslationDuringBounceThatTriggersStateChange,
-                dominantBouncingDirection == .bottom else { return }
+                translation.value(in: dominantBouncingDirection) < maximumPanTranslationDuringBounceThatTriggersStateChange else { return }
 
         self.dominantBouncingDirection = dominantBouncingDirection
-        
         gestureRecognizer.setTranslation(CGPoint.zero, in: owner.containerView)
-        presentOverlay()
+        
+        didStartBouncingScroll(in: dominantBouncingDirection)
     }
 }
 
+//MARK: CanPerformAction
+extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformAction {
+    
+    func perform(action: ImageZoomControllerAction) {
+        guard !(action is NoneAction) else { return }
+        
+        if action is DismissOverlayAction {
+            presentOverlay() //By presenting the (temporary) imageOverlay we're dismissing the current (scrollView) overlay
+        }
+    }
+}
+
+//MARK: Private Methods
+private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
+    
+    func didStartBouncingScroll(in direction: Side) {
+        perform(action: action(for: direction))
+    }
+    
+    func action(for side: Side) -> Action {
+        guard let settings = owner?.settings else { return .none }
+        switch side {
+        case .top:
+            return settings.actionOnScrollBounceTop
+        case .left:
+            return settings.actionOnScrollBounceLeft
+        case .right:
+            return settings.actionOnScrollBounceRight
+        case .bottom:
+            return settings.actionOnScrollBounceBottom
+        }
+    }
+}

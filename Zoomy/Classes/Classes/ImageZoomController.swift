@@ -63,7 +63,7 @@ public class ImageZoomController: NSObject, ImageZoomControllerShorthand {
     }()
     
     private lazy var scrollableImageViewTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapScrollableImageView(with:)))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOverlay(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
@@ -180,10 +180,22 @@ private extension ImageZoomController {
         state.didPan(with: gestureRecognizer)
     }
     
-    @objc func didTapScrollableImageView(with gestureRecognizer: UITapGestureRecognizer) {
+    @objc func didTapOverlay(with gestureRecognizer: UITapGestureRecognizer) {
         guard settings.isEnabled else { return }
         
-        state.dismissOverlay()
+        perform(action: settings.actionOnTapOverlay)
+    }
+}
+
+//MARK: CanPerformAction
+extension ImageZoomController: CanPerformAction {
+    
+    func perform(action: ImageZoomControllerAction) {
+        guard !(action is NoneAction) else { return }
+        
+        if action is DismissOverlayAction {
+            state.dismissOverlay()
+        }
     }
 }
 
@@ -339,9 +351,9 @@ internal extension ImageZoomController {
     
     func bounceOffsets(from scrollView: UIScrollView) -> BounceOffsets {
         return BounceOffsets(top: max(scrollView.contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height) - adjustedContentInset(from: scrollView).bottom, 0),
-                             left: abs(min(scrollView.contentOffset.x + adjustedContentInset(from: scrollView).right, 0)),
+                             left: max(scrollView.contentOffset.x - (scrollView.contentSize.width - scrollView.frame.size.width) - adjustedContentInset(from: scrollView).left, 0),
                              bottom: abs(min(scrollView.contentOffset.y + adjustedContentInset(from: scrollView).top, 0)),
-                             right: max(scrollView.contentOffset.x - (scrollView.contentSize.width - scrollView.frame.size.width) - adjustedContentInset(from: scrollView).left, 0))
+                             right: abs(min(scrollView.contentOffset.x + adjustedContentInset(from: scrollView).right, 0)))
     }
     
     func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
