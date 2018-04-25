@@ -9,16 +9,16 @@
 import UIKit
 import Zoomy
 
-class NonCenteredImagesViewController: UIViewController {
+class NonCenteredImagesViewController: UIViewController, ZoomyShortHand {
 
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addZoombehavior(for: imageView1)
-        addZoombehavior(for: imageView2)
+        let settings = Settings.defaultSettings.with(actionOnTapOverlay: Action.dismissOverlay)
+        addZoombehavior(for: imageView1, settings: settings)
+        addZoombehavior(for: imageView2, settings: settings)
     }
 }
 

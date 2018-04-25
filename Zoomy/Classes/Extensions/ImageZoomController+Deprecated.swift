@@ -1,6 +1,3 @@
-//  Created by Menno on 21/03/2018.
-//
-
 import Foundation
 
 public extension ImageZoomController {
