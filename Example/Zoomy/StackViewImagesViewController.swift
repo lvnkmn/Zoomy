@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class StackViewImagesViewController: UIViewController {
+class StackViewImagesViewController: UIViewController, ZoomyShortHand {
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -25,7 +25,8 @@ class StackViewImagesViewController: UIViewController {
             self.stackView.addArrangedSubview(imageView)
             
             addZoombehavior(for: imageView, settings: ZoomSettings.backgroundEnabledSettings.with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
-                                                                                            .with(secundaryBackgroundColor: .black))
+                                                                                            .with(secundaryBackgroundColor: .black)
+                                                                                            .with(actionOnScrollBounceBottom: Action.dismissOverlay))
         }
     }
 
