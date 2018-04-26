@@ -20,6 +20,10 @@ class NonCenteredImagesViewController: UIViewController {
         addZoombehavior(for: imageView1, settings: settings)
         addZoombehavior(for: imageView2, settings: settings)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        imageZoomControllers.values.forEach{ $0.dismissOverlay() }
+    }
 }
 
 //MARK: - ZoomDelegate

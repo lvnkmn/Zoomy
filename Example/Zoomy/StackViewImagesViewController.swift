@@ -29,6 +29,10 @@ class StackViewImagesViewController: UIViewController {
                                                                                             .with(actionOnScrollBounceBottom: Action.dismissOverlay))
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        imageZoomControllers.values.forEach{ $0.dismissOverlay() }
+    }
 
     func removeStoryBoardImageView() {
         stackView.removeArrangedSubview(stackView.arrangedSubviews[0])

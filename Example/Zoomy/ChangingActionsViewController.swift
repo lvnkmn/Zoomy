@@ -37,6 +37,10 @@ class ChangingActionsViewController: UIViewController, ZoomyShortHand {
         addZoombehavior(for: imageView, settings: settings)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        imageZoomControllers.values.forEach{ $0.dismissOverlay() }
+    }
+    
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
         imageZoomControllers[imageView]?.settings = settings
     }
