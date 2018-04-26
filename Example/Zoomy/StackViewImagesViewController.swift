@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class StackViewImagesViewController: UIViewController, ZoomyShortHand {
+class StackViewImagesViewController: UIViewController {
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,7 +24,7 @@ class StackViewImagesViewController: UIViewController, ZoomyShortHand {
             imageView.addImageAspectRatioContraint()
             self.stackView.addArrangedSubview(imageView)
             
-            addZoombehavior(for: imageView, settings: ZoomSettings.backgroundEnabledSettings.with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
+            addZoombehavior(for: imageView, settings: Settings.backgroundEnabledSettings    .with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
                                                                                             .with(secundaryBackgroundColor: .black)
                                                                                             .with(actionOnScrollBounceBottom: Action.dismissOverlay))
         }
@@ -36,7 +36,7 @@ class StackViewImagesViewController: UIViewController, ZoomyShortHand {
 }
 
 //MARK: - ZoomDelegate
-extension StackViewImagesViewController: ZoomDelegate {
+extension StackViewImagesViewController: Zoomy.Delegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         print("did begin presenting overlay for imageView: \(imageView)")

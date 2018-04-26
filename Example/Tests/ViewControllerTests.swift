@@ -6,7 +6,7 @@ class ViewControllerTests: XCTestCase {
     
     let sut = MockViewController()
     
-    lazy var nonDefaultSettings = ZoomSettings.defaultSettings.with(zoomCancelingThreshold: 1.21231235)
+    lazy var nonDefaultSettings = Settings.defaultSettings.with(zoomCancelingThreshold: 1.21231235)
     lazy var fakeZoomDelegate = FakeZoomDelegate()
     
     override func tearDown() {
@@ -79,7 +79,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
-        XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == ZoomSettings.defaultSettings, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == Settings.defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate === fakeZoomDelegate, Message.expectedProvidedValue)
     }
     
@@ -101,7 +101,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
-        XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == ZoomSettings.defaultSettings, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == Settings.defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate == nil, Message.expectedDefaultValue)
     }
     

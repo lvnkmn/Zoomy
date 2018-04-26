@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class NonCenteredImagesViewController: UIViewController, ZoomyShortHand {
+class NonCenteredImagesViewController: UIViewController {
 
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!
@@ -23,7 +23,7 @@ class NonCenteredImagesViewController: UIViewController, ZoomyShortHand {
 }
 
 //MARK: - ZoomDelegate
-extension NonCenteredImagesViewController: ZoomDelegate {
+extension NonCenteredImagesViewController: Zoomy.Delegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         print("did begin presenting overlay for imageView: \(imageView)")

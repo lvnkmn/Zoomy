@@ -1,7 +1,7 @@
 import Foundation
 import PureLayout
 
-public class ImageZoomController: NSObject, ImageZoomControllerShorthand {
+public class ImageZoomController: NSObject {
     // MARK: Public Properties
     
     /// Gets callbacks on important events in the ImageZoomController's lifeCycle

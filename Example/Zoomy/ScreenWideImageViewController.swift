@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class ScreenWideImageViewController: UIViewController, ZoomyShortHand {
+class ScreenWideImageViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -21,7 +21,7 @@ class ScreenWideImageViewController: UIViewController, ZoomyShortHand {
 }
 
 //MARK: - ZoomDelegate
-extension ScreenWideImageViewController: ZoomDelegate {
+extension ScreenWideImageViewController: Zoomy.Delegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
         print("did begin presenting overlay for imageView: \(imageView)")
