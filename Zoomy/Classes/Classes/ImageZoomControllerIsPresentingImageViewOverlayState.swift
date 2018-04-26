@@ -219,7 +219,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
             guard   !self.isDismissingOverlay,
                     !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView else { return }
             
-            owner.scrollableImageView.image = owner.imageView?.image
+            owner.scrollableImageView.image = owner.image
             onComplete()
         }
     }
@@ -233,7 +233,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         guard let owner = owner else { return }
         
         isBypasssingAnimateToExpectedFrameOfScrollableImageView = true
-        owner.scrollableImageView.image = owner.imageView?.image
+        owner.scrollableImageView.image = owner.image
         finishPresentingOverlayImageView()
     }
 }

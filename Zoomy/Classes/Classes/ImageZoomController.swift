@@ -19,6 +19,7 @@ public class ImageZoomController: NSObject {
     public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
     // MARK: Internal Properties
+    internal var image: UIImage?
     internal lazy var scrollableImageView = createScrollableImageView()
     internal lazy var overlayImageView = createOverlayImageView()
     internal lazy var scrollView = createScrollView()
@@ -100,7 +101,6 @@ public class ImageZoomController: NSObject {
         self.settings = settings
         
         super.init()
-
         configureImageView()
     }
     
@@ -153,6 +153,8 @@ public extension ImageZoomController {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
         imageView?.alpha = 1
+        
+        image = nil
         
         resetOverlayImageView()
         resetScrollView()
@@ -234,6 +236,15 @@ extension ImageZoomController {
         imageView?.addGestureRecognizer(imageViewPanGestureRecognizer)
         imageView?.isUserInteractionEnabled = true
     }
+    
+    func setupImage() {
+        guard let image = imageView?.image else {
+            print("⚠️ Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.")
+            return
+        }
+        
+        self.image = image
+    }
 }
 
 //MARK: Calculations
@@ -292,7 +303,7 @@ internal extension ImageZoomController {
 
     func zoomScale(from imageView: UIImageView?) -> ImageScale {
         guard   let imageView = imageView,
-                let image = imageView.image else { return 1 }
+                let image = image else { return 1 }
         return imageView.frame.size.width / image.size.width
     }
     

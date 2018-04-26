@@ -15,6 +15,8 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
                 let imageView = owner.imageView,
                 let view = owner.containerView else { return }
         
+        owner.setupImage()
+
         imageView.alpha = 0
         
         if owner.settings.shouldDisplayBackground {
@@ -24,7 +26,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         }
         
         view.addSubview(owner.overlayImageView)
-        owner.overlayImageView.image = owner.imageView?.image
+        owner.overlayImageView.image = owner.image
         owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
         
         defer {
