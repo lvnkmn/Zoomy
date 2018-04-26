@@ -43,17 +43,17 @@ class StackViewImagesViewController: UIViewController {
 extension StackViewImagesViewController: Zoomy.Delegate {
     
     func didBeginPresentingOverlay(for imageView: UIImageView) {
-        print("did begin presenting overlay for imageView: \(imageView)")
+//        print("did begin presenting overlay for imageView: \(imageView)")
         scrollView.isScrollEnabled = false
     }
     
     func didEndPresentingOverlay(for imageView: UIImageView) {
-        print("did end presenting overlay for imageView: \(imageView)")
+//        print("did end presenting overlay for imageView: \(imageView)")
         scrollView.isScrollEnabled = true
     }
     
     func contentStateDidChange(from fromState: ImageZoomControllerContentState, to toState: ImageZoomControllerContentState) {
-        print("contentState did change from state: \(fromState) to state: \(toState)")
+//        print("contentState did change from state: \(fromState) to state: \(toState)")
         //You might want to show/hide statusbar here
     }
 }
