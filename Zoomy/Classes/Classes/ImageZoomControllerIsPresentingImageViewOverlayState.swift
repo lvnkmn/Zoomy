@@ -219,21 +219,22 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
             guard   !self.isDismissingOverlay,
                     !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView else { return }
             
-            owner.scrollableImageView.image = owner.imageView?.image
+            owner.scrollableImageView.image = owner.image
             onComplete()
         }
     }
     
     func hideScrollableImageViewWhileKeepingItUserInteractable() {
-        guard let owner = owner else { return }
-        owner.scrollableImageView.image = UIImage(color: .clear, size: owner.scrollView.contentSize)
+        guard   let owner = owner,
+                let image = owner.image else { return }
+        owner.scrollableImageView.image = UIImage(color: .clear, size: image.size)
     }
     
     func bypassAnimateToExpectedFrameOfScrollableImageView() {
         guard let owner = owner else { return }
         
         isBypasssingAnimateToExpectedFrameOfScrollableImageView = true
-        owner.scrollableImageView.image = owner.imageView?.image
+        owner.scrollableImageView.image = owner.image
         finishPresentingOverlayImageView()
     }
 }
