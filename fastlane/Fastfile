@@ -1,0 +1,8 @@
+default_platform(:ios)
+
+platform :ios do
+  	lane :tests do
+  		
+  		scan()
+	end
+end

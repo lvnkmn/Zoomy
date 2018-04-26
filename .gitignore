@@ -35,3 +35,6 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+fastlane/README.md
+fastlane/report.xml
+fastlane/test_output/
