@@ -225,8 +225,9 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func hideScrollableImageViewWhileKeepingItUserInteractable() {
-        guard let owner = owner else { return }
-        owner.scrollableImageView.image = UIImage(color: .clear, size: owner.scrollView.contentSize)
+        guard   let owner = owner,
+                let image = owner.image else { return }
+        owner.scrollableImageView.image = UIImage(color: .clear, size: image.size)
     }
     
     func bypassAnimateToExpectedFrameOfScrollableImageView() {
