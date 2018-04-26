@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class ChangingActionsViewController: UIViewController, ZoomyShortHand {
+class ChangingActionsViewController: UIViewController {
 
     @IBOutlet weak var tapOverlaySegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceTopSegmentedControl: UISegmentedControl!
