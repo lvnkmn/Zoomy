@@ -1,3 +1,5 @@
+import InjectableLoggers
+
 internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
     
     // MARK: Private Propeties
@@ -17,6 +19,7 @@ internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomControllerState {
     
     func presentOverlay() {
+        owner?.log(#function, at: Loglevel.verbose)
         guard   let owner = owner,
                 let containerView = owner.containerView,
                 let dominantBouncingSide = dominantBouncingDirection else { return }
@@ -30,20 +33,21 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
     }
     
     func dismissOverlay() {
+        owner?.log(#function, at: Loglevel.verbose)
         guard   let owner = owner,
                 let imageView = owner.imageView else { return }
         
-        animateSpring(withAnimations: {
+        owner.animator(for: .OverlayDismissal).animate({
             owner.scrollView.zoomScale = owner.minimumZoomScale
             owner.scrollView.frame = owner.absoluteFrame(of: imageView)
-        }) { _ in
+        }) {
             owner.reset()
             owner.configureImageView()
             owner.delegate?.didEndPresentingOverlay(for: imageView)
         }
         
         if owner.settings.shouldDisplayBackground {
-            animate {
+            owner.animator(for: .BackgroundColorChange).animate {
                 owner.backgroundView.alpha = 0
             }
         }

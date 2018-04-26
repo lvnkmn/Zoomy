@@ -1,3 +1,5 @@
+import InjectableLoggers
+
 internal class ImageZoomControllerIsPresentingImageViewOverlayState {
     
     // MARK: Internal Properties
@@ -16,11 +18,25 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     // MARK: Private properties
-    private var isDismissingOverlay = false
+    private var isDismissingOverlay = false {
+        didSet {
+            owner?.log("\(#function) \(isDismissingOverlay)", at: Loglevel.verbose)
+            let generateWarning = true //Revert when done testing:
+            if isDismissingOverlay == false {
+                print()
+            }
+        }
+    }
     private var neededContentOffSet: CGPoint?
     private var contentOffsetCorrectionDueToZoomDifference: CGPoint?
     private var expectedFrameOfScrollableImageView: CGRect?
-    private var isBypasssingAnimateToExpectedFrameOfScrollableImageView = false
+    
+    private var isBypasssingAnimateToExpectedFrameOfScrollableImageView = false {
+        didSet {
+            owner?.log("\(#function) \(isBypasssingAnimateToExpectedFrameOfScrollableImageView)", at: Loglevel.verbose)
+        }
+    }
+    
     private var pinchCenter: CGPoint?
     
     // MARK: Initializers
@@ -33,6 +49,7 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
 extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControllerState {
     
     @objc func presentOverlay() {
+        owner?.log(#function, at: Loglevel.verbose)
         guard let owner = owner else { return }
         
         configureScrollView()
@@ -45,15 +62,16 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     }
     
     func dismissOverlay() {
+        owner?.log(#function, at: Loglevel.verbose)
         guard   let owner = owner,
                 let imageView = owner.imageView else { return }
         
         isDismissingOverlay = true
         owner.scrollView.removeFromSuperview()
         
-        animateSpring(withAnimations: {
+        owner.animator(for: .OverlayDismissal).animate({
             owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
-        }) { _ in
+        }) {
             owner.reset()
             owner.configureImageView()
             self.isDismissingOverlay = false
@@ -61,7 +79,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         }
         
         if owner.settings.shouldDisplayBackground {
-            animate {
+            owner.animator(for: .BackgroundColorChange).animate {
                 owner.backgroundView.alpha = 0
             }
         }
@@ -69,7 +87,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard   let owner = owner,
-            let imageView = owner.imageView else { return }
+                let imageView = owner.imageView else { return }
         
         let currentPinchScale = owner.adjust(pinchScale: gestureRecognizer.scale)
         
@@ -92,16 +110,18 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     
     @objc func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         guard   let owner = owner,
-            gestureRecognizer.state == .changed else { return }
+                gestureRecognizer.state == .changed else { return }
         
         currentTranslation = gestureRecognizer.translation(in: owner.containerView)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        owner?.log(#function, at: Loglevel.verbose)
         bypassAnimateToExpectedFrameOfScrollableImageView()
     }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        owner?.log(#function, at: Loglevel.verbose)
         bypassAnimateToExpectedFrameOfScrollableImageView()
     }
 }
@@ -156,7 +176,8 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.shouldAdjustScrollViewFrameAfterZooming = false
         owner.scrollView.zoomScale = neededScrolllViewZoomScale()
         owner.shouldAdjustScrollViewFrameAfterZooming = true
-        owner.scrollView.contentSize = owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ? owner.maximumImageSizeSize() : owner.overlayImageView.frame.size
+        owner.scrollView.contentSize = owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?    owner.maximumImageSizeSize() :
+                                                                                                                    owner.overlayImageView.frame.size
         owner.contentState = owner.neededContentState()
         owner.scrollView.frame = owner.adjustedScrollViewFrame()
         owner.scrollView.contentOffset = owner.corrected(contentOffset: calculateNeededContentOffSet())
@@ -201,6 +222,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func finishPresentingOverlayImageView() {
+        owner?.log(#function, at: Loglevel.verbose)
         guard let owner = owner else { return }
         
         owner.resetOverlayImageView()
@@ -208,16 +230,18 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func animateToExpectedFrameOfScrollableImageView(onComplete: @escaping ()->()) {
+        owner?.log(#function, at: Loglevel.verbose)
         guard   let owner = owner,
                 let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView else { return }
         
         hideScrollableImageViewWhileKeepingItUserInteractable()
 
-        animateSpring(withAnimations: {
+        owner.animator(for: .PositionCorrection).animate({
             owner.overlayImageView.frame = expectedFrameOfScrollableImageView
-        }) { _ in
+        }) {
             guard   !self.isDismissingOverlay,
-                    !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView else { return }
+                    !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView,
+                    owner.state as? AnyObject === self else { return }
             
             owner.scrollableImageView.image = owner.image
             onComplete()
@@ -227,6 +251,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     func hideScrollableImageViewWhileKeepingItUserInteractable() {
         guard   let owner = owner,
                 let image = owner.image else { return }
+        
         owner.scrollableImageView.image = UIImage(color: .clear, size: image.size)
     }
     

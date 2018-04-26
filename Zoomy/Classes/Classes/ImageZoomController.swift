@@ -1,5 +1,6 @@
 import Foundation
 import PureLayout
+import InjectableLoggers
 
 public class ImageZoomController: NSObject {
     // MARK: Public Properties
@@ -29,15 +30,21 @@ public class ImageZoomController: NSObject {
         return view
     }()
 
-    internal lazy var state: State = IsNotPresentingOverlayState(owner: self)
+    internal var state: State! {
+        didSet {
+            guard let state = state else { return }
+            log("State is now: \(state)", at: Loglevel.info)
+        }
+    }
     
     internal var contentState = ContentState.smallerThanAnsestorView {
         didSet {
             guard contentState != oldValue else { return }
 
-            animate {
+            animator(for: .BackgroundColorChange).animate {
                 self.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
             }
+
             delegate?.contentStateDidChange(from: oldValue, to: contentState)
         }
     }
@@ -82,8 +89,6 @@ public class ImageZoomController: NSObject {
     
     var currentBounceOffsets: BounceOffsets?
     
-    // MARK: Initializers
-    
     /// Initializer
     ///
     /// - Parameters:
@@ -101,6 +106,10 @@ public class ImageZoomController: NSObject {
         self.settings = settings
         
         super.init()
+        
+        validateViewHierarchy()
+        
+        state = IsNotPresentingOverlayState(owner: self)
         configureImageView()
     }
     
@@ -144,7 +153,7 @@ public class ImageZoomController: NSObject {
 public extension ImageZoomController {
     
     /// Dismiss all currently presented overlays
-    public func dismissOverlay() {
+    func dismissOverlay() {
         state.dismissOverlay()
     }
     
@@ -172,12 +181,14 @@ private extension ImageZoomController {
     
     @objc func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard settings.isEnabled else { return }
+        log(gestureRecognizer)
         
         state.didPinch(with: gestureRecognizer)
     }
     
     @objc func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         guard settings.isEnabled else { return }
+        log(gestureRecognizer)
         
         state.didPan(with: gestureRecognizer)
     }
@@ -185,7 +196,20 @@ private extension ImageZoomController {
     @objc func didTapOverlay(with gestureRecognizer: UITapGestureRecognizer) {
         guard settings.isEnabled else { return }
         
+        log(#function, at: Loglevel.verbose)
+        
         perform(action: settings.actionOnTapOverlay)
+    }
+}
+
+//MARK: Logging
+
+private extension ImageZoomController {
+    
+    func log(_ gestureRecognizer: UIGestureRecognizer, in function: String = #function) {
+        guard gestureRecognizer.state != .changed else { return }
+        
+        log("\(function) gesture \(gestureRecognizer.state)", at: Loglevel.verbose)
     }
 }
 
@@ -193,11 +217,20 @@ private extension ImageZoomController {
 extension ImageZoomController: CanPerformAction {
     
     func perform(action: ImageZoomControllerAction) {
+        log("\(#function) \(action)", at: Loglevel.verbose)
         guard !(action is NoneAction) else { return }
         
         if action is DismissOverlayAction {
             state.dismissOverlay()
         }
+    }
+}
+
+// MARK: CanLogMessageAtLevel
+extension ImageZoomController: CanLogMessageAtLevel {
+    
+    public func log(_ message: Any, at level: Loglevel) {
+        settings.logger.log(message, at: level)
     }
 }
 
@@ -238,12 +271,25 @@ extension ImageZoomController {
     }
     
     func setupImage() {
-        guard let image = imageView?.image else {
-            print("⚠️ Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.")
-            return
-        }
+        validateImageView()
+        self.image = imageView?.image
+    }
+    
+    private func validateImageView() {
+        guard let imageView = imageView else { return }
         
-        self.image = image
+        if imageView.image == nil {
+            log("Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.", at: Loglevel.warning)
+        }
+    }
+    
+    private func validateViewHierarchy() {
+        guard   let imageView = imageView,
+            let containerView = containerView else { return }
+        
+        if !imageView.isDescendant(of: containerView) {
+            log("Provided containerView is not an ansestor of provided imageView, this is likely to have effect on the zoom behavior.", at: Loglevel.warning)
+        }
     }
 }
 
@@ -420,8 +466,16 @@ internal extension ImageZoomController {
     internal func neededContentState() -> ImageZoomControllerContentState {
         guard let view = containerView else { return .smallerThanAnsestorView }
         return  scrollView.contentSize.width >= view.frame.size.width ||
-            scrollView.contentSize.height >= view.frame.size.height ?   .fillsAnsestorView :
-            .smallerThanAnsestorView
+                scrollView.contentSize.height >= view.frame.size.height ?   .fillsAnsestorView :
+                                                                            .smallerThanAnsestorView
+    }
+}
+
+//MARK: CanProvideAnimatorForEvent
+extension ImageZoomController: CanProvideAnimatorForEvent {
+    
+    public func animator(for event: AnimationEvent) -> CanAnimate {
+        return delegate?.animator(for: event) ?? settings.defaultAnimators.animator(for: event)
     }
 }
 

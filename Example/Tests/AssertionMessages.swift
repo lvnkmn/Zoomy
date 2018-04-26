@@ -11,4 +11,6 @@ import Foundation
 struct Message {
     static let expectedProvidedValue = "Should have been provided value"
     static let expectedDefaultValue = "Should have been default value"
+    static let expectedSameObject = "Should have been same object"
+    static let expectedDifferentType = "Should have been different type"
 }
