@@ -90,6 +90,3 @@ public extension ImageZoomControllerSettings {
         return settings
     }
 }
-
-//MARK: - ImageZoomControllerShorthand
-extension ImageZoomControllerSettings: ImageZoomControllerShorthand {}

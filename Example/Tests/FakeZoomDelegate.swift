@@ -9,4 +9,4 @@
 import Foundation
 import Zoomy
 
-class FakeZoomDelegate: ZoomDelegate {}
+class FakeZoomDelegate: Zoomy.Delegate {}

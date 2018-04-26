@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: Public Types
+
 /// The scale transformation that is applied on an imageView.
 /// The value of 1 results in the original view size.
 /// The value of 2 retulst in twice the original view width and height.
@@ -23,9 +25,16 @@ public typealias ImageViewScale = CGFloat
 /// Note that ImageScale is different from the scale of the imageView, see ImageViewScale.
 public typealias ImageScale = CGFloat
 
-public typealias ZoomSettings = ImageZoomControllerSettings
+public typealias Delegate = ImageZoomControllerDelegate
+public typealias Settings = ImageZoomControllerSettings
+public typealias ContentState = ImageZoomControllerContentState
+public typealias Action = ImageZoomControllerAction
+public typealias DismissOverlayAction = ImageZoomControllerDismissOverlayAction
+public typealias NoneAction = ImageZoomControllerNoneAction
 
-public typealias ZoomDelegate = ImageZoomControllerDelegate
-
-/// Any type that conforms to this protocol will have access to shorter named types
-public typealias ZoomyShortHand = PublicImageZoomControllerShorthand
+//MARK: Internal Types
+internal typealias State = ImageZoomControllerState
+internal typealias IsNotPresentingOverlayState = ImageZoomControllerIsNotPresentingOverlayState
+internal typealias IsPresentingScrollViewOverlayState = ImageZoomControllerIsPresentingScrollViewOverlayState
+internal typealias IsPresentingImageViewOverlayState = ImageZoomControllerIsPresentingImageViewOverlayState
+internal typealias IsHandlingScrollViewBounceTriggeredDismissalState = ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState

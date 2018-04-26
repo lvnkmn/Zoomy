@@ -9,6 +9,4 @@
 import UIKit
 import Zoomy
 
-class MockViewControllerThatIsZoomDelegate: MockViewController, ZoomDelegate {
-
-}
+class MockViewControllerThatIsZoomDelegate: MockViewController, Zoomy.Delegate {}

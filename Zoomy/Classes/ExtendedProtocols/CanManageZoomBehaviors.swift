@@ -9,7 +9,7 @@ public protocol CanManageZoomBehaviors {
     ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
     ///   - delegate: The delegate that will be notified on zoom related events
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: ZoomDelegate?, settings: ZoomSettings)
+    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: Zoomy.Delegate?, settings: Zoomy.Settings)
     
     
     /// Will make the provided imageView no longer zoomable, it's state will be restored the the state prior to adding a zoomBehehavior for it
@@ -35,7 +35,7 @@ public extension CanManageZoomBehaviors {
     ///   - imageView: The imageView that will be zoomable
     ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, in: containerView, delegate: nil, settings: settings)
     }
     
@@ -45,14 +45,14 @@ public extension CanManageZoomBehaviors {
     ///   - imageView: The imageView that will be zoomable
     ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
     ///   - delegate: The delegate that will be notified on zoom related events
-    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: ZoomDelegate?) {
+    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: Zoomy.Delegate?) {
         addZoombehavior(for: imageView, in: containerView, delegate: delegate, settings: .defaultSettings)
     }
 }
 
 public extension CanManageZoomBehaviors where Self: HasImageZoomControllers {
     
-    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: ZoomDelegate?, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: Zoomy.Delegate?, settings: Zoomy.Settings) {
         if let previousController = imageZoomControllers[imageView] {
             previousController.reset()
         }
@@ -67,7 +67,7 @@ public extension CanManageZoomBehaviors where Self: HasImageZoomControllers {
     }
 }
 
-public extension CanManageZoomBehaviors where Self: ZoomDelegate {
+public extension CanManageZoomBehaviors where Self: Zoomy.Delegate {
     
     /// Will make the provided imageView zoomable with default settings and where the delegate is self
     ///
@@ -85,7 +85,7 @@ public extension CanManageZoomBehaviors where Self: ZoomDelegate {
     ///   - imageView: The imageView that will be zoomable
     ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, in containerView: UIView, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, in: containerView, delegate: self, settings: settings)
     }
 }
@@ -98,7 +98,7 @@ public extension CanManageZoomBehaviors where Self: UIViewController {
     ///   - imageView: The imageView that will be zoomable
     ///   - delegate: The delegate that will be notified on zoom related events
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, delegate: ZoomDelegate?, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, delegate: Zoomy.Delegate?, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, in: view, delegate: delegate, settings: settings)
     }
     
@@ -107,7 +107,7 @@ public extension CanManageZoomBehaviors where Self: UIViewController {
     /// - Parameters:
     ///   - imageView: The imageView that will be zoomable
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, delegate: nil, settings: settings)
     }
     
@@ -115,7 +115,7 @@ public extension CanManageZoomBehaviors where Self: UIViewController {
     ///
     ///   - Parameters:
     ///   - imageView: The imageView that will be zoomable
-    func addZoombehavior(for imageView: UIImageView, delegate: ZoomDelegate?) {
+    func addZoombehavior(for imageView: UIImageView, delegate: Zoomy.Delegate?) {
         addZoombehavior(for: imageView, delegate: delegate, settings: .defaultSettings)
     }
     
@@ -128,14 +128,14 @@ public extension CanManageZoomBehaviors where Self: UIViewController {
     }
 }
 
-public extension CanManageZoomBehaviors where Self: UIViewController, Self: ZoomDelegate {
+public extension CanManageZoomBehaviors where Self: UIViewController, Self: Zoomy.Delegate {
     
     /// Will make the provided imageView zoomable inside the viewControllers view and where delegate is self
     ///
     ///   - Parameters:
     ///   - imageView: The imageView that will be zoomable
     ///   - settings: The settings the will be used for the zoomBehavior
-    func addZoombehavior(for imageView: UIImageView, settings: ZoomSettings) {
+    func addZoombehavior(for imageView: UIImageView, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, delegate: self, settings: settings)
     }
     
