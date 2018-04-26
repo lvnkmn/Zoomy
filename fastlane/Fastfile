@@ -22,7 +22,6 @@ platform :ios do
   		sh("git", "tag", version)
   		sh("git", "push", "origin", "--tags", "master")
   		sh("git", "branch", "-d", releaseBranchName)
-  		sh("pod", "spec", "lint")
   		sh("pod", "trunk", "push", "Zoomy.podspec")
 
   		sh("git", "checkout", "develop")
