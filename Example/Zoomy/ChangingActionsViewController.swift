@@ -9,7 +9,7 @@
 import UIKit
 import Zoomy
 
-class ChangingActionsViewController: UIViewController, ZoomyShortHand {
+class ChangingActionsViewController: UIViewController {
 
     @IBOutlet weak var tapOverlaySegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceTopSegmentedControl: UISegmentedControl!
@@ -35,6 +35,10 @@ class ChangingActionsViewController: UIViewController, ZoomyShortHand {
         super.viewDidLoad()
 
         addZoombehavior(for: imageView, settings: settings)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        imageZoomControllers.values.forEach{ $0.dismissOverlay() }
     }
     
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
