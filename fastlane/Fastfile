@@ -19,13 +19,14 @@ platform :ios do
   		sh("git", "commit", "-m", "Bump version to #{version}")
   		sh("git", "checkout", "master")
   		sh("git", "merge", releaseBranchName)
-  		sh("git", "tag", "-a", "-m", version)
-  		sh("git", "checkout", "develop")
-  		sh("git", "merge", "master")
-  		sh("git", "push", "origin", "master")
-  		sh("git", "push", "origin", "develop")
-  		sh("git", "push", "--tags")
+  		sh("git", "tag", version)
+  		sh("git", "push", "origin", "--tags", "master")
+  		sh("git", "branch", "-d", releaseBranchName)
   		sh("pod", "spec", "lint")
   		sh("pod", "trunk", "push", "Zoomy.podspec")
+
+  		sh("git", "checkout", "develop")
+  		sh("git", "merge", "master")
+  		sh("git", "push", "origin", "develop")
 	end
 end
