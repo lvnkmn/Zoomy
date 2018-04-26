@@ -21,6 +21,7 @@ internal class ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalSt
             currentScale = scale(for: translation)
         } else if gestureRecognizer.state != .began { //.ended, .failed, or .cancelled
             if translation.value(in: translationDirection) >= owner.settings.neededTranslationToDismissOverlayOnScrollBounce {
+                owner.resetScrollView()
                 dismissOverlay()
             } else {
                 owner.resetScrollView()
