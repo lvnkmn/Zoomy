@@ -18,6 +18,10 @@ class ScreenWideImageViewController: UIViewController {
         
         addZoombehavior(for: imageView, settings: Settings.defaultSettings.with(actionOnTapOverlay: Action.dismissOverlay))
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        imageZoomControllers.values.forEach{ $0.dismissOverlay() }
+    }
 }
 
 //MARK: - ZoomDelegate
