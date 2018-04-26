@@ -1,8 +1,31 @@
 default_platform(:ios)
 
 platform :ios do
-  	lane :tests do
-  		
+  	lane :tests do  		
   		scan()
+	end
+
+	lane :release do |options|
+		version = options[:version]
+		ensure_git_branch(branch: 'develop')
+		releaseBranchName = "release/#{version}"
+		sh("git", "branch", releaseBranchName)
+		sh("git", "checkout", releaseBranchName)		
+  		version_bump_podspec(path: "Zoomy.podspec", version_number: version)
+  		cocoapods(clean: true, podfile: "Example/Podfile")
+  		scan()
+  		pod_lib_lint
+  		sh("git", "add", "-A")
+  		sh("git", "commit", "-m", "Bump version to #{version}")
+  		sh("git", "checkout", "master")
+  		sh("git", "merge", releaseBranchName)
+  		sh("git", "tag", "-a", "-m", version)
+  		sh("git", "checkout", "develop")
+  		sh("git", "merge", "master")
+  		sh("git", "push", "origin", "master")
+  		sh("git", "push", "origin", "develop")
+  		sh("git", "push", "--tags")
+  		sh("pod", "spec", "lint")
+  		sh("pod", "trunk", "push", "Zoomy.podspec")
 	end
 end
