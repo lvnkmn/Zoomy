@@ -29,7 +29,7 @@ public struct ImageZoomControllerSettings {
     public var secundaryBackgroundColor = UIColor.white
     
     /// The logger to which all messages will be logged, will only print errors and warnings by default
-    public var logger: CanLogMessageAtLevel = Logger(settings: .verboseSettings)
+    public var logger: CanLogMessageAtLevel = Logger(settings: .warningSettings)
     
     /// The amount of point that have to be panned while scrollView is bouncing in order to dismiss the overlay
     /// Note: Settings this value alone doesn't have effect when dismissal by bounce is not enabled
