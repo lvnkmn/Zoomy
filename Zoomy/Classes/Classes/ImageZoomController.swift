@@ -41,7 +41,7 @@ public class ImageZoomController: NSObject {
         didSet {
             guard contentState != oldValue else { return }
 
-            animator(for: .BackgroundColorChange).animate {
+            animator(for: .backgroundColorChange).animate {
                 self.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
             }
 

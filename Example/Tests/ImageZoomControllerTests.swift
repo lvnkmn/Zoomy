@@ -63,7 +63,7 @@ class ImageZoomControllerTests: XCTestCase {
         sut.delegate = nil
         
         //Assert
-        if let defaultBackgroundColorAnimator = sut.animator(for: .BackgroundColorChange) as? Animator {
+        if let defaultBackgroundColorAnimator = sut.animator(for: .backgroundColorChange) as? Animator {
             XCTAssertEqual(defaultBackgroundColorAnimator.delay, 0, Message.expectedDefaultValue)
             XCTAssertEqual(defaultBackgroundColorAnimator.duration, 0.5, Message.expectedDefaultValue)
             XCTAssertEqual(defaultBackgroundColorAnimator.options, .curveLinear, Message.expectedDefaultValue)
@@ -71,7 +71,7 @@ class ImageZoomControllerTests: XCTestCase {
             XCTFail(Message.expectedDifferentType + " of animator")
         }
         
-        if let defaultDismissalAnimator = sut.animator(for: .OverlayDismissal) as? Animator {
+        if let defaultDismissalAnimator = sut.animator(for: .overlayDismissal) as? Animator {
             XCTAssertEqual(defaultDismissalAnimator.delay, 0, Message.expectedDefaultValue)
             XCTAssertEqual(defaultDismissalAnimator.duration, 0.2, Message.expectedDefaultValue)
             XCTAssertEqual(defaultDismissalAnimator.options, .curveEaseInOut, Message.expectedDefaultValue)
@@ -79,7 +79,7 @@ class ImageZoomControllerTests: XCTestCase {
             XCTFail(Message.expectedDifferentType + " of animator")
         }
         
-        if let defaultPositionCorrectionAnimator = sut.animator(for: .PositionCorrection) as? SpringAnimator {
+        if let defaultPositionCorrectionAnimator = sut.animator(for: .positionCorrection) as? SpringAnimator {
             XCTAssertEqual(defaultPositionCorrectionAnimator.delay, 0, Message.expectedDefaultValue)
             XCTAssertEqual(defaultPositionCorrectionAnimator.duration, 0.5, Message.expectedDefaultValue)
             XCTAssertEqual(defaultPositionCorrectionAnimator.springDamping, 0.66, Message.expectedDefaultValue)

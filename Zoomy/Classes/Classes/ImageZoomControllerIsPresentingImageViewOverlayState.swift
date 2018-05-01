@@ -69,7 +69,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         isDismissingOverlay = true
         owner.scrollView.removeFromSuperview()
         
-        owner.animator(for: .OverlayDismissal).animate({
+        owner.animator(for: .overlayDismissal).animate({
             owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
         }) {
             owner.reset()
@@ -79,7 +79,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         }
         
         if owner.settings.shouldDisplayBackground {
-            owner.animator(for: .BackgroundColorChange).animate {
+            owner.animator(for: .backgroundColorChange).animate {
                 owner.backgroundView.alpha = 0
             }
         }
@@ -236,7 +236,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         
         hideScrollableImageViewWhileKeepingItUserInteractable()
 
-        owner.animator(for: .PositionCorrection).animate({
+        owner.animator(for: .positionCorrection).animate({
             owner.overlayImageView.frame = expectedFrameOfScrollableImageView
         }) {
             guard   !self.isDismissingOverlay,
