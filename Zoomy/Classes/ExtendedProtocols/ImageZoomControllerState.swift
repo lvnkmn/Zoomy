@@ -1,4 +1,4 @@
-internal protocol ImageZoomControllerState {
+internal protocol ImageZoomControllerState: class {
     func presentOverlay()
     func dismissOverlay()
     func didPan(with gestureRecognizer: UIPanGestureRecognizer)

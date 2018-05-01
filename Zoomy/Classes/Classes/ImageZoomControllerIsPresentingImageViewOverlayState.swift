@@ -21,10 +21,6 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
     private var isDismissingOverlay = false {
         didSet {
             owner?.log("\(#function) \(isDismissingOverlay)", at: Loglevel.verbose)
-            let generateWarning = true //Revert when done testing:
-            if isDismissingOverlay == false {
-                print()
-            }
         }
     }
     private var neededContentOffSet: CGPoint?
@@ -241,7 +237,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         }) {
             guard   !self.isDismissingOverlay,
                     !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView,
-                    owner.state as? AnyObject === self else { return }
+                    owner.state === self else { return }
             
             owner.scrollableImageView.image = owner.image
             onComplete()
