@@ -1,12 +1,12 @@
 public enum AnimationEvent {
-    case OverlayDismissal
-    case PositionCorrection
-    case BackgroundColorChange
+    case overlayDismissal
+    case positionCorrection
+    case backgroundColorChange
 }
 
 public extension AnimationEvent {
     
     static var all: [AnimationEvent] {
-        return [.OverlayDismissal, .PositionCorrection, .BackgroundColorChange]
+        return [.overlayDismissal, .positionCorrection, .backgroundColorChange]
     }
 }

@@ -37,7 +37,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         guard   let owner = owner,
                 let imageView = owner.imageView else { return }
         
-        owner.animator(for: .OverlayDismissal).animate({
+        owner.animator(for: .overlayDismissal).animate({
             owner.scrollView.zoomScale = owner.minimumZoomScale
             owner.scrollView.frame = owner.absoluteFrame(of: imageView)
         }) {
@@ -47,7 +47,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         }
         
         if owner.settings.shouldDisplayBackground {
-            owner.animator(for: .BackgroundColorChange).animate {
+            owner.animator(for: .backgroundColorChange).animate {
                 owner.backgroundView.alpha = 0
             }
         }

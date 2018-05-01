@@ -11,11 +11,11 @@ extension DefaultAnimators: CanProvideAnimatorForEvent {
     
     public func animator(for event: AnimationEvent) -> CanAnimate {
         switch event {
-        case .BackgroundColorChange:
+        case .backgroundColorChange:
             return backgroundColorAnimator
-        case .OverlayDismissal:
+        case .overlayDismissal:
             return dismissalAnimator
-        case .PositionCorrection:
+        case .positionCorrection:
             return positionCorrectionAnimator
         }
     }

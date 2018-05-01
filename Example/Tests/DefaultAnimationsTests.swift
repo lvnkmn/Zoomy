@@ -20,8 +20,8 @@ class DefaultAnimatorsTests: XCTestCase {
         sut.positionCorrectionAnimator = FakeAnimator()
         
         //Assert
-        XCTAssert((sut.animator(for: .OverlayDismissal) as! FakeAnimator) === (sut.dismissalAnimator as! FakeAnimator), Message.expectedSameObject)
-        XCTAssert((sut.animator(for: .BackgroundColorChange) as! FakeAnimator) === (sut.backgroundColorAnimator as! FakeAnimator), Message.expectedSameObject)
-        XCTAssert((sut.animator(for: .PositionCorrection) as! FakeAnimator) === (sut.positionCorrectionAnimator as! FakeAnimator), Message.expectedSameObject)
+        XCTAssert((sut.animator(for: .overlayDismissal) as! FakeAnimator) === (sut.dismissalAnimator as! FakeAnimator), Message.expectedSameObject)
+        XCTAssert((sut.animator(for: .backgroundColorChange) as! FakeAnimator) === (sut.backgroundColorAnimator as! FakeAnimator), Message.expectedSameObject)
+        XCTAssert((sut.animator(for: .positionCorrection) as! FakeAnimator) === (sut.positionCorrectionAnimator as! FakeAnimator), Message.expectedSameObject)
     }
 }
