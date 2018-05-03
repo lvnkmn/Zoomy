@@ -9,7 +9,7 @@ public struct SpringAnimator {
     public let options: UIViewAnimationOptions
     
     // MARK: Initializers
-    init(duration: TimeInterval = 0.5,
+    public init(duration: TimeInterval = 0.5,
          delay: TimeInterval = 0,
          springDamping: CGFloat = 0.66,
          initialSpringVelocity: CGFloat = 0.5,
