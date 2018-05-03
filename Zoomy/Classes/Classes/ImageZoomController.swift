@@ -51,6 +51,8 @@ public class ImageZoomController: NSObject {
     
     internal var shouldAdjustScrollViewFrameAfterZooming = true
     
+    internal var currentBounceOffsets: BounceOffsets?
+    
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     internal var minimumPinchScale: ImageViewScale {
         return pinchScale(from: minimumZoomScale)
@@ -86,8 +88,6 @@ public class ImageZoomController: NSObject {
     private var maximumPinchScale: ImageViewScale {
         return pinchScale(from: settings.maximumZoomScale)
     }
-    
-    var currentBounceOffsets: BounceOffsets?
     
     /// Initializer
     ///
