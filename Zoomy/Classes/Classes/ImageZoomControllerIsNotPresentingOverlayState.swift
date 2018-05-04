@@ -16,7 +16,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         guard   let owner = owner,
                 let imageView = owner.imageView,
                 let view = owner.containerView else { return }
-        owner.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         
         owner.setupImage()
 
@@ -41,7 +41,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
     
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: Loglevel.verbose)
         
         presentOverlay()
         owner?.state.didPinch(with: gestureRecognizer)

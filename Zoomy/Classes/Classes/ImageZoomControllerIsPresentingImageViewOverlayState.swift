@@ -20,16 +20,17 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
     // MARK: Private properties
     private var isDismissingOverlay = false {
         didSet {
-            owner?.log("\(#function) \(isDismissingOverlay)", at: Loglevel.verbose)
+            logger.log(isDismissingOverlay, atLevel: .verbose)
         }
     }
+    
     private var neededContentOffSet: CGPoint?
     private var contentOffsetCorrectionDueToZoomDifference: CGPoint?
     private var expectedFrameOfScrollableImageView: CGRect?
     
     private var isBypasssingAnimateToExpectedFrameOfScrollableImageView = false {
         didSet {
-            owner?.log("\(#function) \(isBypasssingAnimateToExpectedFrameOfScrollableImageView)", at: Loglevel.verbose)
+            logger.log(isBypasssingAnimateToExpectedFrameOfScrollableImageView, atLevel: .verbose)
         }
     }
     
@@ -45,7 +46,7 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
 extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControllerState {
     
     @objc func presentOverlay() {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         guard let owner = owner else { return }
         
         configureScrollView()
@@ -58,7 +59,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     }
     
     func dismissOverlay() {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         guard   let owner = owner,
                 let imageView = owner.imageView else { return }
         
@@ -112,12 +113,12 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         bypassAnimateToExpectedFrameOfScrollableImageView()
     }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         bypassAnimateToExpectedFrameOfScrollableImageView()
     }
 }
@@ -218,7 +219,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func finishPresentingOverlayImageView() {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         guard let owner = owner else { return }
         
         owner.scrollView.pinchGestureRecognizer?.isEnabled = true
@@ -227,7 +228,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func animateToExpectedFrameOfScrollableImageView(onComplete: @escaping ()->()) {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         guard   let owner = owner,
                 let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView else { return }
         
