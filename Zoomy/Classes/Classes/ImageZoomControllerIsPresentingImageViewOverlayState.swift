@@ -221,6 +221,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner?.log(#function, at: Loglevel.verbose)
         guard let owner = owner else { return }
         
+        owner.scrollView.pinchGestureRecognizer?.isEnabled = true
         owner.resetOverlayImageView()
         owner.state = IsPresentingScrollViewOverlayState(owner: owner)
     }
@@ -230,6 +231,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         guard   let owner = owner,
                 let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView else { return }
         
+        owner.scrollView.pinchGestureRecognizer?.isEnabled = false
         hideScrollableImageViewWhileKeepingItUserInteractable()
 
         owner.animator(for: .positionCorrection).animate({
@@ -239,6 +241,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
                     !self.isBypasssingAnimateToExpectedFrameOfScrollableImageView,
                     owner.state === self else { return }
             
+            owner.scrollView.pinchGestureRecognizer?.isEnabled = true
             owner.scrollableImageView.image = owner.image
             onComplete()
         }
