@@ -511,10 +511,7 @@ extension ImageZoomController: UIScrollViewDelegate {
     
     public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         log(#function, at: Loglevel.verbose)
-        if  scrollView.zoomScale <= minimumZoomScale ||
-            scrollView.zoomScale <= zoomScale(from: settings.zoomCancelingThreshold) {
-            state.dismissOverlay()
-        }
+        state.scrollViewDidEndZooming(scrollView, with: view, atScale: scale)
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
