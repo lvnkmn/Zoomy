@@ -15,7 +15,6 @@ internal class ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalSt
     
     // MARK: ImageZoomControllerIsPresentingImageViewOverlayState
     override func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
-        owner?.log(#function, at: Loglevel.verbose)
         guard let owner = owner else { return }
         
         let translation = gestureRecognizer.translation(in: owner.containerView)
