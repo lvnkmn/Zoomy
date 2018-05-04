@@ -26,7 +26,8 @@ class StackViewImagesViewController: UIViewController {
             
             addZoombehavior(for: imageView, settings: Settings.backgroundEnabledSettings    .with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
                                                                                             .with(secundaryBackgroundColor: .black)
-                                                                                            .with(actionOnScrollBounceBottom: Action.dismissOverlay))
+                                                                                            .with(actionOnScrollBounceBottom: Action.dismissOverlay)
+                                                                                            .with(actionOnTapOverlay: Action.dismissOverlay))
         }
     }
     
