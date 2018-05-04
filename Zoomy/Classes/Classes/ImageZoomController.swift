@@ -51,6 +51,8 @@ public class ImageZoomController: NSObject {
     
     internal var shouldAdjustScrollViewFrameAfterZooming = true
     
+    internal var currentBounceOffsets: BounceOffsets?
+    
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     internal var minimumPinchScale: ImageViewScale {
         return pinchScale(from: minimumZoomScale)
@@ -86,8 +88,6 @@ public class ImageZoomController: NSObject {
     private var maximumPinchScale: ImageViewScale {
         return pinchScale(from: settings.maximumZoomScale)
     }
-    
-    var currentBounceOffsets: BounceOffsets?
     
     /// Initializer
     ///
@@ -173,6 +173,17 @@ public extension ImageZoomController {
         }
         
         state = IsNotPresentingOverlayState(owner: self)
+        log(#function + """
+         Did reset
+            
+            
+            
+            
+            
+            
+            
+            
+        """, at: Loglevel.verbose)
     }
 }
 
@@ -203,7 +214,6 @@ private extension ImageZoomController {
 }
 
 //MARK: Logging
-
 private extension ImageZoomController {
     
     func log(_ gestureRecognizer: UIGestureRecognizer, in function: String = #function) {
@@ -495,14 +505,13 @@ extension ImageZoomController: UIScrollViewDelegate {
     }
     
     public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        log(#function, at: Loglevel.verbose)
         state.scrollViewWillBeginZooming(scrollView, with: view)
     }
     
     public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        if  scrollView.zoomScale <= minimumZoomScale ||
-            scrollView.zoomScale <= zoomScale(from: settings.zoomCancelingThreshold) {
-            state.dismissOverlay()
-        }
+        log(#function, at: Loglevel.verbose)
+        state.scrollViewDidEndZooming(scrollView, with: view, atScale: scale)
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
