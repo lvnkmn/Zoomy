@@ -5,6 +5,7 @@ internal protocol ImageZoomControllerState: class {
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer)
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
 }
 
 internal extension ImageZoomControllerState {
@@ -15,4 +16,5 @@ internal extension ImageZoomControllerState {
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {}
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {}
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {}
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {}
 }
