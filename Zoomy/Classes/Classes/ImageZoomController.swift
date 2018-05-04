@@ -33,7 +33,7 @@ public class ImageZoomController: NSObject {
     internal var state: State! {
         didSet {
             guard let state = state else { return }
-            log("State is now: \(state)", at: Loglevel.info)
+            logger.log("State is now: \(state)", atLevel: .info)
         }
     }
     
@@ -173,17 +173,7 @@ public extension ImageZoomController {
         }
         
         state = IsNotPresentingOverlayState(owner: self)
-        log(#function + """
-         Did reset
-            
-            
-            
-            
-            
-            
-            
-            
-        """, at: Loglevel.verbose)
+        logger.log("Did reset\n\n\n\n\n\n\n\n", atLevel: .verbose)
     }
 }
 
@@ -192,14 +182,14 @@ private extension ImageZoomController {
     
     @objc func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard settings.isEnabled else { return }
-        log(gestureRecognizer)
+        logger.logGesture(with: gestureRecognizer, atLevel: .verbose)
         
         state.didPinch(with: gestureRecognizer)
     }
     
     @objc func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         guard settings.isEnabled else { return }
-        log(gestureRecognizer)
+        logger.logGesture(with: gestureRecognizer, atLevel: .verbose)
         
         state.didPan(with: gestureRecognizer)
     }
@@ -207,19 +197,9 @@ private extension ImageZoomController {
     @objc func didTapOverlay(with gestureRecognizer: UITapGestureRecognizer) {
         guard settings.isEnabled else { return }
         
-        log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         
         perform(action: settings.actionOnTapOverlay)
-    }
-}
-
-//MARK: Logging
-private extension ImageZoomController {
-    
-    func log(_ gestureRecognizer: UIGestureRecognizer, in function: String = #function) {
-        guard gestureRecognizer.state != .changed else { return }
-        
-        log("\(function) gesture \(gestureRecognizer.state)", at: Loglevel.verbose)
     }
 }
 
@@ -227,20 +207,12 @@ private extension ImageZoomController {
 extension ImageZoomController: CanPerformAction {
     
     func perform(action: ImageZoomControllerAction) {
-        log("\(#function) \(action)", at: Loglevel.verbose)
+        logger.log(action, atLevel: .verbose)
         guard !(action is NoneAction) else { return }
         
         if action is DismissOverlayAction {
             state.dismissOverlay()
         }
-    }
-}
-
-// MARK: CanLogMessageAtLevel
-extension ImageZoomController: CanLogMessageAtLevel {
-    
-    public func log(_ message: Any, at level: Loglevel) {
-        settings.logger.log(message, at: level)
     }
 }
 
@@ -288,17 +260,19 @@ extension ImageZoomController {
     private func validateImageView() {
         guard let imageView = imageView else { return }
         
-        if imageView.image == nil {
-            log("Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.", at: Loglevel.warning)
+        if  imageView.image == nil,
+            settings.shouldLogWarningsAndErrors {
+            logger.log("Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.", atLevel: .warning)
         }
     }
     
     private func validateViewHierarchy() {
         guard   let imageView = imageView,
-            let containerView = containerView else { return }
+                let containerView = containerView else { return }
         
-        if !imageView.isDescendant(of: containerView) {
-            log("Provided containerView is not an ansestor of provided imageView, this is likely to have effect on the zoom behavior.", at: Loglevel.warning)
+        if  !imageView.isDescendant(of: containerView),
+            settings.shouldLogWarningsAndErrors {
+            logger.log("Provided containerView is not an ansestor of provided imageView, this is likely to have effect on the zoom behavior.", atLevel: .warning)
         }
     }
 }
@@ -505,12 +479,12 @@ extension ImageZoomController: UIScrollViewDelegate {
     }
     
     public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         state.scrollViewWillBeginZooming(scrollView, with: view)
     }
     
     public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         state.scrollViewDidEndZooming(scrollView, with: view, atScale: scale)
     }
     
