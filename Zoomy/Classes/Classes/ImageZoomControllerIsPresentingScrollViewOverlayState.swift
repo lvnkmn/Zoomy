@@ -26,11 +26,14 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         
         containerView.addSubview(owner.overlayImageView)
         
-        owner.overlayImageView.frame = owner.absoluteFrame(of: owner.scrollableImageView)
+        owner.overlayImageView.frame = neededOverlayImageViewFrame()
+        
         owner.state = IsHandlingScrollViewBounceTriggeredDismissalState(owner: owner, translationDirection: dominantBouncingSide)
         
         owner.scrollableImageView.alpha = 0
     }
+    
+    
     
     func dismissOverlay() {
         owner?.log(#function, at: Loglevel.verbose)
@@ -99,5 +102,14 @@ private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
         case .bottom:
             return settings.actionOnScrollBounceBottom
         }
+    }
+    
+    /// [See GitHub Issue](https://github.com/mennolovink/Zoomy/issues/35)
+    func neededOverlayImageViewFrame() -> CGRect {
+        guard   let owner = owner,
+                let image = owner.image else { return CGRect.zero }
+        
+        return CGRect(origin: owner.absoluteFrame(of: owner.scrollableImageView).origin,
+                      size: owner.size(of: image, at: owner.scrollView.zoomScale))
     }
 }
