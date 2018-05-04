@@ -173,6 +173,17 @@ public extension ImageZoomController {
         }
         
         state = IsNotPresentingOverlayState(owner: self)
+        log(#function + """
+         Did reset
+            
+            
+            
+            
+            
+            
+            
+            
+        """, at: Loglevel.verbose)
     }
 }
 
@@ -203,7 +214,6 @@ private extension ImageZoomController {
 }
 
 //MARK: Logging
-
 private extension ImageZoomController {
     
     func log(_ gestureRecognizer: UIGestureRecognizer, in function: String = #function) {
