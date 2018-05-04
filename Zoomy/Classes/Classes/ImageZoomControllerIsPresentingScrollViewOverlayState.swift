@@ -5,6 +5,7 @@ internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
     // MARK: Private Propeties
     private weak var owner: ImageZoomController?
     private var dominantBouncingDirection: Side?
+    private var isZooming = false
     
     /// Makes sure that not every bounce causes can cause this state change
     private let maximumPanTranslationDuringBounceThatTriggersStateChange: CGFloat = 20
@@ -17,7 +18,7 @@ internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
 
 //MARK: ImageZoomControllerState
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomControllerState {
-    
+
     func presentOverlay() {
         owner?.log(#function, at: Loglevel.verbose)
         guard   let owner = owner,
@@ -26,7 +27,8 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         
         containerView.addSubview(owner.overlayImageView)
         
-        owner.overlayImageView.frame = owner.absoluteFrame(of: owner.scrollableImageView)
+        owner.overlayImageView.frame = neededOverlayImageViewFrame()
+        
         owner.state = IsHandlingScrollViewBounceTriggeredDismissalState(owner: owner, translationDirection: dominantBouncingSide)
         
         owner.scrollableImageView.alpha = 0
@@ -55,7 +57,8 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
     
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translation(in: owner?.containerView)
-        guard   let owner = owner,
+        guard   isZooming == false,
+                let owner = owner,
                 let currentBounceOffsets = owner.currentBounceOffsets,
                 let dominantBouncingDirection = currentBounceOffsets.bouncingSides().first,
                 translation.dominantDirection == dominantBouncingDirection,
@@ -64,7 +67,23 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         self.dominantBouncingDirection = dominantBouncingDirection
         gestureRecognizer.setTranslation(CGPoint.zero, in: owner.containerView)
         
+        owner.log(#function + " Will bounce. translation: \(translation) ", at: Loglevel.verbose)
         didStartBouncingScroll(in: dominantBouncingDirection)
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        isZooming = true
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        isZooming = false
+
+        guard let owner = owner else { return }
+        
+        if  scrollView.zoomScale <= owner.minimumZoomScale ||
+            scrollView.zoomScale <= owner.zoomScale(from: owner.settings.zoomCancelingThreshold) {
+            dismissOverlay()
+        }
     }
 }
 
@@ -72,8 +91,8 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformAction {
     
     func perform(action: ImageZoomControllerAction) {
+        owner?.log(#function + " \(action)", at: Loglevel.info)
         guard !(action is NoneAction) else { return }
-        
         if action is DismissOverlayAction {
             presentOverlay() //By presenting the (temporary) imageOverlay we're dismissing the current (scrollView) overlay
         }
@@ -84,6 +103,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformActio
 private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
     
     func didStartBouncingScroll(in direction: Side) {
+        owner?.log(#function, at: Loglevel.verbose)
         perform(action: action(for: direction))
     }
     
@@ -99,5 +119,14 @@ private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
         case .bottom:
             return settings.actionOnScrollBounceBottom
         }
+    }
+    
+    /// [See GitHub Issue](https://github.com/mennolovink/Zoomy/issues/35)
+    func neededOverlayImageViewFrame() -> CGRect {
+        guard   let owner = owner,
+                let image = owner.image else { return CGRect.zero }
+        
+        return CGRect(origin: owner.absoluteFrame(of: owner.scrollableImageView).origin,
+                      size: owner.size(of: image, at: owner.scrollView.zoomScale))
     }
 }
