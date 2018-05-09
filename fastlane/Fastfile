@@ -1,7 +1,8 @@
 default_platform(:ios)
 
 platform :ios do
-  	lane :tests do  		
+  	lane :tests do
+      cocoapods(clean: true, podfile: "Example/Podfile") 		
   		scan()
 	end
 
@@ -21,6 +22,7 @@ platform :ios do
 
   		sh("git", "add", "-A")
   		sh("git", "commit", "-m", "Bump version to #{version}")
+      sh("git", "fetch")
   		sh("git", "checkout", "master")
   		sh("git", "merge", releaseBranchName)
   		sh("git", "tag", version)
