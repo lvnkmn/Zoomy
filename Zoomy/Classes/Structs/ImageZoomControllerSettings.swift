@@ -22,11 +22,14 @@ public struct ImageZoomControllerSettings {
     
     /// BackgroundView's color will animate to this value when content becomes smaller than the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var primaryBackgroundColor = UIColor.white.withAlphaComponent(0.8)
+    public var primaryBackgroundColor = UIColor.black.withAlphaComponent(0.6)
     
     /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var secundaryBackgroundColor = UIColor.white
+    public var secundaryBackgroundColor = UIColor.black
+    
+    /// The scale at which the primary backgroundColor will be fully visible, alpha is lower before that
+    public var primaryBackgroundColorThreshold: ImageViewScale = 2
     
     /// Whether or not warnings and errors should be logged to the console
     public var shouldLogWarningsAndErrors = true
@@ -63,6 +66,10 @@ public extension ImageZoomControllerSettings {
     
     static var noZoomCancellingSettings: Settings {
         return defaultSettings.with(zoomCancelingThreshold: 1)
+    }
+    
+    static var instaZoomSettings: Settings {
+        return backgroundEnabledSettings.with(zoomCancelingThreshold: .infinity).with(defaultAnimators: DefaultAnimators().with(dismissalAnimator: SpringAnimator(duration: 0.6, springDamping:1)))
     }
 }
 
@@ -144,6 +151,12 @@ public extension ImageZoomControllerSettings {
     func with(actionOnScrollBounceBottom: Action & CanBeTriggeredByScrollBounceBottom) -> Settings {
         var settings = self
         settings.actionOnScrollBounceBottom = actionOnScrollBounceBottom
+        return settings
+    }
+    
+    func with(defaultAnimators: CanProvideAnimatorForEvent) -> Settings {
+        var settings = self
+        settings.defaultAnimators = defaultAnimators
         return settings
     }
 }

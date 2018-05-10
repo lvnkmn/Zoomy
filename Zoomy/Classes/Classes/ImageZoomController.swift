@@ -398,7 +398,7 @@ internal extension ImageZoomController {
     }
     
     func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
-        let delta = settings.zoomCancelingThreshold - minimumPinchScale
+        let delta = settings.primaryBackgroundColorThreshold - minimumPinchScale
         let progress = pinchScale - minimumPinchScale
         return max(min(progress/delta, 1), 0)
     }
