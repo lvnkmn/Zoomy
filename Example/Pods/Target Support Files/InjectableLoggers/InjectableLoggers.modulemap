@@ -1,0 +1,6 @@
+framework module InjectableLoggers {
+  umbrella header "InjectableLoggers-umbrella.h"
+
+  export *
+  module * { export * }
+}
