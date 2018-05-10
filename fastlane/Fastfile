@@ -13,6 +13,9 @@ platform :ios do
         raise "Incorrect branch, expected release branch".red
       end
 
+      sh("git", "fetch")
+      sh("git", "checkout", releaseBranchName)
+
       version = releaseBranchName.partition('/').last
     
       version_bump_podspec(path: "Zoomy.podspec", version_number: version)
