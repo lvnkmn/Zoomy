@@ -22,3 +22,24 @@ extension DefaultAnimators: CanProvideAnimatorForEvent {
         }
     }
 }
+
+public extension DefaultAnimators {
+    
+    func with(backgroundColorAnimator: CanAnimate) -> DefaultAnimators {
+        var animators = self
+        animators.backgroundColorAnimator = backgroundColorAnimator
+        return animators
+    }
+    
+    func with(dismissalAnimator: CanAnimate) -> DefaultAnimators {
+        var animators = self
+        animators.dismissalAnimator = dismissalAnimator
+        return animators
+    }
+    
+    func with(positionCorrectionAnimator: CanAnimate) -> DefaultAnimators {
+        var animators = self
+        animators.positionCorrectionAnimator = positionCorrectionAnimator
+        return animators
+    }
+}

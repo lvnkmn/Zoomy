@@ -23,6 +23,7 @@
 		DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F4D112084E66B0027C954 /* NavigationController.swift */; };
 		DE2B72C520A34E1D00344675 /* loggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B72C420A34E1D00344675 /* loggerTests.swift */; };
 		DE2B72C720A462CF00344675 /* changelog.md in Resources */ = {isa = PBXBuildFile; fileRef = DE2B72C620A462CF00344675 /* changelog.md */; };
+		DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B72C820A471C100344675 /* InstaZoomViewController.swift */; };
 		DE2F57F7208F84300009A33D /* BounceOffsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */; };
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
@@ -75,6 +76,7 @@
 		DE1F4D112084E66B0027C954 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DE2B72C420A34E1D00344675 /* loggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggerTests.swift; sourceTree = "<group>"; };
 		DE2B72C620A462CF00344675 /* changelog.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
+		DE2B72C820A471C100344675 /* InstaZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaZoomViewController.swift; sourceTree = "<group>"; };
 		DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceOffsetsTests.swift; sourceTree = "<group>"; };
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				DECCAA462080C6B300B89C12 /* StackViewImagesViewController.swift */,
 				DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */,
 				DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */,
+				DE2B72C820A471C100344675 /* InstaZoomViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
 				DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */,
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
+				DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */,
 				DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
