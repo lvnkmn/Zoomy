@@ -22,7 +22,6 @@
 		DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */; };
 		DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F4D112084E66B0027C954 /* NavigationController.swift */; };
 		DE2B72C520A34E1D00344675 /* loggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B72C420A34E1D00344675 /* loggerTests.swift */; };
-		DE2B72C720A462CF00344675 /* changelog.md in Resources */ = {isa = PBXBuildFile; fileRef = DE2B72C620A462CF00344675 /* changelog.md */; };
 		DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B72C820A471C100344675 /* InstaZoomViewController.swift */; };
 		DE2F57F7208F84300009A33D /* BounceOffsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */; };
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
@@ -75,7 +74,6 @@
 		DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangingActionsViewController.swift; sourceTree = "<group>"; };
 		DE1F4D112084E66B0027C954 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DE2B72C420A34E1D00344675 /* loggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggerTests.swift; sourceTree = "<group>"; };
-		DE2B72C620A462CF00344675 /* changelog.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
 		DE2B72C820A471C100344675 /* InstaZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaZoomViewController.swift; sourceTree = "<group>"; };
 		DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceOffsetsTests.swift; sourceTree = "<group>"; };
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				3ECD57FF3F656B4EE36698CA /* Zoomy.podspec */,
 				A2589FB630C3EC483BF0C41C /* README.md */,
 				B8BCB570BE4806F737DBA255 /* LICENSE */,
-				DE2B72C620A462CF00344675 /* changelog.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				DE2B72C720A462CF00344675 /* changelog.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
