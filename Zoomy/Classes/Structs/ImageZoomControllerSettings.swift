@@ -69,12 +69,6 @@ public extension ImageZoomControllerSettings {
 //MARK: Alterations
 public extension ImageZoomControllerSettings {
     
-    func with(logger: CanLogMessageAtLevel) -> Settings {
-        var settings = self
-        settings.logger = logger
-        return settings
-    }
-    
     func with(zoomCancelingThreshold: ImageViewScale) -> Settings {
         var settings = self
         settings.zoomCancelingThreshold = zoomCancelingThreshold
