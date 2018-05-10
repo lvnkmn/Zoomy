@@ -1,5 +1,5 @@
 PODS:
-  - InjectableLoggers (1.0.2)
+  - InjectableLoggers (1.1.0)
   - PureLayout (3.0.2)
   - Zoomy (1.6.2):
     - InjectableLoggers (~> 1.0)
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  InjectableLoggers: a53cc658f36027da9915293f724d23afadd8d44a
+  InjectableLoggers: 4c597e6e6214d64e8e840238ec9e1a4cc70da60a
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Zoomy: 53d4c6f29916a90667e3173c626437c4d575a36d
 
