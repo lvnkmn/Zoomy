@@ -42,4 +42,9 @@ public extension ImageZoomControllerSettings {
         }
         set {}
     }
+    
+    @available(*, deprecated, message: "Logger injection is not supported anymore. Use `shouldLogWarningsAndErrors` instead")
+    func with(logger: CanLogMessageAtLevel) -> Settings {
+        return self
+    }
 }
