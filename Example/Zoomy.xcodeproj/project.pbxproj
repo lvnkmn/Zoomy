@@ -13,8 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */; };
-		7CD67B9E1E2E2471F9F967F0 /* Pods_Zoomy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C279C123316E22E3CBFBC89D /* Pods_Zoomy_Tests.framework */; };
-		7D364B61100D476637F2C338 /* Pods_Zoomy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49353A813B71B5A6ED05CC06 /* Pods_Zoomy_Example.framework */; };
+		6702F3EC3CADC618755031E7 /* Pods_Zoomy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9006DCB78AA14572DB1591 /* Pods_Zoomy_Tests.framework */; };
 		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
 		DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */; };
 		DE0774CB2084B74100BE3D04 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C62084B66A00BE3D04 /* MockViewController.swift */; };
@@ -35,6 +34,7 @@
 		DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */; };
 		DEED01F120970E730087DD46 /* ImageZoomControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEED01F020970E730087DD46 /* ImageZoomControllerTests.swift */; };
 		DEED01F320970FEF0087DD46 /* StubZoomyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEED01F220970FEF0087DD46 /* StubZoomyDelegate.swift */; };
+		E3004A7F87734087A3618C84 /* Pods_Zoomy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D981A167368A111793BC32FC /* Pods_Zoomy_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01EE11555456E9C60F294ED9 /* Pods-Zoomy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example.release.xcconfig"; sourceTree = "<group>"; };
-		35B85A0C4BF55D43F45160E2 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		03AB2A65BF0838941B06335E /* Pods-Zoomy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3ECD57FF3F656B4EE36698CA /* Zoomy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Zoomy.podspec; path = ../Zoomy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		49353A813B71B5A6ED05CC06 /* Pods_Zoomy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zoomy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Zoomy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoomy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,11 +60,12 @@
 		607FACE51AFB9204008FA782 /* Zoomy_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Zoomy_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
-		71A17D6E057291EAACBD44CA /* Pods-Zoomy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9EB4003D337925F53E7331E9 /* Pods-Zoomy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6EBE13B570B856F523C61486 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A2589FB630C3EC483BF0C41C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B8BCB570BE4806F737DBA255 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		C279C123316E22E3CBFBC89D /* Pods_Zoomy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zoomy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26A9668B695057665AAB154 /* Pods-Zoomy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D981A167368A111793BC32FC /* Pods_Zoomy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zoomy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD115103ECCA1B48331A8AA4 /* Pods-Zoomy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+addImageAspectRatioContraint.swift"; sourceTree = "<group>"; };
 		DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCenteredImagesViewController.swift; sourceTree = "<group>"; };
 		DE0774C62084B66A00BE3D04 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		DEED01F020970E730087DD46 /* ImageZoomControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerTests.swift; sourceTree = "<group>"; };
 		DEED01F220970FEF0087DD46 /* StubZoomyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubZoomyDelegate.swift; sourceTree = "<group>"; };
+		FC9006DCB78AA14572DB1591 /* Pods_Zoomy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zoomy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D364B61100D476637F2C338 /* Pods_Zoomy_Example.framework in Frameworks */,
+				E3004A7F87734087A3618C84 /* Pods_Zoomy_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,22 +102,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CD67B9E1E2E2471F9F967F0 /* Pods_Zoomy_Tests.framework in Frameworks */,
+				6702F3EC3CADC618755031E7 /* Pods_Zoomy_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C9AA75CDB5B2F13124842F2 /* Pods */ = {
+		40BF61DCEA6CD71641D49FFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71A17D6E057291EAACBD44CA /* Pods-Zoomy_Example.debug.xcconfig */,
-				01EE11555456E9C60F294ED9 /* Pods-Zoomy_Example.release.xcconfig */,
-				9EB4003D337925F53E7331E9 /* Pods-Zoomy_Tests.debug.xcconfig */,
-				35B85A0C4BF55D43F45160E2 /* Pods-Zoomy_Tests.release.xcconfig */,
+				D981A167368A111793BC32FC /* Pods_Zoomy_Example.framework */,
+				FC9006DCB78AA14572DB1591 /* Pods_Zoomy_Tests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -127,8 +125,8 @@
 				607FACD21AFB9204008FA782 /* Example for Zoomy */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				2C9AA75CDB5B2F13124842F2 /* Pods */,
-				9C19F776E71E4CB5C50B1232 /* Frameworks */,
+				9DB01260EEAD2233D9E6D72D /* Pods */,
+				40BF61DCEA6CD71641D49FFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,13 +197,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		9C19F776E71E4CB5C50B1232 /* Frameworks */ = {
+		9DB01260EEAD2233D9E6D72D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				49353A813B71B5A6ED05CC06 /* Pods_Zoomy_Example.framework */,
-				C279C123316E22E3CBFBC89D /* Pods_Zoomy_Tests.framework */,
+				DD115103ECCA1B48331A8AA4 /* Pods-Zoomy_Example.debug.xcconfig */,
+				03AB2A65BF0838941B06335E /* Pods-Zoomy_Example.release.xcconfig */,
+				C26A9668B695057665AAB154 /* Pods-Zoomy_Tests.debug.xcconfig */,
+				6EBE13B570B856F523C61486 /* Pods-Zoomy_Tests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		DE0774BF20836A1C00BE3D04 /* Extensions */ = {
@@ -266,11 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Zoomy_Example" */;
 			buildPhases = (
-				147E49BF98FFB46AE0D73AFC /* [CP] Check Pods Manifest.lock */,
+				3593CC768E21B2D2236854EE /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				E50D90B555A7C7A01D4C5EAC /* [CP] Embed Pods Frameworks */,
+				2837E8D9851C11BC5E8A85D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,11 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Zoomy_Tests" */;
 			buildPhases = (
-				1C6F992231AAACF5879A999D /* [CP] Check Pods Manifest.lock */,
+				B07872E5A59F44989E1462EB /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				CFA90C55B76587386040D87F /* [CP] Embed Pods Frameworks */,
+				0277009363B8F04A0CA3494D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -365,43 +365,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		147E49BF98FFB46AE0D73AFC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Zoomy_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1C6F992231AAACF5879A999D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Zoomy_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFA90C55B76587386040D87F /* [CP] Embed Pods Frameworks */ = {
+		0277009363B8F04A0CA3494D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,7 +383,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E50D90B555A7C7A01D4C5EAC /* [CP] Embed Pods Frameworks */ = {
+		2837E8D9851C11BC5E8A85D1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,6 +403,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3593CC768E21B2D2236854EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zoomy_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B07872E5A59F44989E1462EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zoomy_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -615,7 +615,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71A17D6E057291EAACBD44CA /* Pods-Zoomy_Example.debug.xcconfig */;
+			baseConfigurationReference = DD115103ECCA1B48331A8AA4 /* Pods-Zoomy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9W484F6894;
@@ -632,7 +632,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01EE11555456E9C60F294ED9 /* Pods-Zoomy_Example.release.xcconfig */;
+			baseConfigurationReference = 03AB2A65BF0838941B06335E /* Pods-Zoomy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9W484F6894;
@@ -649,7 +649,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EB4003D337925F53E7331E9 /* Pods-Zoomy_Tests.debug.xcconfig */;
+			baseConfigurationReference = C26A9668B695057665AAB154 /* Pods-Zoomy_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 9W484F6894;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -672,7 +672,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35B85A0C4BF55D43F45160E2 /* Pods-Zoomy_Tests.release.xcconfig */;
+			baseConfigurationReference = 6EBE13B570B856F523C61486 /* Pods-Zoomy_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 9W484F6894;
 				FRAMEWORK_SEARCH_PATHS = (
