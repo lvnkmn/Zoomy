@@ -2,7 +2,7 @@ default_platform(:ios)
 
 platform :ios do
   	lane :tests do
-      cocoapods(clean: true, podfile: "Example/Podfile") 		
+      cocoapods(clean: true, podfile: "Example/Podfile", repo_update: true)		
   		scan()
 	end
 
@@ -16,7 +16,7 @@ platform :ios do
       version = releaseBranchName.partition('/').last
     
       version_bump_podspec(path: "Zoomy.podspec", version_number: version)
-      cocoapods(clean: true, podfile: "Example/Podfile")
+      cocoapods(clean: true, podfile: "Example/Podfile", repo_update: true)
 
   		scan()
   		pod_lib_lint
