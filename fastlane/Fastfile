@@ -31,7 +31,6 @@ platform :ios do
   		sh("git", "merge", releaseBranchName)
   		sh("git", "tag", version)
   		sh("git", "push", "origin", "--tags", "master")
-  		sh("git", "branch", "-d", releaseBranchName)
   		sh("git", "checkout", "develop")
   		sh("git", "merge", "master")
   		sh("git", "push", "origin", "develop")
