@@ -20,7 +20,7 @@ internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomControllerState {
 
     func presentOverlay() {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: Loglevel.verbose)
         guard   let owner = owner,
                 let containerView = owner.containerView,
                 let dominantBouncingSide = dominantBouncingDirection else { return }
@@ -35,7 +35,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
     }
     
     func dismissOverlay() {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: Loglevel.verbose)
         guard   let owner = owner,
                 let imageView = owner.imageView else { return }
         
@@ -67,7 +67,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         self.dominantBouncingDirection = dominantBouncingDirection
         gestureRecognizer.setTranslation(CGPoint.zero, in: owner.containerView)
         
-        owner.log(#function + " Will bounce. translation: \(translation) ", at: Loglevel.verbose)
+        logger.log(" Will bounce. translation: \(translation) ", atLevel: .verbose)
         didStartBouncingScroll(in: dominantBouncingDirection)
     }
     
@@ -91,7 +91,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformAction {
     
     func perform(action: ImageZoomControllerAction) {
-        owner?.log(#function + " \(action)", at: Loglevel.info)
+        logger.log(action, atLevel: .info)
         guard !(action is NoneAction) else { return }
         if action is DismissOverlayAction {
             presentOverlay() //By presenting the (temporary) imageOverlay we're dismissing the current (scrollView) overlay
@@ -103,7 +103,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformActio
 private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
     
     func didStartBouncingScroll(in direction: Side) {
-        owner?.log(#function, at: Loglevel.verbose)
+        logger.log(atLevel: .verbose)
         perform(action: action(for: direction))
     }
     
