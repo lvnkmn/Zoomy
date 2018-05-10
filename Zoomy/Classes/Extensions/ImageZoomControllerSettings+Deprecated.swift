@@ -1,8 +1,9 @@
 import Foundation
+import InjectableLoggers
 
 public extension ImageZoomControllerSettings {
 
-    @available(*, deprecated, message: "Use primaryColor instead")
+    @available(*, deprecated, message: "Use `primaryColor` instead")
     var backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn: UIColor {
         get {
             return primaryBackgroundColor
@@ -13,7 +14,7 @@ public extension ImageZoomControllerSettings {
         }
     }
     
-    @available(*, deprecated, message: "Use secundaryColor instead")
+    @available(*, deprecated, message: "Use `secundaryColor` instead")
     var backgroundWhenContentFillsViewItsDisplayedIn: UIColor {
         get {
             return secundaryBackgroundColor
@@ -24,13 +25,21 @@ public extension ImageZoomControllerSettings {
         }
     }
     
-    @available(*, deprecated, message: "Use with(primaryBackgroundColor: UIColor) instead")
+    @available(*, deprecated, message: "Use `with(primaryBackgroundColor: UIColor)` instead")
     func with(backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
         return self.with(primaryBackgroundColor: backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn)
     }
     
-    @available(*, deprecated, message: "Use with(secundaryBackgroundColor: UIColor) instead")
+    
     func with(backgroundWhenContentFillsViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
         return self.with(secundaryBackgroundColor: backgroundWhenContentFillsViewItsDisplayedIn)
+    }
+    
+    @available(*, deprecated, message: "Logger injection is not supported anymore. Use `shouldLogWarningsAndErrors` instead")
+    public var logger: CanLogMessageAtLevel {
+        get {
+            return SimpleLogger(settings: .warningSettings)
+        }
+        set {}
     }
 }
