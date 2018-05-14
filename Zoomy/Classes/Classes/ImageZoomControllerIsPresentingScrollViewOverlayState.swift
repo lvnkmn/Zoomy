@@ -37,11 +37,12 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
     func dismissOverlay() {
         logger.log(atLevel: Loglevel.verbose)
         guard   let owner = owner,
-                let imageView = owner.imageView else { return }
+                let imageView = owner.imageView,
+                let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView else { return }
         
         owner.animator(for: .overlayDismissal).animate({
             owner.scrollView.zoomScale = owner.minimumZoomScale
-            owner.scrollView.frame = owner.absoluteFrame(of: imageView)
+            owner.scrollView.frame = absoluteFrameOfImageView
         }) {
             owner.reset()
             owner.configureImageView()

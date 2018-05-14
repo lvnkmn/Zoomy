@@ -25,6 +25,7 @@ public class ImageZoomController: NSObject {
             guard let image = image else { return }
             logger.log("Changed to \(image)", atLevel: Loglevel.info)
             minimumZoomScale = zoomScale(from: imageView)
+            initialAbsoluteFrameOfImageView = absoluteFrame(of: imageView)
         }
     }
     
@@ -63,6 +64,14 @@ public class ImageZoomController: NSObject {
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     internal var minimumPinchScale: ImageViewScale {
         return pinchScale(from: minimumZoomScale)
+    }
+
+    /// [See GitHub Issue](https://github.com/mennolovink/Zoomy/issues/40)
+    internal var initialAbsoluteFrameOfImageView: CGRect? {
+        didSet {
+            guard let initialAbsoluteFrameOfImageView = initialAbsoluteFrameOfImageView else { return }
+            logger.log("changed to \(initialAbsoluteFrameOfImageView)", atLevel: .verbose)
+        }
     }
     
     // MARK: Private Properties
