@@ -41,7 +41,7 @@ platform :ios do
                                           api_token: ENV["GITHUB_TOKEN"],
                                           name: version,
                                           tag_name: version,
-                                          description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/25?closed=1)",
+                                          description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/26?closed=1)",
                                           commitish: "master")
 	end
 end
