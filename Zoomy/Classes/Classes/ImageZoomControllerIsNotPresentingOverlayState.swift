@@ -20,6 +20,8 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         
         owner.setupImage()
 
+        guard let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView else { return }
+        
         imageView.alpha = 0
         
         if owner.settings.shouldDisplayBackground {
@@ -30,7 +32,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         
         view.addSubview(owner.overlayImageView)
         owner.overlayImageView.image = owner.image
-        owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
+        owner.overlayImageView.frame = absoluteFrameOfImageView
         
         defer {
             owner.delegate?.didBeginPresentingOverlay(for: imageView)
@@ -41,9 +43,10 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
     
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
-        logger.log(atLevel: Loglevel.verbose)
+        logger.logGesture(with: gestureRecognizer, atLevel: .verbose)
         
         presentOverlay()
+        guard owner?.state !== self else { return }
         owner?.state.didPinch(with: gestureRecognizer)
     }
 }

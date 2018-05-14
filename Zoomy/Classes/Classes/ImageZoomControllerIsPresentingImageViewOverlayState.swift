@@ -61,13 +61,14 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     func dismissOverlay() {
         logger.log(atLevel: .verbose)
         guard   let owner = owner,
-                let imageView = owner.imageView else { return }
+                let imageView = owner.imageView,
+                let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView else { return }
         
         isDismissingOverlay = true
         owner.scrollView.removeFromSuperview()
         
         owner.animator(for: .overlayDismissal).animate({
-            owner.overlayImageView.frame = owner.absoluteFrame(of: imageView)
+            owner.overlayImageView.frame = absoluteFrameOfImageView
         }) {
             owner.reset()
             owner.configureImageView()
