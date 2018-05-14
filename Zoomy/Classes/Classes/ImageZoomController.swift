@@ -20,7 +20,14 @@ public class ImageZoomController: NSObject {
     public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
     
     // MARK: Internal Properties
-    internal var image: UIImage?
+    internal private(set) var image: UIImage? {
+        didSet {
+            guard let image = image else { return }
+            logger.log("Changed to \(image)", atLevel: Loglevel.info)
+            minimumZoomScale = zoomScale(from: imageView)
+        }
+    }
+    
     internal lazy var scrollableImageView = createScrollableImageView()
     internal lazy var overlayImageView = createOverlayImageView()
     internal lazy var scrollView = createScrollView()
