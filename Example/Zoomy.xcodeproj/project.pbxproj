@@ -313,12 +313,10 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 9W484F6894;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 9W484F6894;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -618,7 +616,7 @@
 			baseConfigurationReference = DD115103ECCA1B48331A8AA4 /* Pods-Zoomy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9W484F6894;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Zoomy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -635,7 +633,7 @@
 			baseConfigurationReference = 03AB2A65BF0838941B06335E /* Pods-Zoomy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9W484F6894;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Zoomy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -651,7 +649,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C26A9668B695057665AAB154 /* Pods-Zoomy_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9W484F6894;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -674,7 +672,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EBE13B570B856F523C61486 /* Pods-Zoomy_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9W484F6894;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
