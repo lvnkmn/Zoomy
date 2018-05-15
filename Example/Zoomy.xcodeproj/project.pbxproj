@@ -26,6 +26,7 @@
 		DE2F57F7208F84300009A33D /* BounceOffsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */; };
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
+		DE9C32F820AB409F00827664 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = DE9C32F720AB409F00827664 /* Fastfile */; };
 		DE9C47422097097500BF7420 /* DefaultAnimationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C47412097097500BF7420 /* DefaultAnimationsTests.swift */; };
 		DE9C474520970A4800BF7420 /* FakeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C4743209709EE00BF7420 /* FakeAnimator.swift */; };
 		DECB2ACD2084C610006ED8CE /* AssertionMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */; };
@@ -78,6 +79,7 @@
 		DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceOffsetsTests.swift; sourceTree = "<group>"; };
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		DE9C32F720AB409F00827664 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = ../fastlane/Fastfile; sourceTree = "<group>"; };
 		DE9C47412097097500BF7420 /* DefaultAnimationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnimationsTests.swift; sourceTree = "<group>"; };
 		DE9C4743209709EE00BF7420 /* FakeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAnimator.swift; sourceTree = "<group>"; };
 		DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionMessages.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECD57FF3F656B4EE36698CA /* Zoomy.podspec */,
+				DE9C32F720AB409F00827664 /* Fastfile */,
 				A2589FB630C3EC483BF0C41C /* README.md */,
 				B8BCB570BE4806F737DBA255 /* LICENSE */,
 			);
@@ -348,6 +351,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				DE9C32F820AB409F00827664 /* Fastfile in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
