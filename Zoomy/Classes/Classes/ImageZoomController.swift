@@ -41,19 +41,7 @@ public class ImageZoomController: NSObject {
     internal var state: State! {
         didSet {
             guard let state = state else { return }
-            logger.log("State is now: \(state)", atLevel: .info)
-        }
-    }
-    
-    internal var contentState = ContentState.smallerThanAnsestorView {
-        didSet {
-            guard contentState != oldValue else { return }
-
-            animator(for: .backgroundColorChange).animate {
-                self.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
-            }
-
-            delegate?.contentStateDidChange(from: oldValue, to: contentState)
+            logger.log("Changed to \(state)", atLevel: .info)
         }
     }
     
@@ -297,9 +285,10 @@ extension ImageZoomController {
 internal extension ImageZoomController {
     
     func adjustedScrollViewFrame() -> CGRect {
-        guard let view = containerView else { return CGRect.zero }
+        guard   let view = containerView,
+                let initialAbsoluteFrameOfImageView = initialAbsoluteFrameOfImageView else { return CGRect.zero }
         
-        let minimalScrollViewFrame = absoluteFrame(of: imageView)
+        let minimalScrollViewFrame = initialAbsoluteFrameOfImageView
         let originX = max(minimalScrollViewFrame.origin.x - (scrollView.contentSize.width - minimalScrollViewFrame.width) / 2, 0)
         let originY = max(minimalScrollViewFrame.origin.y - (scrollView.contentSize.height - minimalScrollViewFrame.height) / 2, 0)
         let width = min(scrollView.contentSize.width, view.frame.width)
@@ -413,12 +402,6 @@ internal extension ImageZoomController {
                              right: abs(min(scrollView.contentOffset.x + adjustedContentInset(from: scrollView).right, 0)))
     }
     
-    func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
-        let delta = settings.primaryBackgroundColorThreshold - minimumPinchScale
-        let progress = pinchScale - minimumPinchScale
-        return max(min(progress/delta, 1), 0)
-    }
-    
     func imageDoesntFitScreen() -> Bool {
         guard let view = containerView else { return false }
         return scrollView.contentSize.width > view.frame.size.width
@@ -441,15 +424,6 @@ internal extension ImageZoomController {
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
     }
     
-    private func backgroundColor(for state: ImageZoomControllerContentState) -> UIColor {
-        switch state {
-        case .smallerThanAnsestorView:
-            return settings.primaryBackgroundColor
-        case .fillsAnsestorView:
-            return settings.secundaryBackgroundColor
-        }
-    }
-    
     internal func resetScrollView() {
         scrollableImageView.removeFromSuperview()
         scrollableImageView = createScrollableImageView()
@@ -461,13 +435,6 @@ internal extension ImageZoomController {
     internal func resetOverlayImageView() {
         overlayImageView.removeFromSuperview()
         overlayImageView = createOverlayImageView()
-    }
-    
-    internal func neededContentState() -> ImageZoomControllerContentState {
-        guard let view = containerView else { return .smallerThanAnsestorView }
-        return  scrollView.contentSize.width >= view.frame.size.width ||
-                scrollView.contentSize.height >= view.frame.size.height ?   .fillsAnsestorView :
-                                                                            .smallerThanAnsestorView
     }
 }
 
@@ -491,7 +458,7 @@ extension ImageZoomController: UIScrollViewDelegate {
             adjustFrame(of: scrollView)
         }
         
-        contentState = neededContentState()
+        state.scrollViewDidZoom(scrollView)
     }
     
     public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {

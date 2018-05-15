@@ -21,6 +21,7 @@ internal class ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalSt
         if gestureRecognizer.state == .changed {
             currentTranslation = translation
             currentScale = scale(for: translation)
+            owner.backgroundView.alpha = backgroundAlpha(for: translation.value(in: translation.dominantDirection))
         } else if gestureRecognizer.state != .began { //.ended, .failed, or .cancelled
             if translation.value(in: translationDirection) >= owner.settings.neededTranslationToDismissOverlayOnScrollBounce {
                 owner.resetScrollView()
@@ -46,5 +47,11 @@ private extension ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissa
         let delta = 1 - minimumScale
         
         return 1 - (min(translation.value(in: translationDirection), translationForMinimumZoom) / translationForMinimumZoom) * delta
+    }
+    
+    func backgroundAlpha(for translation: CGFloat) -> CGFloat {
+        guard let owner = owner else { return 0 }
+        let progress = (translation / owner.settings.backgroundAlphaDismissalTranslationThreshold)
+        return max(min(1 - progress, 1), 0)
     }
 }

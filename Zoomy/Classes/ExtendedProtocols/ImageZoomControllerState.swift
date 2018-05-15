@@ -6,6 +6,7 @@ internal protocol ImageZoomControllerState: class {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+    func scrollViewDidZoom(_ scrollView: UIScrollView)
 }
 
 internal extension ImageZoomControllerState {
@@ -17,4 +18,5 @@ internal extension ImageZoomControllerState {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {}
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {}
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {}
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {}
 }

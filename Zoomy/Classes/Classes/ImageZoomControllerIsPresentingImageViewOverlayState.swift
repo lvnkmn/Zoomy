@@ -94,7 +94,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
             pinchCenter = CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
                                   y: gestureRecognizer.location(in: imageView).y - imageView.bounds.midY)
         case .changed:
-            owner.backgroundView.alpha = owner.backgroundAlpha(for: currentPinchScale)
+            owner.backgroundView.alpha = backgroundAlpha(for: currentPinchScale)
             currentScale = currentPinchScale
         default:
             if  currentPinchScale <= owner.minimumPinchScale ||
@@ -176,7 +176,6 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.shouldAdjustScrollViewFrameAfterZooming = true
         owner.scrollView.contentSize = owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?    owner.maximumImageSizeSize() :
                                                                                                                     owner.overlayImageView.frame.size
-        owner.contentState = owner.neededContentState()
         owner.scrollView.frame = owner.adjustedScrollViewFrame()
         owner.scrollView.contentOffset = owner.corrected(contentOffset: calculateNeededContentOffSet())
     }
@@ -262,5 +261,12 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         isBypasssingAnimateToExpectedFrameOfScrollableImageView = true
         owner.scrollableImageView.image = owner.image
         finishPresentingOverlayImageView()
+    }
+    
+    func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
+        guard let owner = owner else { return 0 }
+        let delta = owner.settings.primaryBackgroundColorThreshold - owner.minimumPinchScale
+        let progress = pinchScale - owner.minimumPinchScale
+        return max(min(progress/delta, 1), 0)
     }
 }
