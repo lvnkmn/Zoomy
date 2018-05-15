@@ -253,13 +253,13 @@ extension ImageZoomController {
         view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
         view.addGestureRecognizer(scrollableImageViewPanGestureRecognizer)
         view.isUserInteractionEnabled = true
-        view.image = image!
+        view.image = image
         return view
     }
     
     private func createOverlayImageView() -> UIImageView {
         let view = UIImageView()
-        view.image = image!
+        view.image = image
         return view
     }
     
