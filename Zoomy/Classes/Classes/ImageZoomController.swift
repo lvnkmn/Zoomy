@@ -297,9 +297,10 @@ extension ImageZoomController {
 internal extension ImageZoomController {
     
     func adjustedScrollViewFrame() -> CGRect {
-        guard let view = containerView else { return CGRect.zero }
+        guard   let view = containerView,
+                let initialAbsoluteFrameOfImageView = initialAbsoluteFrameOfImageView else { return CGRect.zero }
         
-        let minimalScrollViewFrame = absoluteFrame(of: imageView)
+        let minimalScrollViewFrame = initialAbsoluteFrameOfImageView
         let originX = max(minimalScrollViewFrame.origin.x - (scrollView.contentSize.width - minimalScrollViewFrame.width) / 2, 0)
         let originY = max(minimalScrollViewFrame.origin.y - (scrollView.contentSize.height - minimalScrollViewFrame.height) / 2, 0)
         let width = min(scrollView.contentSize.width, view.frame.width)
