@@ -31,6 +31,9 @@ public struct ImageZoomControllerSettings {
     /// The scale at which the primary backgroundColor will be fully visible, alpha is lower before that
     public var primaryBackgroundColorThreshold: ImageViewScale = 2
     
+    /// The translation at which the background will be fully transparant, alpha is higher before that
+    public var backgroundAlphaDismissalTranslationThreshold: CGFloat = 300
+    
     /// Whether or not warnings and errors should be logged to the console
     public var shouldLogWarningsAndErrors = true
     
