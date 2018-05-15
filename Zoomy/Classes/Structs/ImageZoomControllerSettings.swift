@@ -26,10 +26,13 @@ public struct ImageZoomControllerSettings {
     
     /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var secundaryBackgroundColor = UIColor.black
+    public var secundaryBackgroundColor = UIColor.black.withAlphaComponent(0.6)
     
     /// The scale at which the primary backgroundColor will be fully visible, alpha is lower before that
     public var primaryBackgroundColorThreshold: ImageViewScale = 2
+    
+    /// The translation at which the background will be fully transparant, alpha is higher before that
+    public var backgroundAlphaDismissalTranslationThreshold: CGFloat = 300
     
     /// Whether or not warnings and errors should be logged to the console
     public var shouldLogWarningsAndErrors = true

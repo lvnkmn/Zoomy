@@ -41,7 +41,7 @@ public class ImageZoomController: NSObject {
     internal var state: State! {
         didSet {
             guard let state = state else { return }
-            logger.log("State is now: \(state)", atLevel: .info)
+            logger.log("Changed to \(state)", atLevel: .info)
         }
     }
     
@@ -49,8 +49,11 @@ public class ImageZoomController: NSObject {
         didSet {
             guard contentState != oldValue else { return }
 
+            logger.log("Changed to \(contentState)", atLevel: .info)
+            
             animator(for: .backgroundColorChange).animate {
                 self.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
+                self.backgroundView.alpha = 1
             }
 
             delegate?.contentStateDidChange(from: oldValue, to: contentState)
@@ -412,12 +415,6 @@ internal extension ImageZoomController {
                              left: max(scrollView.contentOffset.x - (scrollView.contentSize.width - scrollView.frame.size.width) - adjustedContentInset(from: scrollView).left, 0),
                              bottom: abs(min(scrollView.contentOffset.y + adjustedContentInset(from: scrollView).top, 0)),
                              right: abs(min(scrollView.contentOffset.x + adjustedContentInset(from: scrollView).right, 0)))
-    }
-    
-    func backgroundAlpha(for pinchScale: ImageViewScale) -> CGFloat {
-        let delta = settings.primaryBackgroundColorThreshold - minimumPinchScale
-        let progress = pinchScale - minimumPinchScale
-        return max(min(progress/delta, 1), 0)
     }
     
     func imageDoesntFitScreen() -> Bool {
