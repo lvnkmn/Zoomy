@@ -176,7 +176,6 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.shouldAdjustScrollViewFrameAfterZooming = true
         owner.scrollView.contentSize = owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?    owner.maximumImageSizeSize() :
                                                                                                                     owner.overlayImageView.frame.size
-        owner.contentState = owner.neededContentState()
         owner.scrollView.frame = owner.adjustedScrollViewFrame()
         owner.scrollView.contentOffset = owner.corrected(contentOffset: calculateNeededContentOffSet())
     }
