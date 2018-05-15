@@ -27,6 +27,7 @@
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
 		DE9C32F820AB409F00827664 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = DE9C32F720AB409F00827664 /* Fastfile */; };
+		DE9C331020AB751A00827664 /* Zoomy_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C330F20AB751A00827664 /* Zoomy_ExampleUITests.swift */; };
 		DE9C47422097097500BF7420 /* DefaultAnimationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C47412097097500BF7420 /* DefaultAnimationsTests.swift */; };
 		DE9C474520970A4800BF7420 /* FakeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C4743209709EE00BF7420 /* FakeAnimator.swift */; };
 		DECB2ACD2084C610006ED8CE /* AssertionMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */; };
@@ -45,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = Zoomy;
+		};
+		DE9C331220AB751A00827664 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = Zoomy_Example;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -80,6 +88,9 @@
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		DE9C32F720AB409F00827664 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = ../fastlane/Fastfile; sourceTree = "<group>"; };
+		DE9C330D20AB751A00827664 /* Zoomy_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Zoomy_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9C330F20AB751A00827664 /* Zoomy_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zoomy_ExampleUITests.swift; sourceTree = "<group>"; };
+		DE9C331120AB751A00827664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE9C47412097097500BF7420 /* DefaultAnimationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnimationsTests.swift; sourceTree = "<group>"; };
 		DE9C4743209709EE00BF7420 /* FakeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAnimator.swift; sourceTree = "<group>"; };
 		DECB2ACB2084C603006ED8CE /* AssertionMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionMessages.swift; sourceTree = "<group>"; };
@@ -108,6 +119,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE9C330A20AB751A00827664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -126,6 +144,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Zoomy */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				DE9C330E20AB751A00827664 /* Zoomy_ExampleUITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				9DB01260EEAD2233D9E6D72D /* Pods */,
 				40BF61DCEA6CD71641D49FFF /* Frameworks */,
@@ -137,6 +156,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* Zoomy_Example.app */,
 				607FACE51AFB9204008FA782 /* Zoomy_Tests.xctest */,
+				DE9C330D20AB751A00827664 /* Zoomy_ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +273,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		DE9C330E20AB751A00827664 /* Zoomy_ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DE9C330F20AB751A00827664 /* Zoomy_ExampleUITests.swift */,
+				DE9C331120AB751A00827664 /* Info.plist */,
+			);
+			path = Zoomy_ExampleUITests;
+			sourceTree = "<group>";
+		};
 		DECCAA432080C62400B89C12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,13 +333,31 @@
 			productReference = 607FACE51AFB9204008FA782 /* Zoomy_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DE9C330C20AB751A00827664 /* Zoomy_ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE9C331620AB751A00827664 /* Build configuration list for PBXNativeTarget "Zoomy_ExampleUITests" */;
+			buildPhases = (
+				DE9C330920AB751A00827664 /* Sources */,
+				DE9C330A20AB751A00827664 /* Frameworks */,
+				DE9C330B20AB751A00827664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE9C331320AB751A00827664 /* PBXTargetDependency */,
+			);
+			name = Zoomy_ExampleUITests;
+			productName = Zoomy_ExampleUITests;
+			productReference = DE9C330D20AB751A00827664 /* Zoomy_ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -321,6 +368,12 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					DE9C330C20AB751A00827664 = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = 9W484F6894;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -340,6 +393,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* Zoomy_Example */,
 				607FACE41AFB9204008FA782 /* Zoomy_Tests */,
+				DE9C330C20AB751A00827664 /* Zoomy_ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +411,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE9C330B20AB751A00827664 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,6 +543,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE9C330920AB751A00827664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE9C331020AB751A00827664 /* Zoomy_ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -489,6 +558,11 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* Zoomy_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		DE9C331320AB751A00827664 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* Zoomy_Example */;
+			targetProxy = DE9C331220AB751A00827664 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -691,6 +765,56 @@
 			};
 			name = Release;
 		};
+		DE9C331420AB751A00827664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9W484F6894;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Zoomy_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MennoLovink.Zoomy-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zoomy_Example;
+			};
+			name = Debug;
+		};
+		DE9C331520AB751A00827664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W484F6894;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Zoomy_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MennoLovink.Zoomy-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zoomy_Example;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -717,6 +841,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE9C331620AB751A00827664 /* Build configuration list for PBXNativeTarget "Zoomy_ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE9C331420AB751A00827664 /* Debug */,
+				DE9C331520AB751A00827664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
