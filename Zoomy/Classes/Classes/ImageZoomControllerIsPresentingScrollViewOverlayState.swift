@@ -117,8 +117,8 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformActio
     
     func perform(action: ImageZoomControllerAction) {
         logger.log(action, atLevel: .info)
-        guard !(action is NoneAction) else { return }
-        if action is DismissOverlayAction {
+        guard !(action is Action.None) else { return }
+        if action is Action.DismissOverlay {
             presentOverlay() //By presenting the (temporary) imageOverlay we're dismissing the current (scrollView) overlay
         }
     }
