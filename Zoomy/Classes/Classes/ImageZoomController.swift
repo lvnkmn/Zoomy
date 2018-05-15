@@ -45,21 +45,6 @@ public class ImageZoomController: NSObject {
         }
     }
     
-    internal var contentState = ContentState.smallerThanAnsestorView {
-        didSet {
-            guard contentState != oldValue else { return }
-
-            logger.log("Changed to \(contentState)", atLevel: .info)
-            
-            animator(for: .backgroundColorChange).animate {
-                self.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
-                self.backgroundView.alpha = 1
-            }
-
-            delegate?.contentStateDidChange(from: oldValue, to: contentState)
-        }
-    }
-    
     internal var shouldAdjustScrollViewFrameAfterZooming = true
     
     internal var currentBounceOffsets: BounceOffsets?
@@ -439,15 +424,6 @@ internal extension ImageZoomController {
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
     }
     
-    private func backgroundColor(for state: ImageZoomControllerContentState) -> UIColor {
-        switch state {
-        case .smallerThanAnsestorView:
-            return settings.primaryBackgroundColor
-        case .fillsAnsestorView:
-            return settings.secundaryBackgroundColor
-        }
-    }
-    
     internal func resetScrollView() {
         scrollableImageView.removeFromSuperview()
         scrollableImageView = createScrollableImageView()
@@ -459,13 +435,6 @@ internal extension ImageZoomController {
     internal func resetOverlayImageView() {
         overlayImageView.removeFromSuperview()
         overlayImageView = createOverlayImageView()
-    }
-    
-    internal func neededContentState() -> ImageZoomControllerContentState {
-        guard let view = containerView else { return .smallerThanAnsestorView }
-        return  scrollView.contentSize.width >= view.frame.size.width ||
-                scrollView.contentSize.height >= view.frame.size.height ?   .fillsAnsestorView :
-                                                                            .smallerThanAnsestorView
     }
 }
 
@@ -489,7 +458,7 @@ extension ImageZoomController: UIScrollViewDelegate {
             adjustFrame(of: scrollView)
         }
         
-        contentState = neededContentState()
+        state.scrollViewDidZoom(scrollView)
     }
     
     public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {

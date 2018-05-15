@@ -10,9 +10,29 @@ internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
     /// Makes sure that not every bounce causes can cause this state change
     private let maximumPanTranslationDuringBounceThatTriggersStateChange: CGFloat = 20
     
+    private var contentState = ContentState.smallerThanAnsestorView {
+        didSet {
+            guard   let owner = owner,
+                    contentState != oldValue else { return }
+            
+            logger.log("Changed from \(oldValue) to \(contentState)", atLevel: .info)
+            
+            owner.animator(for: .backgroundColorChange).animate {
+                owner.backgroundView.backgroundColor = self.backgroundColor(for: self.contentState)
+                owner.backgroundView.alpha = 1
+            }
+            
+            owner.delegate?.contentStateDidChange(from: oldValue, to: contentState)
+        }
+    }
+    
     // MARK: Initializers
     init(owner: ImageZoomController) {
         self.owner = owner
+        super.init()
+        defer {
+            contentState = neededContentState()
+        }
     }
 }
 
@@ -86,6 +106,10 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
             dismissOverlay()
         }
     }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        contentState = neededContentState()
+    }
 }
 
 //MARK: CanPerformAction
@@ -129,5 +153,24 @@ private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
         
         return CGRect(origin: owner.absoluteFrame(of: owner.scrollableImageView).origin,
                       size: owner.size(of: image, at: owner.scrollView.zoomScale))
+    }
+    
+    func backgroundColor(for state: ImageZoomControllerContentState) -> UIColor {
+        guard let owner = owner else { return UIColor() }
+        switch state {
+        case .smallerThanAnsestorView:
+            return owner.settings.primaryBackgroundColor
+        case .fillsAnsestorView:
+            return owner.settings.secundaryBackgroundColor
+        }
+    }
+    
+    func neededContentState() -> ImageZoomControllerContentState {
+        guard   let containerView = owner?.containerView,
+                let scrollView = owner?.scrollView else { return .smallerThanAnsestorView }
+        
+        return  scrollView.contentSize.width >= containerView.frame.size.width ||
+                scrollView.contentSize.height >= containerView.frame.size.height ?      .fillsAnsestorView :
+                                                                                        .smallerThanAnsestorView
     }
 }
