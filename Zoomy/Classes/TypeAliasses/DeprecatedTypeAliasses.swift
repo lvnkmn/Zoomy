@@ -6,3 +6,16 @@ public typealias ZoomSettings = ImageZoomControllerSettings
 
 @available(*, deprecated, message: "Use Zoomy.Delegate instead")
 public typealias ZoomDelegate = ImageZoomControllerDelegate
+
+@available(*, deprecated, message: "Use Action.None instead")
+public typealias NoneAction = ImageZoomControllerNoneAction
+
+@available(*, deprecated, message: "Use Action.DismissOverlay instead")
+public typealias DismissOverlayAction = Action.DismissOverlay
+
+@available(*, deprecated, message: "Use Action.None instead")
+public typealias ImageZoomControllerNoneAction = Action.None
+
+@available(*, deprecated, message: "Use Action.DismissOverlay instead")
+public typealias ImageZoomControllerDismissOverlayAction = Action.DismissOverlay
+

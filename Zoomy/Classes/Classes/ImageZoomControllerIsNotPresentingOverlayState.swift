@@ -41,6 +41,12 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         owner.state = IsPresentingImageViewOverlayState(owner: owner)
     }
     
+    func zoomToFit() {
+        presentOverlay()
+        guard owner?.state !== self else { return }
+        owner?.state.zoomToFit()
+    }
+    
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
         logger.logGesture(with: gestureRecognizer, atLevel: .verbose)

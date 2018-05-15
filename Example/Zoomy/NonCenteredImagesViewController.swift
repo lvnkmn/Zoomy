@@ -16,7 +16,9 @@ class NonCenteredImagesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let settings = Settings.defaultSettings.with(actionOnTapOverlay: Action.dismissOverlay)
+        let settings = Settings.defaultSettings .with(actionOnTapOverlay: Action.dismissOverlay)
+                                                .with(actionOnDoubleTapImageView: Action.zoomToFit)
+        
         addZoombehavior(for: imageView1, settings: settings)
         addZoombehavior(for: imageView2, settings: settings)
     }

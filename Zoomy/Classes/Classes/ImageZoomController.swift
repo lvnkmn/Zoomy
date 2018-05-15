@@ -76,8 +76,22 @@ public class ImageZoomController: NSObject {
         return gestureRecognizer
     }()
     
+    private lazy var imageViewTapGestureRecognizer: UITapGestureRecognizer = {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
+        gestureRecognizer.delegate = self
+        gestureRecognizer.numberOfTapsRequired = 1
+        return gestureRecognizer
+    }()
+    
+    private lazy var imageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
+        gestureRecognizer.delegate = self
+        gestureRecognizer.numberOfTapsRequired = 2
+        return gestureRecognizer
+    }()
+    
     private lazy var scrollableImageViewTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOverlay(with:)))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
@@ -167,8 +181,6 @@ public extension ImageZoomController {
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
         imageView?.alpha = 1
         
-        image = nil
-        
         resetOverlayImageView()
         resetScrollView()
         
@@ -198,12 +210,11 @@ private extension ImageZoomController {
         state.didPan(with: gestureRecognizer)
     }
     
-    @objc func didTapOverlay(with gestureRecognizer: UITapGestureRecognizer) {
+    @objc func didTap(with gestureRecognizer: UITapGestureRecognizer) {
         guard settings.isEnabled else { return }
-        
         logger.log(atLevel: .verbose)
         
-        perform(action: settings.actionOnTapOverlay)
+        perform(action: action(for: gestureRecognizer))
     }
 }
 
@@ -212,10 +223,12 @@ extension ImageZoomController: CanPerformAction {
     
     func perform(action: ImageZoomControllerAction) {
         logger.log(action, atLevel: .verbose)
-        guard !(action is NoneAction) else { return }
+        guard !(action is Action.None) else { return }
         
-        if action is DismissOverlayAction {
+        if action is Action.DismissOverlay {
             state.dismissOverlay()
+        } else if action is Action.ZoomToFit {
+            state.zoomToFit()
         }
     }
 }
@@ -240,19 +253,21 @@ extension ImageZoomController {
         view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
         view.addGestureRecognizer(scrollableImageViewPanGestureRecognizer)
         view.isUserInteractionEnabled = true
-        view.image = imageView?.image
+        view.image = image!
         return view
     }
     
     private func createOverlayImageView() -> UIImageView {
         let view = UIImageView()
-        view.image = imageView?.image
+        view.image = image!
         return view
     }
     
     internal func configureImageView() {
         imageView?.addGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.addGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.addGestureRecognizer(imageViewTapGestureRecognizer)
+        imageView?.addGestureRecognizer(imageViewDoubleTapGestureRecognizer)
         imageView?.isUserInteractionEnabled = true
     }
     
@@ -285,15 +300,25 @@ extension ImageZoomController {
 internal extension ImageZoomController {
     
     func adjustedScrollViewFrame() -> CGRect {
-        guard   let view = containerView,
+        guard   let containerView = containerView,
                 let initialAbsoluteFrameOfImageView = initialAbsoluteFrameOfImageView else { return CGRect.zero }
         
-        let minimalScrollViewFrame = initialAbsoluteFrameOfImageView
-        let originX = max(minimalScrollViewFrame.origin.x - (scrollView.contentSize.width - minimalScrollViewFrame.width) / 2, 0)
-        let originY = max(minimalScrollViewFrame.origin.y - (scrollView.contentSize.height - minimalScrollViewFrame.height) / 2, 0)
-        let width = min(scrollView.contentSize.width, view.frame.width)
-        let height = min(scrollView.contentSize.height, view.frame.height)
+        let initialHorizontalLeadingSpaceToContainer = initialAbsoluteFrameOfImageView.origin.x
+        let initialHorizontalSpaceToContainer = containerView.frame.size.width - initialAbsoluteFrameOfImageView.width
+        let leadingHorizontalSpaceRatio =  initialHorizontalLeadingSpaceToContainer / initialHorizontalSpaceToContainer
         
+        let initialVerticalLeadingSpaceToContainer = initialAbsoluteFrameOfImageView.origin.y
+        let initialVerticalSpaceToContainer = containerView.frame.size.height - initialAbsoluteFrameOfImageView.height
+        let leadingVerticalSpaceRatio =  initialVerticalLeadingSpaceToContainer / initialVerticalSpaceToContainer
+        
+        let widthGrowth = (scrollView.contentSize.width - initialAbsoluteFrameOfImageView.width)
+        let heightGrowth = (scrollView.contentSize.height - initialAbsoluteFrameOfImageView.height)
+        
+        let originX = max(initialAbsoluteFrameOfImageView.origin.x - widthGrowth * leadingHorizontalSpaceRatio, 0)
+        let originY = max(initialAbsoluteFrameOfImageView.origin.y - heightGrowth * leadingVerticalSpaceRatio, 0)
+        let width = min(scrollView.contentSize.width, containerView.frame.width)
+        let height = min(scrollView.contentSize.height, containerView.frame.height)
+
         return CGRect(x: originX,
                       y: originY,
                       width: width,
@@ -379,7 +404,7 @@ internal extension ImageZoomController {
         return view.convert(subjectView.frame, from: subjectView.superview)
     }
     
-    func maximumImageSizeSize() -> CGSize {
+    func maximumImageSize() -> CGSize {
         guard let imageView = imageView else { return CGSize.zero }
         let view = UIView()
         view.frame = imageView.frame
@@ -422,6 +447,18 @@ internal extension ImageZoomController {
         let frameDifference = scrollView.frame.difference(with: oldScrollViewFrame)
         scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x + frameDifference.origin.x,
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
+    }
+    
+    private func action(for gestureRecognizer: UIGestureRecognizer) -> Action {
+        if gestureRecognizer === imageViewTapGestureRecognizer {
+            return settings.actionOnTapImageView
+        } else if gestureRecognizer === imageViewDoubleTapGestureRecognizer {
+            return settings.actionOnDoubleTapImageVIew
+        } else if gestureRecognizer === scrollableImageViewTapGestureRecognizer {
+            return settings.actionOnTapOverlay
+        } else {
+            return Action.none
+        }
     }
     
     internal func resetScrollView() {

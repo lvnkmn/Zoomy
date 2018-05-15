@@ -29,8 +29,6 @@ public typealias Delegate = ImageZoomControllerDelegate
 public typealias Settings = ImageZoomControllerSettings
 public typealias ContentState = ImageZoomControllerContentState
 public typealias Action = ImageZoomControllerAction
-public typealias DismissOverlayAction = ImageZoomControllerDismissOverlayAction
-public typealias NoneAction = ImageZoomControllerNoneAction
 
 //MARK: Internal Types
 internal typealias State = ImageZoomControllerState

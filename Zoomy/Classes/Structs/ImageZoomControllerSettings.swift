@@ -41,8 +41,14 @@ public struct ImageZoomControllerSettings {
     /// Note: Settings this value alone doesn't have effect when dismissal by bounce is not enabled
     public var neededTranslationToDismissOverlayOnScrollBounce: CGFloat = 80
     
+    /// The action that will be triggered when the imageView is tapped
+    public var actionOnTapImageView: Action & CanBeTriggeredByImageViewTap = Action.none
+    
+    /// The action that will be triggerend when the imageView is double tapped
+    public var actionOnDoubleTapImageVIew: Action & CanBeTriggeredByImageViewDoubleTap = Action.none
+    
     /// The action that will be triggered when the overlay is tapped
-    public var actionOnTapOverlay: Action = Action.none
+    public var actionOnTapOverlay: Action & CanBeTriggeredByOverlayTap = Action.none
     
     /// The action that will be triggered when scrollView is bouncing while scrolling towards the top
     public var actionOnScrollBounceTop: Action & CanBeTriggeredByScrollBounceTop = Action.none
@@ -147,6 +153,18 @@ public extension ImageZoomControllerSettings {
     func with(actionOnScrollBounceBottom: Action & CanBeTriggeredByScrollBounceBottom) -> Settings {
         var settings = self
         settings.actionOnScrollBounceBottom = actionOnScrollBounceBottom
+        return settings
+    }
+    
+    func with(actionOnTapImageView: Action & CanBeTriggeredByImageViewTap) -> Settings {
+        var settings = self
+        settings.actionOnTapImageView = actionOnTapImageView
+        return settings
+    }
+    
+    func with(actionOnDoubleTapImageView: Action & CanBeTriggeredByImageViewDoubleTap) -> Settings {
+        var settings = self
+        settings.actionOnDoubleTapImageVIew = actionOnDoubleTapImageView
         return settings
     }
     

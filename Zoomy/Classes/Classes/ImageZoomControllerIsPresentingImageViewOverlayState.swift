@@ -24,6 +24,8 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
         }
     }
     
+    private lazy var fromFrame: CGRect = owner?.overlayImageView.frame ?? CGRect.zero
+    
     private var neededContentOffSet: CGPoint?
     private var contentOffsetCorrectionDueToZoomDifference: CGPoint?
     private var expectedFrameOfScrollableImageView: CGRect?
@@ -56,6 +58,14 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         } else {
             animateToExpectedFrameOfScrollableImageView(onComplete: finishPresentingOverlayImageView)
         }
+    }
+    
+    func zoomToFit() {
+        logger.log(atLevel: .verbose)
+        guard let owner = owner else { return }
+        
+        fromFrame = containerFittingFrame(for: owner.overlayImageView)
+        presentOverlay()
     }
     
     func dismissOverlay() {
@@ -128,19 +138,13 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
 internal extension ImageZoomControllerIsPresentingImageViewOverlayState {
     
     @objc func neededScrolllViewZoomScale() -> ImageScale {
-        guard let owner = owner else { return 1 }
-        
-        return owner.zoomScale(from: owner.overlayImageView)
+        guard let image = owner?.image else { return 1 }
+        return fromFrame.size.width / image.size.width
     }
 }
 
 //MARK: Private Methods
 private extension ImageZoomControllerIsPresentingImageViewOverlayState {
-    
-    var fromFrame: CGRect {
-        guard let overlayImageView = owner?.overlayImageView else { return CGRect.zero }
-        return overlayImageView.frame
-    }
     
     func updateOverlayImageViewTransform() {
         guard let owner = owner else { return }
@@ -174,8 +178,8 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.shouldAdjustScrollViewFrameAfterZooming = false
         owner.scrollView.zoomScale = neededScrolllViewZoomScale()
         owner.shouldAdjustScrollViewFrameAfterZooming = true
-        owner.scrollView.contentSize = owner.overlayImageView.frame.width > owner.maximumImageSizeSize().width ?    owner.maximumImageSizeSize() :
-                                                                                                                    owner.overlayImageView.frame.size
+        owner.scrollView.contentSize = fromFrame.width > owner.maximumImageSize().width ?   owner.maximumImageSize() :
+                                                                                            fromFrame.size
         owner.scrollView.frame = owner.adjustedScrollViewFrame()
         owner.scrollView.contentOffset = owner.corrected(contentOffset: calculateNeededContentOffSet())
     }
@@ -268,5 +272,37 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         let delta = owner.settings.primaryBackgroundColorThreshold - owner.minimumPinchScale
         let progress = pinchScale - owner.minimumPinchScale
         return max(min(progress/delta, 1), 0)
+    }
+    
+    func containerFittingFrame(for overlayImageView: UIImageView) -> CGRect {
+        guard let containerViewSize = owner?.containerView?.frame.size else { return CGRect.zero }
+        let overlayImageViewSize = overlayImageView.frame.size
+        
+        let neededWidthIncrease = containerViewSize.width - overlayImageViewSize.width
+        let neededHeightIncrease = containerViewSize.height - overlayImageViewSize.height
+        
+        let zoomScale: CGFloat
+        if neededWidthIncrease < neededHeightIncrease {
+            zoomScale = containerViewSize.width / overlayImageViewSize.width
+        } else {
+            zoomScale = containerViewSize.height / overlayImageViewSize.height
+        }
+        
+        return CGRect(x: 0,
+                      y: overlayImageView.frame.origin.y,
+                      width: overlayImageViewSize.width * zoomScale,
+                      height: overlayImageViewSize.height * zoomScale)
+    }
+    
+    func adjustedImageOverlayViewFrame(neededSize: CGSize) -> CGRect {
+        guard   let initialAbsoluteFrameOfImageView = owner?.initialAbsoluteFrameOfImageView else { return CGRect.zero }
+        
+        let originX = max(initialAbsoluteFrameOfImageView.origin.x - (neededSize.width - initialAbsoluteFrameOfImageView.size.width) / 2, 0)
+        let originY = max(initialAbsoluteFrameOfImageView.origin.y - (neededSize.height - initialAbsoluteFrameOfImageView.size.height) / 2, 0)
+        
+        return CGRect(x: originX,
+                      y: originY,
+                      width: neededSize.width,
+                      height: neededSize.height)
     }
 }
