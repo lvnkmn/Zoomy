@@ -179,6 +179,8 @@ public extension ImageZoomController {
     func reset() {
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.removeGestureRecognizer(imageViewTapGestureRecognizer)
+        imageView?.removeGestureRecognizer(imageViewDoubleTapGestureRecognizer)
         imageView?.alpha = 1
         
         resetOverlayImageView()
