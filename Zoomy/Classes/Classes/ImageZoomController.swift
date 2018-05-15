@@ -307,17 +307,12 @@ internal extension ImageZoomController {
         
         let initialHorizontalLeadingSpaceToContainer = initialAbsoluteFrameOfImageView.origin.x
         let initialHorizontalSpaceToContainer = containerView.frame.size.width - initialAbsoluteFrameOfImageView.width
-        let leadingHorizontalSpaceRatio =  initialHorizontalLeadingSpaceToContainer / initialHorizontalSpaceToContainer
-        
-        let initialVerticalLeadingSpaceToContainer = initialAbsoluteFrameOfImageView.origin.y
-        let initialVerticalSpaceToContainer = containerView.frame.size.height - initialAbsoluteFrameOfImageView.height
-        let leadingVerticalSpaceRatio =  initialVerticalLeadingSpaceToContainer / initialVerticalSpaceToContainer
-        
+        let leadingHorizontalSpaceRatio = initialHorizontalSpaceToContainer != 0 ? initialHorizontalLeadingSpaceToContainer / initialHorizontalSpaceToContainer : 0
+
         let widthGrowth = (scrollView.contentSize.width - initialAbsoluteFrameOfImageView.width)
-        let heightGrowth = (scrollView.contentSize.height - initialAbsoluteFrameOfImageView.height)
         
         let originX = max(initialAbsoluteFrameOfImageView.origin.x - widthGrowth * leadingHorizontalSpaceRatio, 0)
-        let originY = max(initialAbsoluteFrameOfImageView.origin.y - heightGrowth * leadingVerticalSpaceRatio, 0)
+        let originY = max(initialAbsoluteFrameOfImageView.origin.y - (scrollView.contentSize.height - initialAbsoluteFrameOfImageView.height) / 2, 0)
         let width = min(scrollView.contentSize.width, containerView.frame.width)
         let height = min(scrollView.contentSize.height, containerView.frame.height)
 
