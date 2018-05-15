@@ -52,6 +52,16 @@
                ReferencedContainer = "container:Zoomy.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DE9C330C20AB751A00827664"
+               BuildableName = "Zoomy_ExampleUITests.xctest"
+               BlueprintName = "Zoomy_ExampleUITests"
+               ReferencedContainer = "container:Zoomy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
