@@ -1,4 +1,7 @@
 public class ImageZoomControllerAction {
+    
+    public init() {}
+    
     /// Causes the overlay to be dismissed
     public static var dismissOverlay: DismissOverlay {
         return DismissOverlay()
