@@ -14,6 +14,7 @@ class ChangingActionsViewController: UIViewController {
     @IBOutlet weak var tapImageViewSegmentedControl: UISegmentedControl!
     @IBOutlet weak var doubleTapImageViewSegmentedControl: UISegmentedControl!
     @IBOutlet weak var tapOverlaySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var doubleTapOverlaySegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceTopSegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceLeftSegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceRightSegmentedControl: UISegmentedControl!
@@ -21,8 +22,14 @@ class ChangingActionsViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    private let overlayActions = [Action.none, Action.dismissOverlay]
-    private let imageViewActions = [Action.none, Action.zoomToFit]
+    private lazy var actionsForSegmentedControl: [UISegmentedControl : [Action]] = [    tapImageViewSegmentedControl:       [.none, .zoomIn, .zoomToFit],
+                                                                                        doubleTapImageViewSegmentedControl: [.none, .zoomIn, .zoomToFit],
+                                                                                        tapOverlaySegmentedControl:         [.none, .zoomIn, .dismissOverlay],
+                                                                                        doubleTapOverlaySegmentedControl:   [.none, .zoomIn, .dismissOverlay],
+                                                                                        scrollBounceTopSegmentedControl:    [.none, .dismissOverlay],
+                                                                                        scrollBounceLeftSegmentedControl:   [.none, .dismissOverlay],
+                                                                                        scrollBounceRightSegmentedControl:  [.none, .dismissOverlay],
+                                                                                        scrollBounceBottomSegmentedControl: [.none, .dismissOverlay]]
     
     var settings: Settings {
         var settings: Settings = .backgroundEnabledSettings
@@ -30,6 +37,7 @@ class ChangingActionsViewController: UIViewController {
         settings.actionOnTapImageView = action(for: tapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewTap ?? Action.none
         settings.actionOnDoubleTapImageVIew = action(for: doubleTapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewDoubleTap ?? Action.none
         settings.actionOnTapOverlay = action(for: tapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayTap ?? Action.none
+        settings.actionOnDoubleTapOverlay = action(for: doubleTapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayDoubleTap ?? Action.none
         settings.actionOnScrollBounceTop = action(for: scrollBounceTopSegmentedControl) as? Action & CanBeTriggeredByScrollBounceTop ?? Action.none
         settings.actionOnScrollBounceLeft = action(for: scrollBounceLeftSegmentedControl) as? Action & CanBeTriggeredByScrollBounceLeft ?? Action.none
         settings.actionOnScrollBounceRight = action(for: scrollBounceRightSegmentedControl) as? Action & CanBeTriggeredByScrollBounceRight ?? Action.none
@@ -42,7 +50,7 @@ class ChangingActionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupSegmentedControls()
         addZoombehavior(for: imageView, settings: settings)
     }
     
@@ -58,24 +66,18 @@ class ChangingActionsViewController: UIViewController {
 private extension ChangingActionsViewController {
     
     func action(for segmentedControl: UISegmentedControl) -> Action {
-        return actions(for: segmentedControl)[segmentedControl.selectedSegmentIndex]
+        return actionsForSegmentedControl[segmentedControl]?[segmentedControl.selectedSegmentIndex] ?? .none
     }
     
-    func actions(for segmentedControl: UISegmentedControl) -> [Action] {
-        if imageViewSegmentedControls.contains(segmentedControl) {
-            return imageViewActions
-        } else if overlaySegmentedControls.contains(segmentedControl) {
-            return overlayActions
-        } else {
-            return []
+    func setupSegmentedControls() {
+        actionsForSegmentedControl.keys.forEach({ $0.removeAllSegments() })
+        actionsForSegmentedControl.forEach { (arg) in
+            let (segmentedControl, actions) = arg
+            actions.enumerated().forEach({ (arg) in
+                let (index, action) = arg
+                segmentedControl.insertSegment(withTitle: String(describing: action), at: index, animated: false)
+            })
         }
-    }
-    
-    var imageViewSegmentedControls: [UISegmentedControl] {
-        return [tapImageViewSegmentedControl, doubleTapImageViewSegmentedControl]
-    }
-    
-    var overlaySegmentedControls: [UISegmentedControl] {
-        return [tapOverlaySegmentedControl, scrollBounceTopSegmentedControl, scrollBounceLeftSegmentedControl, scrollBounceRightSegmentedControl, scrollBounceBottomSegmentedControl]
+        actionsForSegmentedControl.keys.forEach({ $0.selectedSegmentIndex = 0; $0.addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged) })
     }
 }

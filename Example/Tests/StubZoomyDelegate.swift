@@ -16,6 +16,8 @@ class StubZoomyDelegate {
     var dismissalAnimator: CanAnimate?
     
     var positionCorrectionAnimator: CanAnimate?
+    
+    var zoomAnimator: CanAnimate?
 }
 
 extension StubZoomyDelegate: Zoomy.Delegate {
@@ -28,6 +30,8 @@ extension StubZoomyDelegate: Zoomy.Delegate {
             return dismissalAnimator
         case .positionCorrection:
             return positionCorrectionAnimator
+        case .zoom:
+            return zoomAnimator
         }
     }
 }

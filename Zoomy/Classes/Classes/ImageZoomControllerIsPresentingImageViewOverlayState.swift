@@ -36,7 +36,7 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
         }
     }
     
-    private var pinchCenter: CGPoint?
+    private var scaleCenter: CGPoint?
     
     // MARK: Initializers
     init(owner: ImageZoomController) {
@@ -47,7 +47,11 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
 //MARK: ImageZoomControllerState
 extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControllerState {
     
-    @objc func presentOverlay() {
+    func presentOverlay() {
+        presentOverlay(event: .positionCorrection)
+    }
+    
+    func presentOverlay(event: AnimationEvent) {
         logger.log(atLevel: .verbose)
         guard let owner = owner else { return }
         
@@ -56,7 +60,7 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         if owner.overlayImageView.frame == calculateExpectedFrameOfScrollableImageView() {
             finishPresentingOverlayImageView()
         } else {
-            animateToExpectedFrameOfScrollableImageView(onComplete: finishPresentingOverlayImageView)
+            animateToExpectedFrameOfScrollableImageView(event: event, onComplete: finishPresentingOverlayImageView)
         }
     }
     
@@ -66,6 +70,17 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
         
         fromFrame = containerFittingFrame(for: owner.overlayImageView)
         presentOverlay()
+    }
+    
+    func zoomIn(with gestureRecognizer: UIGestureRecognizer?) {
+        logger.log(atLevel: .verbose)
+        guard   let owner = owner,
+                let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView  else { return }
+        
+        fromFrame = absoluteFrameOfImageView.transformedBy(.transform(withScale: owner.pinchScale(from: owner.settings.maximumZoomScale),
+                                                                      center: scaleCenter(from: gestureRecognizer)))
+
+        presentOverlay(event: .zoom)
     }
     
     func dismissOverlay() {
@@ -94,15 +109,13 @@ extension ImageZoomControllerIsPresentingImageViewOverlayState: ImageZoomControl
     }
     
     func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
-        guard   let owner = owner,
-                let imageView = owner.imageView else { return }
+        guard   let owner = owner else { return }
         
         let currentPinchScale = owner.adjust(pinchScale: gestureRecognizer.scale)
         
         switch gestureRecognizer.state {
         case .began:
-            pinchCenter = CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
-                                  y: gestureRecognizer.location(in: imageView).y - imageView.bounds.midY)
+            scaleCenter = scaleCenter(from: gestureRecognizer)
         case .changed:
             owner.backgroundView.alpha = backgroundAlpha(for: currentPinchScale)
             currentScale = currentPinchScale
@@ -149,18 +162,10 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     func updateOverlayImageViewTransform() {
         guard let owner = owner else { return }
         
-        if let pinchCenter = pinchCenter {
-            owner.overlayImageView.transform = CGAffineTransform.identity   .translatedBy(x: currentTranslation.x,
-                                                                                          y: currentTranslation.y)
-                .translatedBy(x: pinchCenter.x * (1-currentScale),
-                              y: pinchCenter.y * (1-currentScale))
-                .scaledBy(x: currentScale,
-                          y: currentScale)
+        if let scaleCenter = scaleCenter {
+            owner.overlayImageView.transform = .transform(withScale: currentScale, translation: currentTranslation, center: scaleCenter)
         } else {
-            owner.overlayImageView.transform = CGAffineTransform.identity   .translatedBy(x: currentTranslation.x,
-                                                                                          y: currentTranslation.y)
-                .scaledBy(x: currentScale,
-                          y: currentScale)
+            owner.overlayImageView.transform = .transform(withScale: currentScale, translation: currentTranslation)
         }
     }
     
@@ -231,7 +236,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.state = IsPresentingScrollViewOverlayState(owner: owner)
     }
     
-    func animateToExpectedFrameOfScrollableImageView(onComplete: @escaping ()->()) {
+    func animateToExpectedFrameOfScrollableImageView(event: AnimationEvent, onComplete: @escaping ()->()) {
         logger.log(atLevel: .verbose)
         guard   let owner = owner,
                 let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView else { return }
@@ -239,7 +244,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
         owner.scrollView.pinchGestureRecognizer?.isEnabled = false
         hideScrollableImageViewWhileKeepingItUserInteractable()
 
-        owner.animator(for: .positionCorrection).animate({
+        owner.animator(for: event).animate({
             owner.overlayImageView.frame = expectedFrameOfScrollableImageView
         }) {
             guard   !self.isDismissingOverlay,
@@ -304,5 +309,12 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
                       y: originY,
                       width: neededSize.width,
                       height: neededSize.height)
+    }
+    
+    func scaleCenter(from gestureRecognizer: UIGestureRecognizer?) -> CGPoint {
+        guard   let gestureRecognizer = gestureRecognizer,
+                let imageView = owner?.imageView else { return CGPoint.zero }
+        return CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
+                       y: gestureRecognizer.location(in: imageView).y - imageView.bounds.midY)
     }
 }

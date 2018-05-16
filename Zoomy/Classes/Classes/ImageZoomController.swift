@@ -96,6 +96,13 @@ public class ImageZoomController: NSObject {
         return gestureRecognizer
     }()
     
+    private lazy var scrollableImageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
+        gestureRecognizer.delegate = self
+        gestureRecognizer.numberOfTapsRequired = 2
+        return gestureRecognizer
+    }()
+    
     private lazy var scrollableImageViewPanGestureRecognizer: UIPanGestureRecognizer = {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(with:)))
         gestureRecognizer.delegate = self
@@ -216,21 +223,23 @@ private extension ImageZoomController {
         guard settings.isEnabled else { return }
         logger.log(atLevel: .verbose)
         
-        perform(action: action(for: gestureRecognizer))
+        perform(action: action(for: gestureRecognizer), triggeredBy: gestureRecognizer)
     }
 }
 
 //MARK: CanPerformAction
 extension ImageZoomController: CanPerformAction {
     
-    func perform(action: ImageZoomControllerAction) {
-        logger.log(action, atLevel: .verbose)
+    func perform(action: ImageZoomControllerAction, triggeredBy gestureRecognizer: UIGestureRecognizer? = nil) {
+        logger.log(action, atLevel: .info)
         guard !(action is Action.None) else { return }
         
         if action is Action.DismissOverlay {
             state.dismissOverlay()
         } else if action is Action.ZoomToFit {
             state.zoomToFit()
+        } else if action is Action.ZoomIn {
+            state.zoomIn(with: gestureRecognizer)
         }
     }
 }
@@ -253,6 +262,7 @@ extension ImageZoomController {
     private func createScrollableImageView() -> UIImageView {
         let view = UIImageView()
         view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
+        view.addGestureRecognizer(scrollableImageViewDoubleTapGestureRecognizer)
         view.addGestureRecognizer(scrollableImageViewPanGestureRecognizer)
         view.isUserInteractionEnabled = true
         view.image = image
@@ -453,6 +463,8 @@ internal extension ImageZoomController {
             return settings.actionOnDoubleTapImageVIew
         } else if gestureRecognizer === scrollableImageViewTapGestureRecognizer {
             return settings.actionOnTapOverlay
+        } else if gestureRecognizer === scrollableImageViewDoubleTapGestureRecognizer {
+            return settings.actionOnDoubleTapOverlay
         } else {
             return Action.none
         }

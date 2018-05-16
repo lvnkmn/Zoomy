@@ -2,6 +2,7 @@ public enum AnimationEvent {
     case overlayDismissal
     case positionCorrection
     case backgroundColorChange
+    case zoom
 }
 
 public extension AnimationEvent {
