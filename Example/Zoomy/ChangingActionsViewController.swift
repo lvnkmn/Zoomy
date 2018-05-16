@@ -35,7 +35,7 @@ class ChangingActionsViewController: UIViewController {
         var settings: Settings = .backgroundEnabledSettings
         
         settings.actionOnTapImageView = action(for: tapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewTap ?? Action.none
-        settings.actionOnDoubleTapImageVIew = action(for: doubleTapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewDoubleTap ?? Action.none
+        settings.actionOnDoubleTapImageView = action(for: doubleTapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewDoubleTap ?? Action.none
         settings.actionOnTapOverlay = action(for: tapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayTap ?? Action.none
         settings.actionOnDoubleTapOverlay = action(for: doubleTapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayDoubleTap ?? Action.none
         settings.actionOnScrollBounceTop = action(for: scrollBounceTopSegmentedControl) as? Action & CanBeTriggeredByScrollBounceTop ?? Action.none

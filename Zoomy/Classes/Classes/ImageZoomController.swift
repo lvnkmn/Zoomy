@@ -460,7 +460,7 @@ internal extension ImageZoomController {
         if gestureRecognizer === imageViewTapGestureRecognizer {
             return settings.actionOnTapImageView
         } else if gestureRecognizer === imageViewDoubleTapGestureRecognizer {
-            return settings.actionOnDoubleTapImageVIew
+            return settings.actionOnDoubleTapImageView
         } else if gestureRecognizer === scrollableImageViewTapGestureRecognizer {
             return settings.actionOnTapOverlay
         } else if gestureRecognizer === scrollableImageViewDoubleTapGestureRecognizer {
