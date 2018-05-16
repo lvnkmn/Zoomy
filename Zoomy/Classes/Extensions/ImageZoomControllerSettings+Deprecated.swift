@@ -25,6 +25,16 @@ public extension ImageZoomControllerSettings {
         }
     }
     
+    @available(*, deprecated, message: "Use `actionOnDoubleTapImageView` instead")
+    public var actionOnDoubleTapImageVIew: Action & CanBeTriggeredByImageViewDoubleTap {
+        get {
+            return actionOnDoubleTapImageView
+        }
+        set {
+            actionOnDoubleTapImageView = actionOnDoubleTapImageVIew
+        }
+    }
+    
     @available(*, deprecated, message: "Use `with(primaryBackgroundColor: UIColor)` instead")
     func with(backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn: UIColor) -> ImageZoomControllerSettings {
         return self.with(primaryBackgroundColor: backgroundColorWhenContentIsSmallerThanViewItsDisplayedIn)

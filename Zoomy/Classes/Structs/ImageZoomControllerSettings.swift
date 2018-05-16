@@ -45,7 +45,7 @@ public struct ImageZoomControllerSettings {
     public var actionOnTapImageView: Action & CanBeTriggeredByImageViewTap = Action.none
     
     /// The action that will be triggerend when the imageView is double tapped
-    public var actionOnDoubleTapImageVIew: Action & CanBeTriggeredByImageViewDoubleTap = Action.none
+    public var actionOnDoubleTapImageView: Action & CanBeTriggeredByImageViewDoubleTap = Action.none
     
     /// The action that will be triggered when the overlay is tapped
     public var actionOnTapOverlay: Action & CanBeTriggeredByOverlayTap = Action.none
@@ -173,7 +173,7 @@ public extension ImageZoomControllerSettings {
     
     func with(actionOnDoubleTapImageView: Action & CanBeTriggeredByImageViewDoubleTap) -> Settings {
         var settings = self
-        settings.actionOnDoubleTapImageVIew = actionOnDoubleTapImageView
+        settings.actionOnDoubleTapImageView = actionOnDoubleTapImageView
         return settings
     }
     
