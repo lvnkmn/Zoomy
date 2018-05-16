@@ -76,6 +76,19 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
         }
     }
     
+    func zoomIn(with gestureRecognizer: UIGestureRecognizer?) {
+        guard   let scrollView = owner?.scrollView,
+                scrollView.zoomScale != scrollView.maximumZoomScale else { return }
+        
+        if let location = gestureRecognizer?.location(in: gestureRecognizer?.view) {
+            logger.log("location: \(location)", atLevel: .verbose)
+            scrollView.zoom(to: CGRect(x: location.x, y: location.y, width: 0, height: 0), animated: true)
+        } else {
+            logger.log("zoomScale: \(scrollView.maximumZoomScale)", atLevel: .verbose)
+            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
+        }
+    }
+    
     func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
         let translation = gestureRecognizer.translation(in: owner?.containerView)
         guard   isZooming == false,
@@ -115,7 +128,7 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
 //MARK: CanPerformAction
 extension ImageZoomControllerIsPresentingScrollViewOverlayState: CanPerformAction {
     
-    func perform(action: ImageZoomControllerAction) {
+    func perform(action: ImageZoomControllerAction, triggeredBy gestureRecognizer: UIGestureRecognizer? = nil) {
         logger.log(action, atLevel: .info)
         guard !(action is Action.None) else { return }
         if action is Action.DismissOverlay {

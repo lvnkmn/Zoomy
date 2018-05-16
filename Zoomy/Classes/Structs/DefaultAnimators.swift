@@ -4,7 +4,9 @@ public struct DefaultAnimators {
     
     var dismissalAnimator: CanAnimate = Animator(duration: 0.2, options: .curveEaseInOut)
     
-    var positionCorrectionAnimator: CanAnimate = SpringAnimator()
+    var positionCorrectionAnimator: CanAnimate = SpringAnimator(duration: 0.5)
+    
+    var zoomAnimator: CanAnimate = Animator(duration: 0.4, options: .curveEaseInOut)
     
     public init() {}
 }
@@ -19,6 +21,8 @@ extension DefaultAnimators: CanProvideAnimatorForEvent {
             return dismissalAnimator
         case .positionCorrection:
             return positionCorrectionAnimator
+        case .zoom:
+            return zoomAnimator
         }
     }
 }

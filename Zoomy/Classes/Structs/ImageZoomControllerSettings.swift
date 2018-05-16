@@ -50,6 +50,9 @@ public struct ImageZoomControllerSettings {
     /// The action that will be triggered when the overlay is tapped
     public var actionOnTapOverlay: Action & CanBeTriggeredByOverlayTap = Action.none
     
+    /// The action that will be triggered when the overlay is tapped
+    public var actionOnDoubleTapOverlay: Action & CanBeTriggeredByOverlayDoubleTap = Action.none
+    
     /// The action that will be triggered when scrollView is bouncing while scrolling towards the top
     public var actionOnScrollBounceTop: Action & CanBeTriggeredByScrollBounceTop = Action.none
     
@@ -129,6 +132,12 @@ public extension ImageZoomControllerSettings {
     func with(actionOnTapOverlay: Action & CanBeTriggeredByOverlayTap) -> Settings {
         var settings = self
         settings.actionOnTapOverlay = actionOnTapOverlay
+        return settings
+    }
+    
+    func with(actionOnDoubleTapOverlay: Action & CanBeTriggeredByOverlayDoubleTap) -> Settings {
+        var settings = self
+        settings.actionOnDoubleTapOverlay = actionOnDoubleTapOverlay
         return settings
     }
     
