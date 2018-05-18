@@ -179,7 +179,8 @@ class ImageZoomControllerTests: XCTestCase {
         XCTAssertEqual(mockLogger.loggedMessages.count, 0)
     }
     
-    func testGestureRecognizerDelegate1() {
+    // MARK: UIGestureRecognizerDelegate
+    func testGestureRecognizerShouldReceiveTouch1() {
         //Arrange
         let gestureRecognizer = sut.imageViewTapGestureRecognizer
         let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByImageViewTap })
@@ -196,7 +197,7 @@ class ImageZoomControllerTests: XCTestCase {
         }
     }
     
-    func testGestureRecognizerDelegate2() {
+    func testGestureRecognizerShouldReceiveTouch2() {
         //Arrange
         let gestureRecognizer = sut.imageViewDoubleTapGestureRecognizer
         let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByImageViewDoubleTap })
@@ -213,7 +214,7 @@ class ImageZoomControllerTests: XCTestCase {
         }
     }
     
-    func testGestureRecognizerDelegate3() {
+    func testGestureRecognizerShouldReceiveTouch3() {
         //Arrange
         let gestureRecognizer = sut.scrollableImageViewTapGestureRecognizer
         let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByOverlayTap })
@@ -230,7 +231,7 @@ class ImageZoomControllerTests: XCTestCase {
         }
     }
     
-    func testGestureRecognizerDelegate4() {
+    func testGestureRecognizerShouldReceiveTouch4() {
         //Arrange
         let gestureRecognizer = sut.scrollableImageViewDoubleTapGestureRecognizer
         let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByOverlayDoubleTap })
@@ -247,7 +248,7 @@ class ImageZoomControllerTests: XCTestCase {
         }
     }
     
-    func testGestureRecognizerDelegate5() {
+    func testGestureRecognizerShouldReceiveTouch5() {
         //Arrange
         let gestureRegocnizersThatAlwaysNeedTouch = [sut.imageViewPinchGestureRecognizer,
                                                      sut.imageViewPanGestureRecognizer,
