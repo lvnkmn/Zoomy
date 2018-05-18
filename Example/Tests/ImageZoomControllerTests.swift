@@ -178,4 +178,85 @@ class ImageZoomControllerTests: XCTestCase {
         //Assert
         XCTAssertEqual(mockLogger.loggedMessages.count, 0)
     }
+    
+    // MARK: UIGestureRecognizerDelegate
+    func testGestureRecognizerShouldReceiveTouch1() {
+        //Arrange
+        let gestureRecognizer = sut.imageViewTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByImageViewTap })
+
+        //Act
+        sut.settings.actionOnTapImageView = Action.none
+        
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnTapImageView = action as! Action & CanBeTriggeredByImageViewTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizerShouldReceiveTouch2() {
+        //Arrange
+        let gestureRecognizer = sut.imageViewDoubleTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByImageViewDoubleTap })
+        
+        //Act
+        sut.settings.actionOnDoubleTapImageView = Action.none
+        
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnDoubleTapImageView = action as! Action & CanBeTriggeredByImageViewDoubleTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizerShouldReceiveTouch3() {
+        //Arrange
+        let gestureRecognizer = sut.scrollableImageViewTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByOverlayTap })
+        
+        //Act
+        sut.settings.actionOnTapOverlay = Action.none
+        
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnTapOverlay = action as! Action & CanBeTriggeredByOverlayTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizerShouldReceiveTouch4() {
+        //Arrange
+        let gestureRecognizer = sut.scrollableImageViewDoubleTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByOverlayDoubleTap })
+        
+        //Act
+        sut.settings.actionOnDoubleTapOverlay = Action.none
+
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnDoubleTapOverlay = action as! Action & CanBeTriggeredByOverlayDoubleTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizerShouldReceiveTouch5() {
+        //Arrange
+        let gestureRegocnizersThatAlwaysNeedTouch = [sut.imageViewPinchGestureRecognizer,
+                                                     sut.imageViewPanGestureRecognizer,
+                                                     sut.scrollableImageViewPanGestureRecognizer]
+
+        //Assert
+        for gestureRecognizer in gestureRegocnizersThatAlwaysNeedTouch {
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
 }
