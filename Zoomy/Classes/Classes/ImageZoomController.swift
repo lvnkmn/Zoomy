@@ -220,10 +220,11 @@ private extension ImageZoomController {
     }
     
     @objc func didTap(with gestureRecognizer: UITapGestureRecognizer) {
-        guard settings.isEnabled else { return }
+        guard   settings.isEnabled,
+                let action = action(for: gestureRecognizer) else { return }
         logger.log(atLevel: .verbose)
         
-        perform(action: action(for: gestureRecognizer), triggeredBy: gestureRecognizer)
+        perform(action: action, triggeredBy: gestureRecognizer)
     }
 }
 
@@ -456,7 +457,7 @@ internal extension ImageZoomController {
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
     }
     
-    private func action(for gestureRecognizer: UIGestureRecognizer) -> Action {
+    private func action(for gestureRecognizer: UIGestureRecognizer) -> Action? {
         if gestureRecognizer === imageViewTapGestureRecognizer {
             return settings.actionOnTapImageView
         } else if gestureRecognizer === imageViewDoubleTapGestureRecognizer {
@@ -466,7 +467,7 @@ internal extension ImageZoomController {
         } else if gestureRecognizer === scrollableImageViewDoubleTapGestureRecognizer {
             return settings.actionOnDoubleTapOverlay
         } else {
-            return Action.none
+            return nil
         }
     }
     
@@ -534,6 +535,8 @@ extension ImageZoomController: UIGestureRecognizerDelegate {
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        return true
+        guard let action = action(for: gestureRecognizer) else { return true }
+        
+        return !(action is Action.None)
     }
 }
