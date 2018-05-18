@@ -1,12 +1,12 @@
 public struct DefaultAnimators {
     
-    var backgroundColorAnimator: CanAnimate = Animator(duration: 0.5, options: .curveLinear)
+    public var backgroundColorAnimator: CanAnimate = Animator(duration: 0.5, options: .curveLinear)
     
-    var dismissalAnimator: CanAnimate = Animator(duration: 0.2, options: .curveEaseInOut)
+    public var dismissalAnimator: CanAnimate = Animator(duration: 0.2, options: .curveEaseInOut)
     
-    var positionCorrectionAnimator: CanAnimate = SpringAnimator(duration: 0.5)
+    public var positionCorrectionAnimator: CanAnimate = SpringAnimator(duration: 0.5)
     
-    var zoomAnimator: CanAnimate = Animator(duration: 0.4, options: .curveEaseInOut)
+    public var zoomAnimator: CanAnimate = Animator(duration: 0.4, options: .curveEaseInOut)
     
     public init() {}
 }
