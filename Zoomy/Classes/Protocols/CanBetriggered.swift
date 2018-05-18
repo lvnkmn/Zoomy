@@ -7,11 +7,12 @@ public protocol CanBeTriggeredByAnyInteraction: CanBeTriggeredByImageViewTap,
                                                 CanBeTriggeredByScrollBounceRight,
                                                 CanBeTriggeredByScrollBounceBottom {}
 
-public protocol CanBeTriggeredByImageViewTap {}
-public protocol CanBeTriggeredByImageViewDoubleTap {}
-public protocol CanBeTriggeredByOverlayTap {}
-public protocol CanBeTriggeredByOverlayDoubleTap {}
-public protocol CanBeTriggeredByScrollBounceTop {}
-public protocol CanBeTriggeredByScrollBounceLeft {}
-public protocol CanBeTriggeredByScrollBounceRight {}
-public protocol CanBeTriggeredByScrollBounceBottom {}
+public protocol CanBeTriggered {}
+public protocol CanBeTriggeredByImageViewTap: CanBeTriggered {}
+public protocol CanBeTriggeredByImageViewDoubleTap: CanBeTriggered {}
+public protocol CanBeTriggeredByOverlayTap: CanBeTriggered {}
+public protocol CanBeTriggeredByOverlayDoubleTap: CanBeTriggered {}
+public protocol CanBeTriggeredByScrollBounceTop: CanBeTriggered {}
+public protocol CanBeTriggeredByScrollBounceLeft: CanBeTriggered {}
+public protocol CanBeTriggeredByScrollBounceRight: CanBeTriggered {}
+public protocol CanBeTriggeredByScrollBounceBottom: CanBeTriggered {}
