@@ -24,6 +24,10 @@ public class ImageZoomControllerAction: CustomStringConvertible {
     public  static var none: None {
         return None()
     }
+    
+    public static var all: [Action] {
+        return [Action.none, Action.zoomToFit, Action.zoomIn, Action.dismissOverlay]
+    }
 }
 
 public extension ImageZoomControllerAction {
