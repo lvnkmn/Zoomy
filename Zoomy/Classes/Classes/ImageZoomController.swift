@@ -62,52 +62,52 @@ public class ImageZoomController: NSObject {
         }
     }
     
-    // MARK: Private Properties
-    
-    private lazy var imageViewPinchGestureRecognizer: UIPinchGestureRecognizer = {
+    internal private (set) lazy var imageViewPinchGestureRecognizer: UIPinchGestureRecognizer = {
         let gestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
     
-    private lazy var imageViewPanGestureRecognizer: UIPanGestureRecognizer = {
+    internal private (set)  lazy var imageViewPanGestureRecognizer: UIPanGestureRecognizer = {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
     
-    private lazy var imageViewTapGestureRecognizer: UITapGestureRecognizer = {
+    internal private (set)  lazy var imageViewTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
         gestureRecognizer.delegate = self
         gestureRecognizer.numberOfTapsRequired = 1
         return gestureRecognizer
     }()
     
-    private lazy var imageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
+    internal private (set)  lazy var imageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
         gestureRecognizer.delegate = self
         gestureRecognizer.numberOfTapsRequired = 2
         return gestureRecognizer
     }()
     
-    private lazy var scrollableImageViewTapGestureRecognizer: UITapGestureRecognizer = {
+    internal private (set)  lazy var scrollableImageViewTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
     
-    private lazy var scrollableImageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
+    internal private (set)  lazy var scrollableImageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
         gestureRecognizer.delegate = self
         gestureRecognizer.numberOfTapsRequired = 2
         return gestureRecognizer
     }()
     
-    private lazy var scrollableImageViewPanGestureRecognizer: UIPanGestureRecognizer = {
+    internal private (set)  lazy var scrollableImageViewPanGestureRecognizer: UIPanGestureRecognizer = {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(with:)))
         gestureRecognizer.delegate = self
         return gestureRecognizer
     }()
+    
+    // MARK: Private Properties
     
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     private var maximumPinchScale: ImageViewScale {
