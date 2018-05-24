@@ -132,8 +132,6 @@ public class ImageZoomController: NSObject {
         
         super.init()
         
-        validateViewHierarchy()
-        
         state = IsNotPresentingOverlayState(owner: self)
         configureImageView()
     }
@@ -295,16 +293,6 @@ extension ImageZoomController {
         if  imageView.image == nil,
             settings.shouldLogWarningsAndErrors {
             logger.log("Provided imageView did not have an image at this time, this is likely to have effect on the zoom behavior.", atLevel: .warning)
-        }
-    }
-    
-    private func validateViewHierarchy() {
-        guard   let imageView = imageView,
-                let containerView = containerView else { return }
-        
-        if  !imageView.isDescendant(of: containerView),
-            settings.shouldLogWarningsAndErrors {
-            logger.log("Provided containerView is not an ansestor of provided imageView, this is likely to have effect on the zoom behavior.", atLevel: .warning)
         }
     }
 }

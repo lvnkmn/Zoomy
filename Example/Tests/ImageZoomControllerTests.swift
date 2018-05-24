@@ -158,18 +158,6 @@ class ImageZoomControllerTests: XCTestCase {
     func testRequiredInitializer3() {
         //Arrange
         logger.relay = mockLogger
-        
-        //Act
-        sut = ImageZoomController(container: containerView, imageView: imageView, delegate: nil, settings: settings)
-        
-        //Assert
-        XCTAssertEqual(mockLogger.loggedMessages.last?.message as? String, "Provided containerView is not an ansestor of provided imageView, this is likely to have effect on the zoom behavior.")
-        XCTAssertEqual(mockLogger.loggedMessages.last?.level, Loglevel.warning)
-    }
-    
-    func testRequiredInitializer4() {
-        //Arrange
-        logger.relay = mockLogger
         settings.shouldLogWarningsAndErrors = false
         
         //Act

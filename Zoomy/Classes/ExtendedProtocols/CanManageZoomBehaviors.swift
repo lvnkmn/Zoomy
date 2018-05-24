@@ -6,7 +6,7 @@ public protocol CanManageZoomBehaviors {
     ///
     /// - Parameters:
     ///   - imageView: The imageView that will be zoomable
-    ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
+    ///   - containerView: The containerView in which the imageView will be zoomed
     ///   - delegate: The delegate that will be notified on zoom related events
     ///   - settings: The settings the will be used for the zoomBehavior
     func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: Zoomy.Delegate?, settings: Zoomy.Settings)
@@ -24,7 +24,7 @@ public extension CanManageZoomBehaviors {
     ///
     /// - Parameters:
     ///   - imageView: The imageView that will be zoomable
-    ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
+    ///   - containerView: The containerView in which the imageView will be zoomed
     func addZoombehavior(for imageView: UIImageView, in containerView: UIView) {
         addZoombehavior(for: imageView, in: containerView, delegate: nil, settings: .defaultSettings)
     }
@@ -33,7 +33,7 @@ public extension CanManageZoomBehaviors {
     ///
     /// - Parameters:
     ///   - imageView: The imageView that will be zoomable
-    ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
+    ///   - containerView: The containerView in which the imageView will be zoomed
     ///   - settings: The settings the will be used for the zoomBehavior
     func addZoombehavior(for imageView: UIImageView, in containerView: UIView, settings: Zoomy.Settings) {
         addZoombehavior(for: imageView, in: containerView, delegate: nil, settings: settings)
@@ -43,7 +43,7 @@ public extension CanManageZoomBehaviors {
     ///
     /// - Parameters:
     ///   - imageView: The imageView that will be zoomable
-    ///   - containerView: The containerView in which the imageView will be zoomed, this should be an ansester of the imageView
+    ///   - containerView: The containerView in which the imageView will be zoomed
     ///   - delegate: The delegate that will be notified on zoom related events
     func addZoombehavior(for imageView: UIImageView, in containerView: UIView, delegate: Zoomy.Delegate?) {
         addZoombehavior(for: imageView, in: containerView, delegate: delegate, settings: .defaultSettings)
