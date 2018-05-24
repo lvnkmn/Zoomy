@@ -164,7 +164,10 @@ class ImageZoomControllerTests: XCTestCase {
         sut = ImageZoomController(container: containerView, imageView: imageView, delegate: nil, settings: settings)
         
         //Assert
-        XCTAssertEqual(mockLogger.loggedMessages.count, 0)
+        XCTAssertEqual(mockLogger.loggedMessages.filter({
+            $0.level == Loglevel.warning ||
+            $0.level == Loglevel.error
+        }).count, 0)
     }
     
     // MARK: UIGestureRecognizerDelegate
@@ -237,6 +240,40 @@ class ImageZoomControllerTests: XCTestCase {
     }
     
     func testGestureRecognizerShouldReceiveTouch5() {
+        //Arrange
+        let gestureRecognizer = sut.backgroundViewTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByBackgroundViewTap })
+        
+        //Act
+        sut.settings.actionOnDoubleTapOverlay = Action.none
+        
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnTapBackgroundView = action as! Action & CanBeTriggeredByBackgroundViewTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizerShouldReceiveTouch6() {
+        //Arrange
+        let gestureRecognizer = sut.backgroundViewDoubleTapGestureRecognizer
+        let actionsThatNeedTouch = Action.all.filter({ !($0 is Action.None)  }).filter({ $0 is CanBeTriggeredByBackgroundDoubleTap })
+        
+        //Act
+        sut.settings.actionOnDoubleTapOverlay = Action.none
+        
+        //Assert
+        XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), false)
+        XCTAssert(actionsThatNeedTouch.count > 0)
+        for action in actionsThatNeedTouch {
+            sut.settings.actionOnDoubleTapBackgroundView = action as! Action & CanBeTriggeredByBackgroundDoubleTap
+            XCTAssertEqual(sut.gestureRecognizer(gestureRecognizer, shouldReceive: UITouch()), true)
+        }
+    }
+    
+    func testGestureRecognizersThatAlwaysNeedTouch() {
         //Arrange
         let gestureRegocnizersThatAlwaysNeedTouch = [sut.imageViewPinchGestureRecognizer,
                                                      sut.imageViewPanGestureRecognizer,
