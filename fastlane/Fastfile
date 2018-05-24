@@ -26,7 +26,7 @@ platform :ios do
 
   		sh("git", "add", "-A")
   		sh("git", "commit", "-m", "Bump version to #{version} [ci skip]")
-      sh("git", "fetch")
+        sh("git", "fetch")
   		sh("git", "checkout", "master")
   		sh("git", "merge", releaseBranchName)
   		sh("git", "tag", version)
@@ -41,7 +41,7 @@ platform :ios do
                                           api_token: ENV["GITHUB_TOKEN"],
                                           name: version,
                                           tag_name: version,
-                                          description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/33?closed=1)",
+                                          description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/34?closed=1)",
                                           commitish: "master")
 	end
 end
