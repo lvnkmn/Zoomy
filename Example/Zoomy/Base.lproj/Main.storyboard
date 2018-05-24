@@ -276,7 +276,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-oo-aDh">
-                                <rect key="frame" x="10" y="421" width="355" height="238"/>
+                                <rect key="frame" x="10" y="361" width="355" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ip5-ho-LHg">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="28"/>
@@ -354,8 +354,46 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1GD-AX-E58">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AOW-J9-ziO">
                                         <rect key="frame" x="0.0" y="120" width="355" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TapBackgr:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-DM-1y3">
+                                                <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-0b-2TC">
+                                                <rect key="frame" x="119" y="0.0" width="236" height="29"/>
+                                                <segments>
+                                                    <segment title=""/>
+                                                    <segment title=""/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zaf-Gn-3xm">
+                                        <rect key="frame" x="0.0" y="150" width="355" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2*TapBackgr:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9S-xg-Bxb">
+                                                <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-ws-DER">
+                                                <rect key="frame" x="119" y="0.0" width="236" height="29"/>
+                                                <segments>
+                                                    <segment title=""/>
+                                                    <segment title=""/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1GD-AX-E58">
+                                        <rect key="frame" x="0.0" y="180" width="355" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BounceTop:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9We-Pw-9fo">
                                                 <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
@@ -373,7 +411,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0al-dD-8RH">
-                                        <rect key="frame" x="0.0" y="150" width="355" height="28"/>
+                                        <rect key="frame" x="0.0" y="210" width="355" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BounceLeft:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AG1-PW-QUF">
                                                 <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
@@ -391,7 +429,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MW4-yI-op0">
-                                        <rect key="frame" x="0.0" y="180" width="355" height="28"/>
+                                        <rect key="frame" x="0.0" y="240" width="355" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BounceRight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZs-fs-DMl">
                                                 <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
@@ -409,7 +447,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xzR-vi-0Ve">
-                                        <rect key="frame" x="0.0" y="210" width="355" height="28"/>
+                                        <rect key="frame" x="0.0" y="270" width="355" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BounceBottom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-ue-gYb">
                                                 <rect key="frame" x="0.0" y="4" width="119" height="20.5"/>
@@ -437,11 +475,13 @@
                                     <constraint firstItem="I4m-3R-hgw" firstAttribute="width" secondItem="JxG-6c-fDF" secondAttribute="width" id="JBD-If-7Cd"/>
                                     <constraint firstItem="I4m-3R-hgw" firstAttribute="width" secondItem="B0j-Av-hzX" secondAttribute="width" id="JNH-Pe-n7B"/>
                                     <constraint firstItem="jpZ-jI-gOh" firstAttribute="width" secondItem="I4m-3R-hgw" secondAttribute="width" id="XU7-xG-806"/>
+                                    <constraint firstItem="4DM-ws-DER" firstAttribute="width" secondItem="I4m-3R-hgw" secondAttribute="width" id="ax7-Tl-k3X"/>
+                                    <constraint firstItem="tBe-0b-2TC" firstAttribute="width" secondItem="I4m-3R-hgw" secondAttribute="width" id="cJN-Jg-v3G"/>
                                     <constraint firstItem="I4m-3R-hgw" firstAttribute="width" secondItem="VO0-Uu-Sfz" secondAttribute="width" id="t0a-Ix-8XC"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-Ze-IHD">
-                                <rect key="frame" x="10" y="390.5" width="68" height="20.5"/>
+                                <rect key="frame" x="10" y="330.5" width="68" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -467,6 +507,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doubleTapBackgroundViewSegmentedControl" destination="4DM-ws-DER" id="dd7-L8-HHu"/>
                         <outlet property="doubleTapImageViewSegmentedControl" destination="hTi-Gy-0Yu" id="CUW-3o-FUa"/>
                         <outlet property="doubleTapOverlaySegmentedControl" destination="jpZ-jI-gOh" id="V1v-cC-AX8"/>
                         <outlet property="imageView" destination="EJm-cW-q4n" id="2ZV-GN-YBl"/>
@@ -474,6 +515,7 @@
                         <outlet property="scrollBounceLeftSegmentedControl" destination="JxG-6c-fDF" id="L3V-89-NOf"/>
                         <outlet property="scrollBounceRightSegmentedControl" destination="VO0-Uu-Sfz" id="vn4-Ww-9eb"/>
                         <outlet property="scrollBounceTopSegmentedControl" destination="B0j-Av-hzX" id="wqc-zG-yNX"/>
+                        <outlet property="tapBackgroundViewSegmentedControl" destination="tBe-0b-2TC" id="j5c-1g-5O1"/>
                         <outlet property="tapImageViewSegmentedControl" destination="6lF-uc-BO0" id="Ue5-Os-brf"/>
                         <outlet property="tapOverlaySegmentedControl" destination="nx6-Qr-Ldr" id="xzu-Yp-DHD"/>
                     </connections>

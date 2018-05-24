@@ -50,8 +50,14 @@ public struct ImageZoomControllerSettings {
     /// The action that will be triggered when the overlay is tapped
     public var actionOnTapOverlay: Action & CanBeTriggeredByOverlayTap = Action.none
     
-    /// The action that will be triggered when the overlay is tapped
+    /// The action that will be triggered when the overlay is double tapped
     public var actionOnDoubleTapOverlay: Action & CanBeTriggeredByOverlayDoubleTap = Action.none
+    
+    /// The action that will be triggered when the overlay is tapped
+    public var actionOnTapBackgroundView: Action & CanBeTriggeredByBackgroundViewTap = Action.none
+    
+    /// The action that will be triggered when the backgroundView is double tapped
+    public var actionOnDoubleTapBackgroundView: Action & CanBeTriggeredByBackgroundDoubleTap = Action.none
     
     /// The action that will be triggered when scrollView is bouncing while scrolling towards the top
     public var actionOnScrollBounceTop: Action & CanBeTriggeredByScrollBounceTop = Action.none
