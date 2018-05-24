@@ -74,6 +74,8 @@ public extension ImageZoomControllerAction {
                                         CanBeTriggeredByOverlayDoubleTap,
                                         CanBeTriggeredByScrollBounceTop,
                                         CanBeTriggeredByScrollBounceLeft,
+                                        CanBeTriggeredByBackgroundViewTap,
+                                        CanBeTriggeredByBackgroundDoubleTap,
                                         CanBeTriggeredByScrollBounceRight,
                                         CanBeTriggeredByScrollBounceBottom {
         override public var description: String {
