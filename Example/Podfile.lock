@@ -10,7 +10,7 @@ DEPENDENCIES:
   - Zoomy (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - InjectableLoggers
     - PureLayout
 
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d73839f89c40d82dac3dbafcdd83a82a089b33e6
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2

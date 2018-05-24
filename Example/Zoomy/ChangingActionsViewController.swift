@@ -15,6 +15,8 @@ class ChangingActionsViewController: UIViewController {
     @IBOutlet weak var doubleTapImageViewSegmentedControl: UISegmentedControl!
     @IBOutlet weak var tapOverlaySegmentedControl: UISegmentedControl!
     @IBOutlet weak var doubleTapOverlaySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var tapBackgroundViewSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var doubleTapBackgroundViewSegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceTopSegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceLeftSegmentedControl: UISegmentedControl!
     @IBOutlet weak var scrollBounceRightSegmentedControl: UISegmentedControl!
@@ -22,14 +24,16 @@ class ChangingActionsViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    private lazy var actionsForSegmentedControl: [UISegmentedControl : [Action]] = [    tapImageViewSegmentedControl:       [.none, .zoomIn, .zoomToFit],
-                                                                                        doubleTapImageViewSegmentedControl: [.none, .zoomIn, .zoomToFit],
-                                                                                        tapOverlaySegmentedControl:         [.none, .zoomIn, .dismissOverlay],
-                                                                                        doubleTapOverlaySegmentedControl:   [.none, .zoomIn, .dismissOverlay],
-                                                                                        scrollBounceTopSegmentedControl:    [.none, .dismissOverlay],
-                                                                                        scrollBounceLeftSegmentedControl:   [.none, .dismissOverlay],
-                                                                                        scrollBounceRightSegmentedControl:  [.none, .dismissOverlay],
-                                                                                        scrollBounceBottomSegmentedControl: [.none, .dismissOverlay]]
+    private lazy var actionsForSegmentedControl: [UISegmentedControl : [Action]] = [    tapImageViewSegmentedControl:               [.none, .zoomIn, .zoomToFit],
+                                                                                        doubleTapImageViewSegmentedControl:         [.none, .zoomIn, .zoomToFit],
+                                                                                        tapOverlaySegmentedControl:                 [.none, .zoomIn, .dismissOverlay],
+                                                                                        doubleTapOverlaySegmentedControl:           [.none, .zoomIn, .dismissOverlay],
+                                                                                        tapBackgroundViewSegmentedControl:          [.none, .dismissOverlay],
+                                                                                        doubleTapBackgroundViewSegmentedControl:    [.none, .dismissOverlay],
+                                                                                        scrollBounceTopSegmentedControl:            [.none, .dismissOverlay],
+                                                                                        scrollBounceLeftSegmentedControl:           [.none, .dismissOverlay],
+                                                                                        scrollBounceRightSegmentedControl:          [.none, .dismissOverlay],
+                                                                                        scrollBounceBottomSegmentedControl:         [.none, .dismissOverlay]]
     
     var settings: Settings {
         var settings: Settings = .backgroundEnabledSettings
@@ -38,6 +42,8 @@ class ChangingActionsViewController: UIViewController {
         settings.actionOnDoubleTapImageView = action(for: doubleTapImageViewSegmentedControl) as? Action & CanBeTriggeredByImageViewDoubleTap ?? Action.none
         settings.actionOnTapOverlay = action(for: tapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayTap ?? Action.none
         settings.actionOnDoubleTapOverlay = action(for: doubleTapOverlaySegmentedControl) as? Action & CanBeTriggeredByOverlayDoubleTap ?? Action.none
+        settings.actionOnTapBackgroundView = action(for: tapBackgroundViewSegmentedControl) as? Action & CanBeTriggeredByBackgroundViewTap ?? Action.none
+        settings.actionOnDoubleTapBackgroundView = action(for: doubleTapBackgroundViewSegmentedControl) as? Action & CanBeTriggeredByBackgroundDoubleTap ?? Action.none
         settings.actionOnScrollBounceTop = action(for: scrollBounceTopSegmentedControl) as? Action & CanBeTriggeredByScrollBounceTop ?? Action.none
         settings.actionOnScrollBounceLeft = action(for: scrollBounceLeftSegmentedControl) as? Action & CanBeTriggeredByScrollBounceLeft ?? Action.none
         settings.actionOnScrollBounceRight = action(for: scrollBounceRightSegmentedControl) as? Action & CanBeTriggeredByScrollBounceRight ?? Action.none

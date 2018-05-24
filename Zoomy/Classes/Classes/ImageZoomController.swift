@@ -29,15 +29,6 @@ public class ImageZoomController: NSObject {
         }
     }
     
-    internal lazy var scrollableImageView = createScrollableImageView()
-    internal lazy var overlayImageView = createOverlayImageView()
-    internal lazy var scrollView = createScrollView()
-    internal lazy var backgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = settings.primaryBackgroundColor
-        return view
-    }()
-
     internal var state: State! {
         didSet {
             guard let state = state else { return }
@@ -62,52 +53,25 @@ public class ImageZoomController: NSObject {
         }
     }
     
-    internal private (set) lazy var imageViewPinchGestureRecognizer: UIPinchGestureRecognizer = {
-        let gestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(with:)))
-        gestureRecognizer.delegate = self
-        return gestureRecognizer
-    }()
+    internal private (set) lazy var scrollableImageView = factory.makeScrollableImageView(for: self)
+    internal private (set) lazy var overlayImageView = factory.makeOverlayImageView(for: self)
+    internal private (set) lazy var scrollView = factory.makeScrollView(for: self)
+    internal private (set) lazy var backgroundView = factory.makeBackgroundView(for: self)
     
-    internal private (set)  lazy var imageViewPanGestureRecognizer: UIPanGestureRecognizer = {
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(with:)))
-        gestureRecognizer.delegate = self
-        return gestureRecognizer
-    }()
+    internal private (set) lazy var imageViewPinchGestureRecognizer = factory.makePinchGestureRecognizer(for: self)
+    internal private (set) lazy var imageViewPanGestureRecognizer = factory.makePanGestureRecognizer(for: self)
+    internal private (set) lazy var imageViewTapGestureRecognizer = factory.makeTapGestureRecognizer(for: self)
+    internal private (set) lazy var imageViewDoubleTapGestureRecognizer = factory.makeDoubleTapGestureRecognizer(for: self)
+
+    internal private (set) lazy var backgroundViewTapGestureRecognizer = factory.makeTapGestureRecognizer(for: self)
+    internal private (set) lazy var backgroundViewDoubleTapGestureRecognizer = factory.makeDoubleTapGestureRecognizer(for: self)
     
-    internal private (set)  lazy var imageViewTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
-        gestureRecognizer.delegate = self
-        gestureRecognizer.numberOfTapsRequired = 1
-        return gestureRecognizer
-    }()
-    
-    internal private (set)  lazy var imageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
-        gestureRecognizer.delegate = self
-        gestureRecognizer.numberOfTapsRequired = 2
-        return gestureRecognizer
-    }()
-    
-    internal private (set)  lazy var scrollableImageViewTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
-        gestureRecognizer.delegate = self
-        return gestureRecognizer
-    }()
-    
-    internal private (set)  lazy var scrollableImageViewDoubleTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(with:)))
-        gestureRecognizer.delegate = self
-        gestureRecognizer.numberOfTapsRequired = 2
-        return gestureRecognizer
-    }()
-    
-    internal private (set)  lazy var scrollableImageViewPanGestureRecognizer: UIPanGestureRecognizer = {
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(with:)))
-        gestureRecognizer.delegate = self
-        return gestureRecognizer
-    }()
+    internal private (set) lazy var scrollableImageViewTapGestureRecognizer = factory.makeTapGestureRecognizer(for: self)
+    internal private (set) lazy var scrollableImageViewDoubleTapGestureRecognizer = factory.makeDoubleTapGestureRecognizer(for: self)
+    internal private (set) lazy var scrollableImageViewPanGestureRecognizer = factory.makePanGestureRecognizer(for: self)
     
     // MARK: Private Properties
+    private let factory: Factory
     
     /// the scale is applied on the imageView where a scale of 1 results in the orinal imageView's size
     private var maximumPinchScale: ImageViewScale {
@@ -121,19 +85,11 @@ public class ImageZoomController: NSObject {
     ///   - imageView: the imageView that is to be the source of the zoom interactions
     ///   - delegate: delegate
     ///   - settings: mutable settings that will be applied on this ImageZoomController
-    public required init(container containerView: UIView,
-                         imageView: UIImageView,
-                         delegate: Delegate?,
-                         settings: Settings) {
-        self.containerView = containerView
-        self.imageView = imageView
-        self.delegate = delegate
-        self.settings = settings
-        
-        super.init()
-        
-        state = IsNotPresentingOverlayState(owner: self)
-        configureImageView()
+    public convenience init(container containerView: UIView,
+                            imageView: UIImageView,
+                            delegate: Delegate?,
+                            settings: Settings) {
+        self.init(container: containerView, imageView: imageView, delegate: delegate, settings: settings, factory: Factory())
     }
     
     /// Initializer
@@ -165,8 +121,28 @@ public class ImageZoomController: NSObject {
         self.init(container: containerView, imageView: imageView, delegate: nil, settings: settings)
     }
     
+    internal init(container containerView: UIView,
+                           imageView: UIImageView,
+                           delegate: Delegate?,
+                           settings: Settings,
+                           factory: Factory) {
+        logger.log(atLevel: .info)
+        self.containerView = containerView
+        self.imageView = imageView
+        self.delegate = delegate
+        self.settings = settings
+        self.factory = factory
+        
+        super.init()
+        
+        state = IsNotPresentingOverlayState(owner: self)
+        configureImageView()
+        logger.log("done\n", atLevel: .verbose)
+    }
+    
     // MARK: Deinitalizer
     deinit {
+        logger.log(atLevel: .info)
         imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
     }
@@ -201,26 +177,26 @@ public extension ImageZoomController {
 }
 
 //MARK: Events
-private extension ImageZoomController {
+extension ImageZoomController {
     
     @objc func didPinch(with gestureRecognizer: UIPinchGestureRecognizer) {
-        guard settings.isEnabled else { return }
         logger.logGesture(with: gestureRecognizer, atLevel: .verbose)
+        guard settings.isEnabled else { return }
         
         state.didPinch(with: gestureRecognizer)
     }
     
     @objc func didPan(with gestureRecognizer: UIPanGestureRecognizer) {
-        guard settings.isEnabled else { return }
         logger.logGesture(with: gestureRecognizer, atLevel: .verbose)
+        guard settings.isEnabled else { return }
         
         state.didPan(with: gestureRecognizer)
     }
     
     @objc func didTap(with gestureRecognizer: UITapGestureRecognizer) {
-        guard   settings.isEnabled,
-                let action = action(for: gestureRecognizer) else { return }
         logger.log(atLevel: .verbose)
+        guard   settings.isEnabled,
+                let action = gestureRecognizerActions[gestureRecognizer] else { return }
         
         perform(action: action, triggeredBy: gestureRecognizer)
     }
@@ -245,36 +221,9 @@ extension ImageZoomController: CanPerformAction {
 
 //MARK: Setup
 extension ImageZoomController {
-    
-    private func createScrollView() -> UIScrollView {
-        let view = UIScrollView()
-        view.clipsToBounds = false
-        view.delegate = self
-        view.showsHorizontalScrollIndicator = false
-        view.showsVerticalScrollIndicator = false
-        view.translatesAutoresizingMaskIntoConstraints = true
-        view.alwaysBounceVertical = true
-        view.alwaysBounceHorizontal = true
-        return view
-    }
-    
-    private func createScrollableImageView() -> UIImageView {
-        let view = UIImageView()
-        view.addGestureRecognizer(scrollableImageViewTapGestureRecognizer)
-        view.addGestureRecognizer(scrollableImageViewDoubleTapGestureRecognizer)
-        view.addGestureRecognizer(scrollableImageViewPanGestureRecognizer)
-        view.isUserInteractionEnabled = true
-        view.image = image
-        return view
-    }
-    
-    private func createOverlayImageView() -> UIImageView {
-        let view = UIImageView()
-        view.image = image
-        return view
-    }
-    
+
     internal func configureImageView() {
+        logger.log(atLevel: .verbose)
         imageView?.addGestureRecognizer(imageViewPinchGestureRecognizer)
         imageView?.addGestureRecognizer(imageViewPanGestureRecognizer)
         imageView?.addGestureRecognizer(imageViewTapGestureRecognizer)
@@ -437,6 +386,15 @@ internal extension ImageZoomController {
 //MARK: Other
 internal extension ImageZoomController {
     
+    private var gestureRecognizerActions: [UIGestureRecognizer: Action] {
+        return [imageViewTapGestureRecognizer: settings.actionOnTapImageView,
+                imageViewDoubleTapGestureRecognizer: settings.actionOnDoubleTapImageView,
+                backgroundViewTapGestureRecognizer: settings.actionOnTapBackgroundView,
+                backgroundViewDoubleTapGestureRecognizer: settings.actionOnDoubleTapBackgroundView,
+                scrollableImageViewTapGestureRecognizer: settings.actionOnTapOverlay,
+                scrollableImageViewDoubleTapGestureRecognizer: settings.actionOnDoubleTapOverlay]
+    }
+    
     private func adjustFrame(of scrollView: UIScrollView) {
         let oldScrollViewFrame = scrollView.frame
         scrollView.frame = adjustedScrollViewFrame()
@@ -445,31 +403,17 @@ internal extension ImageZoomController {
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
     }
     
-    private func action(for gestureRecognizer: UIGestureRecognizer) -> Action? {
-        if gestureRecognizer === imageViewTapGestureRecognizer {
-            return settings.actionOnTapImageView
-        } else if gestureRecognizer === imageViewDoubleTapGestureRecognizer {
-            return settings.actionOnDoubleTapImageView
-        } else if gestureRecognizer === scrollableImageViewTapGestureRecognizer {
-            return settings.actionOnTapOverlay
-        } else if gestureRecognizer === scrollableImageViewDoubleTapGestureRecognizer {
-            return settings.actionOnDoubleTapOverlay
-        } else {
-            return nil
-        }
-    }
-    
     internal func resetScrollView() {
         scrollableImageView.removeFromSuperview()
-        scrollableImageView = createScrollableImageView()
+        scrollableImageView = factory.makeScrollableImageView(for: self)
         scrollView.removeFromSuperview()
-        scrollView = createScrollView()
+        scrollView = factory.makeScrollView(for: self)
         currentBounceOffsets = nil
     }
     
     internal func resetOverlayImageView() {
         overlayImageView.removeFromSuperview()
-        overlayImageView = createOverlayImageView()
+        overlayImageView = factory.makeOverlayImageView(for: self)
     }
 }
 
@@ -523,7 +467,7 @@ extension ImageZoomController: UIGestureRecognizerDelegate {
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard let action = action(for: gestureRecognizer) else { return true }
+        guard let action = gestureRecognizerActions[gestureRecognizer] else { return true }
         
         return !(action is Action.None)
     }
