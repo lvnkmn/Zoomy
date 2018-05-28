@@ -1,7 +1,7 @@
 PODS:
   - InjectableLoggers (1.1.0)
   - PureLayout (3.0.2)
-  - Zoomy (1.10.0):
+  - Zoomy (1.10.1):
     - InjectableLoggers (~> 1.0)
     - PureLayout (~> 3.0)
 
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   InjectableLoggers: 4c597e6e6214d64e8e840238ec9e1a4cc70da60a
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  Zoomy: 107e7ee5328489b02451d9d83735af91033e5216
+  Zoomy: 787873c0d85ab4ff6a8712972292eea83d3bc1ed
 
 PODFILE CHECKSUM: d73839f89c40d82dac3dbafcdd83a82a089b33e6
 
