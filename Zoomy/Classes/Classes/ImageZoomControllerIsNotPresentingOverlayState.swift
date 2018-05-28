@@ -25,12 +25,22 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         imageView.alpha = 0
         
         if owner.settings.shouldDisplayBackground {
-            view.addSubview(owner.backgroundView)
+            if let topMostView = owner.topmostView {
+                view.insertSubview(owner.backgroundView, belowSubview: topMostView)
+            } else {
+                view.addSubview(owner.backgroundView)
+            }
+            
             owner.backgroundView.alpha = 0
             owner.backgroundView.autoPinEdgesToSuperviewEdges()
         }
         
-        view.addSubview(owner.overlayImageView)
+        if let topMostView = owner.topmostView {
+            view.insertSubview(owner.overlayImageView, belowSubview: topMostView)
+        } else {
+            view.addSubview(owner.overlayImageView)
+        }
+        
         owner.overlayImageView.image = owner.image
         owner.overlayImageView.frame = absoluteFrameOfImageView
         

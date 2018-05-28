@@ -45,7 +45,11 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
                 let containerView = owner.containerView,
                 let dominantBouncingSide = dominantBouncingDirection else { return }
         
-        containerView.addSubview(owner.overlayImageView)
+        if let topmostView = owner.topmostView {
+            containerView.insertSubview(owner.overlayImageView, belowSubview: topmostView)
+        } else {
+            containerView.addSubview(owner.overlayImageView)
+        }
         
         owner.overlayImageView.frame = neededOverlayImageViewFrame()
         

@@ -13,6 +13,9 @@ public class ImageZoomController: NSObject {
     /// View in which zoom will take place
     weak public private(set) var containerView: UIView?
     
+    /// View which will always be in front of the presented zoom content
+    weak public private(set) var topmostView: UIView?
+    
     /// The imageView that is to be the source of the zoom interactions
     weak public private(set) var imageView: UIImageView?
     
@@ -89,7 +92,7 @@ public class ImageZoomController: NSObject {
                             imageView: UIImageView,
                             delegate: Delegate?,
                             settings: Settings) {
-        self.init(container: containerView, imageView: imageView, delegate: delegate, settings: settings, factory: Factory())
+        self.init(container: containerView, imageView: imageView, topmostView: nil, delegate: delegate, settings: settings)
     }
     
     /// Initializer
@@ -123,11 +126,13 @@ public class ImageZoomController: NSObject {
     
     internal init(container containerView: UIView,
                            imageView: UIImageView,
+                           topmostView: UIView?,
                            delegate: Delegate?,
                            settings: Settings,
-                           factory: Factory) {
+                           factory: Factory = Factory()) {
         logger.log(atLevel: .info)
         self.containerView = containerView
+        self.topmostView = topmostView
         self.imageView = imageView
         self.delegate = delegate
         self.settings = settings

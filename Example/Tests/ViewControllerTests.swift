@@ -17,13 +17,14 @@ class ViewControllerTests: XCTestCase {
     // MARK: - Tests
     
     // MARK: Adding behavior
-    func testAddBehaviorForImageViewInViewContainerViewWithDelegateAndSettings() {
+    func testAddBehaviorForImageViewInViewContainerViewBelowTopmostViewWithDelegateAndSettings() {
         //Act
-        sut.addZoombehavior(for: sut.imageView, in: sut.otherView, delegate: fakeZoomDelegate, settings: nonDefaultSettings)
+        sut.addZoombehavior(for: sut.imageView, in: sut.otherView, below: sut.topMostView, delegate: fakeZoomDelegate, settings: nonDefaultSettings)
         
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.otherView, Message.expectedProvidedValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView === sut.topMostView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == nonDefaultSettings, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate === fakeZoomDelegate, Message.expectedProvidedValue)
     }
@@ -35,6 +36,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.otherView, Message.expectedProvidedValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == .defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate === fakeZoomDelegate, Message.expectedProvidedValue)
     }
@@ -46,6 +48,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.otherView, Message.expectedProvidedValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == nonDefaultSettings, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate == nil, Message.expectedDefaultValue)
     }
@@ -57,6 +60,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.otherView, Message.expectedProvidedValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == .defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate == nil, Message.expectedDefaultValue)
     }
@@ -68,6 +72,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == nonDefaultSettings, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate === fakeZoomDelegate, Message.expectedProvidedValue)
     }
@@ -79,6 +84,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == Settings.defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate === fakeZoomDelegate, Message.expectedProvidedValue)
     }
@@ -90,6 +96,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == nonDefaultSettings, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate == nil, Message.expectedDefaultValue)
     }
@@ -101,6 +108,7 @@ class ViewControllerTests: XCTestCase {
         //Assert
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.imageView === sut.imageView, Message.expectedProvidedValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.containerView === sut.view, Message.expectedDefaultValue)
+        XCTAssert(sut.imageZoomControllers[sut.imageView]?.topmostView == nil, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.settings == Settings.defaultSettings, Message.expectedDefaultValue)
         XCTAssert(sut.imageZoomControllers[sut.imageView]?.delegate == nil, Message.expectedDefaultValue)
     }

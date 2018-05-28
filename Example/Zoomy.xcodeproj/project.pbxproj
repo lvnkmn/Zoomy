@@ -25,6 +25,7 @@
 		DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B72C820A471C100344675 /* InstaZoomViewController.swift */; };
 		DE2F57F7208F84300009A33D /* BounceOffsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */; };
 		DE2F57F9208F84360009A33D /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F57F8208F84360009A33D /* CGPointTests.swift */; };
+		DE2FB83F20BC47AE00E130BD /* FloatingActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FB83E20BC47AE00E130BD /* FloatingActionButtonViewController.swift */; };
 		DE99B38D2083603900D141DE /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99B38C2083603900D141DE /* Images.swift */; };
 		DE9C32F820AB409F00827664 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = DE9C32F720AB409F00827664 /* Fastfile */; };
 		DE9C331020AB751A00827664 /* Zoomy_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C330F20AB751A00827664 /* Zoomy_ExampleUITests.swift */; };
@@ -86,6 +87,7 @@
 		DE2B72C820A471C100344675 /* InstaZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaZoomViewController.swift; sourceTree = "<group>"; };
 		DE2F57F6208F84300009A33D /* BounceOffsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceOffsetsTests.swift; sourceTree = "<group>"; };
 		DE2F57F8208F84360009A33D /* CGPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
+		DE2FB83E20BC47AE00E130BD /* FloatingActionButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewController.swift; sourceTree = "<group>"; };
 		DE99B38C2083603900D141DE /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		DE9C32F720AB409F00827664 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = ../fastlane/Fastfile; sourceTree = "<group>"; };
 		DE9C330D20AB751A00827664 /* Zoomy_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Zoomy_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +262,7 @@
 				DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */,
 				DE1B49662090C0230052E648 /* ChangingActionsViewController.swift */,
 				DE2B72C820A471C100344675 /* InstaZoomViewController.swift */,
+				DE2FB83E20BC47AE00E130BD /* FloatingActionButtonViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,
+				DE2FB83F20BC47AE00E130BD /* FloatingActionButtonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

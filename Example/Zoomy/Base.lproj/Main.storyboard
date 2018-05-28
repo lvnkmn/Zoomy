@@ -41,8 +41,28 @@
                                             <segue destination="YV5-jQ-eOf" kind="show" id="Ifb-ep-alt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vUL-gY-4wA" style="IBUITableViewCellStyleDefault" id="h0K-uH-w2m">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Hhd-3z-rjv" style="IBUITableViewCellStyleDefault" id="VaZ-gM-OYQ">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VaZ-gM-OYQ" id="feh-8h-IeL">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Floating Action Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hhd-3z-rjv">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="lEv-6B-F38" kind="show" id="kiS-b6-yaY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vUL-gY-4wA" style="IBUITableViewCellStyleDefault" id="h0K-uH-w2m">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h0K-uH-w2m" id="ypD-Dc-c5T">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -62,7 +82,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Bnn-94-aPC" style="IBUITableViewCellStyleDefault" id="BJs-lf-0bK">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BJs-lf-0bK" id="mkI-GD-Xfs">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -82,7 +102,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="HfB-VB-727" style="IBUITableViewCellStyleDefault" id="RcP-Hb-8e7">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RcP-Hb-8e7" id="bnX-i7-YGB">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -102,7 +122,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="9t7-rA-3LT" style="IBUITableViewCellStyleDefault" id="IAf-Ma-bzg">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IAf-Ma-bzg" id="1I2-8J-EAi">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -167,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyh-T9-zoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-871" y="422"/>
+            <point key="canvasLocation" x="-1586" y="475"/>
         </scene>
         <!--Non Centered Images View Controller-->
         <scene sceneID="BeX-7f-Coz">
@@ -574,11 +594,57 @@
             </objects>
             <point key="canvasLocation" x="-34" y="-1124"/>
         </scene>
+        <!--Floating Action Button View Controller-->
+        <scene sceneID="ISv-3g-b8a">
+            <objects>
+                <viewController id="lEv-6B-F38" customClass="FloatingActionButtonViewController" customModule="Zoomy_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZUx-sC-KL4"/>
+                        <viewControllerLayoutGuide type="bottom" id="IA3-bF-GX9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pje-bv-cQB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trees_4" translatesAutoresizingMaskIntoConstraints="NO" id="Cd6-e1-Yau">
+                                <rect key="frame" x="0.0" y="193" width="375" height="281"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cd6-e1-Yau" secondAttribute="height" multiplier="576:431" id="hCD-hA-pVl"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cJ-QR-8Vh">
+                                <rect key="frame" x="313" y="587" width="54" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="🔥"/>
+                                <connections>
+                                    <action selector="didPressDismissButton:" destination="lEv-6B-F38" eventType="touchUpInside" id="r5C-YP-Z24"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cd6-e1-Yau" secondAttribute="trailing" id="3vb-Yr-zOP"/>
+                            <constraint firstItem="Cd6-e1-Yau" firstAttribute="centerY" secondItem="Pje-bv-cQB" secondAttribute="centerY" id="fSo-v1-HgL"/>
+                            <constraint firstItem="IA3-bF-GX9" firstAttribute="top" secondItem="9cJ-QR-8Vh" secondAttribute="bottom" constant="8" symbolic="YES" id="iOr-Wq-XiM"/>
+                            <constraint firstItem="Cd6-e1-Yau" firstAttribute="leading" secondItem="Pje-bv-cQB" secondAttribute="leading" id="lHh-BR-ccw"/>
+                            <constraint firstAttribute="trailing" secondItem="9cJ-QR-8Vh" secondAttribute="trailing" constant="8" id="uhJ-67-iWa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="9cJ-QR-8Vh" id="Ce0-CE-SCM"/>
+                        <outlet property="imageView" destination="Cd6-e1-Yau" id="d3r-m8-hrz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JgR-Od-ZCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-812" y="484"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Colorfull_2" width="2453" height="1637"/>
         <image name="Trees_0" width="1365" height="768"/>
         <image name="Trees_3" width="1330" height="747"/>
+        <image name="Trees_4" width="1152" height="862"/>
         <image name="Trees_5" width="2048" height="1536"/>
     </resources>
 </document>
