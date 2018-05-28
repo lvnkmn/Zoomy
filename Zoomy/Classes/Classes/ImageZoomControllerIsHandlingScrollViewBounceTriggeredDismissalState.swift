@@ -23,6 +23,8 @@ internal class ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalSt
             currentScale = scale(for: translation)
             owner.backgroundView.alpha = backgroundAlpha(for: translation.value(in: translation.dominantDirection))
         } else if gestureRecognizer.state != .began { //.ended, .failed, or .cancelled
+            guard !isDismissingOverlay else { return }
+            
             if translation.value(in: translationDirection) >= owner.settings.neededTranslationToDismissOverlayOnScrollBounce {
                 owner.resetScrollView()
                 dismissOverlay()
