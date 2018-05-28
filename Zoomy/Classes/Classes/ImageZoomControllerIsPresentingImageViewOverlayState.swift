@@ -18,7 +18,7 @@ internal class ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     // MARK: Private properties
-    private var isDismissingOverlay = false {
+    internal private (set) var isDismissingOverlay = false {
         didSet {
             logger.log(isDismissingOverlay, atLevel: .verbose)
         }
