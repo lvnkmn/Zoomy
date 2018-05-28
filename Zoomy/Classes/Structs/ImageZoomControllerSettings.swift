@@ -147,6 +147,18 @@ public extension ImageZoomControllerSettings {
         return settings
     }
     
+    func with(actionOnTapBackgroundView: Action & CanBeTriggeredByBackgroundViewTap) -> Settings {
+        var settings = self
+        settings.actionOnTapBackgroundView = actionOnTapBackgroundView
+        return settings
+    }
+    
+    func with(actionOnDoubleTapBackgroundView: Action & CanBeTriggeredByBackgroundDoubleTap) -> Settings {
+        var settings = self
+        settings.actionOnDoubleTapBackgroundView = actionOnDoubleTapBackgroundView
+        return settings
+    }
+    
     func with(actionOnScrollBounceTop: Action & CanBeTriggeredByScrollBounceTop) -> Settings {
         var settings = self
         settings.actionOnScrollBounceTop = actionOnScrollBounceTop
