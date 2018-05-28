@@ -175,7 +175,13 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
                 let containerView = owner.containerView else { return }
         
         owner.scrollView.addSubview(owner.scrollableImageView)
-        containerView.addSubview(owner.scrollView)
+        
+        if let topmostView = owner.topmostView {
+            containerView.insertSubview(owner.scrollView, belowSubview: topmostView)
+        } else {
+            containerView.addSubview(owner.scrollView)
+        }
+        
         owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
         owner.scrollView.contentOffset = CGPoint.zero
         owner.scrollView.minimumZoomScale = owner.minimumZoomScale

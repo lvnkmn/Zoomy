@@ -13,4 +13,5 @@ class MockViewController: UIViewController {
 
     let imageView = UIImageView()
     let otherView = UIView()
+    let topMostView = UIView()
 }
