@@ -126,7 +126,7 @@ public extension CanManageZoomBehaviors where Self: UIViewController {
     ///   - delegate: The delegate that will be notified on zoom related events
     ///   - settings: The settings the will be used for the zoomBehavior
     func addZoombehavior(for imageView: UIImageView, below topMostView: UIView, delegate: Zoomy.Delegate?, settings: Zoomy.Settings) {
-        addZoombehavior(for: imageView, below: topMostView, delegate: delegate, settings: settings)
+        addZoombehavior(for: imageView, in: view, below: topMostView, delegate: delegate, settings: settings)
     }
     
     /// Will make the provided imageView zoomable inside the viewControllers view
