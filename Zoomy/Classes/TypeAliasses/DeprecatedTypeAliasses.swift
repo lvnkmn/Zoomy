@@ -19,3 +19,5 @@ public typealias ImageZoomControllerNoneAction = Action.None
 @available(*, deprecated, message: "Use Action.DismissOverlay instead")
 public typealias ImageZoomControllerDismissOverlayAction = Action.DismissOverlay
 
+@available(*, deprecated, renamed: "Zoomy.Delegate")
+public typealias Delegate = ImageZoomControllerDelegate
