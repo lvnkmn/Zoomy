@@ -35,6 +35,12 @@ extension FloatingActionButtonViewController: Zoomy.Delegate {
         }
     }
     
+    func willDismissOverlay() {
+        UIView.animate(withDuration: 0.5) {
+            self.dismissButton.alpha = 0
+        }
+    }
+    
     func didEndPresentingOverlay(for imageView: UIImageView) {
         UIView.animate(withDuration: 0.5) {
             self.dismissButton.alpha = 0
