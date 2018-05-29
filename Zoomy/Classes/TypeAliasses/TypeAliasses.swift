@@ -36,3 +36,11 @@ internal typealias IsNotPresentingOverlayState = ImageZoomControllerIsNotPresent
 internal typealias IsPresentingScrollViewOverlayState = ImageZoomControllerIsPresentingScrollViewOverlayState
 internal typealias IsPresentingImageViewOverlayState = ImageZoomControllerIsPresentingImageViewOverlayState
 internal typealias IsHandlingScrollViewBounceTriggeredDismissalState = ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState
+
+
+public struct Zoomy {
+    public typealias Delegate = ImageZoomControllerDelegate
+    public typealias Settings = ImageZoomControllerSettings
+    public typealias ContentState = ImageZoomControllerContentState
+    public typealias Action = ImageZoomControllerAction
+}
