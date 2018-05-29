@@ -64,6 +64,8 @@ extension ImageZoomControllerIsPresentingScrollViewOverlayState: ImageZoomContro
                 let imageView = owner.imageView,
                 let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView else { return }
         
+        owner.delegate?.willDismissOverlay()
+        
         owner.animator(for: .overlayDismissal).animate({
             owner.scrollView.zoomScale = owner.minimumZoomScale
             owner.scrollView.frame = absoluteFrameOfImageView
