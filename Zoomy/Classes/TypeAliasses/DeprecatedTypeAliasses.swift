@@ -1,21 +1,23 @@
 @available(*, deprecated, message: "Conformance is not needed anymore. In case of type clashes; prefix type with 'Zoomy.'")
 public typealias ZoomyShortHand = PublicImageZoomControllerShorthand
 
-@available(*, deprecated, message: "Use Zoomy.Settings instead")
+@available(*, deprecated, renamed: "Zoomy.Settings")
 public typealias ZoomSettings = ImageZoomControllerSettings
 
-@available(*, deprecated, message: "Use Zoomy.Delegate instead")
+@available(*, deprecated, renamed: "Zoomy.Delegate")
 public typealias ZoomDelegate = ImageZoomControllerDelegate
 
-@available(*, deprecated, message: "Use Action.None instead")
+@available(*, deprecated, renamed: "Action.None")
 public typealias NoneAction = ImageZoomControllerNoneAction
 
-@available(*, deprecated, message: "Use Action.DismissOverlay instead")
+@available(*, deprecated, renamed: "Action.DismissOverlay")
 public typealias DismissOverlayAction = Action.DismissOverlay
 
-@available(*, deprecated, message: "Use Action.None instead")
+@available(*, deprecated, renamed: "Action.None")
 public typealias ImageZoomControllerNoneAction = Action.None
 
-@available(*, deprecated, message: "Use Action.DismissOverlay instead")
+@available(*, deprecated, renamed: "Action.DismissOverlay")
 public typealias ImageZoomControllerDismissOverlayAction = Action.DismissOverlay
 
+@available(*, deprecated, renamed: "Zoomy.Delegate")
+public typealias Delegate = ImageZoomControllerDelegate

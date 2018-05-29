@@ -6,7 +6,7 @@ public class ImageZoomController: NSObject {
     // MARK: Public Properties
     
     /// Gets callbacks on important events in the ImageZoomController's lifeCycle
-    public weak var delegate: Delegate?
+    public weak var delegate: Zoomy.Delegate?
     
     public var settings: Settings
     
@@ -90,7 +90,7 @@ public class ImageZoomController: NSObject {
     ///   - settings: mutable settings that will be applied on this ImageZoomController
     public convenience init(container containerView: UIView,
                             imageView: UIImageView,
-                            delegate: Delegate?,
+                            delegate: Zoomy.Delegate?,
                             settings: Settings) {
         self.init(container: containerView, imageView: imageView, topmostView: nil, delegate: delegate, settings: settings)
     }
@@ -127,7 +127,7 @@ public class ImageZoomController: NSObject {
     internal init(container containerView: UIView,
                            imageView: UIImageView,
                            topmostView: UIView?,
-                           delegate: Delegate?,
+                           delegate: Zoomy.Delegate?,
                            settings: Settings,
                            factory: Factory = Factory()) {
         logger.log(atLevel: .info)
