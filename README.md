@@ -103,7 +103,7 @@ extension YourViewController: Zoomy.Delegate {
 
 No need to set the viewController as a delegate to anyting. This is infered using conditional conformance. In case you're interested in seeing how this is done, see [this](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Extensions/UIViewController%2BCanManageZoomBehavior.swift#L3) and [this](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/ExtendedProtocols/CanManageZoomBehaviors.swift#L72).
 
-## Theres more to come
+## There's more to come
 
 See the [roadmap](https://github.com/mennolovink/Zoomy/labels/roadmap) for upcoming features.
 
