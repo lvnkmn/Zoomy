@@ -55,6 +55,8 @@ platform :ios do
     UI.message "Will get milestone number for version #{version}"
     url = 'https://api.github.com/repos/mennolovink/Zoomy/milestones'
     uri = URI(url)
+    params = { :access_token => ENV["GITHUB_TOKEN"] }
+    uri.query = URI.encode_www_form(params)
     response = Net::HTTP.get(uri)
     UI.message "got response:"
     UI.message response
