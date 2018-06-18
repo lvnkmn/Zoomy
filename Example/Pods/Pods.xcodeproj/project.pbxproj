@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		0012EBA2F84B0961EABA59615667786B /* ImageZoomController.Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12F925753BEF95B4656CC0B6750F7F /* ImageZoomController.Factory.swift */; };
 		0B0E50E7BF2E185B43ED14B7A00D8D03 /* Logger.FormatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F92F746AD264BE3E77DCFD0AB7CA77 /* Logger.FormatSettings.swift */; };
+		0BCEC9B1447022ECE40E992122D2FAB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */; };
 		102C49E89D42B712EB319BE859AEE267 /* Pods-Zoomy_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE190ADED4401747AAB7F4BFC96B33 /* Pods-Zoomy_Tests-dummy.m */; };
+		152330DDB60C36602FEDEE5021003744 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */; };
 		1653546432C449256620F4ED0B22636E /* Logger.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550E0CF500299C61ACF4CAAC5509E0F /* Logger.Settings.swift */; };
 		18D48BCADFAB710546FD91F34F063EA9 /* SpringAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65ED3CC680CDCFA07C97F4F428EF /* SpringAnimator.swift */; };
-		1A74CA00B11DC7457D7E953B7937AFBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */; };
 		1C426037152FCAA2614C96FCFE1FCA55 /* CanManageZoomBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCEF32B4895106E81666CDD91CEECBA /* CanManageZoomBehaviors.swift */; };
 		1C66C5A1A9233D020B76703EEC9F66A9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE823D79618E1116A8490B2DA62C3791 /* Logger.swift */; };
 		1EAA6CA3CDCC5FD7B0A8227D3C859B28 /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AC38B926411211859665107E8CAA6 /* PureLayout-dummy.m */; };
@@ -34,9 +35,9 @@
 		484E489B7BAC76318BB92924D51687D3 /* CGPoint+dominantDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9259368B2E6271456E7B1DC0516ED97 /* CGPoint+dominantDirection.swift */; };
 		53D2888EE2F3FD1D853AEF09D22B1225 /* BounceOffsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17063887E6BDF08E74DC59DCD538F7AE /* BounceOffsets.swift */; };
 		58DE278F6CC19F061B965182A88F895A /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E6FBE7B61D203F9CDC246219D67A7 /* Animator.swift */; };
-		6059222F51B297AFE75CFB13E542154D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */; };
 		61A3B906C898A3D974053ECC8A572D11 /* CanBetriggered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94054DB45B4CF25091C343303C93D116 /* CanBetriggered.swift */; };
 		6852759AC10BB0060A63DBD4A0B9998A /* InjectableLoggers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8F7628542677BC82FC006B01ED5328 /* InjectableLoggers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		708AC3FA7315DE25F7DD6C90EED171B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */; };
 		75B8ADFED3092729A652DB26249CE399 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9B8F27414AE58F3B1565B24834386 /* LogLevel.swift */; };
 		76CF15A131981D754A9761F26E2C914C /* InjectableLoggers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7C7169CD1314EF64D3271F77892E40 /* InjectableLoggers-dummy.m */; };
 		7D2123213E3953EC7A72EF2DBB6759CF /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9150BDD9D4430F575D470045D3968BF9 /* PureLayout.framework */; };
@@ -47,7 +48,6 @@
 		88394813F9BD6425CC2DD619E1A7090E /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274388689D5D6797D6A06C8BE450EB7 /* Side.swift */; };
 		8A2643B9C46C3AF664B4ADA0C3B62EB1 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C385C8D1A02E39F188174CFC2C2023A4 /* MockLogger.swift */; };
 		8AFF7DE204760BF683DCCEB6B9191C73 /* CGRect+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B3889CAD672BD654647849005923B /* CGRect+Difference.swift */; };
-		8DE8839A6D925940149448782C3D4BB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */; };
 		8E197B4A85C84D9E42F0A837B6C2AD2A /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8C4D93FFFAD5DF06A4925244AB462 /* TypeAliasses.swift */; };
 		90E4707A0E5236FCE3169B2093584F2F /* ZoomyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951DC0E7826AEA27F28A9B42C230418 /* ZoomyLogger.swift */; };
 		91219C6E9A41B8C86145BBDBE2A5980A /* CanAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8654511299AE68AAEA30D48A263C7EED /* CanAnimate.swift */; };
@@ -63,6 +63,7 @@
 		A578CBEEA1E1AD4EC052441EACE86820 /* DeprecatedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A30CF91C0D477D48C6B50132DCE96 /* DeprecatedProtocols.swift */; };
 		A665017C06801F070DD80667FEA506CD /* ImageZoomControllerIsPresentingImageViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270FB9477348EFF66700414946460064 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */; };
 		AA5A41A45B4CF25C1D5462A1EA7F8927 /* ImageZoomControllerContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5559FE0C0294E85D6D92CD664DDA0465 /* ImageZoomControllerContentState.swift */; };
+		ABD493555391AFAE48814EC73288B5A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */; };
 		AF30D460CBD6BEBA27A14784DE0193A9 /* NSObject+AsociatedKeyForImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21537C9E45D836CA0D3951D81AD03A7D /* NSObject+AsociatedKeyForImageZoomControllers.swift */; };
 		B03ACB591EE4BE83063AA05A55DF3773 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD079E428A271F638D3C349A41CE02C /* NSLayoutConstraint+PureLayout.m */; };
 		B2115E6040261C1F17978C027155C7EF /* CanLogMessageAtLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B00905C453CA20D47A2CCB27818B11 /* CanLogMessageAtLevel.swift */; };
@@ -81,13 +82,12 @@
 		DC2FCC2DD936DB6921B2F30FE4A091A8 /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3596CA522910D03E7ED60B9273F58808 /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5FF929C633BC71D8EE2AE7C43AB49EA /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F52B3B073AEBEC62EDA6BD702F5E60 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */; };
 		EB380A06C679D9795BF762F73925C941 /* AnimationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0317CFD5512B57268B43464D1D8D9EA4 /* AnimationEvent.swift */; };
+		EB48AD2E6BC828BB04E8867E7FFF8460 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */; };
 		EE89A1E5E03BAA6F7E689E4028AADF2C /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E78CAD85973679C6B43030B85FD099 /* UIImage+Color.swift */; };
 		F073B55F97E3627C6BC3C7B35891EE60 /* CGPoint+maximumAbsoluteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF429CF585E052231F6255A999674F /* CGPoint+maximumAbsoluteValue.swift */; };
-		F18A84873E1BD5036983FBDCBE8080FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */; };
 		F2020266B8700EA19C5C1B5F912C6CE5 /* CGAffineTransform+transformWithScaleTranslationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8AE60A3EE3B6E58BEFCFE1279DA67 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */; };
 		F32DD54F58D67CEDCACA822BEE9F67B0 /* ImageZoomControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989A3BC6806A2ED4CE86602438ABD346 /* ImageZoomControllerState.swift */; };
 		F36F533864B78F6236104BBDB4824406 /* CanPerformAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FFA06F3AFDE6A0CC4D6D6E2A1F0553 /* CanPerformAction.swift */; };
-		F790C8C081E5F0A50B6E96448071EDC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */; };
 		F7A87A11347E943E77F5AE34CABD9B3E /* Pods-Zoomy_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B1C720130A0CD63C9DE644DAAA12EF /* Pods-Zoomy_Example-dummy.m */; };
 		F85C56BC817742F6702AD31A12F8F7BD /* ImageZoomControllerSettings+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF744880FA8FFC590B97A86A701E77 /* ImageZoomControllerSettings+Deprecated.swift */; };
 		F990E3CC7512D1226876D86AF00933EA /* ImageZoomControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F28F37EB01D023DCC31A20E5F1E887 /* ImageZoomControllerDelegate.swift */; };
@@ -167,6 +167,7 @@
 		21537C9E45D836CA0D3951D81AD03A7D /* NSObject+AsociatedKeyForImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObject+AsociatedKeyForImageZoomControllers.swift"; sourceTree = "<group>"; };
 		270FB9477348EFF66700414946460064 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsPresentingImageViewOverlayState.swift; sourceTree = "<group>"; };
 		2BE4B3C60E0B71C6E16A257EF6D4E581 /* CanLogMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogMessage.swift; path = InjectableLoggers/Classes/ExtendedProtocols/CanLogMessage.swift; sourceTree = "<group>"; };
+		2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2DD079E428A271F638D3C349A41CE02C /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
 		2F5CEBB0CABFC6E5626A975B36D7F061 /* HasDefaultLoglevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasDefaultLoglevel.swift; path = InjectableLoggers/Classes/Protocols/HasDefaultLoglevel.swift; sourceTree = "<group>"; };
 		30124FF8F65D549D10D4AF65A173C24C /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
@@ -253,7 +254,6 @@
 		CE2731FE9D89D10CF4FEE44065AACB30 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
 		D82ADD3DBE63119A3DB3DAC88BBDBB88 /* Pods-Zoomy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zoomy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D8C8227386F26A2E174EBDE43D710414 /* Zoomy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Zoomy.modulemap; sourceTree = "<group>"; };
-		DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DCE03CAF36F8DA26EE7B46B9933C8DB2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCF9913B61146B7F80522887CCAD762D /* Zoomy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zoomy-dummy.m"; sourceTree = "<group>"; };
 		E0B33D1D251775F8F77AAEF4B2C5A13B /* SimpleLogger.Settings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleLogger.Settings.swift; path = InjectableLoggers/Classes/Structs/SimpleLogger.Settings.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18A84873E1BD5036983FBDCBE8080FA /* Foundation.framework in Frameworks */,
+				EB48AD2E6BC828BB04E8867E7FFF8460 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DE8839A6D925940149448782C3D4BB1 /* Foundation.framework in Frameworks */,
+				152330DDB60C36602FEDEE5021003744 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F790C8C081E5F0A50B6E96448071EDC1 /* Foundation.framework in Frameworks */,
+				0BCEC9B1447022ECE40E992122D2FAB5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6059222F51B297AFE75CFB13E542154D /* Foundation.framework in Frameworks */,
+				708AC3FA7315DE25F7DD6C90EED171B6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A74CA00B11DC7457D7E953B7937AFBD /* Foundation.framework in Frameworks */,
+				ABD493555391AFAE48814EC73288B5A9 /* Foundation.framework in Frameworks */,
 				D33D4141D182785D8DF390290DB6D00D /* InjectableLoggers.framework in Frameworks */,
 				7D2123213E3953EC7A72EF2DBB6759CF /* PureLayout.framework in Frameworks */,
 			);
@@ -347,7 +347,7 @@
 			children = (
 				4C541AD6ED7A5CBCD872C69DFD34659A /* InjectableLoggers.framework */,
 				9150BDD9D4430F575D470045D3968BF9 /* PureLayout.framework */,
-				E19EB0AEF698F64BA0C37084DF80EA34 /* iOS */,
+				78B73C88EC8B2624C23A101088FA11CA /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -492,6 +492,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		78B73C88EC8B2624C23A101088FA11CA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C02E14EAC5E5544E6C36766863ED617 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		7B3AC93ABA1121F96BCA203A68464E4C /* Pods-Zoomy_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,14 +594,6 @@
 			);
 			name = TypeAliasses;
 			path = Zoomy/Classes/TypeAliasses;
-			sourceTree = "<group>";
-		};
-		E19EB0AEF698F64BA0C37084DF80EA34 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				DC589B54F094D41DA451BAB8CC999E02 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		E1E1CA28623C2F5E4F1EB5D98C40D105 /* Support Files */ = {
