@@ -4,7 +4,8 @@ require 'json'
 default_platform(:ios)
 
 platform :ios do
-  	lane :tests do
+
+  lane :tests do
       cocoapods(clean: true, podfile: "Example/Podfile", repo_update: true)		
   		scan()
 	end
@@ -12,16 +13,17 @@ platform :ios do
 	lane :release do
 		  releaseBranchName = git_branch
 
-        unless releaseBranchName.partition('/').first == "release"
-          raise "Incorrect branch, expected release branch".red
-        end
+      unless releaseBranchName.partition('/').first == "release"
+        raise "Incorrect branch, expected release branch".red
+      end
 
-      	sh("git", "fetch")
-      	sh("git", "checkout", releaseBranchName)
+      version = releaseBranchName.partition('/').last
+      mileStoneNumber = mileStone_number(versionNumber: version)
 
-      	version = releaseBranchName.partition('/').last
-    
-      	version_bump_podspec(path: "Zoomy.podspec", version_number: version)
+    	sh("git", "fetch")
+    	sh("git", "checkout", releaseBranchName)
+
+      version_bump_podspec(path: "Zoomy.podspec", version_number: version)
      	cocoapods(clean: true, podfile: "Example/Podfile", repo_update: true)
 
   		scan()
@@ -40,18 +42,24 @@ platform :ios do
 
   		pod_push
 
-		url = 'https://api.github.com/repos/mennolovink/Zoomy/milestones'
-		uri = URI(url)
-		response = Net::HTTP.get(uri)
-		mileStones = JSON.parse(response)
-		milestone = mileStones.select { |milestone| milestone["title"] == version }[0]
-		mileStoneNumber = milestone["number"]
-
-      	github_release = set_github_release(repository_name: "mennolovink/Zoomy",
-                                          	api_token: ENV["GITHUB_TOKEN"],
-                                          	name: version,
-                                          	tag_name: version,
-                                          	description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/#{mileStoneNumber}?closed=1)",
-                                          	commitish: "master")
+      github_release = set_github_release(repository_name: "mennolovink/Zoomy",
+                                        	api_token: ENV["GITHUB_TOKEN"],
+                                        	name: version,
+                                        	tag_name: version,
+                                        	description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/#{mileStoneNumber}?closed=1)",
+                                        	commitish: "master")
 	end
+
+  lane :mileStone_number do |options|
+    version = options[:versionNumber]
+    UI.message "Will get milestone number for version #{version}"
+    url = 'https://api.github.com/repos/mennolovink/Zoomy/milestones'
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    mileStones = JSON.parse(response)
+    milestone = mileStones.select { |milestone| milestone["title"] == version }[0]
+    mileStoneNumber = milestone["number"]
+    UI.message "got milestone number #{mileStoneNumber}"
+    return version
+  end
 end
