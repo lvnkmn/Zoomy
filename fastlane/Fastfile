@@ -18,7 +18,7 @@ platform :ios do
       end
 
       version = releaseBranchName.partition('/').last
-      mileStoneNumber = mileStone_number(versionNumber: version)
+      mileStoneNumber = milestone_number(versionNumber: version)
 
     	sh("git", "fetch")
     	sh("git", "checkout", releaseBranchName)
@@ -50,16 +50,18 @@ platform :ios do
                                         	commitish: "master")
 	end
 
-  lane :mileStone_number do |options|
+  lane :milestone_number do |options|
     version = options[:versionNumber]
     UI.message "Will get milestone number for version #{version}"
     url = 'https://api.github.com/repos/mennolovink/Zoomy/milestones'
     uri = URI(url)
     response = Net::HTTP.get(uri)
+    UI.message "got response:"
+    UI.message response
     mileStones = JSON.parse(response)
     milestone = mileStones.select { |milestone| milestone["title"] == version }[0]
     mileStoneNumber = milestone["number"]
     UI.message "got milestone number #{mileStoneNumber}"
-    return version
+    mileStoneNumber
   end
 end
