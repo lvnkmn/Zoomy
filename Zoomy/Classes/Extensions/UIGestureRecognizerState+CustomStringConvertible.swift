@@ -1,4 +1,4 @@
-extension UIGestureRecognizerState: CustomStringConvertible {
+extension UIGestureRecognizer.State: CustomStringConvertible {
     public var description: String {
         switch self {
         case .began:

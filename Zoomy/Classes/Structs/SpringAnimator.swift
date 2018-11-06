@@ -6,14 +6,14 @@ public struct SpringAnimator {
     public let delay: TimeInterval
     public let springDamping: CGFloat
     public let initialSpringVelocity: CGFloat
-    public let options: UIViewAnimationOptions
+    public let options: UIView.AnimationOptions
     
     // MARK: Initializers
     public init(duration: TimeInterval = 0.5,
          delay: TimeInterval = 0,
          springDamping: CGFloat = 0.66,
          initialSpringVelocity: CGFloat = 0.5,
-         options: UIViewAnimationOptions = []) {
+         options: UIView.AnimationOptions = []) {
         self.duration = duration
         self.delay = delay
         self.springDamping = springDamping
