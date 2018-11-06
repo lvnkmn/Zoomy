@@ -15,7 +15,7 @@ class NavigationController: UINavigationController {
         
         let alertController = UIAlertController(title: "Shake to toggle navigationbar",
                                                 message: "You can shake your device to toggle the navigationbar in order to see the examples with and without it.",
-                                                preferredStyle: UIAlertControllerStyle.actionSheet)
+                                                preferredStyle: UIAlertController.Style.actionSheet)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
         becomeFirstResponder()
@@ -27,7 +27,7 @@ class NavigationController: UINavigationController {
         }
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard motion == .motionShake else { return }
         
         toggleNavigationBar()

@@ -4,10 +4,10 @@ public struct Animator {
     // MARK: Public properties
     public let duration: TimeInterval
     public let delay: TimeInterval
-    public let options: UIViewAnimationOptions
+    public let options: UIView.AnimationOptions
     
     // MARK: Initializers
-    public init(duration: TimeInterval = 0.5, delay: TimeInterval = 0, options: UIViewAnimationOptions = .curveEaseInOut) {
+    public init(duration: TimeInterval = 0.5, delay: TimeInterval = 0, options: UIView.AnimationOptions = .curveEaseInOut) {
         self.duration = duration
         self.delay = delay
         self.options = options
