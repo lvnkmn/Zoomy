@@ -108,7 +108,11 @@ No need to set the viewController as a delegate to anyting. This is infered usin
 
 See the [roadmap](https://github.com/mennolovink/Zoomy/labels/roadmap) for upcoming features.
 
-Missing anyting or something is not working as desired? [Create an issue](https://github.com/mennolovink/Zoomy/issues/new) and it will likely be picked up.
+Missing anyting or something is not working as desired? [Create an issue](https://github.com/mennolovink/Zoomy/issues/new) and it will likely be picked up. 
+
+## Support
+
+There may not always be time for personal support on how to implement Zoomy in different scenario's. Hopefully the code is clear enough to get done what's needed 💪. In case you've implemented a scenario thats not described in this readme or the examples, feel free to [create a pull request](https://github.com/mennolovink/Zoomy/compare?expand=1), that would be pretty cool actually.  
 
 ## Installation
 
@@ -119,9 +123,9 @@ it, simply add the following line to your Podfile:
 pod 'Zoomy'
 ```
 
-## Author
+## Credits & Acknowledgements
 
-Menno Lovink, mclovink@me.com
+Cover photo by [Leonardo Yip](https://unsplash.com/@yipleonardo), all other images that have been can be found on [Unsplash](https://unsplash.com).
 
 ## License
 
