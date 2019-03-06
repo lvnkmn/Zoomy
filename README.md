@@ -125,7 +125,7 @@ pod 'Zoomy'
 
 ## Credits & Acknowledgements
 
-Cover photo by [Leonardo Yip](https://unsplash.com/@yipleonardo), all other images that have been can be found on [Unsplash](https://unsplash.com).
+Cover photo by [Leonardo Yip](https://unsplash.com/@yipleonardo), all other images that have been used can be found on [Unsplash](https://unsplash.com).
 
 ## License
 
