@@ -246,7 +246,8 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     func animateToExpectedFrameOfScrollableImageView(event: AnimationEvent, onComplete: @escaping ()->()) {
         logger.log(atLevel: .verbose)
         guard   let owner = owner,
-                let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView else { return }
+                let expectedFrameOfScrollableImageView = expectedFrameOfScrollableImageView,
+                let neededContentMode = owner.imageView?.contentMode else { return }
         
         owner.scrollView.pinchGestureRecognizer?.isEnabled = false
         hideScrollableImageViewWhileKeepingItUserInteractable()
@@ -260,6 +261,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
             
             owner.scrollView.pinchGestureRecognizer?.isEnabled = true
             owner.scrollableImageView.image = owner.image
+            owner.scrollableImageView.contentMode = neededContentMode
             onComplete()
         }
     }
@@ -272,10 +274,12 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     }
     
     func bypassAnimateToExpectedFrameOfScrollableImageView() {
-        guard let owner = owner else { return }
+        guard   let owner = owner,
+                let neededContentMode = owner.imageView?.contentMode else { return }
         
         isBypasssingAnimateToExpectedFrameOfScrollableImageView = true
         owner.scrollableImageView.image = owner.image
+        owner.scrollableImageView.contentMode = neededContentMode
         finishPresentingOverlayImageView()
     }
     
