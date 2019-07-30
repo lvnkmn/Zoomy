@@ -23,11 +23,11 @@ platform :ios do
     	sh("git", "fetch")
     	sh("git", "checkout", releaseBranchName)
 
-      version_bump_podspec(path: "Zoomy.podspec", version_number: version)
+        version_bump_podspec(path: "Zoomy.podspec", version_number: version)
      	cocoapods(clean: true, podfile: "Example/Podfile", repo_update: true)
 
+        pod_lib_lint
   		scan()
-  		pod_lib_lint
 
   		sh("git", "add", "-A")
   		sh("git", "commit", "-m", "Bump version to #{version} [ci skip]")
