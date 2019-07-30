@@ -165,7 +165,7 @@ private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
         }
     }
     
-    /// [See GitHub Issue](https://github.com/mennolovink/Zoomy/issues/35)
+    /// [See GitHub Issue](https://github.com/lvnkmn/Zoomy/issues/35)
     func neededOverlayImageViewFrame() -> CGRect {
         guard   let owner = owner,
                 let image = owner.image else { return CGRect.zero }

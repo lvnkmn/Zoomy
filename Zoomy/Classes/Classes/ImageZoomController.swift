@@ -48,7 +48,7 @@ public class ImageZoomController: NSObject {
         return pinchScale(from: minimumZoomScale)
     }
 
-    /// [See GitHub Issue](https://github.com/mennolovink/Zoomy/issues/40)
+    /// [See GitHub Issue](https://github.com/lvnkmn/Zoomy/issues/40)
     internal var initialAbsoluteFrameOfImageView: CGRect? {
         didSet {
             guard let initialAbsoluteFrameOfImageView = initialAbsoluteFrameOfImageView else { return }
