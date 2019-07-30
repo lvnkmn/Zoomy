@@ -1034,7 +1034,7 @@
 			};
 			name = Release;
 		};
-		20FCFE306305BE77F26920FFA12A8B1B /* Debug */ = {
+		07BF91B0C54FE800B7CB61C7CDB0DCB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
 			buildSettings = {
@@ -1059,7 +1059,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1192,6 +1192,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		8D04478F3E00A59AA36CEA6481E86C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/InjectableLoggers/InjectableLoggers-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/InjectableLoggers/InjectableLoggers-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/InjectableLoggers/InjectableLoggers.modulemap";
+				PRODUCT_MODULE_NAME = InjectableLoggers;
+				PRODUCT_NAME = InjectableLoggers;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		9B28EDEF724EDF87C1660FE5642A56C4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1361,39 +1394,6 @@
 			};
 			name = Debug;
 		};
-		E10E8460F2C28F163CBCCDC98070DA45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/InjectableLoggers/InjectableLoggers-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/InjectableLoggers/InjectableLoggers-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/InjectableLoggers/InjectableLoggers.modulemap";
-				PRODUCT_MODULE_NAME = InjectableLoggers;
-				PRODUCT_NAME = InjectableLoggers;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		E9645DD1C3AB0D4979BD13FE8AA56BA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40AF5EA0E68A1EF743B80C666D465D51 /* Zoomy.xcconfig */;
@@ -1477,8 +1477,8 @@
 		1FE65759E70A2FBB5A21F3DD0CD398F2 /* Build configuration list for PBXNativeTarget "InjectableLoggers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				20FCFE306305BE77F26920FFA12A8B1B /* Debug */,
-				E10E8460F2C28F163CBCCDC98070DA45 /* Release */,
+				07BF91B0C54FE800B7CB61C7CDB0DCB3 /* Debug */,
+				8D04478F3E00A59AA36CEA6481E86C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

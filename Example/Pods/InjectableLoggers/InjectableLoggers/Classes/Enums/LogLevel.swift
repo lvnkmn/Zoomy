@@ -7,7 +7,7 @@ public enum Loglevel: UInt {
 }
 
 public extension Loglevel {
-    public static var all: [Loglevel] {
+    static var all: [Loglevel] {
         return [.verbose, .info, .warning, .error, .inactive]
     }
 }

@@ -1,5 +1,5 @@
 public extension Logger {
-    public struct FormatSettings {
+    struct FormatSettings {
 
         public var shouldShowLevel: Bool
 

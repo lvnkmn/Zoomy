@@ -6,6 +6,6 @@ target 'Zoomy_Example' do
   target 'Zoomy_Tests' do
     inherit! :search_paths
 
-    pod 'InjectableLoggers', '~> 1.0'
+    pod 'InjectableLoggers', '~> 2.0'
   end
 end
