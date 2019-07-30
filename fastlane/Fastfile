@@ -42,18 +42,18 @@ platform :ios do
 
   		pod_push
 
-      github_release = set_github_release(repository_name: "mennolovink/Zoomy",
+      github_release = set_github_release(repository_name: "lvnkmn/Zoomy",
                                         	api_token: ENV["GITHUB_TOKEN"],
                                         	name: version,
                                         	tag_name: version,
-                                        	description: "[Closed Issues](https://github.com/mennolovink/Zoomy/milestone/#{mileStoneNumber}?closed=1)",
+                                        	description: "[Closed Issues](https://github.com/lvnkmn/Zoomy/milestone/#{mileStoneNumber}?closed=1)",
                                         	commitish: "master")
 	end
 
   lane :milestone_number do |options|
     version = options[:versionNumber]
     UI.message "Will get milestone number for version #{version}"
-    url = 'https://api.github.com/repos/mennolovink/Zoomy/milestones'
+    url = 'https://api.github.com/repos/lvnkmn/Zoomy/milestones'
     uri = URI(url)
     params = { :access_token => ENV["GITHUB_TOKEN"] }
     uri.query = URI.encode_www_form(params)

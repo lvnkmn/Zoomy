@@ -58,7 +58,7 @@ let settings = Settings.defaultSettings
 addZoombehavior(for: imageView, settings: settings)
 ```
 
-There's a lot more [triggers](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Structs/ImageZoomControllerSettings.swift#L44-L72) and [actions](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Classes/ImageZoomControllerActions.swift#L8-L26) to choose from.
+There's a lot more [triggers](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Structs/ImageZoomControllerSettings.swift#L44-L72) and [actions](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Classes/ImageZoomControllerActions.swift#L8-L26) to choose from.
 
 ### Zooming a collectionviewcell
 
@@ -78,10 +78,10 @@ public func collectionView(_ collectionView: UICollectionView, cellForItemAt ind
 
 Or check some of the sample code directly:
 
-* [Zooming non centered images](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/NonCenteredImagesViewController.swift)
-* [Zooming scrollable images](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/StackViewImagesViewController.swift)
-* [Zooming underneath floating action button](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/FloatingActionButtonViewController.swift)
-* [Dynamically changing gesture actions](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/ChangingActionsViewController.swift)
+* [Zooming non centered images](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/NonCenteredImagesViewController.swift)
+* [Zooming scrollable images](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/StackViewImagesViewController.swift)
+* [Zooming underneath floating action button](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/FloatingActionButtonViewController.swift)
+* [Dynamically changing gesture actions](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/ChangingActionsViewController.swift)
 
 ### A note about zooming images that live inside scrollviews
 
@@ -102,17 +102,17 @@ extension YourViewController: Zoomy.Delegate {
 }
 ```
 
-No need to set the viewController as a delegate to anyting. This is infered using conditional conformance. In case you're interested in seeing how this is done, see [this](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Extensions/UIViewController%2BCanManageZoomBehavior.swift#L3) and [this](https://github.com/mennolovink/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/ExtendedProtocols/CanManageZoomBehaviors.swift#L72).
+No need to set the viewController as a delegate to anyting. This is infered using conditional conformance. In case you're interested in seeing how this is done, see [this](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Extensions/UIViewController%2BCanManageZoomBehavior.swift#L3) and [this](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/ExtendedProtocols/CanManageZoomBehaviors.swift#L72).
 
 ## There's more to come
 
-See the [roadmap](https://github.com/mennolovink/Zoomy/labels/roadmap) for upcoming features.
+See the [roadmap](https://github.com/lvnkmn/Zoomy/labels/roadmap) for upcoming features.
 
-Missing anyting or something is not working as desired? [Create an issue](https://github.com/mennolovink/Zoomy/issues/new) and it will likely be picked up. 
+Missing anyting or something is not working as desired? [Create an issue](https://github.com/lvnkmn/Zoomy/issues/new) and it will likely be picked up. 
 
 ## Support
 
-There may not always be time for personal support on how to implement Zoomy in different scenario's. Hopefully the code is clear enough to get done what's needed 💪. In case you've implemented a scenario thats not described in this readme or the examples, feel free to [create a pull request](https://github.com/mennolovink/Zoomy/compare?expand=1), that would be pretty cool actually.  
+There may not always be time for personal support on how to implement Zoomy in different scenario's. Hopefully the code is clear enough to get done what's needed 💪. In case you've implemented a scenario thats not described in this readme or the examples, feel free to [create a pull request](https://github.com/lvnkmn/Zoomy/compare?expand=1), that would be pretty cool actually.  
 
 ## Installation
 
