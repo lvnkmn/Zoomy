@@ -40,7 +40,7 @@ class SquaredImagesCollectionViewController: UICollectionViewController {
         cell.imageView.contentMode = supportedContentModes[contentModeSelector.selectedSegmentIndex]
         
         addZoombehavior(for: cell.imageView,
-                        settings: Settings().with(actionOnTapOverlay: Action.dismissOverlay))
+                        settings: Settings.instaZoomSettings.with(actionOnTapOverlay: Action.dismissOverlay))
         
         return cell
     }
