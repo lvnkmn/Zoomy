@@ -1,6 +1,6 @@
 public extension SimpleLogger {
     
-    public struct Settings {
+    struct Settings {
         
         /// All messages with loglevel equal to or above this logLevel will be logged
         public var activeLogLevel: Loglevel

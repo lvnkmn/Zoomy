@@ -13,6 +13,9 @@ extension UIGestureRecognizer.State: CustomStringConvertible {
             return "failed"
         case .possible:
             return "possible"
+        @unknown default:
+            logger.logError("Unexpected gesture case")
+            return "unkown"
         }
     }
 }
