@@ -5,7 +5,7 @@ public protocol CanLog {
 
 public extension CanLog {
     
-    public func log() {
+    func log() {
         print("")
     }
 }

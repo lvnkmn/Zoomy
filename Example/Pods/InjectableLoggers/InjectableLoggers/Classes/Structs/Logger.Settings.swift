@@ -13,9 +13,12 @@ extension Logger {
         /// By default this destination will be a ConsoleLogger but any other destination can be injected either here on in the constructor
         public var destination: CanLogMessage
         
+        /// All calls to `log(message: atLevel: inFile: inFunction: atLine: line)` will be relayed to this instance
+        public var relay: CanLogMessageAtLevelInFileInFunctionAtLine?
+        
         /// Will turn logLevel, message, file, function and line into the strings that will be logged to destination
         public var formatter: CanFormatMessageInFileInFunctionAtLineWithSettings
-
+        
         /// Format settings per logLevel that will used by formatter to format messages
         public var formatSettings: [Loglevel: FormatSettings]
         
@@ -23,6 +26,7 @@ extension Logger {
                     defaultLogLevel: Loglevel = .info,
                     loglevelStrings: [Loglevel: String] = [.verbose: "🔍", .info: "ℹ️", .warning: "⚠️", .error:"⛔️"],
                     destination: CanLogMessage = ConsoleLogger(),
+                    relay: CanLogMessageAtLevelInFileInFunctionAtLine? = nil,
                     formatter:  CanFormatMessageInFileInFunctionAtLineWithSettings = Formatter(),
                     formatSettings: [Loglevel: FormatSettings] = [.verbose : FormatSettings(shouldShowLevel: true, shouldShowFile: true, shouldShowFunction: true, shouldShowLine: true),
                                                                   .info : FormatSettings(shouldShowLevel: true, shouldShowFile: true, shouldShowFunction: true, shouldShowLine: false),
@@ -32,6 +36,7 @@ extension Logger {
             self.defaultLogLevel = defaultLogLevel
             self.loglevelStrings = loglevelStrings
             self.destination = destination
+            self.relay = relay
             self.formatter = formatter
             self.formatSettings = formatSettings
         }
@@ -86,6 +91,13 @@ public extension Logger.Settings {
     func with(destination: CanLogMessage) -> Logger.Settings {
         var settings = self
         settings.destination = destination
+        return settings
+    }
+    
+    /// Same settings but with provided relay
+    func with(relay: CanLogMessageAtLevelInFileInFunctionAtLine?) -> Logger.Settings {
+        var settings = self
+        settings.relay = relay
         return settings
     }
     
