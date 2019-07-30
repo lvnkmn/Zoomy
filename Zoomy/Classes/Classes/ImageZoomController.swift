@@ -408,7 +408,7 @@ internal extension ImageZoomController {
                                            y: scrollView.contentOffset.y + frameDifference.origin.y)
     }
     
-    internal func resetScrollView() {
+    func resetScrollView() {
         scrollableImageView.removeFromSuperview()
         scrollableImageView = factory.makeScrollableImageView(for: self)
         scrollView.removeFromSuperview()
@@ -416,7 +416,7 @@ internal extension ImageZoomController {
         currentBounceOffsets = nil
     }
     
-    internal func resetOverlayImageView() {
+    func resetOverlayImageView() {
         overlayImageView.removeFromSuperview()
         overlayImageView = factory.makeOverlayImageView(for: self)
     }
