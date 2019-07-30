@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Zoomy/Classes/**/*'
   
   s.dependency 'PureLayout', '~> 3.0'
-  s.dependency 'InjectableLoggers', '~> 1.0'
+  s.dependency 'InjectableLoggers', '~> 2.0'
 end

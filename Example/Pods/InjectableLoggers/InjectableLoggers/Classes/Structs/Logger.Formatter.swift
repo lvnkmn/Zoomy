@@ -1,6 +1,6 @@
 public extension Logger {
     
-    public struct Formatter {
+    struct Formatter {
         
         public init(){}
     }
