@@ -43,6 +43,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
         
         owner.overlayImageView.image = owner.image
         owner.overlayImageView.frame = absoluteFrameOfImageView
+        owner.overlayImageView.contentMode = imageView.contentMode
         
         defer {
             owner.delegate?.didBeginPresentingOverlay(for: imageView)

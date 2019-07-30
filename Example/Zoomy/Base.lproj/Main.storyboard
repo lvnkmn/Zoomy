@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qGf-8N-XcY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qGf-8N-XcY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -139,6 +138,26 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="uPT-ch-eks" kind="show" id="p1W-b2-JMs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TmG-K4-jFZ" style="IBUITableViewCellStyleDefault" id="ty8-DC-skX">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ty8-DC-skX" id="NfB-Wi-gWN">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="CollectionView with contentMode selector" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TmG-K4-jFZ">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="A4L-72-L22" kind="show" id="cK7-kR-iOP"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -544,6 +563,54 @@
             </objects>
             <point key="canvasLocation" x="1608.8" y="474.51274362818594"/>
         </scene>
+        <!--Squared Images Collection View Controller-->
+        <scene sceneID="Z13-VG-oKI">
+            <objects>
+                <collectionViewController id="A4L-72-L22" customClass="SquaredImagesCollectionViewController" customModule="Zoomy_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eoF-2z-xxB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7SZ-0R-Zp2">
+                            <size key="itemSize" width="181" height="173"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellID" id="r59-BA-uKm" customClass="CollectionViewCellWithImage" customModule="Zoomy_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="173"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="181" height="173"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="buN-JY-sJ1">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="173"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="buN-JY-sJ1" firstAttribute="top" secondItem="r59-BA-uKm" secondAttribute="top" id="21O-9M-6ik"/>
+                                    <constraint firstAttribute="bottom" secondItem="buN-JY-sJ1" secondAttribute="bottom" id="GWk-iK-omp"/>
+                                    <constraint firstItem="buN-JY-sJ1" firstAttribute="leading" secondItem="r59-BA-uKm" secondAttribute="leading" id="bgW-f9-hqe"/>
+                                    <constraint firstAttribute="trailing" secondItem="buN-JY-sJ1" secondAttribute="trailing" id="pjt-gH-pAe"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="buN-JY-sJ1" id="08A-f5-pjj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="A4L-72-L22" id="YS1-b2-bwi"/>
+                            <outlet property="delegate" destination="A4L-72-L22" id="9gD-Kh-mrP"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uwv-0X-Dnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3413.5999999999999" y="474.51274362818594"/>
+        </scene>
         <!--Insta Zoom View Controller-->
         <scene sceneID="gDj-y5-gCx">
             <objects>
@@ -576,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg1-0f-iIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498" y="531"/>
+            <point key="canvasLocation" x="2498" y="484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pmG-LL-DRe">
@@ -641,10 +708,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Colorfull_2" width="2453" height="1637"/>
-        <image name="Trees_0" width="1365" height="768"/>
-        <image name="Trees_3" width="1330" height="747"/>
-        <image name="Trees_4" width="1152" height="862"/>
+        <image name="Colorfull_2" width="2453.333251953125" height="1637.3333740234375"/>
+        <image name="Trees_0" width="1365.3333740234375" height="768"/>
+        <image name="Trees_3" width="1330.6666259765625" height="747.33331298828125"/>
+        <image name="Trees_4" width="1152.6666259765625" height="862"/>
         <image name="Trees_5" width="2048" height="1536"/>
     </resources>
 </document>
