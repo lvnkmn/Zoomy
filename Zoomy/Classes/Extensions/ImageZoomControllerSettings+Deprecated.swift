@@ -26,7 +26,7 @@ public extension ImageZoomControllerSettings {
     }
     
     @available(*, deprecated, message: "Use `actionOnDoubleTapImageView` instead")
-    public var actionOnDoubleTapImageVIew: Action & CanBeTriggeredByImageViewDoubleTap {
+    var actionOnDoubleTapImageVIew: Action & CanBeTriggeredByImageViewDoubleTap {
         get {
             return actionOnDoubleTapImageView
         }
@@ -46,7 +46,7 @@ public extension ImageZoomControllerSettings {
     }
     
     @available(*, deprecated, message: "Logger injection is not supported anymore. Use `shouldLogWarningsAndErrors` instead")
-    public var logger: CanLogMessageAtLevel {
+    var logger: CanLogMessageAtLevel {
         get {
             return SimpleLogger(settings: .warningSettings)
         }
