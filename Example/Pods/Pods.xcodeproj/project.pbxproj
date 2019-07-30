@@ -787,7 +787,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1030;
 				TargetAttributes = {
 					159BCD99AC1F7CE7112319E6C584776F = {
 						LastSwiftMigration = 1030;
@@ -1008,7 +1008,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40AF5EA0E68A1EF743B80C666D465D51 /* Zoomy.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1041,7 +1040,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1132,7 +1130,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64DB6A74C5F9FD5A440D37756E505B78 /* PureLayout.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1165,7 +1162,6 @@
 			baseConfigurationReference = CD1FE7E96A5E345D913F7FF58A0CCFE0 /* Pods-Zoomy_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1199,7 +1195,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1232,7 +1227,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64DB6A74C5F9FD5A440D37756E505B78 /* PureLayout.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1266,7 +1260,6 @@
 			baseConfigurationReference = 08FAA55FB0053B36E2D4836258EBEEC4 /* Pods-Zoomy_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1302,7 +1295,6 @@
 			baseConfigurationReference = CADDCC912439D00D2D010CFA70629127 /* Pods-Zoomy_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1400,7 +1392,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40AF5EA0E68A1EF743B80C666D465D51 /* Zoomy.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1433,7 +1424,6 @@
 			baseConfigurationReference = 214924C9F0E2FAC0CB4EAEEAC304F1BB /* Pods-Zoomy_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
