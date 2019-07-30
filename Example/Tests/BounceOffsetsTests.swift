@@ -51,10 +51,10 @@ class BounceOffsetsTests: XCTestCase {
         
         //Assert
         XCTAssertEqual(result.count, 4)
-        XCTAssertEqual(result.index(of: .top), 0)
-        XCTAssertEqual(result.index(of: .left), 1)
-        XCTAssertEqual(result.index(of: .right), 2)
-        XCTAssertEqual(result.index(of: .bottom), 3)
+        XCTAssertEqual(result.firstIndex(of: .top), 0)
+        XCTAssertEqual(result.firstIndex(of: .left), 1)
+        XCTAssertEqual(result.firstIndex(of: .right), 2)
+        XCTAssertEqual(result.firstIndex(of: .bottom), 3)
     }
     
     func testBouncingSides3() {
@@ -69,10 +69,10 @@ class BounceOffsetsTests: XCTestCase {
         
         //Assert
         XCTAssertEqual(result.count, 4)
-        XCTAssertEqual(result.index(of: .top), 3)
-        XCTAssertEqual(result.index(of: .left), 2)
-        XCTAssertEqual(result.index(of: .right), 1)
-        XCTAssertEqual(result.index(of: .bottom), 0)
+        XCTAssertEqual(result.firstIndex(of: .top), 3)
+        XCTAssertEqual(result.firstIndex(of: .left), 2)
+        XCTAssertEqual(result.firstIndex(of: .right), 1)
+        XCTAssertEqual(result.firstIndex(of: .bottom), 0)
     }
     
     func testBouncingSides4() {
@@ -87,10 +87,10 @@ class BounceOffsetsTests: XCTestCase {
         
         //Assert
         XCTAssertEqual(result.count, 3)
-        XCTAssertEqual(result.index(of: .top), nil)
-        XCTAssertEqual(result.index(of: .left), 2)
-        XCTAssertEqual(result.index(of: .right), 1)
-        XCTAssertEqual(result.index(of: .bottom), 0)
+        XCTAssertEqual(result.firstIndex(of: .top), nil)
+        XCTAssertEqual(result.firstIndex(of: .left), 2)
+        XCTAssertEqual(result.firstIndex(of: .right), 1)
+        XCTAssertEqual(result.firstIndex(of: .bottom), 0)
     }
     
     func testIsBouncing1() {
