@@ -449,7 +449,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -458,7 +458,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2837E8D9851C11BC5E8A85D1 /* [CP] Embed Pods Frameworks */ = {
@@ -467,7 +467,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework",
@@ -480,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3593CC768E21B2D2236854EE /* [CP] Check Pods Manifest.lock */ = {
