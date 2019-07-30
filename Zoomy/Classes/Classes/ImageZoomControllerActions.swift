@@ -33,7 +33,7 @@ public class ImageZoomControllerAction: CustomStringConvertible {
 public extension ImageZoomControllerAction {
     
     /// Does nothing
-    public final class None:    ImageZoomControllerAction,
+    final class None:    ImageZoomControllerAction,
                                 CanBeTriggeredByAnyInteraction{
         override public var description: String {
             return "None"
@@ -44,7 +44,7 @@ public extension ImageZoomControllerAction {
 
 public extension ImageZoomControllerAction {
     /// Causes the image to be zoomed until it fit's its container
-    public final class ZoomToFit:   ImageZoomControllerAction,
+    final class ZoomToFit:   ImageZoomControllerAction,
                                     CanBeTriggeredByImageViewTap,
                                     CanBeTriggeredByImageViewDoubleTap,
                                     CanBeTriggeredByOverlayTap {
@@ -56,7 +56,7 @@ public extension ImageZoomControllerAction {
 
 public extension ImageZoomControllerAction {
     /// Causes the image to be zoomed all the way in
-    public final class ZoomIn:  ImageZoomControllerAction,
+    final class ZoomIn:  ImageZoomControllerAction,
                                 CanBeTriggeredByImageViewTap,
                                 CanBeTriggeredByImageViewDoubleTap,
                                 CanBeTriggeredByOverlayTap,
@@ -69,7 +69,7 @@ public extension ImageZoomControllerAction {
 
 public extension ImageZoomControllerAction {
     /// Causes the overlay to be dismissed
-    public final class DismissOverlay:  ImageZoomControllerAction,
+    final class DismissOverlay:  ImageZoomControllerAction,
                                         CanBeTriggeredByOverlayTap,
                                         CanBeTriggeredByOverlayDoubleTap,
                                         CanBeTriggeredByScrollBounceTop,
