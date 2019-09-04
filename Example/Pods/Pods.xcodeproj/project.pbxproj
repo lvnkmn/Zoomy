@@ -8,95 +8,110 @@
 
 /* Begin PBXBuildFile section */
 		025BA0BDF87BC89E358481C5C60C4EAB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A010419A6EA49C2AD52E96E397F48E5E /* Logger.swift */; };
+		0648099921D226BE1BE1D971F48C8369 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780CAE0A3463CB94A32D38DD43FDB14 /* UIImage+Color.swift */; };
 		06B6D4A109D383F87DB87E9B94F5AA73 /* CanLogMessageAtLevelInFileInFunctionAtLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900AEC4650A69C632D0AF3116BBD2EF /* CanLogMessageAtLevelInFileInFunctionAtLine.swift */; };
-		092CB25D1527790E73E7E17DD210CF94 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC655238B5E98ABB62448AB323DF279 /* UIImage+Color.swift */; };
 		0B909629DF48FCFF4BC16D2166703D9E /* Logger.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F1163A986938B6A29BF88C72C1BBB /* Logger.Settings.swift */; };
-		0F42F2E648BB305C8686D5D0CB545AC0 /* ImageZoomControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59D161E96448CECDDA57F4228EC6E60 /* ImageZoomControllerState.swift */; };
 		103E27C248EE7B173C0C64AC5390317C /* InjectableLoggers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AADE20A1C98FE22C9684ACA8610904 /* InjectableLoggers-dummy.m */; };
-		1A2BF1C3695719194C7A6D83A92DB88D /* DeprecatedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2FBCC6F17384BF94D7FF08A67F73 /* DeprecatedProtocols.swift */; };
 		1B382A91CB2301F2D4F0A493820CFDED /* SimpleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E229A38F18F1E137046D64377A78078 /* SimpleLogger.swift */; };
-		1C9CBAAB6EB65D86D7DC2E67CBA3C30C /* DefaultAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7714D0622B66419EA2E2787E3EB9D25 /* DefaultAnimators.swift */; };
+		1D381A97FE9ECF789048A83BDFDDDFB9 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20273024045E6A0590C8BB59B63FE236 /* Side.swift */; };
 		1EA7BAB3BE0B0B5D2BC7C24F5E81786A /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1326CDDB031C9AAA0D90F62DA413CA /* MockLogger.swift */; };
 		1EE6187046660F0B4B75F24D41C394F1 /* Pods-Zoomy_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97917796797A60F0392794674DAFD64E /* Pods-Zoomy_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2275D8640A3E56D0EE6C808690790A49 /* ImageZoomControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B1DDF6728FDD7C588245C57E056F2 /* ImageZoomControllerDelegate.swift */; };
-		2340598110289E4BEEB0C6285C3A9D44 /* BounceOffsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A533B7DEFB00F6C1F39755BE60C1440 /* BounceOffsets.swift */; };
 		23D397D9E8853F04EDDA3D79FC58B312 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
+		24C6040B18432C29DBA87F372D361107 /* UIViewController+HasImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B8BBBC61905F7D81716FC2FF1670DF /* UIViewController+HasImageZoomControllers.swift */; };
+		24F474E15BD67891690D62DFA5D39A61 /* CanManageZoomBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C434BF4D8CA2D21B72AA2F9311E3AF /* CanManageZoomBehaviors.swift */; };
 		29F477B426E97AC81C2D867965814EE7 /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F31618AA273FE3625540CA5A1300A35D /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2D7A8ECE1FEE7F3506812CCF8EAB6842 /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479F5328A6775DCAB370B49B1DE471AD /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */; };
-		305BA27BA7D6BC7AFCD811C08B893496 /* AnimationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC9A4F1F650BB83CCD7F00E5747B6D /* AnimationEvent.swift */; };
-		37C1E14935FDDC256D64F36CE7B47AF3 /* CanBetriggered.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB408BFEA28AB38F8DA302863209D421 /* CanBetriggered.swift */; };
-		38319A327E7BCFD6C09A8A4544D4FEA9 /* ImageZoomController.Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE379BB470CFA0CECD750F8FB8293D /* ImageZoomController.Factory.swift */; };
-		3D886C5D6FE35D524A2790A89E9CDFFD /* CGAffineTransform+transformWithScaleTranslationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E32F87290FAEE9FD54A35698D6F350 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */; };
+		2A8B6E52D9F1A73690F367CBAA9A4E0B /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A617A9E2029114E26713550AA92E94B /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */; };
+		311405CB1D7C60B8117BB803FFA07A38 /* HasImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50772753E5813A56F86F8A1DFD1DB487 /* HasImageZoomControllers.swift */; };
+		3291FD0EAAD804789FC3424373AEB25D /* CGPoint+dominantDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB35C34C1DCCAA6372B9C9C523DBDA5 /* CGPoint+dominantDirection.swift */; };
+		3724A5500B470964181C3AAEEB8C232E /* CanBetriggered.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4495862B64C1F38113BC48768DABB /* CanBetriggered.swift */; };
+		3D063C466B6EED7518E3D7A2A4ECDD10 /* UIImageView+Zoomable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF90A56E6724D7D150B364BEEE0D65C /* UIImageView+Zoomable.swift */; };
 		3E3D581B1E51870675E23BD99BF7A65A /* CanLogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C52909FF543F159A7A7BAFE5FDE8C08 /* CanLogMessage.swift */; };
 		3EBC79D53650CCC93262B12DB26403BD /* HasDefaultLoglevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B6AB5138E355D8852DB8828EBB06E /* HasDefaultLoglevel.swift */; };
 		3FEA79AB938D263EDD0576109321847D /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F13A2B808C2CA601614F87FEEFF4B51 /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FECAA7CF7FDB77931AF6B9D2B518BB2 /* ImageZoomControllerIsNotPresentingOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C840164166D3A6FBD260CF3D150596E7 /* ImageZoomControllerIsNotPresentingOverlayState.swift */; };
 		45112E474BA6016E05CED490D795AEC5 /* InjectableLoggers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08569B7E496E5789349B18B5FAF2D886 /* InjectableLoggers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		47A99E214129B585BA807EF3109B05DA /* CanManageZoomBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD32AEE264962FF4C3B68EE6933FDC /* CanManageZoomBehaviors.swift */; };
+		46B6640420F6189DDE26D4E776506EA1 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1577292A06D915527C4C98FF2A70626 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */; };
+		49D7B77AE3B289D0ED805BA96BFB38C0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378A69CD7D6C44E519F34B613C1CACCC /* PureLayout.framework */; };
 		4C5031DC1938A816B9BC7DE205504AC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
-		5070E04D2402A3E15BF82CBB7E4CC5E1 /* CGRect+transformedByTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9A6DB214368BA00A6C8A0437CA11D /* CGRect+transformedByTransform.swift */; };
+		4D05AC46C6F0F398457CE768448F61FA /* Zoomy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D7585A0AC385DFB1C0DAACE007BA88 /* Zoomy-dummy.m */; };
 		516464DB7004848131A1A280E725BB30 /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 82810E0241BE6760B674B09EFA9EC113 /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		520B10D56D40271455D217749662442C /* UIViewController+HasImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F3859A548E1158C39E3F516F5C58A /* UIViewController+HasImageZoomControllers.swift */; };
-		534955350DA8C5B793BBA218B3A6427F /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378A69CD7D6C44E519F34B613C1CACCC /* PureLayout.framework */; };
+		53DB77A57196ADEC490EF4D331D2C88B /* CanPerformAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA367209081F3313EF29CD7101532496 /* CanPerformAction.swift */; };
+		54480B69E0986A4884D4F2AC4C7631A1 /* ImageZoomControllerSettings+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8807C83B890E7980AC6ECCE3898A60C /* ImageZoomControllerSettings+Equatable.swift */; };
+		550A49DAB73339214E77EE67890764D3 /* CGAffineTransform+transformWithScaleTranslationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B89958757A94E82F456582F1F22EA8 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */; };
 		55BFE808912342EEC873F1E2393786E1 /* Pods-Zoomy_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB2D10463A515B8622C35649FE2A5 /* Pods-Zoomy_Tests-dummy.m */; };
-		5B64C81BADD48B8D3EBBDAEE1357A0E0 /* CanPerformAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57325B0AA930CE18A0952939AD0B6210 /* CanPerformAction.swift */; };
+		5A6AA566B424605226763B290A03AD70 /* ImageZoomController.Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD6683FA15CDDFC4B1A49E8F7B3A6E7 /* ImageZoomController.Factory.swift */; };
 		5E411F2391C465208E2EE0F29DD66F6F /* Pods-Zoomy_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 995ACD99A6A9DAE10AB6D1FD8C20BA35 /* Pods-Zoomy_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E977ED24576E4C2844CA8A317089F54 /* CGPoint+maximumAbsoluteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5059F9E381A8909D49AC8A5E1B16D36 /* CGPoint+maximumAbsoluteValue.swift */; };
-		6124C551E978B9E36A8051E86B3007B0 /* Zoomy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663CF70721918CEF1668A80886E66F9 /* Zoomy-dummy.m */; };
-		62F59038C02DF9000416EC122A55A020 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45501818299CB64014A9DEB2C1CA097D /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */; };
+		5FD737FB986B0C00E33D3646F4C2B04C /* ImageZoomControllerSettings+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D984DE02B99D262AC7669158AD5 /* ImageZoomControllerSettings+Deprecated.swift */; };
+		62164915FADD03C1C191E156F0517C78 /* CanProvideAnimatorForEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB913864435ED3BA9C39D43DD18769DA /* CanProvideAnimatorForEvent.swift */; };
 		6424CD98AFC081EBFC6BFFF1AFE9DF3B /* Pods-Zoomy_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786AB9FCA35EEE185C0A027621E7653 /* Pods-Zoomy_Example-dummy.m */; };
-		6DADF581BDE43E0BE891FDFCA9BD9E5D /* Zoomy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81DE297F84247D07E56FDA4C3B9603D4 /* Zoomy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		70233EA536F1273D0B3B70BFA6771D1F /* DeprecatedTypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE32ED53881BAE1C77B68CFED5959F2 /* DeprecatedTypeAliasses.swift */; };
+		688CD6DF36B919FBBA75AB15B5FAFF00 /* DeprecatedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93261EE3B6F0C992681574431D6EE428 /* DeprecatedProtocols.swift */; };
+		6BB0BE8F71B5AEE188DA54CC27B55647 /* CGPoint+valueInDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D04CA519814A58E7A4A6BE0539E146 /* CGPoint+valueInDirection.swift */; };
 		70981CA6A1DD10570E34DB778400D44E /* Logger.FormatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DED949FE8EB9C0AB3245165FC1CCD24 /* Logger.FormatSettings.swift */; };
+		70BF868C6C3B408C688B27764CBD0186 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33E604FB5517558DF6C4B713C111DC9 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */; };
+		70FF907F0E455E6A9B48CA44356F88B0 /* CGRect+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1DA2081F79DC80386D87A968FDD1D4 /* CGRect+Difference.swift */; };
+		757EC4BD681BD278396C45492898B4F5 /* UIViewController+CanManageZoomBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB260A3A0B88E744C659607A4A3A26 /* UIViewController+CanManageZoomBehavior.swift */; };
 		75CF1C3C6791888DDF1C73573D7D5509 /* SimpleLogger.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E9A89215314C12B3DDEEBEF7D54BD /* SimpleLogger.Settings.swift */; };
-		79DCB15392AC8B09509C25D6EA45CCEF /* ConfigurableUsingClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A337BAD908BAEC331B52674AC4AD236 /* ConfigurableUsingClosure.swift */; };
-		84825AEB7239537FCCB19F6E6D069F58 /* CGPoint+dominantDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F57CA9EBEE13B11268A768EA6BAE65 /* CGPoint+dominantDirection.swift */; };
-		85613CC1A9F29DAC5C3CB722A8026A54 /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91D40329068ED1D6345578CF4F387A9 /* TypeAliasses.swift */; };
+		77C6B24A4BA0B02CB467D6A5FF4FC28C /* DefaultAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE75EC3D0C7019CEB83C121DED329C73 /* DefaultAnimators.swift */; };
+		7E6A0CD846DB2673B95ABFE50616419C /* logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BA0AE8F18BC8D786819FDFD7A07E0 /* logger.swift */; };
 		8875D45F4D5B2ACA819F1C5BD2B64E35 /* CanLogAtLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E741CC03CCA1BD83254684BD11D587A /* CanLogAtLevel.swift */; };
-		8AFF81C98F5F711F9C7CB0390A2A3CFF /* CGPoint+valueInDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBFA30092FAAB94032E3FAF27662826 /* CGPoint+valueInDirection.swift */; };
+		88A93F1240AE287C02F0C86BD9935CED /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358B678E8F04CC1A846CD907497EE3A /* TypeAliasses.swift */; };
+		898BF431CA9FB71F40D0CF2D00391799 /* ImageZoomControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81892B0A43E66137923BC01CF4C0CF9 /* ImageZoomControllerSettings.swift */; };
+		8AF74182012859A3FE3E8F7D469A31A1 /* Zoomy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 172A982646F80C7CC7FBBB8F7E8BD7A9 /* Zoomy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CC8BAD4EE5B282E015D339880FD4CED /* CanLogMessageAtLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D3EC77D92EE25723E94C9ACD46538C /* CanLogMessageAtLevel.swift */; };
-		8F6AC5F5FBAB97E734ADB5C9A351A31F /* logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09FF0379A9667B31409533CBC88C64F /* logger.swift */; };
 		90E11860B6F9BDC73E00A1AF0116A0BA /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45383A4015AD55A82CAEE80B7E2FC3A9 /* ALView+PureLayout.m */; };
-		9B5DEDADC1BEEBF478AD30BD18B78533 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
+		9585C152065C64B94D32EFDA343A07C7 /* CanAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27491746033E3C6AB2A3F4B856693D /* CanAnimate.swift */; };
+		96FD18D78FE7DC215CB5B417E042C24F /* ZoomyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F54C26B1A9FC79728FD22F6F31DC7 /* ZoomyLogger.swift */; };
+		99A257F4A4A6B45FDCF8AEECCB09F3C5 /* ImageZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB688488B81C375EE7D5B9E050F963F5 /* ImageZoomController.swift */; };
+		9C4D66A397C5566A6E27F2F5910C4781 /* InjectableLoggers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF16282CDB1BF60FF8FD0D7A93F0A311 /* InjectableLoggers.framework */; };
 		9CBF01BE3B74CB8DD65CD0424284939C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
-		9E710488DAA566F9781A3A07D775AF41 /* HasImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D40E1682022684CEF82EA6F7FC239C0 /* HasImageZoomControllers.swift */; };
-		A83BDCDDC386144218D7AD2BA9E009A5 /* ImageZoomControllerContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0C5415B452E4323E79B2438D80A4A /* ImageZoomControllerContentState.swift */; };
-		AC2498AA2B96C13ECB89FAF1C4B48CB2 /* ImageZoomControllerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6C228B9390E79B5F5777E48B6335F7 /* ImageZoomControllerActions.swift */; };
+		A5F0B761A041B5BA837E0825CEE58E45 /* ImageZoomControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C40EEF52F783C39D9CC089CF9DA00DE /* ImageZoomControllerDelegate.swift */; };
+		AB8473156297C73F99A8BD67DCD4F69C /* UIGestureRecognizerState+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E76CC6D19A6EB2F8BED33B3A722ED /* UIGestureRecognizerState+CustomStringConvertible.swift */; };
 		AD229AEA4A55B61BFAD9F9520B4AA43E /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF66D793FDC3C75D9E6E7C2ED7B9957 /* LogLevel.swift */; };
+		ADE8DF65E97ACE7F5F9BBCDE1ADBBD5C /* ImageZoomController+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5541E6903CBF92B46400A289B84C020 /* ImageZoomController+Deprecated.swift */; };
 		AE028A669BDCC596930B9CD7B34C231D /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA5789485D3A3A85086E6E57C91C4A /* NSArray+PureLayout.m */; };
-		B02297A37BFC58A9952313DA0CA4DF5E /* UIGestureRecognizerState+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B2A9292940DB8FF226D3C8EE9A432 /* UIGestureRecognizerState+CustomStringConvertible.swift */; };
-		B420F9FB050239E919C738CE7A263D03 /* NSObject+AsociatedKeyForImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D24F923898A5FE1FF34584D527831A /* NSObject+AsociatedKeyForImageZoomControllers.swift */; };
+		AE974E9D2F8EB6014A4E1F509163B0C7 /* DeprecatedTypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD7094C8E9E419DDDF6273E9BF7131 /* DeprecatedTypeAliasses.swift */; };
+		B0E9D3BBFA3077D48E2D99966B6C2797 /* CGPoint+maximumAbsoluteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71A495F926A2B0E0D61D3D60F1C0BC /* CGPoint+maximumAbsoluteValue.swift */; };
 		B45733DF72B8F6519ED2C771C8E252EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
-		BA21B75501CF73B73CA974B1E80681E6 /* ImageZoomControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84010BAC73C601AB9127996E06FD83 /* ImageZoomControllerSettings.swift */; };
 		C083E0C1A52728A974A958C249DFBFCC /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CDFA23C42A56836E67EB9D21D5DDDC0B /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C185005D0F006CC1B8F67215D9CFB850 /* UIViewController+CanManageZoomBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590C1BE2DDE44E0B5DAE395522D23CEB /* UIViewController+CanManageZoomBehavior.swift */; };
-		C5FC1E3AA3213FCF1FA0E02CCFC032F4 /* SpringAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803041C0781F365B8F2C594B1115F453 /* SpringAnimator.swift */; };
+		C432A2FBEA2EB721BDD7CD14AB7F7EEA /* AnimationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CD8804ED75A13A09CBC38C8384AC9C /* AnimationEvent.swift */; };
+		CA93E4891878EFE04F1C7B2B682FCE45 /* SpringAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814DBBED66EDF8374AC1A1BF5D9EA146 /* SpringAnimator.swift */; };
 		CAEF5A694258EA759B5AC90CBEB72CCC /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E91D7289B3C644256216198989A9B627 /* PureLayout-dummy.m */; };
-		CB95385F78A9C47E142FD7E906CF5670 /* ImageZoomControllerSettings+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472F66AE938B518C88D0BBB01B0956 /* ImageZoomControllerSettings+Deprecated.swift */; };
+		CD4C719549461D093A6A27AA4E9768BF /* CGRect+transformedByTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36846AB0666F057F938936942E09812D /* CGRect+transformedByTransform.swift */; };
 		CE4A4613E048E61DCDEB6B4C6AA5487E /* PureLayoutDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B8E5CACFDC8116043202E7E3B40999 /* PureLayoutDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEB7EF76375F2C1474F4197F4D56BB32 /* CanLogMessageInFileInFunctionAtLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23563282B1092A02B9F1A673F2C15783 /* CanLogMessageInFileInFunctionAtLine.swift */; };
-		D16C578396A78C35609E2E1885E04887 /* Zoomable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AC8184865901D400C61AC36F38DD6A /* Zoomable.swift */; };
-		D62C6C6736B28548F51E289D9A321251 /* ImageZoomController+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DDF1E9D45129C365D7A615BEEA500 /* ImageZoomController+Deprecated.swift */; };
+		D3D2399CD1193C6ED9015D4D0E53B21F /* ImageZoomControllerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87FD5F8786F6F43EE9DD834CD3D3F86 /* ImageZoomControllerActions.swift */; };
 		D64335AFA176E95D8A1892337EDB9819 /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF78CF4A4261EA041AFE416E6B9464F /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75E18202ECDB1208F5EAA0AFC37D058 /* Logger.Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB06A4E2B1488788249F70E1AC9C2CF5 /* Logger.Formatter.swift */; };
-		D96D32799EF8392FDA44AE6FEA7C8805 /* ZoomyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA112131951F8DD3FFF1960CBB0EFA4C /* ZoomyLogger.swift */; };
 		DAC9BD448D1FBD574287D47F09E8BFFA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6347CDED37D2E88C122BE50939F34598 /* ConsoleLogger.swift */; };
 		DBF45D59546F58E4F8118B65DBC9B0F4 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C15E40040AC13CFA67F01CDA02DC579 /* NSLayoutConstraint+PureLayout.m */; };
-		DC2778BBE90C0D8EBB7E21E4E3BC38F7 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B2909B863627DA47FFF898962E18A /* Animator.swift */; };
-		DE6B357DF1997B693B4192408FA1C46E /* CanProvideAnimatorForEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6ADD2AB01C6964B2E68F2146C921E /* CanProvideAnimatorForEvent.swift */; };
-		E489D0274D47C0DE94811B6E58ADBE33 /* ImageZoomControllerSettings+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80296B557686251B52F5282B733FFAF3 /* ImageZoomControllerSettings+Equatable.swift */; };
-		EACAD1469DA33164A152F32AE6EBA129 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9505E4A6113D66A3DA586F92C8345 /* Side.swift */; };
-		ED3473F875E5A31A0F8B5157F0C379DC /* CanAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E290A7DF66B370D54DE83890888A8DE2 /* CanAnimate.swift */; };
+		DF77DD442C62C3C01B07B789BB88EB1C /* BounceOffsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBAFB26FF9875C661F3F26C06CFE54 /* BounceOffsets.swift */; };
+		E3835D6588F35218761724F2F3A38C3E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0055983F9665A2B364D4EFA775FD97 /* Animator.swift */; };
+		EACD4E571A116BEDA6B79631FEDF157C /* Zoomable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772E4F00DA19FEAC690868F253100BD /* Zoomable.swift */; };
 		EE3903AC92477CAE5D7295E0C04082C0 /* ALView+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E08DBE12A77B98813C6F81593635B987 /* ALView+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F0C07DDF5D62677E7AAC155583D52C12 /* InjectableLoggers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF16282CDB1BF60FF8FD0D7A93F0A311 /* InjectableLoggers.framework */; };
-		F43698F3F8DF49192896154877C0159C /* CGRect+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE90FFCF5289DCCE700031C54D4CE2 /* CGRect+Difference.swift */; };
-		F4F8617827342A771CE67D2805F57434 /* ImageZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86C43D75B2774A23BDCAECDEFB0A9FA /* ImageZoomController.swift */; };
+		F105F38BF89532CCBDA2D4A7C71D75DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */; };
+		F166F95F3DF8966DCF4047E3A2E33778 /* ImageZoomControllerContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B2F10FE63F620E16B3B3161989F6D /* ImageZoomControllerContentState.swift */; };
+		F2ADC208E1C6ED170CB039A1B3AB8745 /* NSObject+AsociatedKeyForImageZoomControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683646B83DA4EBA0DEC3BF05AD8F7EA /* NSObject+AsociatedKeyForImageZoomControllers.swift */; };
+		F592F1A084E3CCD52B5E59B7EBA4C8FC /* ImageZoomControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC76442C7E3160EAEEF9CA60DDC3B9C /* ImageZoomControllerState.swift */; };
 		F75371474DC31912DFEABE144AD8C134 /* CanFormatMessageInFileInFunctionAtLineWithSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958D8D0D758472AA5DE6CABF40ECF74 /* CanFormatMessageInFileInFunctionAtLineWithSettings.swift */; };
-		FC57CD5B09A3F2CC7934785EF17345AA /* ImageZoomControllerIsPresentingImageViewOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF354D76B46C3208993AC97289B54723 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */; };
-		FC76337D003F84628D6867033F112945 /* ImageZoomControllerIsNotPresentingOverlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B974649C9E547E6CB983D7EC6CF6A /* ImageZoomControllerIsNotPresentingOverlayState.swift */; };
 		FE8F1F18D987E1C044013CC987939B11 /* CanLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD0399DC9AD88020850D7E4B8C44D54 /* CanLog.swift */; };
+		FF14106D9798903C2A376E090D9D0D85 /* ConfigurableUsingClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD54564DC816AAF69AFA215E2286ABA /* ConfigurableUsingClosure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		164DBEB27CF4EC9DFDE83F2EE35ED1C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87C901210314C5B33D0D156EB4065E80;
+			remoteInfo = InjectableLoggers;
+		};
+		19E0F91717609B6305AF24F30F17B2AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06F5CDD6235E25837519792853B145A1;
+			remoteInfo = PureLayout;
+		};
 		26FB0FC8B00E1240DBA6330BF8A55D6A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -132,23 +147,11 @@
 			remoteGlobalIDString = 06F5CDD6235E25837519792853B145A1;
 			remoteInfo = PureLayout;
 		};
-		C520646AFC5D78B5767A844D8138F3CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87C901210314C5B33D0D156EB4065E80;
-			remoteInfo = InjectableLoggers;
-		};
-		E46EB2261D873525A73B8B804DCB83B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 06F5CDD6235E25837519792853B145A1;
-			remoteInfo = PureLayout;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02A6E513104225A73F8888D753D1D554 /* Zoomy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Zoomy-Info.plist"; sourceTree = "<group>"; };
+		0358B678E8F04CC1A846CD907497EE3A /* TypeAliasses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypeAliasses.swift; sourceTree = "<group>"; };
 		08569B7E496E5789349B18B5FAF2D886 /* InjectableLoggers-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "InjectableLoggers-umbrella.h"; sourceTree = "<group>"; };
 		08AADE20A1C98FE22C9684ACA8610904 /* InjectableLoggers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "InjectableLoggers-dummy.m"; sourceTree = "<group>"; };
 		08FAA55FB0053B36E2D4836258EBEEC4 /* Pods-Zoomy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zoomy_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,117 +159,116 @@
 		0DF78CF4A4261EA041AFE416E6B9464F /* PureLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-umbrella.h"; sourceTree = "<group>"; };
 		111894EB439810DFC0AFE88E845A722F /* Pods-Zoomy_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Zoomy_Tests.modulemap"; sourceTree = "<group>"; };
 		1531CA83CB9C05EF4C041F43CBF4BE7F /* Pods-Zoomy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Zoomy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		172A982646F80C7CC7FBBB8F7E8BD7A9 /* Zoomy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zoomy-umbrella.h"; sourceTree = "<group>"; };
 		1C1326CDDB031C9AAA0D90F62DA413CA /* MockLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MockLogger.swift; path = InjectableLoggers/Classes/Classes/MockLogger.swift; sourceTree = "<group>"; };
 		1C52909FF543F159A7A7BAFE5FDE8C08 /* CanLogMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogMessage.swift; path = InjectableLoggers/Classes/ExtendedProtocols/CanLogMessage.swift; sourceTree = "<group>"; };
-		1F1F3859A548E1158C39E3F516F5C58A /* UIViewController+HasImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+HasImageZoomControllers.swift"; sourceTree = "<group>"; };
-		2060055504D5802AE0CD31F81DE1BA1A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		20273024045E6A0590C8BB59B63FE236 /* Side.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		214924C9F0E2FAC0CB4EAEEAC304F1BB /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		21A9A6DB214368BA00A6C8A0437CA11D /* CGRect+transformedByTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+transformedByTransform.swift"; sourceTree = "<group>"; };
-		21EE90FFCF5289DCCE700031C54D4CE2 /* CGRect+Difference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+Difference.swift"; sourceTree = "<group>"; };
+		21CD8804ED75A13A09CBC38C8384AC9C /* AnimationEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationEvent.swift; sourceTree = "<group>"; };
 		23563282B1092A02B9F1A673F2C15783 /* CanLogMessageInFileInFunctionAtLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogMessageInFileInFunctionAtLine.swift; path = InjectableLoggers/Classes/Protocols/CanLogMessageInFileInFunctionAtLine.swift; sourceTree = "<group>"; };
-		2663CF70721918CEF1668A80886E66F9 /* Zoomy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zoomy-dummy.m"; sourceTree = "<group>"; };
-		2A337BAD908BAEC331B52674AC4AD236 /* ConfigurableUsingClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigurableUsingClosure.swift; sourceTree = "<group>"; };
-		2A533B7DEFB00F6C1F39755BE60C1440 /* BounceOffsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BounceOffsets.swift; sourceTree = "<group>"; };
+		23DD7094C8E9E419DDDF6273E9BF7131 /* DeprecatedTypeAliasses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeprecatedTypeAliasses.swift; sourceTree = "<group>"; };
+		241B2F10FE63F620E16B3B3161989F6D /* ImageZoomControllerContentState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerContentState.swift; sourceTree = "<group>"; };
+		27B8BBBC61905F7D81716FC2FF1670DF /* UIViewController+HasImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+HasImageZoomControllers.swift"; sourceTree = "<group>"; };
+		2B71A495F926A2B0E0D61D3D60F1C0BC /* CGPoint+maximumAbsoluteValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+maximumAbsoluteValue.swift"; sourceTree = "<group>"; };
+		2C0055983F9665A2B364D4EFA775FD97 /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		2ECAB2D10463A515B8622C35649FE2A5 /* Pods-Zoomy_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Zoomy_Tests-dummy.m"; sourceTree = "<group>"; };
-		2F02B275A503BCFB6664A4679A910082 /* Zoomy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Zoomy.xcconfig; sourceTree = "<group>"; };
 		2FF66D793FDC3C75D9E6E7C2ED7B9957 /* LogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogLevel.swift; path = InjectableLoggers/Classes/Enums/LogLevel.swift; sourceTree = "<group>"; };
-		31A6ADD2AB01C6964B2E68F2146C921E /* CanProvideAnimatorForEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanProvideAnimatorForEvent.swift; sourceTree = "<group>"; };
-		33F57CA9EBEE13B11268A768EA6BAE65 /* CGPoint+dominantDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+dominantDirection.swift"; sourceTree = "<group>"; };
+		34508D4837960287D21F093F6CD6B264 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		36846AB0666F057F938936942E09812D /* CGRect+transformedByTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+transformedByTransform.swift"; sourceTree = "<group>"; };
 		378A69CD7D6C44E519F34B613C1CACCC /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		390B1DDF6728FDD7C588245C57E056F2 /* ImageZoomControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerDelegate.swift; sourceTree = "<group>"; };
-		3D40E1682022684CEF82EA6F7FC239C0 /* HasImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HasImageZoomControllers.swift; sourceTree = "<group>"; };
 		3F13A2B808C2CA601614F87FEEFF4B51 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "PureLayout/PureLayout/NSArray+PureLayout.h"; sourceTree = "<group>"; };
 		3F8B2B31B3B3251BB3A7793A29507A9F /* Pods-Zoomy_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Zoomy_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		45383A4015AD55A82CAEE80B7E2FC3A9 /* ALView+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "PureLayout/PureLayout/ALView+PureLayout.m"; sourceTree = "<group>"; };
-		45501818299CB64014A9DEB2C1CA097D /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsPresentingScrollViewOverlayState.swift; sourceTree = "<group>"; };
-		45D24F923898A5FE1FF34584D527831A /* NSObject+AsociatedKeyForImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObject+AsociatedKeyForImageZoomControllers.swift"; sourceTree = "<group>"; };
-		479F5328A6775DCAB370B49B1DE471AD /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift; sourceTree = "<group>"; };
+		45AB260A3A0B88E744C659607A4A3A26 /* UIViewController+CanManageZoomBehavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+CanManageZoomBehavior.swift"; sourceTree = "<group>"; };
+		4772E4F00DA19FEAC690868F253100BD /* Zoomable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Zoomable.swift; sourceTree = "<group>"; };
+		48D04CA519814A58E7A4A6BE0539E146 /* CGPoint+valueInDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+valueInDirection.swift"; sourceTree = "<group>"; };
+		4A617A9E2029114E26713550AA92E94B /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift; sourceTree = "<group>"; };
 		4AAA5789485D3A3A85086E6E57C91C4A /* NSArray+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "PureLayout/PureLayout/NSArray+PureLayout.m"; sourceTree = "<group>"; };
-		4CBFA30092FAAB94032E3FAF27662826 /* CGPoint+valueInDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+valueInDirection.swift"; sourceTree = "<group>"; };
 		4E741CC03CCA1BD83254684BD11D587A /* CanLogAtLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogAtLevel.swift; path = InjectableLoggers/Classes/ExtendedProtocols/CanLogAtLevel.swift; sourceTree = "<group>"; };
+		5016C1ABB0F32885FA23285377F718A2 /* Zoomy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Zoomy.xcconfig; sourceTree = "<group>"; };
+		50772753E5813A56F86F8A1DFD1DB487 /* HasImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HasImageZoomControllers.swift; sourceTree = "<group>"; };
 		513C72B75C74E39500ECC94B59716DC5 /* Pods_Zoomy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Zoomy_Tests.framework; path = "Pods-Zoomy_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		559E9A89215314C12B3DDEEBEF7D54BD /* SimpleLogger.Settings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleLogger.Settings.swift; path = InjectableLoggers/Classes/Structs/SimpleLogger.Settings.swift; sourceTree = "<group>"; };
-		57325B0AA930CE18A0952939AD0B6210 /* CanPerformAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanPerformAction.swift; sourceTree = "<group>"; };
+		578E76CC6D19A6EB2F8BED33B3A722ED /* UIGestureRecognizerState+CustomStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizerState+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		5890A515AFECE99E61E339D0ED33E228 /* Pods-Zoomy_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Zoomy_Example-frameworks.sh"; sourceTree = "<group>"; };
-		590C1BE2DDE44E0B5DAE395522D23CEB /* UIViewController+CanManageZoomBehavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+CanManageZoomBehavior.swift"; sourceTree = "<group>"; };
-		5B5B40410381C690E03166B5C85E647F /* Zoomy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Zoomy.modulemap; sourceTree = "<group>"; };
-		5D84010BAC73C601AB9127996E06FD83 /* ImageZoomControllerSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerSettings.swift; sourceTree = "<group>"; };
+		5A27491746033E3C6AB2A3F4B856693D /* CanAnimate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanAnimate.swift; sourceTree = "<group>"; };
+		5C40EEF52F783C39D9CC089CF9DA00DE /* ImageZoomControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerDelegate.swift; sourceTree = "<group>"; };
 		5DED949FE8EB9C0AB3245165FC1CCD24 /* Logger.FormatSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.FormatSettings.swift; path = InjectableLoggers/Classes/Structs/Logger.FormatSettings.swift; sourceTree = "<group>"; };
+		5FC76442C7E3160EAEEF9CA60DDC3B9C /* ImageZoomControllerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerState.swift; sourceTree = "<group>"; };
 		6347CDED37D2E88C122BE50939F34598 /* ConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleLogger.swift; path = InjectableLoggers/Classes/Structs/ConsoleLogger.swift; sourceTree = "<group>"; };
 		64DB6A74C5F9FD5A440D37756E505B78 /* PureLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.xcconfig; sourceTree = "<group>"; };
 		650B6AB5138E355D8852DB8828EBB06E /* HasDefaultLoglevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HasDefaultLoglevel.swift; path = InjectableLoggers/Classes/Protocols/HasDefaultLoglevel.swift; sourceTree = "<group>"; };
+		65C434BF4D8CA2D21B72AA2F9311E3AF /* CanManageZoomBehaviors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanManageZoomBehaviors.swift; sourceTree = "<group>"; };
 		6786AB9FCA35EEE185C0A027621E7653 /* Pods-Zoomy_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Zoomy_Example-dummy.m"; sourceTree = "<group>"; };
 		6958D8D0D758472AA5DE6CABF40ECF74 /* CanFormatMessageInFileInFunctionAtLineWithSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanFormatMessageInFileInFunctionAtLineWithSettings.swift; path = InjectableLoggers/Classes/Protocols/CanFormatMessageInFileInFunctionAtLineWithSettings.swift; sourceTree = "<group>"; };
 		6BD0399DC9AD88020850D7E4B8C44D54 /* CanLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLog.swift; path = InjectableLoggers/Classes/ExtendedProtocols/CanLog.swift; sourceTree = "<group>"; };
-		74AC8184865901D400C61AC36F38DD6A /* Zoomable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Zoomable.swift; sourceTree = "<group>"; };
-		76CC9A4F1F650BB83CCD7F00E5747B6D /* AnimationEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimationEvent.swift; sourceTree = "<group>"; };
-		79E32F87290FAEE9FD54A35698D6F350 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+transformWithScaleTranslationCenter.swift"; sourceTree = "<group>"; };
+		6DF90A56E6724D7D150B364BEEE0D65C /* UIImageView+Zoomable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Zoomable.swift"; sourceTree = "<group>"; };
+		7CD54564DC816AAF69AFA215E2286ABA /* ConfigurableUsingClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigurableUsingClosure.swift; sourceTree = "<group>"; };
 		7CDD66BA0EC3AF548D39EAEAC861844F /* Pods-Zoomy_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zoomy_Tests-Info.plist"; sourceTree = "<group>"; };
 		7E229A38F18F1E137046D64377A78078 /* SimpleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleLogger.swift; path = InjectableLoggers/Classes/Classes/SimpleLogger.swift; sourceTree = "<group>"; };
-		80296B557686251B52F5282B733FFAF3 /* ImageZoomControllerSettings+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomControllerSettings+Equatable.swift"; sourceTree = "<group>"; };
-		803041C0781F365B8F2C594B1115F453 /* SpringAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SpringAnimator.swift; sourceTree = "<group>"; };
-		81DE297F84247D07E56FDA4C3B9603D4 /* Zoomy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zoomy-umbrella.h"; sourceTree = "<group>"; };
+		814DBBED66EDF8374AC1A1BF5D9EA146 /* SpringAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SpringAnimator.swift; sourceTree = "<group>"; };
 		82810E0241BE6760B674B09EFA9EC113 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
 		82EFAB33A44CD87E19F14EBDAAB05884 /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PureLayout.modulemap; sourceTree = "<group>"; };
 		83FC0C8D5FDD1D1686FDAF0B1FFB5BA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		86CE2FBCC6F17384BF94D7FF08A67F73 /* DeprecatedProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeprecatedProtocols.swift; sourceTree = "<group>"; };
-		89472F66AE938B518C88D0BBB01B0956 /* ImageZoomControllerSettings+Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomControllerSettings+Deprecated.swift"; sourceTree = "<group>"; };
+		87416EAFDE31441ED18E84BFF1CB003F /* Zoomy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Zoomy.modulemap; sourceTree = "<group>"; };
 		90F8C8F0D1F728B8F95B44A600B34A2E /* InjectableLoggers-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "InjectableLoggers-prefix.pch"; sourceTree = "<group>"; };
+		93261EE3B6F0C992681574431D6EE428 /* DeprecatedProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeprecatedProtocols.swift; sourceTree = "<group>"; };
 		944F3F08ADF1574880E9E1C0852A2F96 /* InjectableLoggers-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "InjectableLoggers-Info.plist"; sourceTree = "<group>"; };
+		97093D984DE02B99D262AC7669158AD5 /* ImageZoomControllerSettings+Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomControllerSettings+Deprecated.swift"; sourceTree = "<group>"; };
 		97917796797A60F0392794674DAFD64E /* Pods-Zoomy_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Zoomy_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9804AEFC0CF2A8291DD3BC7239BF6BEF /* PureLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PureLayout-Info.plist"; sourceTree = "<group>"; };
+		988D0A3A4BFD96D2EDE4BB17772AA012 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		98B8E5CACFDC8116043202E7E3B40999 /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
 		995ACD99A6A9DAE10AB6D1FD8C20BA35 /* Pods-Zoomy_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Zoomy_Example-umbrella.h"; sourceTree = "<group>"; };
-		9B6CD43F74CDF73ED2380122F9B5E5EC /* Zoomy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zoomy-prefix.pch"; sourceTree = "<group>"; };
+		9AEE402899CFCF24213C01119753A314 /* Zoomy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zoomy-prefix.pch"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A010419A6EA49C2AD52E96E397F48E5E /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = InjectableLoggers/Classes/Classes/Logger.swift; sourceTree = "<group>"; };
 		A38FA14EB37D23FB730A23201408FAA2 /* InjectableLoggers.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = InjectableLoggers.modulemap; sourceTree = "<group>"; };
-		A5059F9E381A8909D49AC8A5E1B16D36 /* CGPoint+maximumAbsoluteValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+maximumAbsoluteValue.swift"; sourceTree = "<group>"; };
+		A683646B83DA4EBA0DEC3BF05AD8F7EA /* NSObject+AsociatedKeyForImageZoomControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObject+AsociatedKeyForImageZoomControllers.swift"; sourceTree = "<group>"; };
 		A6DFA0E42AA5ABC18779159A92473A53 /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
+		A780CAE0A3463CB94A32D38DD43FDB14 /* UIImage+Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		A87FD5F8786F6F43EE9DD834CD3D3F86 /* ImageZoomControllerActions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerActions.swift; sourceTree = "<group>"; };
+		A8F4495862B64C1F38113BC48768DABB /* CanBetriggered.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanBetriggered.swift; sourceTree = "<group>"; };
+		AB688488B81C375EE7D5B9E050F963F5 /* ImageZoomController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomController.swift; sourceTree = "<group>"; };
+		AB913864435ED3BA9C39D43DD18769DA /* CanProvideAnimatorForEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanProvideAnimatorForEvent.swift; sourceTree = "<group>"; };
 		AE2F1163A986938B6A29BF88C72C1BBB /* Logger.Settings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.Settings.swift; path = InjectableLoggers/Classes/Structs/Logger.Settings.swift; sourceTree = "<group>"; };
 		B1ED2112DB2D51FF25BF173D7BA39B1B /* Zoomy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zoomy.framework; path = Zoomy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B74B2909B863627DA47FFF898962E18A /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		B7FD32AEE264962FF4C3B68EE6933FDC /* CanManageZoomBehaviors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanManageZoomBehaviors.swift; sourceTree = "<group>"; };
-		B86C43D75B2774A23BDCAECDEFB0A9FA /* ImageZoomController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomController.swift; sourceTree = "<group>"; };
+		B33E604FB5517558DF6C4B713C111DC9 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsPresentingImageViewOverlayState.swift; sourceTree = "<group>"; };
 		BB06A4E2B1488788249F70E1AC9C2CF5 /* Logger.Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.Formatter.swift; path = InjectableLoggers/Classes/Structs/Logger.Formatter.swift; sourceTree = "<group>"; };
-		BDC655238B5E98ABB62448AB323DF279 /* UIImage+Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
-		C09B974649C9E547E6CB983D7EC6CF6A /* ImageZoomControllerIsNotPresentingOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsNotPresentingOverlayState.swift; sourceTree = "<group>"; };
-		C4B94AB7D28F3586B291D49AAA00E2DF /* Zoomy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Zoomy.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C51DDF1E9D45129C365D7A615BEEA500 /* ImageZoomController+Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomController+Deprecated.swift"; sourceTree = "<group>"; };
+		BBD6683FA15CDDFC4B1A49E8F7B3A6E7 /* ImageZoomController.Factory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomController.Factory.swift; sourceTree = "<group>"; };
+		C4CBAFB26FF9875C661F3F26C06CFE54 /* BounceOffsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BounceOffsets.swift; sourceTree = "<group>"; };
+		C840164166D3A6FBD260CF3D150596E7 /* ImageZoomControllerIsNotPresentingOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsNotPresentingOverlayState.swift; sourceTree = "<group>"; };
+		C8807C83B890E7980AC6ECCE3898A60C /* ImageZoomControllerSettings+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomControllerSettings+Equatable.swift"; sourceTree = "<group>"; };
 		C900AEC4650A69C632D0AF3116BBD2EF /* CanLogMessageAtLevelInFileInFunctionAtLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogMessageAtLevelInFileInFunctionAtLine.swift; path = InjectableLoggers/Classes/Protocols/CanLogMessageAtLevelInFileInFunctionAtLine.swift; sourceTree = "<group>"; };
 		C9CF14625B5BE3A51972C13D0270C842 /* Pods-Zoomy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zoomy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		CADDCC912439D00D2D010CFA70629127 /* Pods-Zoomy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zoomy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB60A8A3396F3A5EDA46BDEAD37CC792 /* Pods_Zoomy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Zoomy_Example.framework; path = "Pods-Zoomy_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1FE7E96A5E345D913F7FF58A0CCFE0 /* Pods-Zoomy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zoomy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CDFA23C42A56836E67EB9D21D5DDDC0B /* PureLayout+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
-		CF354D76B46C3208993AC97289B54723 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsPresentingImageViewOverlayState.swift; sourceTree = "<group>"; };
-		D42C8E38C86A022BB1242C0A7AB53BFC /* Zoomy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Zoomy-Info.plist"; sourceTree = "<group>"; };
-		D5B0C5415B452E4323E79B2438D80A4A /* ImageZoomControllerContentState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerContentState.swift; sourceTree = "<group>"; };
-		D66CC2A6DBCB45433A7FC01ED2642482 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		DA112131951F8DD3FFF1960CBB0EFA4C /* ZoomyLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZoomyLogger.swift; sourceTree = "<group>"; };
-		DA6C228B9390E79B5F5777E48B6335F7 /* ImageZoomControllerActions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerActions.swift; sourceTree = "<group>"; };
-		DB408BFEA28AB38F8DA302863209D421 /* CanBetriggered.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanBetriggered.swift; sourceTree = "<group>"; };
+		D0B89958757A94E82F456582F1F22EA8 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+transformWithScaleTranslationCenter.swift"; sourceTree = "<group>"; };
+		D1577292A06D915527C4C98FF2A70626 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerIsPresentingScrollViewOverlayState.swift; sourceTree = "<group>"; };
 		DB7A4C80B73F575C450CE21218D11C15 /* InjectableLoggers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = InjectableLoggers.framework; path = InjectableLoggers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBCE379BB470CFA0CECD750F8FB8293D /* ImageZoomController.Factory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomController.Factory.swift; sourceTree = "<group>"; };
+		DE75EC3D0C7019CEB83C121DED329C73 /* DefaultAnimators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultAnimators.swift; sourceTree = "<group>"; };
 		DF16282CDB1BF60FF8FD0D7A93F0A311 /* InjectableLoggers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InjectableLoggers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0601C0FFFF745CD3A8DAD53CDEE63BC /* Pods-Zoomy_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Zoomy_Example.modulemap"; sourceTree = "<group>"; };
 		E08DBE12A77B98813C6F81593635B987 /* ALView+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "PureLayout/PureLayout/ALView+PureLayout.h"; sourceTree = "<group>"; };
 		E1C8DA0CF2093266E6F33BB205F9761C /* Pods-Zoomy_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Zoomy_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		E290A7DF66B370D54DE83890888A8DE2 /* CanAnimate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanAnimate.swift; sourceTree = "<group>"; };
 		E4E7B3DD46ABB0DBBB56BD5AE90E4911 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PureLayout.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E59D161E96448CECDDA57F4228EC6E60 /* ImageZoomControllerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerState.swift; sourceTree = "<group>"; };
+		E5541E6903CBF92B46400A289B84C020 /* ImageZoomController+Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ImageZoomController+Deprecated.swift"; sourceTree = "<group>"; };
 		E69D3842B05724A857AFCDC239C981C7 /* Pods-Zoomy_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zoomy_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E7714D0622B66419EA2E2787E3EB9D25 /* DefaultAnimators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultAnimators.swift; sourceTree = "<group>"; };
 		E7D3EC77D92EE25723E94C9ACD46538C /* CanLogMessageAtLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CanLogMessageAtLevel.swift; path = InjectableLoggers/Classes/ExtendedProtocols/CanLogMessageAtLevel.swift; sourceTree = "<group>"; };
+		E81892B0A43E66137923BC01CF4C0CF9 /* ImageZoomControllerSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageZoomControllerSettings.swift; sourceTree = "<group>"; };
 		E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = InjectableLoggers.xcconfig; sourceTree = "<group>"; };
-		E91D40329068ED1D6345578CF4F387A9 /* TypeAliasses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypeAliasses.swift; sourceTree = "<group>"; };
 		E91D7289B3C644256216198989A9B627 /* PureLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PureLayout-dummy.m"; sourceTree = "<group>"; };
 		EA3DD85A2196BDDC13057481647564E8 /* Pods-Zoomy_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zoomy_Example-Info.plist"; sourceTree = "<group>"; };
-		ED5B2A9292940DB8FF226D3C8EE9A432 /* UIGestureRecognizerState+CustomStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizerState+CustomStringConvertible.swift"; sourceTree = "<group>"; };
-		F09FF0379A9667B31409533CBC88C64F /* logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = logger.swift; sourceTree = "<group>"; };
-		F1B9505E4A6113D66A3DA586F92C8345 /* Side.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
+		EAB35C34C1DCCAA6372B9C9C523DBDA5 /* CGPoint+dominantDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGPoint+dominantDirection.swift"; sourceTree = "<group>"; };
+		EE504501E38352DBCE217ECC5F20C1BE /* Zoomy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Zoomy.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F12F54C26B1A9FC79728FD22F6F31DC7 /* ZoomyLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZoomyLogger.swift; sourceTree = "<group>"; };
+		F2D7585A0AC385DFB1C0DAACE007BA88 /* Zoomy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zoomy-dummy.m"; sourceTree = "<group>"; };
 		F31618AA273FE3625540CA5A1300A35D /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
-		FFE32ED53881BAE1C77B68CFED5959F2 /* DeprecatedTypeAliasses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeprecatedTypeAliasses.swift; sourceTree = "<group>"; };
+		FA367209081F3313EF29CD7101532496 /* CanPerformAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CanPerformAction.swift; sourceTree = "<group>"; };
+		FA5BA0AE8F18BC8D786819FDFD7A07E0 /* logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = logger.swift; sourceTree = "<group>"; };
+		FE1DA2081F79DC80386D87A968FDD1D4 /* CGRect+Difference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+Difference.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,21 +296,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65F75A54CDA0434A278A911DA974D29D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F105F38BF89532CCBDA2D4A7C71D75DE /* Foundation.framework in Frameworks */,
+				9C4D66A397C5566A6E27F2F5910C4781 /* InjectableLoggers.framework in Frameworks */,
+				49D7B77AE3B289D0ED805BA96BFB38C0 /* PureLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6B54C63632E82DB9B90BA9E3681612B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4C5031DC1938A816B9BC7DE205504AC6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE9143FC3182307CC34201715C13C207 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B5DEDADC1BEEBF478AD30BD18B78533 /* Foundation.framework in Frameworks */,
-				F0C07DDF5D62677E7AAC155583D52C12 /* InjectableLoggers.framework in Frameworks */,
-				534955350DA8C5B793BBA218B3A6427F /* PureLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +320,7 @@
 		008B733A3A0CE69B21F7D0D550C1D495 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				94C943E7B83CF780CC78CF162118480E /* Zoomy */,
+				4D4B2F81801F9F968AC3B84897310DEE /* Zoomy */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -338,16 +340,6 @@
 			);
 			name = "Pods-Zoomy_Example";
 			path = "Target Support Files/Pods-Zoomy_Example";
-			sourceTree = "<group>";
-		};
-		09C7902AF3B7447017CC696BBDC047EE /* TypeAliasses */ = {
-			isa = PBXGroup;
-			children = (
-				FFE32ED53881BAE1C77B68CFED5959F2 /* DeprecatedTypeAliasses.swift */,
-				E91D40329068ED1D6345578CF4F387A9 /* TypeAliasses.swift */,
-			);
-			name = TypeAliasses;
-			path = Zoomy/Classes/TypeAliasses;
 			sourceTree = "<group>";
 		};
 		0DB3A6A1C0DA957EDBC07267C264BD3A /* InjectableLoggers */ = {
@@ -376,39 +368,96 @@
 			path = InjectableLoggers;
 			sourceTree = "<group>";
 		};
-		147D7BAA31494080BC8BCAE8AE1B2755 /* ExtendedProtocols */ = {
+		1866151B2C6E7CDC5082C9994F3D9EB3 /* ExtendedProtocols */ = {
 			isa = PBXGroup;
 			children = (
-				E290A7DF66B370D54DE83890888A8DE2 /* CanAnimate.swift */,
-				B7FD32AEE264962FF4C3B68EE6933FDC /* CanManageZoomBehaviors.swift */,
-				2A337BAD908BAEC331B52674AC4AD236 /* ConfigurableUsingClosure.swift */,
-				3D40E1682022684CEF82EA6F7FC239C0 /* HasImageZoomControllers.swift */,
-				390B1DDF6728FDD7C588245C57E056F2 /* ImageZoomControllerDelegate.swift */,
-				E59D161E96448CECDDA57F4228EC6E60 /* ImageZoomControllerState.swift */,
+				5A27491746033E3C6AB2A3F4B856693D /* CanAnimate.swift */,
+				65C434BF4D8CA2D21B72AA2F9311E3AF /* CanManageZoomBehaviors.swift */,
+				7CD54564DC816AAF69AFA215E2286ABA /* ConfigurableUsingClosure.swift */,
+				50772753E5813A56F86F8A1DFD1DB487 /* HasImageZoomControllers.swift */,
+				5C40EEF52F783C39D9CC089CF9DA00DE /* ImageZoomControllerDelegate.swift */,
+				5FC76442C7E3160EAEEF9CA60DDC3B9C /* ImageZoomControllerState.swift */,
 			);
 			name = ExtendedProtocols;
 			path = Zoomy/Classes/ExtendedProtocols;
 			sourceTree = "<group>";
 		};
-		21B5F9CE62F06D9A2CC1AFBBCE9ADCA0 /* Enums */ = {
+		2AC65EA3916375EB7660F1A09BF7AC69 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				76CC9A4F1F650BB83CCD7F00E5747B6D /* AnimationEvent.swift */,
-				D5B0C5415B452E4323E79B2438D80A4A /* ImageZoomControllerContentState.swift */,
-				F1B9505E4A6113D66A3DA586F92C8345 /* Side.swift */,
+				D0B89958757A94E82F456582F1F22EA8 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */,
+				EAB35C34C1DCCAA6372B9C9C523DBDA5 /* CGPoint+dominantDirection.swift */,
+				2B71A495F926A2B0E0D61D3D60F1C0BC /* CGPoint+maximumAbsoluteValue.swift */,
+				48D04CA519814A58E7A4A6BE0539E146 /* CGPoint+valueInDirection.swift */,
+				FE1DA2081F79DC80386D87A968FDD1D4 /* CGRect+Difference.swift */,
+				36846AB0666F057F938936942E09812D /* CGRect+transformedByTransform.swift */,
+				E5541E6903CBF92B46400A289B84C020 /* ImageZoomController+Deprecated.swift */,
+				97093D984DE02B99D262AC7669158AD5 /* ImageZoomControllerSettings+Deprecated.swift */,
+				C8807C83B890E7980AC6ECCE3898A60C /* ImageZoomControllerSettings+Equatable.swift */,
+				A683646B83DA4EBA0DEC3BF05AD8F7EA /* NSObject+AsociatedKeyForImageZoomControllers.swift */,
+				578E76CC6D19A6EB2F8BED33B3A722ED /* UIGestureRecognizerState+CustomStringConvertible.swift */,
+				A780CAE0A3463CB94A32D38DD43FDB14 /* UIImage+Color.swift */,
+				6DF90A56E6724D7D150B364BEEE0D65C /* UIImageView+Zoomable.swift */,
+				45AB260A3A0B88E744C659607A4A3A26 /* UIViewController+CanManageZoomBehavior.swift */,
+				27B8BBBC61905F7D81716FC2FF1670DF /* UIViewController+HasImageZoomControllers.swift */,
 			);
-			name = Enums;
-			path = Zoomy/Classes/Enums;
+			name = Extensions;
+			path = Zoomy/Classes/Extensions;
 			sourceTree = "<group>";
 		};
-		579104EB3DE239E1E4ACB9FA1F4A27E8 /* Pod */ = {
+		2C5F08CA958A1DB5B29CEE40ABC87564 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D66CC2A6DBCB45433A7FC01ED2642482 /* LICENSE */,
-				2060055504D5802AE0CD31F81DE1BA1A /* README.md */,
-				C4B94AB7D28F3586B291D49AAA00E2DF /* Zoomy.podspec */,
+				87416EAFDE31441ED18E84BFF1CB003F /* Zoomy.modulemap */,
+				5016C1ABB0F32885FA23285377F718A2 /* Zoomy.xcconfig */,
+				F2D7585A0AC385DFB1C0DAACE007BA88 /* Zoomy-dummy.m */,
+				02A6E513104225A73F8888D753D1D554 /* Zoomy-Info.plist */,
+				9AEE402899CFCF24213C01119753A314 /* Zoomy-prefix.pch */,
+				172A982646F80C7CC7FBBB8F7E8BD7A9 /* Zoomy-umbrella.h */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Zoomy";
+			sourceTree = "<group>";
+		};
+		47C93FC7AECB508958D356E46B183370 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A8F4495862B64C1F38113BC48768DABB /* CanBetriggered.swift */,
+				FA367209081F3313EF29CD7101532496 /* CanPerformAction.swift */,
+				AB913864435ED3BA9C39D43DD18769DA /* CanProvideAnimatorForEvent.swift */,
+				93261EE3B6F0C992681574431D6EE428 /* DeprecatedProtocols.swift */,
+				4772E4F00DA19FEAC690868F253100BD /* Zoomable.swift */,
+			);
+			name = Protocols;
+			path = Zoomy/Classes/Protocols;
+			sourceTree = "<group>";
+		};
+		4D4B2F81801F9F968AC3B84897310DEE /* Zoomy */ = {
+			isa = PBXGroup;
+			children = (
+				FED4323C7B2DFDE9E884F9B85163E6A4 /* Classes */,
+				9285FD53376C09195F902BB4BC9DBB26 /* Enums */,
+				1866151B2C6E7CDC5082C9994F3D9EB3 /* ExtendedProtocols */,
+				2AC65EA3916375EB7660F1A09BF7AC69 /* Extensions */,
+				E416664934FCECEBDD341E61A9513528 /* Pod */,
+				47C93FC7AECB508958D356E46B183370 /* Protocols */,
+				FD84829B401E641174AEE5F876B1BFA8 /* SharedInstances */,
+				BD59A3A2E5D1CFC20527D8C11445FD35 /* Structs */,
+				2C5F08CA958A1DB5B29CEE40ABC87564 /* Support Files */,
+				59072853701665E632BF909DAF19A834 /* TypeAliasses */,
+			);
+			name = Zoomy;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		59072853701665E632BF909DAF19A834 /* TypeAliasses */ = {
+			isa = PBXGroup;
+			children = (
+				23DD7094C8E9E419DDDF6273E9BF7131 /* DeprecatedTypeAliasses.swift */,
+				0358B678E8F04CC1A846CD907497EE3A /* TypeAliasses.swift */,
+			);
+			name = TypeAliasses;
+			path = Zoomy/Classes/TypeAliasses;
 			sourceTree = "<group>";
 		};
 		6C9D83218682FEDC708B9789EEF40D3E /* Frameworks */ = {
@@ -452,19 +501,6 @@
 			path = "../Target Support Files/PureLayout";
 			sourceTree = "<group>";
 		};
-		792E64390EB8A647DA99A0D0372AE489 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				DB408BFEA28AB38F8DA302863209D421 /* CanBetriggered.swift */,
-				57325B0AA930CE18A0952939AD0B6210 /* CanPerformAction.swift */,
-				31A6ADD2AB01C6964B2E68F2146C921E /* CanProvideAnimatorForEvent.swift */,
-				86CE2FBCC6F17384BF94D7FF08A67F73 /* DeprecatedProtocols.swift */,
-				74AC8184865901D400C61AC36F38DD6A /* Zoomable.swift */,
-			);
-			name = Protocols;
-			path = Zoomy/Classes/Protocols;
-			sourceTree = "<group>";
-		};
 		7E8B3C4CD160402249D4A97EEE2D98F2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,53 +509,15 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		80819BE630555836B60BDBF3060576D2 /* Extensions */ = {
+		9285FD53376C09195F902BB4BC9DBB26 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				79E32F87290FAEE9FD54A35698D6F350 /* CGAffineTransform+transformWithScaleTranslationCenter.swift */,
-				33F57CA9EBEE13B11268A768EA6BAE65 /* CGPoint+dominantDirection.swift */,
-				A5059F9E381A8909D49AC8A5E1B16D36 /* CGPoint+maximumAbsoluteValue.swift */,
-				4CBFA30092FAAB94032E3FAF27662826 /* CGPoint+valueInDirection.swift */,
-				21EE90FFCF5289DCCE700031C54D4CE2 /* CGRect+Difference.swift */,
-				21A9A6DB214368BA00A6C8A0437CA11D /* CGRect+transformedByTransform.swift */,
-				C51DDF1E9D45129C365D7A615BEEA500 /* ImageZoomController+Deprecated.swift */,
-				89472F66AE938B518C88D0BBB01B0956 /* ImageZoomControllerSettings+Deprecated.swift */,
-				80296B557686251B52F5282B733FFAF3 /* ImageZoomControllerSettings+Equatable.swift */,
-				45D24F923898A5FE1FF34584D527831A /* NSObject+AsociatedKeyForImageZoomControllers.swift */,
-				ED5B2A9292940DB8FF226D3C8EE9A432 /* UIGestureRecognizerState+CustomStringConvertible.swift */,
-				BDC655238B5E98ABB62448AB323DF279 /* UIImage+Color.swift */,
-				590C1BE2DDE44E0B5DAE395522D23CEB /* UIViewController+CanManageZoomBehavior.swift */,
-				1F1F3859A548E1158C39E3F516F5C58A /* UIViewController+HasImageZoomControllers.swift */,
+				21CD8804ED75A13A09CBC38C8384AC9C /* AnimationEvent.swift */,
+				241B2F10FE63F620E16B3B3161989F6D /* ImageZoomControllerContentState.swift */,
+				20273024045E6A0590C8BB59B63FE236 /* Side.swift */,
 			);
-			name = Extensions;
-			path = Zoomy/Classes/Extensions;
-			sourceTree = "<group>";
-		};
-		8D47992B24B20C069E2505206E9B51AC /* SharedInstances */ = {
-			isa = PBXGroup;
-			children = (
-				F09FF0379A9667B31409533CBC88C64F /* logger.swift */,
-			);
-			name = SharedInstances;
-			path = Zoomy/Classes/SharedInstances;
-			sourceTree = "<group>";
-		};
-		94C943E7B83CF780CC78CF162118480E /* Zoomy */ = {
-			isa = PBXGroup;
-			children = (
-				D9BE7D7AD9495EA46FE7309538C0654F /* Classes */,
-				21B5F9CE62F06D9A2CC1AFBBCE9ADCA0 /* Enums */,
-				147D7BAA31494080BC8BCAE8AE1B2755 /* ExtendedProtocols */,
-				80819BE630555836B60BDBF3060576D2 /* Extensions */,
-				579104EB3DE239E1E4ACB9FA1F4A27E8 /* Pod */,
-				792E64390EB8A647DA99A0D0372AE489 /* Protocols */,
-				8D47992B24B20C069E2505206E9B51AC /* SharedInstances */,
-				E466E5334CD9E8AE18947E5ECD342D8B /* Structs */,
-				A7F9DABDFC3293CCF8D2E2A5ADCCAD7A /* Support Files */,
-				09C7902AF3B7447017CC696BBDC047EE /* TypeAliasses */,
-			);
-			name = Zoomy;
-			path = ../..;
+			name = Enums;
+			path = Zoomy/Classes/Enums;
 			sourceTree = "<group>";
 		};
 		A4CE0237E5154965F8D43E4095941D6D /* Products */ = {
@@ -534,20 +532,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A7F9DABDFC3293CCF8D2E2A5ADCCAD7A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5B5B40410381C690E03166B5C85E647F /* Zoomy.modulemap */,
-				2F02B275A503BCFB6664A4679A910082 /* Zoomy.xcconfig */,
-				2663CF70721918CEF1668A80886E66F9 /* Zoomy-dummy.m */,
-				D42C8E38C86A022BB1242C0A7AB53BFC /* Zoomy-Info.plist */,
-				9B6CD43F74CDF73ED2380122F9B5E5EC /* Zoomy-prefix.pch */,
-				81DE297F84247D07E56FDA4C3B9603D4 /* Zoomy-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Zoomy";
-			sourceTree = "<group>";
-		};
 		B595FF24CC8CF168C5D1C860969D7B11 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +544,19 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/InjectableLoggers";
+			sourceTree = "<group>";
+		};
+		BD59A3A2E5D1CFC20527D8C11445FD35 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				2C0055983F9665A2B364D4EFA775FD97 /* Animator.swift */,
+				C4CBAFB26FF9875C661F3F26C06CFE54 /* BounceOffsets.swift */,
+				DE75EC3D0C7019CEB83C121DED329C73 /* DefaultAnimators.swift */,
+				E81892B0A43E66137923BC01CF4C0CF9 /* ImageZoomControllerSettings.swift */,
+				814DBBED66EDF8374AC1A1BF5D9EA146 /* SpringAnimator.swift */,
+			);
+			name = Structs;
+			path = Zoomy/Classes/Structs;
 			sourceTree = "<group>";
 		};
 		C49DA58D333028707D138AEAED5241B3 /* Targets Support Files */ = {
@@ -583,22 +580,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		D9BE7D7AD9495EA46FE7309538C0654F /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B86C43D75B2774A23BDCAECDEFB0A9FA /* ImageZoomController.swift */,
-				DBCE379BB470CFA0CECD750F8FB8293D /* ImageZoomController.Factory.swift */,
-				DA6C228B9390E79B5F5777E48B6335F7 /* ImageZoomControllerActions.swift */,
-				479F5328A6775DCAB370B49B1DE471AD /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */,
-				C09B974649C9E547E6CB983D7EC6CF6A /* ImageZoomControllerIsNotPresentingOverlayState.swift */,
-				CF354D76B46C3208993AC97289B54723 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */,
-				45501818299CB64014A9DEB2C1CA097D /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */,
-				DA112131951F8DD3FFF1960CBB0EFA4C /* ZoomyLogger.swift */,
-			);
-			name = Classes;
-			path = Zoomy/Classes/Classes;
-			sourceTree = "<group>";
-		};
 		DC4B1FF2BDBD2418EF9DECB3A80A7B68 /* PureLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,17 +598,14 @@
 			path = PureLayout;
 			sourceTree = "<group>";
 		};
-		E466E5334CD9E8AE18947E5ECD342D8B /* Structs */ = {
+		E416664934FCECEBDD341E61A9513528 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B74B2909B863627DA47FFF898962E18A /* Animator.swift */,
-				2A533B7DEFB00F6C1F39755BE60C1440 /* BounceOffsets.swift */,
-				E7714D0622B66419EA2E2787E3EB9D25 /* DefaultAnimators.swift */,
-				5D84010BAC73C601AB9127996E06FD83 /* ImageZoomControllerSettings.swift */,
-				803041C0781F365B8F2C594B1115F453 /* SpringAnimator.swift */,
+				988D0A3A4BFD96D2EDE4BB17772AA012 /* LICENSE */,
+				34508D4837960287D21F093F6CD6B264 /* README.md */,
+				EE504501E38352DBCE217ECC5F20C1BE /* Zoomy.podspec */,
 			);
-			name = Structs;
-			path = Zoomy/Classes/Structs;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		E84537E0909D1ACF5108131DF372F588 /* Pods */ = {
@@ -637,6 +615,31 @@
 				DC4B1FF2BDBD2418EF9DECB3A80A7B68 /* PureLayout */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD84829B401E641174AEE5F876B1BFA8 /* SharedInstances */ = {
+			isa = PBXGroup;
+			children = (
+				FA5BA0AE8F18BC8D786819FDFD7A07E0 /* logger.swift */,
+			);
+			name = SharedInstances;
+			path = Zoomy/Classes/SharedInstances;
+			sourceTree = "<group>";
+		};
+		FED4323C7B2DFDE9E884F9B85163E6A4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AB688488B81C375EE7D5B9E050F963F5 /* ImageZoomController.swift */,
+				BBD6683FA15CDDFC4B1A49E8F7B3A6E7 /* ImageZoomController.Factory.swift */,
+				A87FD5F8786F6F43EE9DD834CD3D3F86 /* ImageZoomControllerActions.swift */,
+				4A617A9E2029114E26713550AA92E94B /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift */,
+				C840164166D3A6FBD260CF3D150596E7 /* ImageZoomControllerIsNotPresentingOverlayState.swift */,
+				B33E604FB5517558DF6C4B713C111DC9 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift */,
+				D1577292A06D915527C4C98FF2A70626 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift */,
+				F12F54C26B1A9FC79728FD22F6F31DC7 /* ZoomyLogger.swift */,
+			);
+			name = Classes;
+			path = Zoomy/Classes/Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,11 +683,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A52D74C61B38904ECB70CF1DF833F165 /* Headers */ = {
+		B2A6CA20127FDF4D22051FC44F5FE803 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DADF581BDE43E0BE891FDFCA9BD9E5D /* Zoomy-umbrella.h in Headers */,
+				8AF74182012859A3FE3E8F7D469A31A1 /* Zoomy-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,18 +714,18 @@
 		};
 		159BCD99AC1F7CE7112319E6C584776F /* Zoomy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCAE2A00CA1FF65766FC43C36BEF348D /* Build configuration list for PBXNativeTarget "Zoomy" */;
+			buildConfigurationList = CC94328F0DDFEB4733A33CBEBC083B9C /* Build configuration list for PBXNativeTarget "Zoomy" */;
 			buildPhases = (
-				A52D74C61B38904ECB70CF1DF833F165 /* Headers */,
-				345B39F28CE25C7E3ACE2E2D82E7726C /* Sources */,
-				EE9143FC3182307CC34201715C13C207 /* Frameworks */,
-				A055F2D20008C308453FCFDFF4C7A233 /* Resources */,
+				B2A6CA20127FDF4D22051FC44F5FE803 /* Headers */,
+				C3C27E8E5966A9CE9BEDF7652C8918C0 /* Sources */,
+				65F75A54CDA0434A278A911DA974D29D /* Frameworks */,
+				0F844FF325AEB3C49406C068D1F4298D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0FB9D1DDCDE57FFDF3EB425623C86CAD /* PBXTargetDependency */,
-				A28CB088B8CC1C54178E9F5AE1B0DB74 /* PBXTargetDependency */,
+				EA2A611FA96C9D81D605735225E2E395 /* PBXTargetDependency */,
+				A62FD2AE9B247F4FEF616323DE9ED0D9 /* PBXTargetDependency */,
 			);
 			name = Zoomy;
 			productName = Zoomy;
@@ -826,6 +829,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0F844FF325AEB3C49406C068D1F4298D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CCF767E3C655F32FE1862E2B500C698 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -834,13 +844,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		693D6118C8EA30DA148B4891A30AFD5E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A055F2D20008C308453FCFDFF4C7A233 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -857,58 +860,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		345B39F28CE25C7E3ACE2E2D82E7726C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				305BA27BA7D6BC7AFCD811C08B893496 /* AnimationEvent.swift in Sources */,
-				DC2778BBE90C0D8EBB7E21E4E3BC38F7 /* Animator.swift in Sources */,
-				2340598110289E4BEEB0C6285C3A9D44 /* BounceOffsets.swift in Sources */,
-				ED3473F875E5A31A0F8B5157F0C379DC /* CanAnimate.swift in Sources */,
-				37C1E14935FDDC256D64F36CE7B47AF3 /* CanBetriggered.swift in Sources */,
-				47A99E214129B585BA807EF3109B05DA /* CanManageZoomBehaviors.swift in Sources */,
-				5B64C81BADD48B8D3EBBDAEE1357A0E0 /* CanPerformAction.swift in Sources */,
-				DE6B357DF1997B693B4192408FA1C46E /* CanProvideAnimatorForEvent.swift in Sources */,
-				3D886C5D6FE35D524A2790A89E9CDFFD /* CGAffineTransform+transformWithScaleTranslationCenter.swift in Sources */,
-				84825AEB7239537FCCB19F6E6D069F58 /* CGPoint+dominantDirection.swift in Sources */,
-				5E977ED24576E4C2844CA8A317089F54 /* CGPoint+maximumAbsoluteValue.swift in Sources */,
-				8AFF81C98F5F711F9C7CB0390A2A3CFF /* CGPoint+valueInDirection.swift in Sources */,
-				F43698F3F8DF49192896154877C0159C /* CGRect+Difference.swift in Sources */,
-				5070E04D2402A3E15BF82CBB7E4CC5E1 /* CGRect+transformedByTransform.swift in Sources */,
-				79DCB15392AC8B09509C25D6EA45CCEF /* ConfigurableUsingClosure.swift in Sources */,
-				1C9CBAAB6EB65D86D7DC2E67CBA3C30C /* DefaultAnimators.swift in Sources */,
-				1A2BF1C3695719194C7A6D83A92DB88D /* DeprecatedProtocols.swift in Sources */,
-				70233EA536F1273D0B3B70BFA6771D1F /* DeprecatedTypeAliasses.swift in Sources */,
-				9E710488DAA566F9781A3A07D775AF41 /* HasImageZoomControllers.swift in Sources */,
-				D62C6C6736B28548F51E289D9A321251 /* ImageZoomController+Deprecated.swift in Sources */,
-				38319A327E7BCFD6C09A8A4544D4FEA9 /* ImageZoomController.Factory.swift in Sources */,
-				F4F8617827342A771CE67D2805F57434 /* ImageZoomController.swift in Sources */,
-				AC2498AA2B96C13ECB89FAF1C4B48CB2 /* ImageZoomControllerActions.swift in Sources */,
-				A83BDCDDC386144218D7AD2BA9E009A5 /* ImageZoomControllerContentState.swift in Sources */,
-				2275D8640A3E56D0EE6C808690790A49 /* ImageZoomControllerDelegate.swift in Sources */,
-				2D7A8ECE1FEE7F3506812CCF8EAB6842 /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift in Sources */,
-				FC76337D003F84628D6867033F112945 /* ImageZoomControllerIsNotPresentingOverlayState.swift in Sources */,
-				FC57CD5B09A3F2CC7934785EF17345AA /* ImageZoomControllerIsPresentingImageViewOverlayState.swift in Sources */,
-				62F59038C02DF9000416EC122A55A020 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift in Sources */,
-				CB95385F78A9C47E142FD7E906CF5670 /* ImageZoomControllerSettings+Deprecated.swift in Sources */,
-				E489D0274D47C0DE94811B6E58ADBE33 /* ImageZoomControllerSettings+Equatable.swift in Sources */,
-				BA21B75501CF73B73CA974B1E80681E6 /* ImageZoomControllerSettings.swift in Sources */,
-				0F42F2E648BB305C8686D5D0CB545AC0 /* ImageZoomControllerState.swift in Sources */,
-				8F6AC5F5FBAB97E734ADB5C9A351A31F /* logger.swift in Sources */,
-				B420F9FB050239E919C738CE7A263D03 /* NSObject+AsociatedKeyForImageZoomControllers.swift in Sources */,
-				EACAD1469DA33164A152F32AE6EBA129 /* Side.swift in Sources */,
-				C5FC1E3AA3213FCF1FA0E02CCFC032F4 /* SpringAnimator.swift in Sources */,
-				85613CC1A9F29DAC5C3CB722A8026A54 /* TypeAliasses.swift in Sources */,
-				B02297A37BFC58A9952313DA0CA4DF5E /* UIGestureRecognizerState+CustomStringConvertible.swift in Sources */,
-				092CB25D1527790E73E7E17DD210CF94 /* UIImage+Color.swift in Sources */,
-				C185005D0F006CC1B8F67215D9CFB850 /* UIViewController+CanManageZoomBehavior.swift in Sources */,
-				520B10D56D40271455D217749662442C /* UIViewController+HasImageZoomControllers.swift in Sources */,
-				D16C578396A78C35609E2E1885E04887 /* Zoomable.swift in Sources */,
-				6124C551E978B9E36A8051E86B3007B0 /* Zoomy-dummy.m in Sources */,
-				D96D32799EF8392FDA44AE6FEA7C8805 /* ZoomyLogger.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		34879DA1C69316FA24A8DF53DFA7FE39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -922,6 +873,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				6424CD98AFC081EBFC6BFFF1AFE9DF3B /* Pods-Zoomy_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C27E8E5966A9CE9BEDF7652C8918C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C432A2FBEA2EB721BDD7CD14AB7F7EEA /* AnimationEvent.swift in Sources */,
+				E3835D6588F35218761724F2F3A38C3E /* Animator.swift in Sources */,
+				DF77DD442C62C3C01B07B789BB88EB1C /* BounceOffsets.swift in Sources */,
+				9585C152065C64B94D32EFDA343A07C7 /* CanAnimate.swift in Sources */,
+				3724A5500B470964181C3AAEEB8C232E /* CanBetriggered.swift in Sources */,
+				24F474E15BD67891690D62DFA5D39A61 /* CanManageZoomBehaviors.swift in Sources */,
+				53DB77A57196ADEC490EF4D331D2C88B /* CanPerformAction.swift in Sources */,
+				62164915FADD03C1C191E156F0517C78 /* CanProvideAnimatorForEvent.swift in Sources */,
+				550A49DAB73339214E77EE67890764D3 /* CGAffineTransform+transformWithScaleTranslationCenter.swift in Sources */,
+				3291FD0EAAD804789FC3424373AEB25D /* CGPoint+dominantDirection.swift in Sources */,
+				B0E9D3BBFA3077D48E2D99966B6C2797 /* CGPoint+maximumAbsoluteValue.swift in Sources */,
+				6BB0BE8F71B5AEE188DA54CC27B55647 /* CGPoint+valueInDirection.swift in Sources */,
+				70FF907F0E455E6A9B48CA44356F88B0 /* CGRect+Difference.swift in Sources */,
+				CD4C719549461D093A6A27AA4E9768BF /* CGRect+transformedByTransform.swift in Sources */,
+				FF14106D9798903C2A376E090D9D0D85 /* ConfigurableUsingClosure.swift in Sources */,
+				77C6B24A4BA0B02CB467D6A5FF4FC28C /* DefaultAnimators.swift in Sources */,
+				688CD6DF36B919FBBA75AB15B5FAFF00 /* DeprecatedProtocols.swift in Sources */,
+				AE974E9D2F8EB6014A4E1F509163B0C7 /* DeprecatedTypeAliasses.swift in Sources */,
+				311405CB1D7C60B8117BB803FFA07A38 /* HasImageZoomControllers.swift in Sources */,
+				ADE8DF65E97ACE7F5F9BBCDE1ADBBD5C /* ImageZoomController+Deprecated.swift in Sources */,
+				5A6AA566B424605226763B290A03AD70 /* ImageZoomController.Factory.swift in Sources */,
+				99A257F4A4A6B45FDCF8AEECCB09F3C5 /* ImageZoomController.swift in Sources */,
+				D3D2399CD1193C6ED9015D4D0E53B21F /* ImageZoomControllerActions.swift in Sources */,
+				F166F95F3DF8966DCF4047E3A2E33778 /* ImageZoomControllerContentState.swift in Sources */,
+				A5F0B761A041B5BA837E0825CEE58E45 /* ImageZoomControllerDelegate.swift in Sources */,
+				2A8B6E52D9F1A73690F367CBAA9A4E0B /* ImageZoomControllerIsHandlingScrollViewBounceTriggeredDismissalState.swift in Sources */,
+				3FECAA7CF7FDB77931AF6B9D2B518BB2 /* ImageZoomControllerIsNotPresentingOverlayState.swift in Sources */,
+				70BF868C6C3B408C688B27764CBD0186 /* ImageZoomControllerIsPresentingImageViewOverlayState.swift in Sources */,
+				46B6640420F6189DDE26D4E776506EA1 /* ImageZoomControllerIsPresentingScrollViewOverlayState.swift in Sources */,
+				5FD737FB986B0C00E33D3646F4C2B04C /* ImageZoomControllerSettings+Deprecated.swift in Sources */,
+				54480B69E0986A4884D4F2AC4C7631A1 /* ImageZoomControllerSettings+Equatable.swift in Sources */,
+				898BF431CA9FB71F40D0CF2D00391799 /* ImageZoomControllerSettings.swift in Sources */,
+				F592F1A084E3CCD52B5E59B7EBA4C8FC /* ImageZoomControllerState.swift in Sources */,
+				7E6A0CD846DB2673B95ABFE50616419C /* logger.swift in Sources */,
+				F2ADC208E1C6ED170CB039A1B3AB8745 /* NSObject+AsociatedKeyForImageZoomControllers.swift in Sources */,
+				1D381A97FE9ECF789048A83BDFDDDFB9 /* Side.swift in Sources */,
+				CA93E4891878EFE04F1C7B2B682FCE45 /* SpringAnimator.swift in Sources */,
+				88A93F1240AE287C02F0C86BD9935CED /* TypeAliasses.swift in Sources */,
+				AB8473156297C73F99A8BD67DCD4F69C /* UIGestureRecognizerState+CustomStringConvertible.swift in Sources */,
+				0648099921D226BE1BE1D971F48C8369 /* UIImage+Color.swift in Sources */,
+				3D063C466B6EED7518E3D7A2A4ECDD10 /* UIImageView+Zoomable.swift in Sources */,
+				757EC4BD681BD278396C45492898B4F5 /* UIViewController+CanManageZoomBehavior.swift in Sources */,
+				24C6040B18432C29DBA87F372D361107 /* UIViewController+HasImageZoomControllers.swift in Sources */,
+				EACD4E571A116BEDA6B79631FEDF157C /* Zoomable.swift in Sources */,
+				4D05AC46C6F0F398457CE768448F61FA /* Zoomy-dummy.m in Sources */,
+				96FD18D78FE7DC215CB5B417E042C24F /* ZoomyLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,12 +968,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0FB9D1DDCDE57FFDF3EB425623C86CAD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = InjectableLoggers;
-			target = 87C901210314C5B33D0D156EB4065E80 /* InjectableLoggers */;
-			targetProxy = C520646AFC5D78B5767A844D8138F3CA /* PBXContainerItemProxy */;
-		};
 		1DDFC238BF70606384612F14148420A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Zoomy;
@@ -982,23 +980,29 @@
 			target = 06F5CDD6235E25837519792853B145A1 /* PureLayout */;
 			targetProxy = 906BAA874CC8DAFBE35CA0346CE209EE /* PBXContainerItemProxy */;
 		};
-		A28CB088B8CC1C54178E9F5AE1B0DB74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PureLayout;
-			target = 06F5CDD6235E25837519792853B145A1 /* PureLayout */;
-			targetProxy = E46EB2261D873525A73B8B804DCB83B1 /* PBXContainerItemProxy */;
-		};
 		A311BC91D46A6494B3238D18BDC1C948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = InjectableLoggers;
 			target = 87C901210314C5B33D0D156EB4065E80 /* InjectableLoggers */;
 			targetProxy = 26FB0FC8B00E1240DBA6330BF8A55D6A /* PBXContainerItemProxy */;
 		};
+		A62FD2AE9B247F4FEF616323DE9ED0D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PureLayout;
+			target = 06F5CDD6235E25837519792853B145A1 /* PureLayout */;
+			targetProxy = 19E0F91717609B6305AF24F30F17B2AD /* PBXContainerItemProxy */;
+		};
 		E1B141FB624A642EF32744DC2572944B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Zoomy_Example";
 			target = 43C46F311E654020969485F1CE2D78DB /* Pods-Zoomy_Example */;
 			targetProxy = 42F6296AE51CECA420F6AE0EB1ABCCE3 /* PBXContainerItemProxy */;
+		};
+		EA2A611FA96C9D81D605735225E2E395 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = InjectableLoggers;
+			target = 87C901210314C5B33D0D156EB4065E80 /* InjectableLoggers */;
+			targetProxy = 164DBEB27CF4EC9DFDE83F2EE35ED1C1 /* PBXContainerItemProxy */;
 		};
 		FB7891B1E2AECF49375182ECE0B6791E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1009,6 +1013,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		018E90AC3DCC47ABEDBC5DAA93C4912B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5016C1ABB0F32885FA23285377F718A2 /* Zoomy.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Zoomy/Zoomy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Zoomy/Zoomy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Zoomy/Zoomy.modulemap";
+				PRODUCT_MODULE_NAME = Zoomy;
+				PRODUCT_NAME = Zoomy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		07BF91B0C54FE800B7CB61C7CDB0DCB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E912688F614FCC13651C9EB186F167FF /* InjectableLoggers.xcconfig */;
@@ -1234,6 +1270,39 @@
 			};
 			name = Debug;
 		};
+		B81DBA33D9A4EB0008CD1066F65A3CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5016C1ABB0F32885FA23285377F718A2 /* Zoomy.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Zoomy/Zoomy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Zoomy/Zoomy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Zoomy/Zoomy.modulemap";
+				PRODUCT_MODULE_NAME = Zoomy;
+				PRODUCT_NAME = Zoomy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BDBED97861E07E15CE59397B87976B5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 08FAA55FB0053B36E2D4836258EBEEC4 /* Pods-Zoomy_Example.release.xcconfig */;
@@ -1369,39 +1438,6 @@
 			};
 			name = Debug;
 		};
-		F01C499134056C17F788EBE2F01BF16F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F02B275A503BCFB6664A4679A910082 /* Zoomy.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Zoomy/Zoomy-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Zoomy/Zoomy-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Zoomy/Zoomy.modulemap";
-				PRODUCT_MODULE_NAME = Zoomy;
-				PRODUCT_NAME = Zoomy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		F561FB73B830A7A42A4B62F3D42295E1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 214924C9F0E2FAC0CB4EAEEAC304F1BB /* Pods-Zoomy_Tests.release.xcconfig */;
@@ -1437,38 +1473,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		FC5B30D147361FECAAE2DD5EAF9766B7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F02B275A503BCFB6664A4679A910082 /* Zoomy.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Zoomy/Zoomy-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Zoomy/Zoomy-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Zoomy/Zoomy.modulemap";
-				PRODUCT_MODULE_NAME = Zoomy;
-				PRODUCT_NAME = Zoomy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1518,11 +1522,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCAE2A00CA1FF65766FC43C36BEF348D /* Build configuration list for PBXNativeTarget "Zoomy" */ = {
+		CC94328F0DDFEB4733A33CBEBC083B9C /* Build configuration list for PBXNativeTarget "Zoomy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC5B30D147361FECAAE2DD5EAF9766B7 /* Debug */,
-				F01C499134056C17F788EBE2F01BF16F /* Release */,
+				018E90AC3DCC47ABEDBC5DAA93C4912B /* Debug */,
+				B81DBA33D9A4EB0008CD1066F65A3CAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

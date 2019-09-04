@@ -2,17 +2,17 @@ import Foundation
 
 public protocol HasImageZoomControllers: class {
     
-    var imageZoomControllers: [UIImageView: ImageZoomController] { get set }
+    var imageZoomControllers: [UIView: ImageZoomController] { get set }
 }
 
 public extension HasImageZoomControllers where Self: NSObject {
     
-    var imageZoomControllers: [UIImageView: ImageZoomController] {
+    var imageZoomControllers: [UIView: ImageZoomController] {
         get {
-            if let existingZoomControllers = objc_getAssociatedObject(self, &type(of: self).AsociatedKeys.imageZoomControllers) as? [UIImageView: ImageZoomController] {
+            if let existingZoomControllers = objc_getAssociatedObject(self, &type(of: self).AsociatedKeys.imageZoomControllers) as? [UIView: ImageZoomController] {
                 return existingZoomControllers
             } else {
-                let newZoomControllers = [UIImageView: ImageZoomController]()
+                let newZoomControllers = [UIView: ImageZoomController]()
                 objc_setAssociatedObject(self, &type(of: self).AsociatedKeys.imageZoomControllers, newZoomControllers, .OBJC_ASSOCIATION_RETAIN)
                 return newZoomControllers
             }
