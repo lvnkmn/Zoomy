@@ -89,7 +89,7 @@ public class ImageZoomController: NSObject {
     ///   - delegate: delegate
     ///   - settings: mutable settings that will be applied on this ImageZoomController
     public convenience init(container containerView: UIView,
-                            imageView: UIImageView,
+                            imageView: Zoomable,
                             delegate: Zoomy.Delegate?,
                             settings: Settings) {
         self.init(container: containerView, imageView: imageView, topmostView: nil, delegate: delegate, settings: settings)
@@ -125,7 +125,7 @@ public class ImageZoomController: NSObject {
     }
     
     internal init(container containerView: UIView,
-                           imageView: UIImageView,
+                           imageView: Zoomable,
                            topmostView: UIView?,
                            delegate: Zoomy.Delegate?,
                            settings: Settings,
