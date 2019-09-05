@@ -1,7 +1,7 @@
 import Foundation
 import InjectableLoggers
 
-public struct ImageZoomControllerSettings {
+public struct ImageZoomControllerSettings: ConfigurableUsingClosure {
     
     public init() {}
     
