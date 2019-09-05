@@ -27,11 +27,11 @@ class ScreenWideImageViewController: UIViewController {
 //MARK: - ZoomDelegate
 extension ScreenWideImageViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
 //        print("did begin presenting overlay for imageView: \(imageView)")
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
 //        print("did end presenting overlay for imageView: \(imageView)")
     }
     
