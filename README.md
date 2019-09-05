@@ -92,11 +92,11 @@ For best performance just implement these Zoomy.Delegate methods:
 ```swift
 extension YourViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
         scrollView.isScrollEnabled = false
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
         scrollView.isScrollEnabled = true
     }
 }
