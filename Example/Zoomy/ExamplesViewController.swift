@@ -15,3 +15,30 @@ class ExamplesViewController: UITableViewController {
         segue.destination.title = cell.textLabel?.text
     }
 }
+
+extension ExamplesViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewController = viewController(belongingTo: indexPath) else { return }
+        
+        viewController.title = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        navigationController?.pushViewController(viewController, animated: true)
+        
+    }
+}
+
+private extension ExamplesViewController {
+    
+    func viewController(belongingTo indexPath: IndexPath) -> UIViewController? {
+        if indexPath == .asyncViewController {
+            return AsyncViewController()
+        } else {
+            return nil
+        }
+    }
+}
+
+private extension IndexPath {
+    
+    static let asyncViewController = IndexPath(item: 7, section: 0)
+}

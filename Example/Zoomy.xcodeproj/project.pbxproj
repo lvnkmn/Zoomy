@@ -16,6 +16,7 @@
 		620F350522F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */; };
 		625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */; };
 		625484FA22D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */; };
+		629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FAC382320F33100FF4609 /* AsyncViewController.swift */; };
 		6702F3EC3CADC618755031E7 /* Pods_Zoomy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9006DCB78AA14572DB1591 /* Pods_Zoomy_Tests.framework */; };
 		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
 		DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C420837D4900BE3D04 /* NonCenteredImagesViewController.swift */; };
@@ -76,6 +77,7 @@
 		620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView.Contentmode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWithImage.swift; sourceTree = "<group>"; };
 		625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquaredImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		629FAC382320F33100FF4609 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 		6EBE13B570B856F523C61486 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A2589FB630C3EC483BF0C41C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B8BCB570BE4806F737DBA255 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				DE2B72C820A471C100344675 /* InstaZoomViewController.swift */,
 				DE2FB83E20BC47AE00E130BD /* FloatingActionButtonViewController.swift */,
 				625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */,
+				629FAC382320F33100FF4609 /* AsyncViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
 				DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */,
 				625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */,
+				629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */,
 				DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
