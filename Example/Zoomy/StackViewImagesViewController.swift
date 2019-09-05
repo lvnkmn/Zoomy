@@ -24,10 +24,12 @@ class StackViewImagesViewController: UIViewController {
             imageView.addImageAspectRatioContraint()
             self.stackView.addArrangedSubview(imageView)
             
-            addZoombehavior(for: imageView, settings: Settings.backgroundEnabledSettings    .with(primaryBackgroundColor: UIColor.black.withAlphaComponent(0.8))
-                                                                                            .with(secundaryBackgroundColor: .black)
-                                                                                            .with(actionOnScrollBounceBottom: Action.dismissOverlay)
-                                                                                            .with(actionOnTapOverlay: Action.dismissOverlay))
+            addZoombehavior(for: imageView,
+                            settings: Settings().configured {   $0.shouldDisplayBackground = true
+                                                                $0.primaryBackgroundColor = UIColor.black.withAlphaComponent(0.8)
+                                                                $0.secundaryBackgroundColor = .black
+                                                                $0.actionOnScrollBounceBottom = Action.dismissOverlay
+                                                                $0.actionOnTapOverlay = Action.dismissOverlay })
         }
     }
     
