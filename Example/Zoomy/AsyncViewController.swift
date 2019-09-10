@@ -10,12 +10,13 @@ import UIKit
 import AsyncDisplayKit
 import Zoomy
 
-class AsyncViewController: ASViewController<ASImageNode> {
+class AsyncViewController: ASViewController<ASDisplayNode> {
 
+    let backgroundNode = ASDisplayNode()
     let imageNode = ASImageNode()
     
     init() {
-        super.init(node: imageNode)
+        super.init(node: backgroundNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,6 +27,8 @@ class AsyncViewController: ASViewController<ASImageNode> {
         super.viewDidLoad()
 
         imageNode.image = Images.trees[4]
+        imageNode.frame = .init(x: 20, y: 100, width: view.frame.size.width - 40, height: 500)
+        backgroundNode.addSubnode(imageNode)
     }
     
     override func viewDidAppear(_ animated: Bool) {
