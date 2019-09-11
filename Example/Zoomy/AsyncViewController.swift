@@ -34,9 +34,7 @@ class AsyncViewController: ASViewController<ASDisplayNode> {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #warning("Remove get rid of force unwrap before releasing")
         addZoombehavior(for: imageNode,
-                        in: imageNode.view.superview!, //navigationController!.view,
                         settings: Settings.instaZoomSettings.configured{ $0.actionOnTapOverlay = Action.dismissOverlay }) //Non instazoom is still very glitchy
     }
 }
