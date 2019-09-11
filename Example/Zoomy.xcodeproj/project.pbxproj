@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */; };
 		620F350522F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */; };
+		621300352328E560006F522C /* UIImage+aspectSizeWithWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */; };
 		625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */; };
 		625484FA22D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */; };
 		629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FAC382320F33100FF4609 /* AsyncViewController.swift */; };
@@ -75,6 +76,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView.Contentmode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+aspectSizeWithWidth.swift"; sourceTree = "<group>"; };
 		625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWithImage.swift; sourceTree = "<group>"; };
 		625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquaredImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		629FAC382320F33100FF4609 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */,
 				620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */,
+				621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				621300352328E560006F522C /* UIImage+aspectSizeWithWidth.swift in Sources */,
 				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,
 				DE2FB83F20BC47AE00E130BD /* FloatingActionButtonViewController.swift in Sources */,
 			);
