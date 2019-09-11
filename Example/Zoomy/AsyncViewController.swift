@@ -26,16 +26,22 @@ class AsyncViewController: ASViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageNode.image = Images.trees[4]
-        imageNode.frame = .init(x: 20, y: 100, width: view.frame.size.width - 40, height: 500)
-        backgroundNode.addSubnode(imageNode)
-    }
+        configureImageNode()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        backgroundNode.addSubnode(imageNode)
         
         addZoombehavior(for: imageNode,
-                        settings: Settings.instaZoomSettings.configured{ $0.actionOnTapOverlay = Action.dismissOverlay }) //Non instazoom is still very glitchy
+                        settings: Settings().configured{ $0.actionOnTapOverlay = Action.dismissOverlay })
+    }
+}
+
+private extension AsyncViewController {
+    
+    func configureImageNode() {
+        let image = Images.trees[4]
+        imageNode.image = image
+        imageNode.frame = .init(origin: .init(x: 0, y: 300),
+                                size: image.aspectSize(withWidth: view.frame.width))
     }
 }
 
