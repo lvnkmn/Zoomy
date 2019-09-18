@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 //The amounts of translation that is being bounced in a UIScrollView
 internal struct BounceOffsets {

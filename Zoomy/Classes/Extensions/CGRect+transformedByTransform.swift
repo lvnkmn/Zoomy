@@ -1,3 +1,5 @@
+import UIKit
+
 extension CGRect {
     
     func transformedBy(_ transform: CGAffineTransform) -> CGRect {

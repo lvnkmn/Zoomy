@@ -5,7 +5,7 @@
 //  Created by Menno on 09/04/2018.
 //
 
-import Foundation
+import UIKit
 
 //MARK: Public Types
 

@@ -1,4 +1,4 @@
-import InjectableLoggers
+import UIKit
 
 internal class ImageZoomControllerIsPresentingScrollViewOverlayState: NSObject {
     
