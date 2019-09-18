@@ -1,6 +1,6 @@
 PODS:
   - InjectableLoggers (2.0.0)
-  - Zoomy (3.0.0):
+  - Zoomy (3.1.0):
     - InjectableLoggers (~> 2.0)
 
 DEPENDENCIES:
@@ -17,8 +17,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   InjectableLoggers: a21d5df992e5c85533a9a5026152e1c8edef7bbe
-  Zoomy: 7f514d6a646f2d6cbb2f7c284733acc23e97ca53
+  Zoomy: d18aa5937b43852af86ab7c4682231eec5e4f8ac
 
 PODFILE CHECKSUM: 39f6e9c0e0d3bdf516c19d2b797b57bee13a1f0c
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5
