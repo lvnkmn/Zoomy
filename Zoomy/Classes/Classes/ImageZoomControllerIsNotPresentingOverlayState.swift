@@ -32,7 +32,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
             }
             
             owner.backgroundView.alpha = 0
-            owner.backgroundView.autoPinEdgesToSuperviewEdges()
+            owner.backgroundView.pinEdgesToSuperviewEdges()
         }
         
         if let topMostView = owner.topmostView {

@@ -21,9 +21,6 @@
   },
   "source_files": "Zoomy/Classes/**/*",
   "dependencies": {
-    "PureLayout": [
-      "~> 3.0"
-    ],
     "InjectableLoggers": [
       "~> 2.0"
     ]

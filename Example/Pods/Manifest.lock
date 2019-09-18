@@ -1,9 +1,7 @@
 PODS:
   - InjectableLoggers (2.0.0)
-  - PureLayout (3.1.4)
   - Zoomy (3.0.0):
     - InjectableLoggers (~> 2.0)
-    - PureLayout (~> 3.0)
 
 DEPENDENCIES:
   - InjectableLoggers (~> 2.0)
@@ -12,7 +10,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - InjectableLoggers
-    - PureLayout
 
 EXTERNAL SOURCES:
   Zoomy:
@@ -20,8 +17,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   InjectableLoggers: a21d5df992e5c85533a9a5026152e1c8edef7bbe
-  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
-  Zoomy: e065604874297a64a445d6dfc14b319828828f57
+  Zoomy: 7f514d6a646f2d6cbb2f7c284733acc23e97ca53
 
 PODFILE CHECKSUM: 39f6e9c0e0d3bdf516c19d2b797b57bee13a1f0c
 
