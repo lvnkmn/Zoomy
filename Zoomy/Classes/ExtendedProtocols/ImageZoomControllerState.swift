@@ -1,3 +1,5 @@
+import UIKit
+
 internal protocol ImageZoomControllerState: class {
     func presentOverlay()
     func dismissOverlay()

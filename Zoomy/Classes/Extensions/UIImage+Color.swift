@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 internal extension UIImage {
     convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {

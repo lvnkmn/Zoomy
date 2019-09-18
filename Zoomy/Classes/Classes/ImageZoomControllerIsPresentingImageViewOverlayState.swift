@@ -1,3 +1,4 @@
+import UIKit
 import InjectableLoggers
 
 internal class ImageZoomControllerIsPresentingImageViewOverlayState {
