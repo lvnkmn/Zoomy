@@ -1,3 +1,5 @@
+import UIKit
+
 /// Can perform spring animations with different options
 public struct SpringAnimator {
     

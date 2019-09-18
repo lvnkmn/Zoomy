@@ -1,3 +1,5 @@
+import UIKit
+
 internal extension CGPoint {
     var dominantDirection: Side {
         let top = value(in: .top)
