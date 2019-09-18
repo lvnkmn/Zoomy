@@ -1,3 +1,4 @@
+import UIKit
 import InjectableLoggers
 
 internal class ImageZoomControllerIsPresentingImageViewOverlayState {
@@ -183,7 +184,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
             containerView.addSubview(owner.scrollView)
         }
         
-        owner.scrollableImageView.autoPinEdgesToSuperviewEdges()
+        owner.scrollableImageView.pinEdgesToSuperviewEdges()
         owner.scrollView.contentOffset = CGPoint.zero
         owner.scrollView.minimumZoomScale = owner.minimumZoomScale
         owner.scrollView.maximumZoomScale = owner.settings.maximumZoomScale

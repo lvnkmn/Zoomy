@@ -1,3 +1,5 @@
+import UIKit
+
 /// Can perform animations with different options
 public struct Animator {
     
