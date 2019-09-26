@@ -30,9 +30,13 @@ extension ExamplesViewController {
 private extension ExamplesViewController {
     
     func viewController(belongingTo indexPath: IndexPath) -> UIViewController? {
-        if indexPath == .asyncViewController {
+        
+        switch indexPath {
+        case .asyncViewController:
             return AsyncViewController()
-        } else {
+        case .asyncCollectionViewController:
+            return AsyncCollectionViewController()
+        default:
             return nil
         }
     }
@@ -41,4 +45,5 @@ private extension ExamplesViewController {
 private extension IndexPath {
     
     static let asyncViewController = IndexPath(item: 7, section: 0)
+    static let asyncCollectionViewController = IndexPath(item: 8, section: 0)
 }

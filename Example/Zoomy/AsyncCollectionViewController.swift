@@ -14,7 +14,6 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
   var _sections = [[UIImage]]()
   let _collectionNode: ASCollectionNode
   let _layoutInspector = MosaicCollectionViewLayoutInspector()
-  let kNumberOfImages: UInt = 14
 
   init() {
     let layout = MosaicCollectionViewLayout()
@@ -26,10 +25,9 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
 
     _sections.append([]);
     var section = 0
-    for idx in 0 ..< kNumberOfImages {
-      let name = String(format: "image_%d.jpg", idx)
-      _sections[section].append(UIImage(named: name)!)
-      if ((idx + 1) % 5 == 0 && idx < kNumberOfImages - 1) {
+    for idx in 0 ..< Images.trees.count {
+        _sections[section].append(Images.trees[idx])
+      if ((idx + 1) % 5 == 0 && idx < Images.trees.count - 1) {
         section += 1
         _sections.append([])
       }
