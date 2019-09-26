@@ -1,5 +1,4 @@
-import Foundation
-import PureLayout
+import UIKit
 import InjectableLoggers
 
 internal class ZoomyLogger: Logger {

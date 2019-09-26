@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 internal extension CGPoint {
     func value(in direction: Side) -> CGFloat {

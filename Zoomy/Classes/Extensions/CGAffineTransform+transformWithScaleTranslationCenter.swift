@@ -1,3 +1,5 @@
+import UIKit
+
 internal extension CGAffineTransform {
     
     static func transform(withScale scale: CGFloat, translation: CGPoint = CGPoint.zero, center: CGPoint) -> CGAffineTransform {
