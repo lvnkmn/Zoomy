@@ -15,6 +15,9 @@
 		607FACEC1AFB9204008FA782 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */; };
 		620F350522F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */; };
 		621300352328E560006F522C /* UIImage+aspectSizeWithWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */; };
+		624BE892233CA1A700E19F55 /* ImageCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE891233CA1A700E19F55 /* ImageCellNode.swift */; };
+		624BE894233CA1C200E19F55 /* MosaicCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */; };
+		624BE896233CA26700E19F55 /* AsyncCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */; };
 		625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */; };
 		625484FA22D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */; };
 		629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FAC382320F33100FF4609 /* AsyncViewController.swift */; };
@@ -79,6 +82,9 @@
 		607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		620F350422F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView.Contentmode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+aspectSizeWithWidth.swift"; sourceTree = "<group>"; };
+		624BE891233CA1A700E19F55 /* ImageCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellNode.swift; sourceTree = "<group>"; };
+		624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicCollectionViewLayout.swift; sourceTree = "<group>"; };
+		624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCollectionViewController.swift; sourceTree = "<group>"; };
 		625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWithImage.swift; sourceTree = "<group>"; };
 		625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquaredImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		629FAC382320F33100FF4609 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +228,25 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		624BE88F233CA18B00E19F55 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				624BE890233CA19800E19F55 /* CollectionViewController */,
+				629FAC382320F33100FF4609 /* AsyncViewController.swift */,
+			);
+			name = Texture;
+			sourceTree = "<group>";
+		};
+		624BE890233CA19800E19F55 /* CollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				624BE891233CA1A700E19F55 /* ImageCellNode.swift */,
+				624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */,
+				624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */,
+			);
+			name = CollectionViewController;
+			sourceTree = "<group>";
+		};
 		DE0774BF20836A1C00BE3D04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +272,7 @@
 		DE30706E2080C58D00D043C6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				624BE88F233CA18B00E19F55 /* Texture */,
 				DE1F4D112084E66B0027C954 /* NavigationController.swift */,
 				DECCAA4A2080CF1E00B89C12 /* ExamplesViewController.swift */,
 				607FACD71AFB9204008FA782 /* ScreenWideImageViewController.swift */,
@@ -256,7 +282,6 @@
 				DE2B72C820A471C100344675 /* InstaZoomViewController.swift */,
 				DE2FB83E20BC47AE00E130BD /* FloatingActionButtonViewController.swift */,
 				625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */,
-				629FAC382320F33100FF4609 /* AsyncViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -297,7 +322,6 @@
 				42BF1574110A897A1BA3B86D /* Pods-Zoomy_Tests.debug.xcconfig */,
 				A84BBBF5B0FB542C0D57CF39 /* Pods-Zoomy_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -547,12 +571,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624BE896233CA26700E19F55 /* AsyncCollectionViewController.swift in Sources */,
 				DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */,
 				DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */,
 				620F350522F067B800931A39 /* UIView.Contentmode+CustomStringConvertible.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ScreenWideImageViewController.swift in Sources */,
 				625484FA22D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift in Sources */,
 				DE0774C520837D4900BE3D04 /* NonCenteredImagesViewController.swift in Sources */,
+				624BE894233CA1C200E19F55 /* MosaicCollectionViewLayout.swift in Sources */,
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
 				DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */,
 				625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */,
@@ -561,6 +587,7 @@
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				621300352328E560006F522C /* UIImage+aspectSizeWithWidth.swift in Sources */,
+				624BE892233CA1A700E19F55 /* ImageCellNode.swift in Sources */,
 				DECCAA472080C6B300B89C12 /* StackViewImagesViewController.swift in Sources */,
 				DE2FB83F20BC47AE00E130BD /* FloatingActionButtonViewController.swift in Sources */,
 			);
