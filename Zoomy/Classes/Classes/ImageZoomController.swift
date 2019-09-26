@@ -1,5 +1,4 @@
-import Foundation
-import PureLayout
+import UIKit
 import InjectableLoggers
 
 public class ImageZoomController: NSObject {

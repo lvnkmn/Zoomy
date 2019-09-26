@@ -1,3 +1,5 @@
+import UIKit
+
 extension ImageZoomController {
 
     internal class Factory {

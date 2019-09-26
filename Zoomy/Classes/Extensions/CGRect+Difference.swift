@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 internal extension CGRect {
     func difference(with rect: CGRect) -> CGRect {
