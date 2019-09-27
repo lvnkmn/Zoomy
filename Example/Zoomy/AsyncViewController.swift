@@ -31,7 +31,7 @@ class AsyncViewController: ASViewController<ASDisplayNode> {
         backgroundNode.addSubnode(imageNode)
         
         addZoombehavior(for: imageNode,
-                        settings: Settings().configured{ $0.actionOnTapOverlay = Action.dismissOverlay })
+                        settings: Settings.instaZoomSettings.configured{ $0.actionOnTapOverlay = Action.dismissOverlay })
     }
 }
 
@@ -44,6 +44,3 @@ private extension AsyncViewController {
                                 size: image.aspectSize(withWidth: view.frame.width))
     }
 }
-
-#warning("TODO: Move this extension to Texture subspec before releasing")
-extension ASImageNode: Zoomable {}
