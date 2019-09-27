@@ -6,8 +6,11 @@
 //  Changes after 4/13/2017 are: Copyright (c) Pinterest, Inc.  All rights reserved.
 //  Licensed under Apache 2.0: http://www.apache.org/licenses/LICENSE-2.0
 //
+// Sample was taken from [Texture Group github](https://github.com/TextureGroup/Texture/tree/master/examples/CustomCollectionView-Swift/Sample) and modified so that is has zoombehavior and imageges from this project
+
 import UIKit
 import AsyncDisplayKit
+import Zoomy
 
 class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicCollectionViewLayoutDelegate, ASCollectionDataSource, ASCollectionDelegate {
   
@@ -25,9 +28,10 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
 
     _sections.append([]);
     var section = 0
-    for idx in 0 ..< Images.trees.count {
-        _sections[section].append(Images.trees[idx])
-      if ((idx + 1) % 5 == 0 && idx < Images.trees.count - 1) {
+    let numberOfimagesToDisplay = 100
+    for idx in 0 ..< numberOfimagesToDisplay {
+        _sections[section].append(Images.trees[idx % Images.trees.count])
+      if ((idx + 1) % 5 == 0 && idx < numberOfimagesToDisplay - 1) {
         section += 1
         _sections.append([])
       }
@@ -52,7 +56,13 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
   func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
     let image = _sections[indexPath.section][indexPath.item]
     return {
-      return ImageCellNode(with: image)
+        let node = ImageCellNode(with: image)
+        
+        DispatchQueue.main.async {
+            self.addZoombehavior(for: node.imageNode, settings: .instaZoomSettings)
+        }
+        
+        return node
     }
   }
   
@@ -82,6 +92,16 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
   }
 }
 
+extension AsyncCollectionViewController: Zoomy.Delegate {
+    
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
+        node.view.isScrollEnabled = false
+    }
+    
+    func didEndPresentingOverlay(for imageView: Zoomable) {
+        node.view.isScrollEnabled = true
+    }
+}
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
