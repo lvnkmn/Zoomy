@@ -10,5 +10,4 @@ import Foundation
 import Zoomy
 import AsyncDisplayKit
 
-#warning("TODO: Move this extension to Texture subspec before releasing")
 extension ASImageNode: Zoomable {}

@@ -104,6 +104,10 @@ extension YourViewController: Zoomy.Delegate {
 
 No need to set the viewController as a delegate to anyting. This is infered using conditional conformance. In case you're interested in seeing how this is done, see [this](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/Extensions/UIViewController%2BCanManageZoomBehavior.swift#L3) and [this](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Zoomy/Classes/ExtendedProtocols/CanManageZoomBehaviors.swift#L72).
 
+## Texture
+
+All the code examples provided above work with texture's `ImageNode` as well. All that is needed for this is adding `extension ASImageNode: Zoomable {}` anywhere in your targets sources. See the example projects for basic and more advanced usage of texture.
+
 ## There's more to come
 
 See the [roadmap](https://github.com/lvnkmn/Zoomy/labels/roadmap) for upcoming features.
