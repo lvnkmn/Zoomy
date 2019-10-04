@@ -96,11 +96,11 @@ extension SquaredImagesCollectionViewController: UICollectionViewDelegateFlowLay
 
 extension SquaredImagesCollectionViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
         collectionView.isScrollEnabled = false
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
         collectionView.isScrollEnabled = true
     }
 }

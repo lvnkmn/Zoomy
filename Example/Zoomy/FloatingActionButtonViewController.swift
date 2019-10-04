@@ -29,7 +29,7 @@ class FloatingActionButtonViewController: UIViewController {
 
 extension FloatingActionButtonViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
         UIView.animate(withDuration: 1) {
             self.dismissButton.alpha = 1
         }
@@ -41,7 +41,7 @@ extension FloatingActionButtonViewController: Zoomy.Delegate {
         }
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
         UIView.animate(withDuration: 0.5) {
             self.dismissButton.alpha = 0
         }

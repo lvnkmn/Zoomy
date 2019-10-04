@@ -326,7 +326,7 @@ private extension ImageZoomControllerIsPresentingImageViewOverlayState {
     func scaleCenter(from gestureRecognizer: UIGestureRecognizer?) -> CGPoint {
         guard   let gestureRecognizer = gestureRecognizer,
                 let imageView = owner?.imageView else { return CGPoint.zero }
-        return CGPoint(x: gestureRecognizer.location(in: imageView).x - imageView.bounds.midX,
-                       y: gestureRecognizer.location(in: imageView).y - imageView.bounds.midY)
+        return CGPoint(x: gestureRecognizer.location(in: imageView.view).x - imageView.view.bounds.midX,
+                       y: gestureRecognizer.location(in: imageView.view).y - imageView.view.bounds.midY)
     }
 }

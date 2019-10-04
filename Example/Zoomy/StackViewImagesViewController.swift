@@ -45,12 +45,12 @@ class StackViewImagesViewController: UIViewController {
 //MARK: - ZoomDelegate
 extension StackViewImagesViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
 //        print("did begin presenting overlay for imageView: \(imageView)")
         scrollView.isScrollEnabled = false
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
 //        print("did end presenting overlay for imageView: \(imageView)")
         scrollView.isScrollEnabled = true
     }
