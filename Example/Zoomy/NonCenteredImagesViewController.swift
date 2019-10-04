@@ -31,12 +31,12 @@ class NonCenteredImagesViewController: UIViewController {
 //MARK: - ZoomDelegate
 extension NonCenteredImagesViewController: Zoomy.Delegate {
     
-    func didBeginPresentingOverlay(for imageView: UIImageView) {
+    func didBeginPresentingOverlay(for imageView: Zoomable) {
 //        print("did begin presenting overlay for imageView: \(imageView)")
         imageZoomControllers.values.filter{ $0.imageView !== imageView }.forEach{ $0.dismissOverlay() }
     }
     
-    func didEndPresentingOverlay(for imageView: UIImageView) {
+    func didEndPresentingOverlay(for imageView: Zoomable) {
 //        print("did end presenting overlay for imageView: \(imageView)")
     }
     

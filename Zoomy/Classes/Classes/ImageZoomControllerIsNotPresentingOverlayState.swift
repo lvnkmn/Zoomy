@@ -23,7 +23,7 @@ extension ImageZoomControllerIsNotPresentingOverlayState: ImageZoomControllerSta
 
         guard let absoluteFrameOfImageView = owner.initialAbsoluteFrameOfImageView else { return }
         
-        imageView.alpha = 0
+        imageView.view.alpha = 0
         
         if owner.settings.shouldDisplayBackground {
             if let topMostView = owner.topmostView {

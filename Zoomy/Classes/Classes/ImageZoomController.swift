@@ -16,7 +16,7 @@ public class ImageZoomController: NSObject {
     weak public private(set) var topmostView: UIView?
     
     /// The imageView that is to be the source of the zoom interactions
-    weak public private(set) var imageView: UIImageView?
+    weak public private(set) var imageView: Zoomable?
     
     /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
     public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
@@ -27,7 +27,7 @@ public class ImageZoomController: NSObject {
             guard let image = image else { return }
             logger.log("Changed to \(image)", atLevel: Loglevel.info)
             minimumZoomScale = zoomScale(from: imageView)
-            initialAbsoluteFrameOfImageView = absoluteFrame(of: imageView)
+            initialAbsoluteFrameOfImageView = absoluteFrame(of: imageView?.view)
         }
     }
     
@@ -88,7 +88,7 @@ public class ImageZoomController: NSObject {
     ///   - delegate: delegate
     ///   - settings: mutable settings that will be applied on this ImageZoomController
     public convenience init(container containerView: UIView,
-                            imageView: UIImageView,
+                            imageView: Zoomable,
                             delegate: Zoomy.Delegate?,
                             settings: Settings) {
         self.init(container: containerView, imageView: imageView, topmostView: nil, delegate: delegate, settings: settings)
@@ -124,7 +124,7 @@ public class ImageZoomController: NSObject {
     }
     
     internal init(container containerView: UIView,
-                           imageView: UIImageView,
+                           imageView: Zoomable,
                            topmostView: UIView?,
                            delegate: Zoomy.Delegate?,
                            settings: Settings,
@@ -147,8 +147,8 @@ public class ImageZoomController: NSObject {
     // MARK: Deinitalizer
     deinit {
         logger.log(atLevel: .info)
-        imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
-        imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.view.removeGestureRecognizer(imageViewPinchGestureRecognizer)
+        imageView?.view.removeGestureRecognizer(imageViewPanGestureRecognizer)
     }
 }
 
@@ -162,11 +162,11 @@ public extension ImageZoomController {
     
     /// Reset imageView and viewHierarchy to the state prior to initializing the zoomControlelr
     func reset() {
-        imageView?.removeGestureRecognizer(imageViewPinchGestureRecognizer)
-        imageView?.removeGestureRecognizer(imageViewPanGestureRecognizer)
-        imageView?.removeGestureRecognizer(imageViewTapGestureRecognizer)
-        imageView?.removeGestureRecognizer(imageViewDoubleTapGestureRecognizer)
-        imageView?.alpha = 1
+        imageView?.view.removeGestureRecognizer(imageViewPinchGestureRecognizer)
+        imageView?.view.removeGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.view.removeGestureRecognizer(imageViewTapGestureRecognizer)
+        imageView?.view.removeGestureRecognizer(imageViewDoubleTapGestureRecognizer)
+        imageView?.view.alpha = 1
         
         resetOverlayImageView()
         resetScrollView()
@@ -228,11 +228,11 @@ extension ImageZoomController {
 
     internal func configureImageView() {
         logger.log(atLevel: .verbose)
-        imageView?.addGestureRecognizer(imageViewPinchGestureRecognizer)
-        imageView?.addGestureRecognizer(imageViewPanGestureRecognizer)
-        imageView?.addGestureRecognizer(imageViewTapGestureRecognizer)
-        imageView?.addGestureRecognizer(imageViewDoubleTapGestureRecognizer)
-        imageView?.isUserInteractionEnabled = true
+        imageView?.view.addGestureRecognizer(imageViewPinchGestureRecognizer)
+        imageView?.view.addGestureRecognizer(imageViewPanGestureRecognizer)
+        imageView?.view.addGestureRecognizer(imageViewTapGestureRecognizer)
+        imageView?.view.addGestureRecognizer(imageViewDoubleTapGestureRecognizer)
+        imageView?.view.isUserInteractionEnabled = true
     }
     
     func setupImage() {
@@ -310,10 +310,10 @@ internal extension ImageZoomController {
                        y: contentOffset.y - correction.y)
     }
 
-    func zoomScale(from imageView: UIImageView?) -> ImageScale {
+    func zoomScale(from imageView: Zoomable?) -> ImageScale {
         guard   let imageView = imageView,
                 let image = image else { return 1 }
-        return imageView.frame.size.width / image.size.width
+        return imageView.view.frame.size.width / image.size.width
     }
     
     func zoomScale(from pinchScale: ImageViewScale) -> ImageScale {
@@ -356,7 +356,7 @@ internal extension ImageZoomController {
     func maximumImageSize() -> CGSize {
         guard let imageView = imageView else { return CGSize.zero }
         let view = UIView()
-        view.frame = imageView.frame
+        view.frame = imageView.view.frame
         view.transform = view.transform.scaledBy(x: maximumPinchScale, y: maximumPinchScale)
         return view.frame.size
     }
