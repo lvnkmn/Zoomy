@@ -12,7 +12,7 @@ import UIKit
 import AsyncDisplayKit
 import Zoomy
 
-class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicCollectionViewLayoutDelegate, ASCollectionDataSource, ASCollectionDelegate {
+class ImageCollectionTextureViewController: ASViewController<ASCollectionNode>, MosaicCollectionViewLayoutDelegate, ASCollectionDataSource, ASCollectionDelegate {
   
   var _sections = [[UIImage]]()
   let _collectionNode: ASCollectionNode
@@ -92,7 +92,7 @@ class AsyncCollectionViewController: ASViewController<ASCollectionNode>, MosaicC
   }
 }
 
-extension AsyncCollectionViewController: Zoomy.Delegate {
+extension ImageCollectionTextureViewController: Zoomy.Delegate {
     
     func didBeginPresentingOverlay(for imageView: Zoomable) {
         node.view.isScrollEnabled = false

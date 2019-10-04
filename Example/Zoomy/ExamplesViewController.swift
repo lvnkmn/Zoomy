@@ -32,10 +32,10 @@ private extension ExamplesViewController {
     func viewController(belongingTo indexPath: IndexPath) -> UIViewController? {
         
         switch indexPath {
-        case .asyncViewController:
-            return AsyncViewController()
-        case .asyncCollectionViewController:
-            return AsyncCollectionViewController()
+        case .singleImageTextureExample:
+            return SingleImageTextureViewController()
+        case .imageCollectionTextureExample:
+            return ImageCollectionTextureViewController()
         default:
             return nil
         }
@@ -44,6 +44,6 @@ private extension ExamplesViewController {
 
 private extension IndexPath {
     
-    static let asyncViewController = IndexPath(item: 7, section: 0)
-    static let asyncCollectionViewController = IndexPath(item: 8, section: 0)
+    static let singleImageTextureExample = IndexPath(item: 0, section: 1)
+    static let imageCollectionTextureExample = IndexPath(item: 1, section: 1)
 }

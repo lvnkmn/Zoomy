@@ -10,7 +10,7 @@ import UIKit
 import AsyncDisplayKit
 import Zoomy
 
-class AsyncViewController: ASViewController<ASDisplayNode> {
+class SingleImageTextureViewController: ASViewController<ASDisplayNode> {
 
     let backgroundNode = ASDisplayNode()
     let imageNode = ASImageNode()
@@ -31,11 +31,11 @@ class AsyncViewController: ASViewController<ASDisplayNode> {
         backgroundNode.addSubnode(imageNode)
         
         addZoombehavior(for: imageNode,
-                        settings: Settings.instaZoomSettings.configured{ $0.actionOnTapOverlay = Action.dismissOverlay })
+                        settings: Settings().configured{ $0.actionOnTapOverlay = Action.dismissOverlay })
     }
 }
 
-private extension AsyncViewController {
+private extension SingleImageTextureViewController {
     
     func configureImageNode() {
         let image = Images.trees[4]

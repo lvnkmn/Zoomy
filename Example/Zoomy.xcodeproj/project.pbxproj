@@ -17,11 +17,11 @@
 		621300352328E560006F522C /* UIImage+aspectSizeWithWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */; };
 		624BE892233CA1A700E19F55 /* ImageCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE891233CA1A700E19F55 /* ImageCellNode.swift */; };
 		624BE894233CA1C200E19F55 /* MosaicCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */; };
-		624BE896233CA26700E19F55 /* AsyncCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */; };
+		624BE896233CA26700E19F55 /* ImageCollectionTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE895233CA26700E19F55 /* ImageCollectionTextureViewController.swift */; };
 		624BE8A0233E0BAB00E19F55 /* ASImageNode+Zoomable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BE89F233E0BAB00E19F55 /* ASImageNode+Zoomable.swift */; };
 		625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */; };
 		625484FA22D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */; };
-		629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FAC382320F33100FF4609 /* AsyncViewController.swift */; };
+		629FAC392320F33100FF4609 /* SingleImageTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629FAC382320F33100FF4609 /* SingleImageTextureViewController.swift */; };
 		6A7B8FF0FEEE145491D1B043 /* Pods_Zoomy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1322E5C818A62AB75ACE0419 /* Pods_Zoomy_Tests.framework */; };
 		D86FE9A722253B6C94E86E5C /* Pods_Zoomy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7D60D9F26E4E6B9BB31BD4 /* Pods_Zoomy_Example.framework */; };
 		DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0774C020836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift */; };
@@ -85,11 +85,11 @@
 		621300342328E560006F522C /* UIImage+aspectSizeWithWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+aspectSizeWithWidth.swift"; sourceTree = "<group>"; };
 		624BE891233CA1A700E19F55 /* ImageCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellNode.swift; sourceTree = "<group>"; };
 		624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicCollectionViewLayout.swift; sourceTree = "<group>"; };
-		624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCollectionViewController.swift; sourceTree = "<group>"; };
+		624BE895233CA26700E19F55 /* ImageCollectionTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionTextureViewController.swift; sourceTree = "<group>"; };
 		624BE89F233E0BAB00E19F55 /* ASImageNode+Zoomable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASImageNode+Zoomable.swift"; sourceTree = "<group>"; };
 		625484F522D79DF6001F0013 /* CollectionViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWithImage.swift; sourceTree = "<group>"; };
 		625484F922D7A2B7001F0013 /* SquaredImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquaredImagesCollectionViewController.swift; sourceTree = "<group>"; };
-		629FAC382320F33100FF4609 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
+		629FAC382320F33100FF4609 /* SingleImageTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageTextureViewController.swift; sourceTree = "<group>"; };
 		94FEF20CFD3538E4AFD088A9 /* Pods-Zoomy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Example.release.xcconfig"; path = "Target Support Files/Pods-Zoomy_Example/Pods-Zoomy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A2589FB630C3EC483BF0C41C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A84BBBF5B0FB542C0D57CF39 /* Pods-Zoomy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoomy_Tests.release.xcconfig"; path = "Target Support Files/Pods-Zoomy_Tests/Pods-Zoomy_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 			children = (
 				624BE891233CA1A700E19F55 /* ImageCellNode.swift */,
 				624BE893233CA1C200E19F55 /* MosaicCollectionViewLayout.swift */,
-				624BE895233CA26700E19F55 /* AsyncCollectionViewController.swift */,
+				624BE895233CA26700E19F55 /* ImageCollectionTextureViewController.swift */,
 			);
 			name = "Collection of images";
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 		624BE8A1233E0C1100E19F55 /* Single image */ = {
 			isa = PBXGroup;
 			children = (
-				629FAC382320F33100FF4609 /* AsyncViewController.swift */,
+				629FAC382320F33100FF4609 /* SingleImageTextureViewController.swift */,
 			);
 			name = "Single image";
 			sourceTree = "<group>";
@@ -582,7 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624BE896233CA26700E19F55 /* AsyncCollectionViewController.swift in Sources */,
+				624BE896233CA26700E19F55 /* ImageCollectionTextureViewController.swift in Sources */,
 				DE0774C120836A3700BE3D04 /* UIImageView+addImageAspectRatioContraint.swift in Sources */,
 				624BE8A0233E0BAB00E19F55 /* ASImageNode+Zoomable.swift in Sources */,
 				DE1F4D122084E66B0027C954 /* NavigationController.swift in Sources */,
@@ -594,7 +594,7 @@
 				DE99B38D2083603900D141DE /* Images.swift in Sources */,
 				DE2B72C920A471C100344675 /* InstaZoomViewController.swift in Sources */,
 				625484F622D79DF6001F0013 /* CollectionViewCellWithImage.swift in Sources */,
-				629FAC392320F33100FF4609 /* AsyncViewController.swift in Sources */,
+				629FAC392320F33100FF4609 /* SingleImageTextureViewController.swift in Sources */,
 				DE1B49672090C0230052E648 /* ChangingActionsViewController.swift in Sources */,
 				DECCAA4B2080CF1E00B89C12 /* ExamplesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
