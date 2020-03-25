@@ -1,3 +1,5 @@
+import UIKit
+
 public protocol Zoomable: class {
     
     var image: UIImage? { get }
