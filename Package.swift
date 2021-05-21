@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "Zoomy", targets: ["Zoomy"])
     ],
     dependencies: [
-        .package(url: "https://github.com/lvnkmn/InjectableLoggers", from: "2.1.0"),
+        .package(url: "https://github.com/CuratoOpenSource/InjectableLoggers", from: "2.1.0"),
     ],
     targets: [
         .target(

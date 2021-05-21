@@ -10,7 +10,7 @@
 
 #import "PINSpeedRecorder.h"
 
-NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
+NSErrorDomain const PINURLErrorDomain = @"PINURLErrorDomain";
 
 @interface PINURLSessionManager () <NSURLSessionDelegate, NSURLSessionDataDelegate>
 
@@ -48,10 +48,23 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
     [self unlock];
 }
 
-- (nonnull NSURLSessionDataTask *)dataTaskWithRequest:(nonnull NSURLRequest *)request completionHandler:(nonnull PINURLSessionDataTaskCompletion)completionHandler
+- (nonnull NSURLSessionDataTask *)dataTaskWithRequest:(nonnull NSURLRequest *)request
+                                    completionHandler:(nonnull PINURLSessionDataTaskCompletion)completionHandler 
+{
+    return [self dataTaskWithRequest:request 
+                            priority:PINRemoteImageManagerPriorityDefault
+                   completionHandler:completionHandler];
+}
+
+- (nonnull NSURLSessionDataTask *)dataTaskWithRequest:(nonnull NSURLRequest *)request
+                                             priority:(PINRemoteImageManagerPriority)priority
+                                    completionHandler:(nonnull PINURLSessionDataTaskCompletion)completionHandler
 {
     [self lock];
         NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request];
+        if (@available(iOS 8.0, macOS 10.10, tvOS 9.0, watchOS 2.0, *)) {
+            dataTask.priority = dataTaskPriorityWithImageManagerPriority(priority);
+        }
         if (completionHandler) {
             [self.completions setObject:completionHandler forKey:@(dataTask.taskIdentifier)];
         }
@@ -188,6 +201,10 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
         if (completionHandler) {
             completionHandler(task, error);
         }
+        
+        if ([strongSelf.delegate respondsToSelector:@selector(didCompleteTask:withError:)]) {
+            [strongSelf.delegate didCompleteTask:task withError:error];
+        }
     });
 }
 
@@ -197,6 +214,23 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
 {
     if (@available(iOS 10.0, macOS 10.12, *)) {
         [[PINSpeedRecorder sharedRecorder] processMetrics:metrics forTask:task];
+        
+        [self lock];
+            dispatch_queue_t delegateQueue = self.delegateQueues[@(task.taskIdentifier)];
+        [self unlock];
+        
+        NSAssert(delegateQueue != nil, @"There seems to be an issue in iOS 9 where this can be nil. If you can reliably reproduce hitting this, *please* open an issue: https://github.com/pinterest/PINRemoteImage/issues");
+        if (delegateQueue == nil) {
+            return;
+        }
+        
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(delegateQueue, ^{
+            typeof(self) strongSelf = weakSelf;
+            if ([strongSelf.delegate respondsToSelector:@selector(didCollectMetrics:forURL:)]) {
+                [strongSelf.delegate didCollectMetrics:metrics forURL:task.originalRequest.URL];
+            }
+        });
     }
 }
 
@@ -209,9 +243,18 @@ NSString * const PINURLErrorDomain = @"PINURLErrorDomain";
 #if DEBUG
 - (void)concurrentDownloads:(void (^_Nullable)(NSUInteger concurrentDownloads))concurrentDownloadsCompletion
 {
-    [self.session getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
-        concurrentDownloadsCompletion(tasks.count);
-    }];
+    if (@available(macos 10.11, iOS 9.0, watchOS 2.0, tvOS 9.0,  *)) {
+        [self.session getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
+            concurrentDownloadsCompletion(tasks.count);
+        }];
+    } else {
+        [self.session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks,
+                                                      NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks,
+                                                      NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
+          NSUInteger total = dataTasks.count + uploadTasks.count + downloadTasks.count;
+          concurrentDownloadsCompletion(total);
+        }];
+    }
 }
 
 #endif

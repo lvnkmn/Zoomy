@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ImageZoomControllerDelegate: class {
+public protocol ImageZoomControllerDelegate: AnyObject {
 
     func didBeginPresentingOverlay(for imageView: Zoomable)
     func didEndPresentingOverlay(for imageView: Zoomable)
