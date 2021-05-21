@@ -16,6 +16,7 @@
 #endif
 
 #import "PINImage+DecodedImage.h"
+#import "NSData+ImageDetectors.h"
 
 @interface PINGIFAnimatedImage ()
 {
@@ -36,13 +37,14 @@
 - (instancetype)initWithAnimatedImageData:(NSData *)animatedImageData
 {
     if (self = [super init]) {
+        _animatedImageData = animatedImageData;
         _imageSource =
             CGImageSourceCreateWithData((CFDataRef)animatedImageData,
                                         (CFDictionaryRef)@{(__bridge NSString *)kCGImageSourceTypeIdentifierHint:
                                                                (__bridge NSString *)kUTTypeGIF,
                                                            (__bridge NSString *)kCGImageSourceShouldCache:
                                                                (__bridge NSNumber *)kCFBooleanFalse});
-        if (_imageSource) {
+        if (_imageSource && [animatedImageData pin_isGIF]) {
             _frameCount = (uint32_t)CGImageSourceGetCount(_imageSource);
             NSDictionary *imageProperties = (__bridge_transfer NSDictionary *)CGImageSourceCopyProperties(_imageSource, nil);
             _loopCount = (uint32_t)[[[imageProperties objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary]
@@ -59,6 +61,8 @@
             for (NSUInteger frameIdx = 0; frameIdx < _frameCount; frameIdx++) {
                 _durations[frameIdx] = [PINGIFAnimatedImage frameDurationAtIndex:frameIdx source:_imageSource];
             }
+        } else {
+            return nil;
         }
     }
     return self;
@@ -79,7 +83,13 @@
         }
     }
     
-    if (frameDuration < kPINAnimatedImageMinimumDuration) {
+    static dispatch_once_t onceToken;
+    static Float32 maximumFrameDuration;
+    dispatch_once(&onceToken, ^{
+        maximumFrameDuration = 1.0 / [PINAnimatedImage maximumFramesPerSecond];
+    });
+    
+    if (frameDuration < maximumFrameDuration) {
         frameDuration = kPINAnimatedImageDefaultDuration;
     }
     
@@ -94,6 +104,11 @@
     if (_durations) {
         free(_durations);
     }
+}
+
+- (NSData *)data
+{
+    return _animatedImageData;
 }
 
 - (size_t)frameCount
@@ -118,7 +133,7 @@
 
 - (uint32_t)bytesPerFrame
 {
-    return _width * _height * 3;
+    return _width * _height * 4;
 }
 
 - (NSError *)error
