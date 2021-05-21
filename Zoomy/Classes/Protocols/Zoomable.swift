@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol Zoomable: class {
+public protocol Zoomable: AnyObject {
     
     var image: UIImage? { get }
     var view: UIView { get }

@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol HasImageZoomControllers: class {
+public protocol HasImageZoomControllers: AnyObject {
     
     var imageZoomControllers: [UIView: ImageZoomController] { get set }
 }
