@@ -12,13 +12,13 @@ import UIKit
 import AsyncDisplayKit
 import Zoomy
 
-class ImageCollectionTextureViewController: ASViewController<ASCollectionNode>, MosaicCollectionViewLayoutDelegate, ASCollectionDataSource, ASCollectionDelegate {
+class ImageCollectionTextureViewController: ASDKViewController<ASCollectionNode>, MosaicCollectionViewLayoutDelegate, ASCollectionDataSource, ASCollectionDelegate {
   
   var _sections = [[UIImage]]()
   let _collectionNode: ASCollectionNode
   let _layoutInspector = MosaicCollectionViewLayoutInspector()
 
-  init() {
+    override init() {
     let layout = MosaicCollectionViewLayout()
     layout.numberOfColumns = 3;
     layout.headerHeight = 44;

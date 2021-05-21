@@ -10,12 +10,12 @@ import UIKit
 import AsyncDisplayKit
 import Zoomy
 
-class SingleImageTextureViewController: ASViewController<ASDisplayNode> {
+class SingleImageTextureViewController: ASDKViewController<ASDisplayNode> {
 
     let backgroundNode = ASDisplayNode()
     let imageNode = ASImageNode()
     
-    init() {
+    override init() {
         super.init(node: backgroundNode)
     }
     

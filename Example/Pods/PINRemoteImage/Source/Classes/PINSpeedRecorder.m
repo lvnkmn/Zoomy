@@ -98,21 +98,21 @@
 - (void)resetMeasurements
 {
     [self.lock lockWithBlock:^{
-        [_speedMeasurements removeAllObjects];
+        [self->_speedMeasurements removeAllObjects];
     }];
 }
 
 - (void)updateSpeedsForHost:(NSString *)host bytesPerSecond:(float)bytesPerSecond startAdjustedBytesPerSecond:(float)startAdjustedBytesPerSecond timeToFirstByte:(float)timeToFirstByte
 {
     [self.lock lockWithBlock:^{
-        PINSpeedMeasurement *measurement = [_speedMeasurements objectForKey:host];
+        PINSpeedMeasurement *measurement = [self->_speedMeasurements objectForKey:host];
         if (measurement == nil) {
             measurement = [[PINSpeedMeasurement alloc] init];
             measurement.count = 0;
             measurement.bytesPerSecond = bytesPerSecond;
             measurement.startAdjustedBytesPerSecond = startAdjustedBytesPerSecond;
             measurement.timeToFirstByte = timeToFirstByte;
-            [_speedMeasurements setObject:measurement forKey:host];
+            [self->_speedMeasurements setObject:measurement forKey:host];
         } else {
             const double bpsBeta = 0.8;
             const double ttfbBeta = 0.8;
@@ -129,12 +129,12 @@
     __block float startAdjustedBytesPerSecond = -1;
     [self.lock lockWithBlock:^{
 #if DEBUG
-        if (_overrideBPS) {
-            startAdjustedBytesPerSecond = _currentBPS;
+        if (self->_overrideBPS) {
+            startAdjustedBytesPerSecond = self->_currentBPS;
             return;
         }
 #endif
-        PINSpeedMeasurement *measurement = [_speedMeasurements objectForKey:host];
+        PINSpeedMeasurement *measurement = [self->_speedMeasurements objectForKey:host];
         if (measurement == 0) {
             startAdjustedBytesPerSecond = -1;
             return;
@@ -148,7 +148,7 @@
 {
     __block NSTimeInterval timeToFirstByte = 0;
     [self.lock lockWithBlock:^{
-        PINSpeedMeasurement *measurement = [_speedMeasurements objectForKey:host];
+        PINSpeedMeasurement *measurement = [self->_speedMeasurements objectForKey:host];
         timeToFirstByte = measurement.timeToFirstByte;
     }];
     return timeToFirstByte;
@@ -159,11 +159,11 @@
 {
     [self.lock lockWithBlock:^{
         if (currentBPS == -1) {
-            _overrideBPS = NO;
+            self->_overrideBPS = NO;
         } else {
-            _overrideBPS = YES;
+            self->_overrideBPS = YES;
         }
-        _currentBPS = currentBPS;
+        self->_currentBPS = currentBPS;
     }];
 }
 #endif

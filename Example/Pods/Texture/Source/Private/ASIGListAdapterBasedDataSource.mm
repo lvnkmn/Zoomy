@@ -86,6 +86,21 @@ typedef struct {
   [self.delegate collectionView:collectionNode.view didSelectItemAtIndexPath:indexPath];
 }
 
+- (void)collectionNode:(ASCollectionNode *)collectionNode didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.delegate collectionView:collectionNode.view didDeselectItemAtIndexPath:indexPath];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.delegate collectionView:collectionNode.view didHighlightItemAtIndexPath:indexPath];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.delegate collectionView:collectionNode.view didUnhighlightItemAtIndexPath:indexPath];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
   [self.delegate scrollViewDidScroll:scrollView];
@@ -145,6 +160,32 @@ typedef struct {
   ASIGSectionController *ctrl = self.sectionControllerForBatchFetching;
   self.sectionControllerForBatchFetching = nil;
   [ctrl beginBatchFetchWithContext:context];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode willDisplayItemWithNode:(ASCellNode *)node
+{
+  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
+  UIView *contentView = node.view.superview;
+  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
+
+  if (cell == nil || indexPath == nil) {
+    return;
+  }
+
+  [self.delegate collectionView:collectionNode.view willDisplayCell:cell forItemAtIndexPath:indexPath];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode didEndDisplayingItemWithNode:(ASCellNode *)node
+{
+  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
+  UIView *contentView = node.view.superview;
+  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
+
+  if (cell == nil || indexPath == nil) {
+    return;
+  }
+
+  [self.delegate collectionView:collectionNode.view didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
 }
 
 /**
@@ -215,12 +256,16 @@ typedef struct {
 
 - (ASCellNodeBlock)collectionNode:(ASCollectionNode *)collectionNode nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  return [[self sectionControllerForSection:indexPath.section] nodeBlockForItemAtIndex:indexPath.item];
+  ASIGSectionController *ctrl = [self sectionControllerForSection:indexPath.section];
+  ASDisplayNodeAssert([ctrl respondsToSelector:@selector(nodeBlockForItemAtIndex:)], @"Expected section controller to respond to to %@. Controller: %@", NSStringFromSelector(@selector(nodeBlockForItemAtIndex:)), ctrl);
+  return [ctrl nodeBlockForItemAtIndex:indexPath.item];
 }
 
 - (ASCellNode *)collectionNode:(ASCollectionNode *)collectionNode nodeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  return [[self sectionControllerForSection:indexPath.section] nodeForItemAtIndex:indexPath.item];
+  ASIGSectionController *ctrl = [self sectionControllerForSection:indexPath.section];
+  ASDisplayNodeAssert([ctrl respondsToSelector:@selector(nodeForItemAtIndex:)], @"Expected section controller to respond to to %@. Controller: %@", NSStringFromSelector(@selector(nodeForItemAtIndex:)), ctrl);
+  return [ctrl nodeForItemAtIndex:indexPath.item];
 }
 
 - (ASSizeRange)collectionNode:(ASCollectionNode *)collectionNode constrainedSizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -235,12 +280,16 @@ typedef struct {
 
 - (ASCellNodeBlock)collectionNode:(ASCollectionNode *)collectionNode nodeBlockForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-  return [[self supplementaryElementSourceForSection:indexPath.section] nodeBlockForSupplementaryElementOfKind:kind atIndex:indexPath.item];
+  id<ASSupplementaryNodeSource> ctrl = [self supplementaryElementSourceForSection:indexPath.section];
+  ASDisplayNodeAssert([ctrl respondsToSelector:@selector(nodeBlockForSupplementaryElementOfKind:atIndex:)], @"Expected section controller to respond to to %@. Controller: %@", NSStringFromSelector(@selector(nodeBlockForSupplementaryElementOfKind:atIndex:)), ctrl);
+  return [ctrl nodeBlockForSupplementaryElementOfKind:kind atIndex:indexPath.item];
 }
 
 - (ASCellNode *)collectionNode:(ASCollectionNode *)collectionNode nodeForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-  return [[self supplementaryElementSourceForSection:indexPath.section] nodeForSupplementaryElementOfKind:kind atIndex:indexPath.item];
+  id<ASSupplementaryNodeSource> ctrl = [self supplementaryElementSourceForSection:indexPath.section];
+  ASDisplayNodeAssert([ctrl respondsToSelector:@selector(nodeForSupplementaryElementOfKind:atIndex:)], @"Expected section controller to respond to to %@. Controller: %@", NSStringFromSelector(@selector(nodeForSupplementaryElementOfKind:atIndex:)), ctrl);
+  return [ctrl nodeForSupplementaryElementOfKind:kind atIndex:indexPath.item];
 }
 
 - (NSArray<NSString *> *)collectionNode:(ASCollectionNode *)collectionNode supplementaryElementKindsInSection:(NSInteger)section
