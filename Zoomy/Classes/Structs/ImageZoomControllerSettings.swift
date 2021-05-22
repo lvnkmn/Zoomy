@@ -8,7 +8,7 @@ public struct ImageZoomControllerSettings: ConfigurableUsingClosure {
     /// When scale of imageView is below this threshold when initial pinch gesture ends, the overlay will be dismissed
     public var zoomCancelingThreshold: ImageViewScale = 1.5
     
-    /// The miximum zoomsScale at which an image will be displayed
+    /// The maximum zoomsScale at which an image will be displayed
     public var maximumZoomScale: ImageScale = 2
     
     /// Causes the behavior of the ImageZoomController to (temporarily) be disabled when needed
