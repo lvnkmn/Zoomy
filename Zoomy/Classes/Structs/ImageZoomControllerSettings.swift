@@ -8,6 +8,11 @@ public struct ImageZoomControllerSettings: ConfigurableUsingClosure {
     /// When scale of imageView is below this threshold when initial pinch gesture ends, the overlay will be dismissed
     public var zoomCancelingThreshold: ImageViewScale = 1.5
     
+    /// The minimum zoomscale at which an image will be displayed
+    /// When this value is nil or greater than the initial imageScale, the initialImage scale will be used
+    /// Since images are often bigger than their initial frame size, this value is typically quite small.
+    public var minimumZoomScale: ImageScale? = nil
+    
     /// The maximum zoomsScale at which an image will be displayed
     public var maximumZoomScale: ImageScale = 2
     
@@ -96,6 +101,12 @@ public extension ImageZoomControllerSettings {
     func with(zoomCancelingThreshold: ImageViewScale) -> Settings {
         var settings = self
         settings.zoomCancelingThreshold = zoomCancelingThreshold
+        return settings
+    }
+    
+    func with(minimumZoomScale: ImageScale?) -> Settings {
+        var settings = self
+        settings.minimumZoomScale = minimumZoomScale
         return settings
     }
     

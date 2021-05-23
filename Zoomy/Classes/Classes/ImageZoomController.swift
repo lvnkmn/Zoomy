@@ -19,14 +19,14 @@ public class ImageZoomController: NSObject {
     weak public private(set) var imageView: Zoomable?
     
     /// When zoom gesture ends while currentZoomScale is below minimumZoomScale, the overlay will be dismissed
-    public private(set) lazy var minimumZoomScale = zoomScale(from: imageView)
+    public private(set) lazy var minimumZoomScale = neededMinimumZoomScale()
     
     // MARK: Internal Properties
     internal private(set) var image: UIImage? {
         didSet {
             guard let image = image else { return }
             logger.log("Changed to \(image)", atLevel: Loglevel.info)
-            minimumZoomScale = zoomScale(from: imageView)
+            minimumZoomScale = neededMinimumZoomScale()
             initialAbsoluteFrameOfImageView = absoluteFrame(of: imageView?.view)
         }
     }
@@ -384,6 +384,20 @@ internal extension ImageZoomController {
     func size(of image: UIImage, at zoomScale: ImageScale) -> CGSize {
         return CGSize(width: image.size.width * zoomScale,
                       height: image.size.height * zoomScale)
+    }
+    
+    func neededMinimumZoomScale() -> ImageScale {
+        let initialZoomScale = zoomScale(from: imageView)
+        if let minimumZoomScale = settings.minimumZoomScale {
+            if minimumZoomScale > initialZoomScale {
+                logger.logError("MinimumZoomScale (\(minimumZoomScale) specified in settings is greater than initial zoom scale (\(initialZoomScale)) and will be ignored")
+                return initialZoomScale
+            } else {
+                return minimumZoomScale
+            }
+        } else {
+            return initialZoomScale
+        }
     }
 }
 
