@@ -417,18 +417,18 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = P6ZSWCNHR5;
+						DevelopmentTeam = 9W484F6894;
 						LastSwiftMigration = 1030;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = P6ZSWCNHR5;
+						DevelopmentTeam = 9W484F6894;
 						LastSwiftMigration = 1030;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					DE9C330C20AB751A00827664 = {
 						CreatedOnToolsVersion = 9.3;
-						DevelopmentTeam = P6ZSWCNHR5;
+						DevelopmentTeam = 9W484F6894;
 						LastSwiftMigration = 1030;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
@@ -780,12 +780,12 @@
 			baseConfigurationReference = 5732A4C74D221015C6DC4E5A /* Pods-Zoomy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				INFOPLIST_FILE = Zoomy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lvnkmn.demo.Zoomy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -796,12 +796,12 @@
 			baseConfigurationReference = 94FEF20CFD3538E4AFD088A9 /* Pods-Zoomy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				INFOPLIST_FILE = Zoomy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lvnkmn.demo.Zoomy-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -811,7 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42BF1574110A897A1BA3B86D /* Pods-Zoomy_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -833,7 +833,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A84BBBF5B0FB542C0D57CF39 /* Pods-Zoomy_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -859,7 +859,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Zoomy_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -884,7 +884,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P6ZSWCNHR5;
+				DEVELOPMENT_TEAM = 9W484F6894;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Zoomy_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

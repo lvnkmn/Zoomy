@@ -16,7 +16,8 @@ class ScreenWideImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addZoombehavior(for: imageView, settings: Settings().with(actionOnTapOverlay: Action.dismissOverlay))
+        addZoombehavior(for: imageView, settings: Settings().with(actionOnTapOverlay: Action.dismissOverlay)
+                                                            .with(minimumZoomScale: 0))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
