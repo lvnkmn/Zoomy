@@ -180,7 +180,7 @@ private extension ImageZoomControllerIsPresentingScrollViewOverlayState {
         case .smallerThanAnsestorView:
             return owner.settings.primaryBackgroundColor
         case .fillsAnsestorView:
-            return owner.settings.secundaryBackgroundColor
+            return owner.settings.secondaryBackgroundColor
         }
     }
     
