@@ -31,7 +31,7 @@ public struct ImageZoomControllerSettings: ConfigurableUsingClosure {
     
     /// BackgroundView's color will animate to this value when content becomes bigger than or equal to any dimension of the view it's displayed in
     /// This will only have effect when shouldDisplayBackground is set to true
-    public var secundaryBackgroundColor = UIColor.black
+    public var secondaryBackgroundColor = UIColor.black
     
     /// The scale at which the primary backgroundColor will be fully visible, alpha is lower before that
     public var primaryBackgroundColorThreshold: ImageViewScale = 2
@@ -134,9 +134,9 @@ public extension ImageZoomControllerSettings {
         return settings
     }
     
-    func with(secundaryBackgroundColor: UIColor) -> Settings {
+    func with(secondaryBackgroundColor: UIColor) -> Settings {
         var settings = self
-        settings.secundaryBackgroundColor = secundaryBackgroundColor
+        settings.secondaryBackgroundColor = secondaryBackgroundColor
         return settings
     }
     
