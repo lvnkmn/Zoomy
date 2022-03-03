@@ -479,9 +479,24 @@ extension ImageZoomController: UIScrollViewDelegate {
 
 //MARK: UIGestureRecognizerDelegate
 extension ImageZoomController: UIGestureRecognizerDelegate {
-    
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == imageViewPinchGestureRecognizer,
+            gestureRecognizer.numberOfTouches > 1,
+            otherGestureRecognizer is UIPanGestureRecognizer &&
+            otherGestureRecognizer != imageViewPanGestureRecognizer {
+            return false
+        }
         return true
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == imageViewPinchGestureRecognizer,
+            gestureRecognizer.numberOfTouches > 1,
+            otherGestureRecognizer is UIPanGestureRecognizer &&
+            otherGestureRecognizer != imageViewPanGestureRecognizer {
+            return true
+        }
+        return false
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
