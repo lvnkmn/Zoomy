@@ -9,7 +9,7 @@ extension ImageZoomControllerSettings: Equatable {
                 lhs.isEnabled == rhs.isEnabled &&
                 lhs.shouldDisplayBackground == rhs.shouldDisplayBackground &&
                 lhs.primaryBackgroundColor == rhs.primaryBackgroundColor &&
-                lhs.secundaryBackgroundColor == rhs.secundaryBackgroundColor &&
+                lhs.secondaryBackgroundColor == rhs.secondaryBackgroundColor &&
                 lhs.neededTranslationToDismissOverlayOnScrollBounce == rhs.neededTranslationToDismissOverlayOnScrollBounce
     }
 }
