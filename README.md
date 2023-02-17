@@ -1,14 +1,12 @@
 ![](Art/Banner.png)
 
-[![Version](http://img.shields.io/cocoapods/v/Zoomy.svg?style=flat)](http://cocoapods.org/pods/Zoomy) [![Platform](http://img.shields.io/cocoapods/p/Zoomy.svg?style=flat)](http://cocoapods.org/pods/Zoomy) [![License](http://img.shields.io/cocoapods/l/Zoomy.svg?style=flat)](LICENSE)
-
 Zoomy allows you to add seamless scrollView and instagram like zooming to UIImageViews in any view hierarchy.
 
 ## Example
 
 ![](Art/Gif/1.gif)![](Art/Gif/2.gif)![](Art/Gif/3.gif)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Example project can be found in the Example folder
 
 ## Setup
 Just add
@@ -73,10 +71,6 @@ public func collectionView(_ collectionView: UICollectionView, cellForItemAt ind
 ```
 
 ### Other examples
-
-`pod try 'Zoomy'` to load the example project.
-
-Or check some of the sample code directly:
 
 * [Zooming non centered images](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/NonCenteredImagesViewController.swift)
 * [Zooming scrollable images](https://github.com/lvnkmn/Zoomy/blob/3c6e6195190515522dd84d2653f61acdfaeef897/Example/Zoomy/StackViewImagesViewController.swift)
