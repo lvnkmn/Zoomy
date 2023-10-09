@@ -1,0 +1,40 @@
+import UIKit
+
+class NavigationController: UINavigationController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let alertController = UIAlertController(title: "Shake to toggle navigationbar",
+                                                message: "You can shake your device to toggle the navigationbar in order to see the examples with and without it.",
+                                                preferredStyle: UIAlertController.Style.actionSheet)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+        becomeFirstResponder()
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
+        
+        toggleNavigationBar()
+    }
+    
+    func toggleNavigationBar() {
+        if isNavigationBarHidden {
+            setNavigationBarHidden(false, animated: true)
+        } else {
+            setNavigationBarHidden(true, animated: true)
+        }
+    }
+}
